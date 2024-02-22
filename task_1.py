@@ -59,4 +59,4 @@ print("Мені {}".format(age))
 city = input("Where do you live? ")
 print(f"Я живу у місті {city}")
 
-print(f"Мене звати {name}. Мені {age} років. На даний час я проживаю {city}")
+print(f"Мене звати {name}. Мені {age} років. На даний час я проживаю в місті {city}")
