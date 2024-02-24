@@ -30,6 +30,12 @@ print("""
     \\_____\\/\\_____\\/  \\__\\/     \\__\\/ \\__\\/\\_____\\/    \\________\\/   \\__\\/
 """)
 
+# Типи змінних
+
+a = 9 # int - integer
+b = 4.6 # float
+c = "Hi" # str - string
+
 a = 7
 print(a)
 print(f"{a}")
@@ -46,6 +52,8 @@ b = 11
 print("a + b =", a + b, end=", ")
 print(f"a + b = {a + b}")
 
+print("12" + "25")
+
 # Input
 
 input("What is your name? My name is ")
@@ -60,3 +68,28 @@ city = input("Where do you live? ")
 print(f"Я живу у місті {city}")
 
 print(f"Мене звати {name}. Мені {age} років. На даний час я проживаю в місті {city}")
+
+a = int(input("Введіть число 1: "))
+b = int(input("Введіть число 2: "))
+print(a + b)
+
+# Передати програмі кількість свої домашніх тварин.
+# Порахувати скільки всього тварин є в домогосподарстві,
+# та вивести повідомлення у форматі "Котів: 5, собак: 1, корів: 9. Всього тварин 15"
+
+cats = int(input("Скільки у тебе котів: "))
+dogs = int(input("Скільки у тебе собак: "))
+cows = int(input("Скільки у тебе корів: "))
+
+print("Котів: ", cats, ", собак: ", dogs, ", корів: ", cows, ". Всього тварин ", cats + dogs + cows, sep="")
+print(f"Котів: {cats}, собак: {dogs}, корів: {cows}. Всього тварин {cats + dogs + cows}")
+print("Котів: {cats}, собак: {dogs}, корів: {cows}".format(cats=cats, dogs=dogs, cows=cows), ". Всього тварин", cats + dogs + cows, sep="")
+
+# float
+
+# Написати програму, яка буде рахувати площу поля за довжиною та шириною
+
+length = input("Введіть довжину поля: ")
+width = input("Введіть ширину поля: ")
+
+area = float(length) * float(width)
