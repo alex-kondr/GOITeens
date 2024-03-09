@@ -1,23 +1,69 @@
-# LOGIN = "hello"
+# LOGIN = "alex"
+# _LO123GIN_TEST = "test"
 # PASS = "123456"
 # print(LOGIN)
 
-# LOGIN = "bay"
 # print(LOGIN)
+
+
+# money = 0
+
+# if not money:
+#     print("no money")
+
+
+# user_name = input("Enter your name: ")
+# print(type(user_name))
+# if user_name:
+# 	print(f"Hello {user_name}")
+# else:
+# 	print("Hi Anonym!")
+
+
+# some_data = "Alex"
+# msg = some_data or "Дані відсутні"
+# print(msg)
+
+
+
+# X = input("Введіть координату X > ")
+# X = float(X)
+# Y = input("Введіть координату Y > ")
+# Y = float(Y)
+
+# if X > 0 and Y > 0:
+#     print(1)
+
+# elif X < 0 and Y > 0:
+#     print(2)
+
+# elif X < 0 and Y < 0:
+#     print(3)
+
+# else:
+#     print(4)
+
+
 
 # a = 5
 # b = 6
+# a = 1
+# b = 2
 
-# if a < b:
-#     print(a)
-# else:
-    # print("Тут нічого немає")
-
-
-# elif a < b:
-#     print(b)
-# else:
+# if a > b:
 #     print()
+
+# if a > b:
+#     print(a)
+
+# if a > b:
+#     print(b)
+
+# if a >= b:
+#     print()
+
+# else: # a=b
+#     print("Тут нічого немає")
 
 # if a == b:
 #     print("a = b")
@@ -43,22 +89,22 @@
 #     print("No name - no car")
 
 
-# a = -5
+# a = 6
 
 # abs_number = a if a >=0 else -a
 # print(abs_number)
 
-# a = 5
-# b = 1
+# a = 0
+# b = ""
 
-# number = a or b or "aaaa"
+# number = a or b or "Ви не введи число"
 # print(number)
 
 
 
 
 
-# a = True or False
+# a = False or False
 # print(a)
 
 
@@ -73,8 +119,8 @@
 # print(a)
 
 
-# is_nice = false
-# state = "nice" if is_nice else "not nice"
+# is_nice = "0"
+# state = "nice" if float(is_nice) else "not nice"
 # print(state)
 
 # some_data = 123
@@ -87,17 +133,38 @@
 # print(grade)
 
 
-# Оголосити змінні х, у, z  (числа). За допомогою умовного оператора перевірити яке число більше.
+# Оголосити змінні х, у, z  (числа).
+# За допомогою умовного оператора перевірити яке число більше.
+
+x = 800
+y = 6000
+z = 105
+
+if x > y:
+    if x > z:
+        print(f"{x = }")
+    else:
+        print(f"{z = }")
+elif y > z:
+    print(f"{y = }")
+else:
+    print(f"||{z = }")
 
 
 
 
 
+# Прийняти на вхід число — вік користувача.
+# Перевірити чи може користувач самостійно відкрити рахунок у банку (вік >= 18)
+# bank_name = "Privat"
+# age = int(input(f"Введіть свій вік для банку {bank_name} > "))
 
-# Прийняти на вхід число — вік користувача. Перевірити чи може користувач самостійно відкрити рахунок у банку (вік >= 18)
+# if age >= 18:
+#     print("Запрошуємо Вас в банк")
+# else:
+#     print("Приходьте з батьками")
 
-
-
+################################################
 
 
 
