@@ -262,16 +262,16 @@
 # Дано дві змінні дійсного типу: A, B.
 # Перерозподілити значення даних змінних так, щоб в A опинилось більше значення, а B — менше.
 # Вивести нові значення змінних A та B.
-A = float(input("a="))
-B = float(input("b="))
+# A = float(input("a="))
+# B = float(input("b="))
 
-C = A
-A = A if A > B else B
-B = B if B < C else C
+# C = A
+# A = A if A > B else B
+# B = B if B < C else C
 
 
-print()
-print()
+# print()
+# print()
 
 # elif True:
 #     print()
