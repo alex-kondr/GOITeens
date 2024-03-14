@@ -202,7 +202,7 @@ if a % 2:
 else:
     is_even = True
 
-print(f"Number {a} {"even" if is_even else "odd"} and have {number_of_digit} number of digit")
+print(f"Number {a} {'even' if is_even else 'odd'} and have {number_of_digit} number of digit")
 
 
 
