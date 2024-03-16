@@ -1,3 +1,40 @@
+# a = 0
+# b = a or 10
+
+# b = a if a > 5 else 10
+
+
+# fruit = "apple"
+
+# for char in fruit:
+# 	print(char)
+# else:
+#     print(f"Поза циклом {char=}")
+
+
+# numbers = [1, 2, 3, 4, 5.5]
+# suma = 0
+
+# for number in numbers:
+# 	suma += number # suma = suma + number
+# else:
+#     print(suma)
+
+
+# for i_ in range(5):
+#     print(f"Hello")
+
+
+# suma = 0
+
+# for x in range(0, 6):
+# 	print(x)
+# 	suma += x
+
+# print(suma)
+
+
+
 # a = 1
 # b = 5
 # c = 1
@@ -18,28 +55,81 @@
 #     print("")
 
 
+# a = 1
+
+# while a <= 5:
+#     print(a)
+#     a += 1
+# else:
+#     print("Done")
+
+
+
+
+# a = int(input())
+# b = int(input())
+
+# sum = 0
+# count = 0
+
+# for i in range(a, b + 1) :
+#     if i % 3 == 0 :
+#         sum += i
+#         count += 1
+
+# print(sum / count)
+
+
+
+
 # a = 0
+
 # while True:
 #     print(a)
-#     if a >= 20:
-#         break
-#     a = a + 1
+
+#     # if a >= 20:
+#     #     break
+
+#     a += 1
+
+# print("Done")
 
 
 
 # while True:
-#     name = input('Enter name:')
-#     if name == 'stop': break
+#     name = input('Enter name: ')
+
+#     if name == 'stop':
+#         print("Bye")
+#         break
+
 #     print('Hello', name)
 
 
 
 # a = 0
-# while a < 6:
-#     a = a + 1
-#     if not a % 2:
+
+# while a < 60:
+#     a += 1
+
+#     if a % 2:
 #         continue
+
 #     print(a)
+
+
+
+# while True:
+#     i = int(input("Введіть ціле число > "))
+
+#     if i > 100 :
+#         break
+
+#     if i < 20 :
+#         continue
+
+#     print(i)
+
 
 
 
@@ -80,7 +170,16 @@
 
 
 # Написати програму, яка буде підраховувати суму всіх парних чисел від 1 до 100. ---------1
+# start = 1
+# end = 100
 
+# sum = 0
+
+# for i in range(start, end + 1):
+#     if i % 2 == 0:
+#         sum += i
+# else:
+#     print(f"Сума парних чисель від {start} до {end} дорівнює {sum}")
 
 
 
@@ -89,9 +188,18 @@
 # Написати програму, яка приймає на вхід рядок, введений з клавіатури, ---------------2
 # і підраховує кількість входження в рядок останньої літери,
 # якою закінчується цей рядок.
+# string = input("Введіть своє речення: ") # Мене звани Олександр. Проживаю в Одеській області
+# last_char = string[-1]
 
+# count = 0
 
+# for char in string:
+#     if char == last_char:
+#         count += 1
 
+# print(f"Символ '{last_char}' зустрічається {count} р.")
+
+####################
 
 
 
