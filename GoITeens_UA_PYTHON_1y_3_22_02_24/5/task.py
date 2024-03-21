@@ -1,6 +1,35 @@
 # Створіть програму, яка приймає список товарів та повертає список,
 # в якому кожен елемент дорівнює кількості букв, з яких складається товар.
 
+# products = []
+
+# while True:
+#     numbers = []
+
+#     while True:
+#         product = input("Введіть товар для покупки, або введіть 'stop' > ")
+
+#         if product == "stop":
+#             break
+
+#         products.append(product)
+
+#     print(products)
+
+#     for product in products:
+#         count = 0
+
+#         for char in product:
+#             count += 1
+
+#         numbers.append(count)
+
+#     for i, product in enumerate(products):
+#         print(f"{i + 1}. Товар {product} має таку кількість букв: {numbers[i]}")
+
+
+
+
 
 
 
@@ -9,7 +38,14 @@
 
 
 # Написати програму, що рахує добуток всіх чисел у списку.
+# numbers = [1, 5, -9, -7.1]
 
+# result = 1
+
+# for number in numbers:
+#     result *= number
+
+# print(f"Добуток числе дорівнює {result}")
 
 
 
@@ -18,10 +54,15 @@
 
 
 # Написати програму, яка виведе числа від 7 до 77 використовуючи цикл
+# start = int(input())
+# end = int(input())
+
+# for i in range(7, 78, 78):
+#     print(i)
 
 
-
-
+#############################
+# другий метод рахунку
 
 
 
