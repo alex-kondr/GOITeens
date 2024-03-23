@@ -1,10 +1,39 @@
 # Створіть програму, яка приймає список товарів та повертає список,
 # в якому кожен елемент дорівнює кількості букв, з яких складається товар.
+# products = []
+# count_char = []
 
+# while True:
+#     product = input("Введіть товар для додавання у список товарів або введіть 'stop': ")
 
+#     if product == "stop":
+#         break
 
+#     products.append(product)
 
+#     count = 0
 
+    # for char in product:
+    #     count += 1
+
+    # count_char.append(len(product))
+
+# for i, product in enumerate(products):
+#     print(f"{i + 1}. Товар '{product}' має таку кількість символів: {count_char[i]}")
+
+# while True:
+#     product = input("Введіть товар для видалення або введіть 'stop': ")
+
+#     if product == "stop":
+#         break
+
+#     if product in products:
+#         products.remove(product)
+#     else:
+#         print("Такого товару немає у списку\n")
+
+# for i, product in enumerate(products):
+#             print(f"{i + 1}. Товар '{product}' має таку кількість символів: {count_char[i]}")
 
 
 
@@ -15,6 +44,11 @@
 
 
 # Написати програму, що перевірить чи є щось в списку, і якщо є, то виведе кількість елементів у ньому.
+# my_list = ["Хліб", "Масло"]
+
+# if my_list:
+#     print(f"Список my_list не пустий")
+#     print(len(my_list))
 
 
 
@@ -24,9 +58,18 @@
 
 
 
+# Написати програму, яка видалить зі списку 1-й, 3-й і 6-й елементи
+# my_list = [1, 2, 3, 4, 5, 6]
 
+# my_list.pop(5)
+# print(my_list)
 
-# Написати програму, яка видалить зі списку 1-й, 3-й і 6-й елементи зі списку
+# my_list.pop(2)
+# print(my_list)
+
+# my_list.pop(0)
+# print(my_list)
+
 
 
 
@@ -45,6 +88,15 @@
 
 
 # Піднести кожен із елементів списку до четвертого степеня
+# my_list = [1, 2, 3, 4, 5, 6]
+# my_list_2 = []
+
+# for i in my_list:
+#     my_list_2.append(i ** 2)
+
+# print(my_list_2)
+
+
 
 
 
@@ -53,8 +105,12 @@
 
 # Видалити слово "Банани" зі списку.
 # products = ["Хліб", "Банани", "Риба", "Банани", "Насіння", "Майонез", "Кетчуп", "Банани", "Соус"]
+# product = "Банани"
 
+# while product in products:
+#     products.remove("Банани")
 
+# print(products)
 
 
 
