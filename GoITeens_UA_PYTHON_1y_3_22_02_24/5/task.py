@@ -1,31 +1,31 @@
 # Створіть програму, яка приймає список товарів та повертає список,
 # в якому кожен елемент дорівнює кількості букв, з яких складається товар.
 
-# products = []
+# Створення пустого списку продуктів
+products = []
 
-# while True:
-#     numbers = []
+while True:
+    # Даємо можливість користувачу ввести назву товару
+    product = input("Введіть товар для покупки, або введіть 'stop' > ")
 
-#     while True:
-#         product = input("Введіть товар для покупки, або введіть 'stop' > ")
+    # Якщо користувач ввів "stop" тоді зупиняємо програму
+    if product == "stop":
+        break
 
-#         if product == "stop":
-#             break
+    # Додаємо новий товар
+    products.append(product)
 
-#         products.append(product)
+print(products)    # Виводимо на екран наш список
 
-#     print(products)
+# Створюємо пустий список з кількість букв
+chars_count = []
 
-#     for product in products:
-#         count = 0
+for i, product in enumerate(products):
+    char_count = len(product)    # Рахує кількість букв в слові
+    chars_count.append(char_count)    # Додаємо кількість до списку chars_count
 
-#         for char in product:
-#             count += 1
-
-#         numbers.append(count)
-
-#     for i, product in enumerate(products):
-#         print(f"{i + 1}. Товар {product} має таку кількість букв: {numbers[i]}")
+    # Виводимо на екран список продуктів та кількість букв
+    print(f"{i + 1}. Товар {product} має таку кількість букв: {char_count}")
 
 
 
