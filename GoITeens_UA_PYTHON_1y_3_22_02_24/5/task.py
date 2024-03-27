@@ -2,30 +2,30 @@
 # в якому кожен елемент дорівнює кількості букв, з яких складається товар.
 
 # Створення пустого списку продуктів
-products = []
+# products = []
 
-while True:
-    # Даємо можливість користувачу ввести назву товару
-    product = input("Введіть товар для покупки, або введіть 'stop' > ")
+# while True:
+#     # Даємо можливість користувачу ввести назву товару
+#     product = input("Введіть товар для покупки, або введіть 'stop' > ")
 
-    # Якщо користувач ввів "stop" тоді зупиняємо програму
-    if product == "stop":
-        break
+#     # Якщо користувач ввів "stop" тоді зупиняємо програму
+#     if product == "stop":
+#         break
 
-    # Додаємо новий товар
-    products.append(product)
+#     # Додаємо новий товар
+#     products.append(product)
 
-print(products)    # Виводимо на екран наш список
+# print(products)    # Виводимо на екран наш список
 
-# Створюємо пустий список з кількість букв
-chars_count = []
+# # Створюємо пустий список з кількість букв
+# chars_count = []
 
-for i, product in enumerate(products):
-    char_count = len(product)    # Рахує кількість букв в слові
-    chars_count.append(char_count)    # Додаємо кількість до списку chars_count
+# for i, product in enumerate(products):
+#     char_count = len(product)    # Рахує кількість букв в слові
+#     chars_count.append(char_count)    # Додаємо кількість до списку chars_count
 
-    # Виводимо на екран список продуктів та кількість букв
-    print(f"{i + 1}. Товар {product} має таку кількість букв: {char_count}")
+#     # Виводимо на екран список продуктів та кількість букв
+#     print(f"{i + 1}. Товар {product} має таку кількість букв: {char_count}")
 
 
 
@@ -62,7 +62,18 @@ for i, product in enumerate(products):
 
 
 #############################
-# другий метод рахунку
+# другий метод рахунку!!!!!!!!!!!!!!!!!
+
+
+# my_list = "Python"
+# print(my_list)
+# print(len(my_list))
+# print(my_list[:4])
+# print(my_list[1:])
+# print(my_list[1:4])
+# print(my_list[1:4:])
+
+
 
 
 
@@ -71,24 +82,44 @@ for i, product in enumerate(products):
 # Реалізуйте оператор контролю виконання так, щоб він привласнив логічній змінній is_next значення True,
 # якщо кількість набраних балів буде більшою або дорівнює 83.
 # В іншому випадку значення змінної дорівнює False.
-
+# score = 90
+# is_next = True if score >= 83 else False
+# print(is_next)
 
 
 
 
 # Написати програму, що перевірить чи є щось в списку, і якщо є, то виведе кількість елементів у ньому.
+# stop_list = ["stop", "cancel", "exit", "0", "1"]
+# stop_world = "stop1"
+
+# is_exist = f"Слово '{stop_world}' входить у список стоп-слів" if stop_world in stop_list else f"Слово '{stop_world}' не входить у список стоп-слів"
+# print(is_exist)
 
 
 
 
 
 # Дано змінну a = -56. Виводити a, поки a <= 15, збільшуючи змінну на 3
+# a = -56
+# while a <= 15:
+#     print(a)
+#     a += 3
 
 
 
 
 
 # Написати програму, яка видалить зі списку 1-й, 3-й і 6-й елементи зі списку
+# lst=["Alex", "Petro", "Max", "Andrii", "Lev", "Dmutro", "Lev", "Lev"]
+# index_lev = lst.index("Lev")
+# lst.pop(index_lev)
+# print(index_lev)
+# print(lst)
+# lst.pop(2)
+# print(lst)
+# lst.pop(0)
+# print(lst)
 
 
 
@@ -128,6 +159,12 @@ for i, product in enumerate(products):
 
 # Видалити слово "Банани" зі списку.
 # products = ["Хліб", "Банани", "Риба", "Банани", "Насіння", "Майонез", "Кетчуп", "Банани", "Соус"]
+# world = "Банани"
+
+# while world in products:
+#     products.remove(world)
+
+# print(products)
 
 
 
