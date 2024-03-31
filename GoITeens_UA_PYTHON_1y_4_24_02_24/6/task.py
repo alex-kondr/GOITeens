@@ -44,46 +44,91 @@ while True:
     command = input("\nВведіть номер дії: ")
 
     if command == "1":
-        for i in range(len(products)):
-            print(f"{i + 1}. {products[i]}")
+        for i, product in enumerate(products):
+            print(f"{i + 1}. {product}")
 
         input("\nНасніть Enter для продовження ")
 
     elif command == "2":
         product = input("Введіть назву товару для додавання до списку: ")
 
-        if product in products:
+        if product not in products:
+            products.append(product)
+            print(f"Товар '{product}' доданий до списку")
+            input("\nНасніть Enter для продовження ")
+        else:
             print("Такий товар вже є у списку")
             input("\nНасніть Enter для продовження ")
-            continue
-
-        products.append(product)
-        print(f"Товар '{product}' доданий до списку")
-        input("\nНасніть Enter для продовження ")
 
     elif command == "3":
-        prods = input("Введіть список товарів для додавання до списку через пробіл\n-> ")
-        prods = prods.split()
+        prods = []
+
+        while True:
+            product = input("Введіть назву товара або 'stop': ")
+
+            if not product or product == "stop":
+                break
+
+            prods.append(product)
+
         products.extend(prods)
-        print("Список товарів розширено")
-        input("\nНасніть Enter для продовження ")
+        input("Список продуків розширено. Для продовження натисніть Enter ")
+
 
     elif command == "4":
         product = input("Введіть назву товару для видалення зі списку: ")
 
-        if product not in products:
-            print("Такого товару немає у списку")
-            input("\nНасніть Enter для продовження ")
-            continue
-
-        products.remove(product)
-        print(f"Товар '{product}' видалено")
-        input("\nНасніть Enter для продовження ")
+        if product in products:
+            products.remove(product)
+            input(f"Товар '{product}' видалено. Для продовження натисніть Enter ")
+        else:
+            input("Такого товару немає у списку. Насніть Enter для продовження ")
 
     elif command == "5":
         number = input("Введіть номер товару для видалення: ")
 
         if number.isdigit() and 0 < int(number) <= len(products):
             product = products.pop(int(number) - 1)
-            print(f"Товар '{product}' видалено")
-            input("\nНасніть Enter для продовження ")
+            input(f"Товар '{product}' видалено. Насніть Enter для продовження ")
+        else:
+            input("Ви ввели не вірний номер. Насніть Enter для продовження ")
+
+    elif command == "6":
+        products.sort()
+        input("Список товарів відсортовано. Насніть Enter для продовження ")
+
+    elif command == "7":
+        product = input("Введіть назву товару для продажу: ")
+
+        if product in products:
+            products.remove(product)
+            products_sold.append(product)
+            input("Товар продано. Насніть Enter для продовження ")
+        else:
+            input("Товару немає в наявності. Насніть Enter для продовження ")
+
+    elif command == "8":
+        product = input("Введіть назву товару для пошуку: ")
+
+        if product in products:
+            index = products.index(product)
+            input(f"Товар знаїодиться під номером {index + 1}. Насніть Enter для продовження ")
+        else:
+            input("Товару немає в наявності. Насніть Enter для продовження ")
+
+    elif command == "9":
+        for product in products_sold:
+            print(product)
+
+        input("\nНасніть Enter для продовження ")
+
+    elif command == "10":
+        sort_products_sold = products_sold[::-1]
+        for product in sort_products_sold:
+            print(product)
+
+        input("\nНасніть Enter для продовження ")
+
+    elif command == "11":
+        print("Дякую за співрпацю")
+        break
