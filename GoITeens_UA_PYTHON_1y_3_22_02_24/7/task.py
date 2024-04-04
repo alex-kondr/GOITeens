@@ -54,7 +54,7 @@ clients = [
 rating_customers = []
 
 commands = [
-    "0. Вийти з програми",
+    "stop. Вийти з програми",
     "1. Показати актуальний список клієнтів",
     "2. Клієнт виїжджає з номеру (надає оцінку обслуговування)",
     "3. Клієнт переїжджає в інший номер"
@@ -67,3 +67,58 @@ commands = [
     "10. Показати вільні номери",
     "11. Забронювати номер"
 ]
+
+while True:
+    for command in commands:
+        print(command)
+
+    command = input("Введіть номер команди: ")
+
+    if command == "stop":
+        print("Дакую за роботу.")
+        break
+
+    elif command == "1":
+        for client in clients:
+            print(f"Клієнт '{client[0]}' перебуває в кімнаті № {client[3]}")
+
+        input("Натиснить Enter для продовження ")
+
+    elif command == "2":
+        client = input("Введіть ім'я та прізвище клієнта: ")
+        rating = int(input("Введіть рейтинг від клієнта (0 - 5): "))
+
+        for cl in clients:
+            if cl[0] == client:
+                clients.remove(cl)
+                cl.append(rating)
+                rating_customers.append(cl)
+                break
+
+        input(f"Клієнт '{cl[0]}' виїхав з номеру {cl[-2]}")
+
+    elif command == "3":
+        client = input("Введіть ім'я та прізвище клієнта: ")
+        room_number = int(input("Введіть номер кімнати (1 - 50): "))
+
+        for cl in clients:
+            if cl[0] == client:
+                print(f"Клієнт знаходиться в кімнаті {cl[-1]}")
+                break
+        else:
+            input("Такого клієнта немає у списку")
+            continue
+
+        for cl_ in clients:
+            if cl_[-1] == room_number:
+                print("Кімната зайнята")
+                break
+        else:
+            cl[-1] = room_number
+            input(f"Клієнт '{client}' переїхав в кімнату '{room_number}'. Натисніть Enter для продовження ")
+
+    elif command == "9":
+        for client in rating_customers:
+            print(f"Клієнт '{client[0]}' виставив такий рейтинг: {client[-1]}")
+
+        input("Натиснить Enter для продовження ")
