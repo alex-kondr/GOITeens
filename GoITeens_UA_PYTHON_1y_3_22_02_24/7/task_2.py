@@ -133,13 +133,13 @@
 
 # 6! = 1 * 2 * 3 * 4 * 5 * 6
 
-number = int(input("Введіть число: "))
+# number = int(input("Введіть число: "))
 
-factorial = 1
-for i in range(1, number + 1):
-    factorial *= i
+# factorial = 1
+# for i in range(1, number + 1):
+#     factorial *= i
 
-print(factorial)
+# print(factorial)
 
 
 
@@ -235,10 +235,6 @@ print(factorial)
 # Даний список повинен бути "стиснутий" таким чином, щоб замість двох (або більше) однакових значень підряд було одне значення
 # my_list = [5, 5, 5, 4, 5, 6, 6, 5, 5, 7, 8, 0, 0] # -> [5, 4, 5, 6, 5, 7, 8, 0]
 # my_list = [1, 1, 1, 1, 2, 2, 2, 1, 1, 1] # -> [1, 2, 1]
-
-
-
-
 
 
 
