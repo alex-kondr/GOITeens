@@ -1,10 +1,49 @@
+# one_line_text = """Textual data in Python is handled with str objects, or strings. "\
+#             	"Strings are immutable sequences of Unicode code points. "\
+#             	"String literals are written in a variety of ways."""
+
+# print(one_line_text[-5:-15:-1])
+
+# string = input()
+# string_without_digit = ""
+
+# for char in string:
+#     if not char.isdigit():
+#         string_without_digit += char
+
+# print(string_without_digit)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Створіть програму, яка приймає від користувача дві строки та перетворює їх у список,
 # де перший елемент — це перша літера першої строки, другий елемент — друга літера першої строки,
 # третій елемент — перша літера другої строки, четвертий — друга літера другої строки і т.д.
 # Виведіть цей список.
-# first_string = "Привіт. Я з Одеси"
-# second_string = "Будемо знайомі"
+# first_string = "Створіть програму, яка приймає від користувача дві строки та перетворює їх у список"
+# second_string = "третій елемент — перша літера другої строки, четвертий — друга літера другої строки і т."
 
+# # my_list = ["С", "т", "т", "р", "в", "о", "е", "т"]
+# my_list = []
+
+# for i in range(0, len(first_string) - 1, 2):
+#     if i < len(second_string):
+#         my_list.extend([first_string[i], first_string[i+1], second_string[i], second_string[i+1]])
+
+# print(my_list)
 
 
 
@@ -18,8 +57,11 @@
 
 
 # Створіть програму, яка приймає від користувача два рядки та виводить повідомлення, де більше символів.
+string_1 = "ка приймає від користувача д"
+string_2 = "оріть програму"
+print(string_1 if len(string_1) > len(string_2) else string_2)
 
-
+string_1[5::-1]
 
 
 
