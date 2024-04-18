@@ -8,10 +8,22 @@
 # |  2  |Картопля            |        10|        80|
 # --------------------------------------------------
 
+# products = [["Апельсин", 6, 15], ["Лимон", 8, 367], ["Картопля", 10, 80]]
+# head = ["№", "Товар", "Кількість", "Вартість"]
 
+# delimeter = "-" * 50
+# template = "\\{:^5}\\{:<20}\\{:>10}\\{:>10}\\"
 
+# print(delimeter)
+# # print(template.format(head[0], head[1], head[2], head[3]))
+# print(template.format(*head))
+# print(delimeter)
 
+# for i, product in enumerate(products):
+#     # print(template.format(i, product[0], product[1], product[2]))
+#     print(template.format(i, *product))
 
+# print(delimeter)
 
 
 
@@ -22,8 +34,17 @@
 
 # Порахувати, яка літера найрідше зустрічається у речені.
 
+# string = "ППоорахувати, яка літера найрідше зустрічається у речені"
+# count_letter = 50
+# letter = ""
 
+# for char in string:
+#     count = string.count(char)
+#     if count < count_letter:
+#         count_letter = count
+#         letter = char
 
+# print(f"Символ '{letter}' найрідше зустрічається в речені, а саме: {count_letter} р.")
 
 
 
@@ -39,6 +60,18 @@
 # Ввести довільне повідомлення з клавіатури.
 # Якщо в повідомленні трапляються слова «купити», «продати», «реклама»,
 # то помітити це повідомлення як спам.
+# spam_worlds = ["купити", "реклама", ]
+
+# string = "Ввести довільне повідомлення з клавіатури. Якщо в повідомленні трапляються слова  лама», то помітити це повідомлення як спам."
+
+# for spam_world in spam_worlds:
+#     if spam_world in string:
+#         print("SPAAAAAAAAAAAAAAAAAAAAAAAAAAAAM!!!!!!!!!!!")
+#         break
+# else:
+#     print("Без спаму")
+
+
 
 
 
