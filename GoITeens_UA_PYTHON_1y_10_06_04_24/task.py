@@ -3,13 +3,15 @@
 
 # Print
 
-print('Hello')
+# print("Hello' world", 5, 7.4)
 
-print("Hello")
-print("Ім'я")
+# print(((((('Hello'))))))
 
-print("""Hello""")
-print("""Моє ім'я "підставити своє ім'я" """)
+# print("Hello")
+# print("Ім'я")
+
+# print('''Hello''')
+# print("""Моє ім'я "підставити своє ім'я" """)
 
 #  __      ______  _________   ___ __ __  ______        ________  _________
 # /_/\    /_____/\/________/\ /__//_//_/\/_____/\      /_______/\/________/\
@@ -32,12 +34,13 @@ print("""Моє ім'я "підставити своє ім'я" """)
 
 # Типи змінних
 
-# a = 9 # int - integer
-# b = 4.6 # float
-# c = "Hi" # str - string
-
-# a = 7
-# print(a)
+a = 9 # int - integer
+b = 4.6 # float
+c = "Hi" # str - string
+print("a1", a)
+print('')
+a = 7
+print("a2", a)
 # print(f"{a}")
 # print(f"{a=}")
 # print(f"{a = }")
