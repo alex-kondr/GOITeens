@@ -5,13 +5,14 @@
 
 # print("Hello' world", 5, 7.4)
 
-# print(((((('Hello'))))))
+# print(((((('Hello')))))) # Даний текст для тестування
 
 # print("Hello")
 # print("Ім'я")
+# print('Ім\'я')
 
 # print('''Hello''')
-# print("""Моє ім'я "підставити своє ім'я" """)
+# print("Моє ім'я \"підставити своє ім'я\" ")
 
 #  __      ______  _________   ___ __ __  ______        ________  _________
 # /_/\    /_____/\/________/\ /__//_//_/\/_____/\      /_______/\/________/\
@@ -34,18 +35,16 @@
 
 # Типи змінних
 
-a = 9 # int - integer
-b = 4.6 # float
-c = "Hi" # str - string
-print("a1", a)
-print('')
-a = 7
-print("a2", a)
-# print(f"{a}")
+# print("a=", a, "test1", end="-!-")
+# print('test')
+# a = 7
+# print("a2", a)
+# d = a + 7
+# print(f"Змінна 'a' має значення {d}")
 # print(f"{a=}")
 # print(f"{a = }")
 
-# print("{}".format(a))
+# print("Змінна 'a' має значення {}".format(8))
 # print("{a}".format(a=a))
 # print("{a}".format(a=9))
 # print("{b}".format(b=a))
@@ -60,34 +59,54 @@ print("a2", a)
 # print(1, 2, 3, 4, 5, 6, sep='\n')
 
 # Мене-!-звати-!-Микола-!-Олександрович
+# print("Мене", "звати", "Микола", "Олександрович")
 
-# print("12" + "25")
+a = 9 # int - integer - int()
+b = 4.6 # float - float()
+c = "Hi" # str - string - str()
+
+# print("12- !" * 25)
+# print(type(c))
 
 
 
 # Input
 
-# input("What is your name? My name is ")
+# input(f"What is your name?{a} My name is ")
 
-# name = input("Enter your name: ")
-# print(f"My name is {name}")
+# name = input("Введіть своє ім'я: ")
+# # print(f"My name is {name}")
 
-# age = input("How old are you? ")
-# print("Мені {}".format(age))
+# age = input("Скільки тобі років ")
+# # print(type(age))
+# # print("Мені {}".format(age))
 
-# city = input("Where do you live? ")
-# print(f"Я живу у місті {city}")
+# city = input("Де ти проживаєш? ")
+# # print(f"Я живу у місті {city}")
 
 # print(f"Мене звати {name}. Мені {age} років. На даний час я проживаю в місті {city}")
+# input("Натисніть 'enter' щоб закрити програму")
+# a = input("Введіть ціле число 1: ")
+# print(type(a))
+# a = int(a)
+# print(type(a))
 
-# a = int(input("Введіть число 1: "))
-# b = int(input("Введіть число 2: "))
+# b = input("Введіть ціле число 2: ")
+# print(type(b))
+# b = float(b)
+# print(type(b))
 # print(a + b)
 
 # Передати програмі кількість своїх домашніх тварин.
 # Порахувати скільки всього тварин є в домогосподарстві,
 # та вивести повідомлення у форматі "Котів: 5, собак: 1, корів: 9. Всього тварин 15"
+# cats = input("Введіть кількість котів: ")
+# dogs = input("Введіть кількість собак: ")
+# cows = input("Введіть кількість корів: ")
 
+# all = int(cats) + int(dogs) + int(cows)
+
+# print(f"Котів: {cats}, собак: {dogs}, корів: {cows}. Всього тварин {all}")
 
 
 # float
