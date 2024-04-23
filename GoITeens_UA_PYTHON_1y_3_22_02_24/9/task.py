@@ -75,15 +75,31 @@
 
 
 
+# my_string_1 = "worldHello world, world\fsdfsdfsd"
+# my_string_2 = "worldHello world, world\nhkjhfkjh"
+
+# print(len(my_string_1))
+# print(len(my_string_2))
+
+
+
+
+
+
 
 
 
 # перевірити, чи всі елементи вказані в списку є однаковими
-# first_list = [1, 1, 2, 1, 5]
-# second_list = ["b", "b", "b", "b", "b"]
-# third_list = [5, 5, "5", 5, "5"]
+# first_list = [1, 1, 2, 1, 1]
+# first_list = ["b", "b", "b", "b", "b"]
+# first_list = [5, 5, "5", 5, "5"]
 
-
+# for i in range(len(first_list)):
+#     if first_list[i] != first_list[i-1]:
+#         print(False)
+#         break
+# else:
+#     print(True)
 
 
 
@@ -103,6 +119,15 @@
 # Створіть програму, яка приймає від користувача строку
 # та знаходить кількість приголосних літер у цьому рядку.
 # Виведіть цю кількість.
+# my_string = "Створіть програму"#, яка приймає від користувача строку"
+
+# words = ["а", "о", "і", "и", "е", "у", "по приколу", " "]
+# count = 0
+# for char in my_string:
+#     if char not in words:
+#         count += 1
+
+# print(f"Кількість приголосних дорівнює {count}")
 
 
 
@@ -131,8 +156,8 @@
 
 # Напишіть програму, яка приймає рядок, та перевертає його за допомогою слайсингу
 
-
-
+# string = "Напишіть програму, яка приймає рядок, та переверт"
+# print(string[::-1])
 
 
 
@@ -143,10 +168,12 @@
 # Дано список із рядками.
 # Відсортуйте його за спаданням довжини кожного елемента.
 # Переверніть список, виведіть кожен елемент на екран.
+# my_list_words = ["Відсортуйте", "його", "довжини", "за", "рядками", "із"]
+# my_list_words.sort(key=len, reverse=True)
+# my_list_words.reverse()
 
-
-
-
+# for item in my_list_words:
+#     print(item)
 
 
 
