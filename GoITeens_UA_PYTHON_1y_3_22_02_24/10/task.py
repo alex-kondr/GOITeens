@@ -1,16 +1,25 @@
 # Зрізи
 
-# Виокремлення ім’я та прізвища
+# Відокремлення ім’я та прізвища
 # Заданий рядок, який містить ім’я та прізвище користувача, що розділені пробілом
 # Написати програму з використанням зрізів, яка виокремить ім’я та прізвище
 
-# full_name = "Ivan Ivanov Ivanovich"
-# delimiter = " "
+# full_name = "Ivan,Ivanov,Ivanovich,hello"
+# delimiter = ","
+# names = []
 
+# idx = 0
+# count_space = full_name.count(delimiter)
 
+# for _ in range(count_space):
+#     idx_start = idx
+#     idx = full_name.find(delimiter, idx_start) + 1
+#     word = full_name[idx_start:idx-1]
+#     names.append(word)
+# else:
+#     names.append(full_name[idx:])
 
-
-
+# print(names)
 
 
 
@@ -24,12 +33,31 @@
 # Дано рядок, який містить довільне речення, слова в якому розділені пробілами.
 # З використанням зрізів знайти і вивести слово, яке має найменшу довжину.
 
-# string = "Дано рядок, який містить довільне речення, слова в якому розділені пробілами. З використанням зрізів знайти і вивести слово, яке має найбільшу довжину."
+# string = "Дано рядок, який містить довільне речення, слова в. якому розділені пробілами. З використанням зрізів знайти і вивести слово, яке має найбільшу довжину."
+# string = string.replace(",", "").replace(".", "")
 # delimiter = " "
 
+# idx = 0
+# smallest_word = ""
+# len_smallest_word = 3333789922244
 
+# count_space = string.count(delimiter)
+# for _ in range(count_space+1):
+#     idx_start = idx
+#     idx = string.find(delimiter, idx_start) + 1
+#     word = string[idx_start:idx-1]
 
+#     len_word = len(word)
+#     if len_word < len_smallest_word:
+#         smallest_word = word
+#         len_smallest_word = len_word
 
+# print(smallest_word)
+
+# my_set = set("hello")
+# for i in my_set:
+#     print(i)
+# print(my_set)
 
 
 
