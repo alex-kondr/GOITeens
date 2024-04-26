@@ -113,6 +113,7 @@
 
 # a = int(float(input("Введіть перше ціле число:\n")))
 # b = int(float(input("Введіть друге ціле число:\n")))
+# print(f"{a = }, {b = }")
 # print(a, '+', b, '=', a + b)
 # print(a, '-', b, '=', a - b)
 # print(a, '*', b, '=', a * b)
