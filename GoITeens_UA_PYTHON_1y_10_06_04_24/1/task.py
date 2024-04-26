@@ -61,9 +61,9 @@
 # Мене-!-звати-!-Микола-!-Олександрович
 # print("Мене", "звати", "Микола", "Олександрович")
 
-a = 9 # int - integer - int()
-b = 4.6 # float - float()
-c = "Hi" # str - string - str()
+# a = 9 # int - integer - int()
+# b = 4.6 # float - float()
+# c = "Hi" # str - string - str()
 
 # print("12- !" * 25)
 # print(type(c))
@@ -107,7 +107,7 @@ c = "Hi" # str - string - str()
 # all = int(cats) + int(dogs) + int(cows)
 
 # print(f"Котів: {cats}, собак: {dogs}, корів: {cows}. Всього тварин {all}")
-
+########################################
 
 # float
 
@@ -121,6 +121,7 @@ c = "Hi" # str - string - str()
 # print(a, '//', b, '=', a // b)
 # print(a, '%', b, '=', a % b)
 
+###################################
 # Написати програму, яка буде рахувати площу поля за довжиною та шириною
 
 # length = input("Введіть довжину поля: ")
@@ -128,7 +129,6 @@ c = "Hi" # str - string - str()
 
 # area = float(length) * float(width)
 
-################
 
 # Напишіть програму для підрахунку дрібних грошей. Вона повинна питати:
 
