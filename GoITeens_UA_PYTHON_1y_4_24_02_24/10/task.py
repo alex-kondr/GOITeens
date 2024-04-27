@@ -1,12 +1,39 @@
 # Зрізи
+# numbers = list(range(1, 11))
+# print(numbers[::2])
+# print(numbers[1::2])
+# print(numbers[2::3])
+
+
+
+
+
+
+
+
+
+
+
 
 # Виокремлення ім’я та прізвища
 # Заданий рядок, який містить ім’я та прізвище користувача, що розділені пробілом
 # Написати програму з використанням зрізів, яка виокремить ім’я та прізвище
 
-# pip = "Ivan Ivanov Ivanovich"
-# delimiter = " "
+# my_string = "Ivan,Ivanov,Ivanovich,hello"
+# delimiter = ","
 
+# names = []
+# idx = 0
+# count_delimiter = my_string.count(delimiter)
+# for _ in range(count_delimiter):
+#     idx_start = idx
+#     idx = my_string.find(delimiter, idx_start) + 1
+#     name = my_string[idx_start:idx-1]
+#     names.append(name)
+# else:
+#     names.append(my_string[idx:])
+
+# print(names)
 
 
 
@@ -21,17 +48,35 @@
 
 
 # Дано рядок, який містить довільне речення, слова в якому розділені пробілами.
-# З використанням зрізів знайти і вивести слово, яке має найбільшу довжину.
+# З використанням зрізів знайти і вивести слово, яке має найменшу довжину.
 
-# string = "Дано рядок, який містить довільне речення, слова в якому розділені пробілами. З використанням зрізів знайти і вивести слово, яке має найбільшу довжинуttttttttttttttttttttttttttttttt."
+# string = "Дано рядок, який містить довільне речення, слова в якому розділені пробілами. З використанням зрізів знайти і вивести слово, яке має найбільшу довжину."
+# string = string.replace(",", "").replace(".", "")
 # delimiter = " "
 
+# smallest_word = ""
+# len_smallest_word = 756454987690
+
+# idx = 0
+# count_delimiter = string.count(delimiter)
+# for _ in range(count_delimiter+1):
+#     idx_start = idx
+#     idx = string.find(delimiter, idx_start) + 1
+#     word = string[idx_start:idx-1]
+
+#     len_word = len(word)
+#     if len_word < len_smallest_word:
+#         len_smallest_word = len_word
+#         smallest_word = word
+
+# print(f"Найменше слово '{smallest_word}', яке має довжину {len_smallest_word}")
 
 
-
-
-
-
+# numbers = [1, 5, 6, 1, 9, 6]
+# my_set = set(numbers)
+# # print(len(my_set))
+# my_set.discard(89)
+# print(my_set)
 
 
 
