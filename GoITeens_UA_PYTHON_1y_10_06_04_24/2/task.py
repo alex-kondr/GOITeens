@@ -5,15 +5,15 @@
 # b = 4
 # c = 5
 
-name = input("Введи своє ім'я: ")
-age = input("Введи свій вік: ")
-pet = input("Введи свою улюблену тваринку: ")
-pet_name = input("Введи ім'я тваринки: ")
-city = input("Введи місто в якому проживаєш: ")
+# name = input("Введи своє ім'я: ")
+# age = input("Введи свій вік: ")
+# pet = input("Введи свою улюблену тваринку: ")
+# pet_name = input("Введи ім'я тваринки: ")
+# city = input("Введи місто в якому проживаєш: ")
 
-print(f"Мене звати {name}. Мені {age} р. Проживаю у місті {city}. Моя улюблена тваринка {pet} на ім'я {pet_name}")
-print("Мене звати {name}. Мені {age} р. Проживаю у місті {city}. Моя улюблена тваринка {pet} на ім'я {pet_name}".format(name=name, age=age, city=city, pet=pet, pet_name=pet_name))
-print("Мене звати", name, ".Мені", age, "р. Проживаю у місті", city, ". Моя улюблена тваринка", pet, "на ім'я", pet_name)
+# print(f"Мене звати {name}. Мені {age} р. Проживаю у місті {city}. Моя улюблена тваринка {pet} на ім'я {pet_name}")
+# print("Мене звати {name}. Мені {age} р. Проживаю у місті {city}. Моя улюблена тваринка {pet} на ім'я {pet_name}".format(name=name, age=age, city=city, pet=pet, pet_name=pet_name))
+# print("Мене звати", name, ".Мені", age, "р. Проживаю у місті", city, ". Моя улюблена тваринка", pet, "на ім'я", pet_name)
 
 
 
