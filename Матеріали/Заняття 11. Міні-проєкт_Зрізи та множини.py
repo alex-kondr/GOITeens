@@ -46,6 +46,10 @@ PASSWORD = ""
 REVIEWS = []                ###############################
 REPEATED_GROUPS = set()     ###############################
 
+HEAD = ["№", "Назва товару"]
+DELIMITER = "-" * 28
+TEMPLATE = "|{:^5}|{:<20}|"
+
 # Створюємо пароль для входу
 while True:
     command = input("\
@@ -134,15 +138,13 @@ while PASSWORD and password == PASSWORD:
 
     command = input("-> ")
 
-    if not command.isdigit():
-        print("Не відома команда")
-        input("Натисніть 'Enter' для продовження")
-        continue
-
     if command == "1":
+        print(DELIMITER)
+        print(TEMPLATE.format(*HEAD))
         for i in range(len(PRODUCTS)):
-            print(f"{i + 1}. {PRODUCTS[i]}")
+            print(TEMPLATE.format(i+1, PRODUCTS[i]))
 
+        print(DELIMITER)
         input("Натисніть 'Enter' для продовження")
 
     elif command == "2":
@@ -272,6 +274,9 @@ while PASSWORD and password == PASSWORD:
             print("Не знайдено продуктів, які являються паліндромами")
 
         input("\nНатисніть 'Enter' для продовження")
+
+    else:
+        input("Невідома команда.\nНатисніть 'Enter' для продовження")
 
 else:
     print("Пароль введено не вірно")
