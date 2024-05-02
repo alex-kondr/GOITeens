@@ -89,7 +89,7 @@ while True:
         if is_punctuatio == "1":
             chars_for_pass += string.punctuation
 
-        len_pass = input("Введіть довжину пароля (не менше 8) або залишить за замовчуванням (8 символів): ")
+        len_pass = input("Введіть довжину пароля (не менше 8) або залишити за замовчуванням (8 символів): ")
         if len_pass.isdigit() and int(len_pass) >= 8:
             len_pass = int(len_pass)
         else:
