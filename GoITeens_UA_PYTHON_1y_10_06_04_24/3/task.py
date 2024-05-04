@@ -1,8 +1,76 @@
+# user_name = input("Введи своє ім'я: ")
+
+# if user_name:
+#     print(f"Вітаю {user_name} в нашій системі")
+
+# else:
+#     print(f"Вітаю в нашій системі")
+
+# name = "Тарас"
+# age = 25
+# has_driver_licence = True
+
+# if name and age >= 18 and not has_driver_licence:
+#     print("Щасливої дороги")
+
+# else:
+#     print("У Вас не має дозволу рухатись далі")
+
+# age = 15
+# is_adult = True if age >= 18 else False
+
+# if age >= 18:
+#     is_adult = True
+# else:
+#     is_adult = False
+
+# count_apple = 1
+# print("На складі залишилось мало яблук" if count_apple < 2 else "Яблук на складі достатньо")
+
+# apple = None
+# count = apple or False
+# print(count)
+
+# x = -89
+# y = 5
+
+# if x > 0 and y > 0:
+#     print("Перша четверть")
+
+# elif x < 0 and y > 0:
+#     print("Друга четверть")
+
+# elif x < 0 and y < 0:
+#     print("Третя четверть")
+
+# elif x > 0 and y < 0:
+#     print("Четверта четверть")
+
+# name = input("Введіть ім'я студента: ")
+# score = input("Введіть бал студента: ")
+# score = float(score)
+
+# if name and score > 80:
+#     print(f"Студент '{name}' здав іспит")
+# elif not name:
+#     print("Ім'я студента є обов'язковим")
+# else:
+#     print(f"Студент '{name}' не здав іспит")
+
+
+
+
 # Оголосити змінні х, у, z  (числа). За допомогою умовного оператора перевірити яке число більше.
-# x = 78
-# y = 90
+# x = 78000
+# y = 900
 # z = 134
 
+# if x > y and x > z:
+#     print(f"Число {x=} найбільше")
+# elif y > x and y > z:
+#     print(f"Число {y=} найбільше")
+# else:
+#     print(f"Число {z=} найбільше")
 
 
 
