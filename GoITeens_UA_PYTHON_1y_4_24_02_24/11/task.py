@@ -1,3 +1,4 @@
+from lib2to3.pgen2.token import COMMA
 import string
 import random
 
@@ -26,22 +27,25 @@ PRODUCTS = [
 ]
 PRODUCTS_SOLD = []
 COMMANDS = [
-    "1. Показати список наявних товарів",
-    "2. Додати новий товар до списку",
-    "3. Додати список товарів",
-    "4. Видалити товар за ім'ям",
-    "5. Видалити товар за номер",
-    "6. Показати відсортований список товарів за ім'ям",
-    "7. Продати товар",
-    "8. Знайти номер товару за ім'ям",
-    "9. Показати список проданих товарів",
-    "10. Показати історію продажів",
-    "11. Вийти з програми",
-    "12. Написати відгук",         ######################################
-    "13. Знайти групи символів, які повторюються (використовуючи всі відгуки)",    ############################
-    "14. Знайти продукти, які є паліндромами"            ################################
+    "Показати список наявних товарів",
+    "Додати новий товар до списку",
+    "Додати список товарів",
+    "Видалити товар за ім'ям",
+    "Видалити товар за номер",
+    "Показати відсортований список товарів за ім'ям",
+    "Продати товар",
+    "Знайти номер товару за ім'ям",
+    "Показати список проданих товарів",
+    "Показати історію продажів",
+    "Вийти з програми",
+    "Написати відгук",         ######################################
+    "Знайти групи символів, які повторюються (використовуючи всі відгуки)",    ############################
+    "Знайти продукти, які є паліндромами"            ################################
 ]
 PASSWORD = ""
+REVIEWS = []
+DELIMETER = "-" * 78
+TEMPLATE = "|{:^5}|{:<70}|"
 
 while not PASSWORD:
     command = input("Введіть 1 для введення свого паролю.\n"
@@ -70,25 +74,16 @@ while not PASSWORD:
         chars_for_pass = string.ascii_lowercase + string.digits
 
         len_password = input("Введіть довжину пароль не меншу 8, або залиште за замовчуванням (8 символів): ")
-        if len_password.isdigit() and int(len_password) >= 8:
-            len_password = int(len_password)
-        else:
-            len_password = 8
+        len_password = int(len_password) if len_password.isdigit() and int(len_password) >= 8 else 8
 
         is_upper = input("Чи використовути великі літери? Введіть 1 - так, будь який інший символ ні: ")
-        if is_upper == "1":
-            chars_for_pass += string.ascii_uppercase
+        chars_for_pass += string.ascii_uppercase if is_upper == "1" else ""
 
         is_punctuation = input("Чи використовути спецсимволи? Введіть 1 - так, будь який інший символ ні: ")
-        if is_punctuation == "1":
-            chars_for_pass += string.punctuation
+        chars_for_pass += string.punctuation if is_punctuation == "1" else ""
 
         is_repeate = input("Чи можуть символи паролю повторюватись? 1 - так, будь який інший символ - ні: ")
-        if is_repeate == "1":
-            password = []
-        else:
-            password = set()
-
+        password = [] if is_repeate == "1" else set()
         pass_alpha = False
         pass_digit = False
 
@@ -112,16 +107,29 @@ while not PASSWORD:
 else:
     input(f"Пароль успіщно створено '{PASSWORD}'. Запам'ятайте його. Натисніть 'enter' для продовження\n")
 
-while True:
-    print()
-    for command in COMMANDS:
-        print(command)
+password = input("Введіть пароль для входу в систему: ")
+
+command = None
+while password == PASSWORD:
+    if not command:
+        input("\nПароль введено вірно. Вітаємо нашій інформаційній системі.\n")
+
+    print(DELIMETER)
+    print(TEMPLATE.format("№", "Команда"))
+    print(DELIMETER)
+    for i in range(1, len(COMMANDS)):
+        print(TEMPLATE.format(i, COMMANDS[i-1]))
+    print(DELIMETER)
 
     command = input("Введіть номер команди: ")
 
     if command == "1":
+        print(DELIMETER)
+        print(TEMPLATE.format("№", "Назва товару"))
+        print(DELIMETER)
         for i, product in enumerate(PRODUCTS, start=1):
-            print(f"{i}. {product}")
+            print(TEMPLATE.format(i, product))
+        print(DELIMETER)
 
         input("\nНатисніть 'Enter' для продовження ")
 
@@ -204,3 +212,28 @@ while True:
     elif command == "11":
         print("До побачення")
         break
+
+    elif command == "12":
+        review = input("Залиште свій відгук\n->")
+        REVIEWS.append(review)
+        input("Ваш відгук успішно збережено.\nНатисніть 'Enter' для продовження ")
+
+    elif command == "13":
+        reviews = " ".join(REVIEWS).lower()
+
+        # repeated_groups = {reviews[i:j] for i in range(len(reviews)) for j in range(i+1, len(reviews)) if reviews.count(reviews[i:j]) >= 2}
+
+        repeated_groups = set()
+        for i in range(len(reviews)):
+            for j in range(i+1, len(reviews)):
+                if reviews.count(reviews[i:j]) >= 2:
+                    repeated_groups.add(reviews[i:j])
+
+        input(f"Групи символів, які повторюються не менше двох разів у відгуках:\n{repeated_groups}\n")
+
+    elif command == "14":
+        palin_prods = [product for product in PRODUCTS if product.lower() == product[::-1].lower()]
+        input(f"\nУ списку з продуктами є такі слова-паліндроми: {palin_prods}\n")
+
+else:
+    print("Не вірний пароль. Доступ заборонено. До побачення.")
