@@ -1,19 +1,62 @@
+# empty_list = list()
+# empty_list_2 = []
+# print(f"{empty_list = }")
+# print(type(empty_list))
+# print(f"{empty_list_2 = }")
+# print(type(empty_list_2))
+
+# string = "Створіть програму"
+# my_list = list(string)
+# print(my_list)
+
+# my_list = [1, 2, 5.9, 9, "string", True, False, None]
+# first_el = my_list[7]
+# print(first_el)
+# print(type(first_el))
+
+
+# L = ['a', 'b', ['cc', 'dd', ['eee', 'fff']], 'g', 'h']
+# element = L[2][2][2]
+# print(element)
+# print(type(element))
+
+
+
+
+
 # Створіть програму, яка приймає список товарів та повертає список,
 # в якому кожен елемент дорівнює кількості букв, з яких складається товар.
-# products = []
-# count_char = []
+# products = ["банан", "яблоко", "хліб", "сир"]
+# count_char = [len(product) for product in products]
+
+# for product in products:
+#     count = 0
+#     for char in product:
+#         count += 1
+#     count_char.append(count)
 
 
+# for product in products:
+#     count_char.append(len(product))
 
+# print(count_char)
 
-
-
+# бить или не бить? што делать?
 
 
 
 # Написати програму, що перевірить чи є щось в списку, і якщо є, то виведе кількість елементів у ньому.
 # my_list = ["Хліб", "Масло"]
+# my_list_2 = my_list.copy()
+# my_list_2.append("Сир")
+# print(f"{my_list_2 = }")
+# print(f"{my_list = }")
 
+# if my_list:
+#     count_char = len(my_list)
+#     print(count_char)
+# else:
+#     print("Список товарів путий")
 
 
 
@@ -25,6 +68,15 @@
 
 # Написати програму, яка видалить зі списку 1-й, 3-й і 6-й елементи
 # my_list = [1, 2, 3, 4, 5, 6]
+
+# del my_list[-1]
+# print(my_list)
+
+# del my_list[2]
+# print(my_list)
+
+# del my_list[0]
+# print(my_list)
 
 
 
@@ -44,7 +96,8 @@
 
 # Піднести кожен із елементів списку до четвертого степеня
 # my_list = [1, 2, 3, 4, 5, 6]
-
+# for number in my_list:
+#     print(number ** 4)
 
 
 
@@ -56,6 +109,30 @@
 # Видалити слово "Банани" зі списку.
 # products = ["Хліб", "Банани", "Риба", "Банани", "Насіння", "Майонез", "Кетчуп", "Банани", "Соус"]
 # product = "Банани"
+
+# while product in products:
+#     products.remove(product)
+
+# print(products)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
