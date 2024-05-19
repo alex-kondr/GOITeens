@@ -1,5 +1,5 @@
 # empty_list = list()
-# empty_list_2 = []
+# empty_list_2 = []b
 # print(f"{empty_list = }")
 # print(type(empty_list))
 # print(f"{empty_list_2 = }")
@@ -148,10 +148,14 @@
 
 # Написати програму, що прибере дублікати зі списку.
 # products = ["Хліб", "Банани", "Риба", "Банани", "Насіння", "Майонез", "Кетчуп", "Банани", "Соус", "Кетчуп"]
+# unique_products = []
 
-
-
-
+# for product in products:
+#     input(f"Беремо товар: {product}")
+#     if product not in unique_products:
+#         unique_products.append(product)
+#         input(f"Товар '{product}' додано до нового списку")
+#         
 
 
 
@@ -159,7 +163,18 @@
 # price = 450
 # a = 3
 
+# price1 = price / a 
+# print(price1 * 1.2)
+# print(price1 * 1.4)
 
+# b = 1.2
+# for _ in range(5):
+#     print(f"Ціна {round(b, 1)} кілограм сала дорівнює {round(price / a * b, 2)}")
+#     b += 0.2
+
+# while b <= 2:
+#     print(f"Ціна {round(b, 1)} кілограм сала дорівнює {round(price / a * b, 2)}")
+#     b += 0.2
 
 
 
@@ -167,11 +182,19 @@
 
 
 # Написати програму, що порахує кількість додатніх елементів у списку та кількість від’ємних
-# list_numbers = []
+# list_numbers = [1, 5, -8, 9, -1, 10.5, -25.3]
+# positive_number = 0
+# negative_number = 0
+# for i in list_numbers:
+#     if i > 0:
+#         positive_number += 1
+#     else:
+#         negative_number += 1
+# print(f"Кількість додатніх чисел {positive_number} і кількість негативних чисел {negative_number}")
 
-
-
-
+# positive_nambers = [number for number in list_numbers if number > 0]
+# negative_numbers = [number for number in list_numbers if number < 0]
+# print(f"Список додатніх чисел {positive_nambers}, їх кількість дорівнює {len(positive_nambers)}.\nСписок від'ємних чисел {negative_numbers}, їх кількість дорівнює {len(negative_numbers)}")
 
 
 
@@ -183,7 +206,7 @@
 
 # products = ["Хліб", "Банани", "Риба", "Банани", "Насіння", "Майонез", "Кетчуп", "Банани", "Соус", "Кетчуп"]
 # products_2 = [product for product in products if product == "Банани"]
-
+# print(products_2)
 
 
 
@@ -191,9 +214,13 @@
 
 
 # Дано діапазон чисел від -100 до 0. Вивести на екран лише числа, які закінчуються на нуль
+# for number in range(-100, 1):
+#     # if str(number).endswith("0"):
+#     if number % 10 == 0:
+#         print(number)
 
-
-
+# numbers_ends_zero = [number for number in range(-100, 1) if number % 10 == 0]
+# print(numbers_ends_zero)
 
 
 
