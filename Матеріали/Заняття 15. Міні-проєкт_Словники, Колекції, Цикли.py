@@ -1,6 +1,6 @@
 import string
 import random
-from datetime import date          #########################
+from datetime import datetime        #########################
 
 
 PRODUCTS = [
@@ -26,6 +26,25 @@ PRODUCTS = [
     "Кава"
 ]
 PRODUCTS_SOLD = []
+# "1. Show the list of available products",
+#  "2. Add a new product to the list",
+#  "3. Add a list of products",
+#  "4. Delete product by name",
+#  "5. Delete product by number",
+#  "6. Sort the list of products by name",
+#  "7. Sell goods",
+#  "8. Find the product number by name",
+#  "9. Show the list of sold products",
+#  "10. Show sales history",
+#  "11. Exit the program",
+#  "12. Write a review",
+#  "13. Find groups of repeating characters (using all feedback)",
+#  "14. Find products that are palindromes",
+#  "15. Add a new employee",
+#  "16. Delete the employee",
+#  "17. View the list of employees",
+#  "18. Change the salary of an employee",
+#  "19. Change the position of an employee"
 COMMANDS = [
     "1. Показати список наявних товарів",
     "2. Додати новий товар до списку",
@@ -45,7 +64,9 @@ COMMANDS = [
     "16. Видалити працівника",                                 #######################
     "17. Переглянути список працівників",                      #######################
     "18. Змінити заробітну плату працівника",                  #######################
-    "19. Змінити посаду працівника"
+    "19. Змінити посаду працівника",                           #######################
+    "20. Показати лог",                                        #######################
+    "21. Показати список команд та їх частоту використання"    #######################
 ]
 
 PASSWORD = ""
@@ -67,7 +88,7 @@ EMPLOYEES = {                    #############################
         "password": "1234567b"
     }
 }
-LOG = {}
+LOG = []              ###############
 
 HEAD = ["№", "Назва товару"]
 DELIMITER = "-" * 28
@@ -80,7 +101,8 @@ while True:
         PASSWORD = EMPLOYEES[username]["password"]         #############################
         break                                              #############################
 
-    position = input("Введіть свою посаду: ")
+    name = input("Введіть своє ім'я: ")                    #############################
+    position = input("Введіть свою посаду: ")              #############################
     command = input("\
         Введіть '1' для введення свого паролю;\n\
         Введіть '2' для автоматичної генерації паролю;\n\
@@ -100,14 +122,15 @@ while True:
             if char.isalpha():
                 pass_alpha = True
 
-        if pass_len and pass_digit and pass_alpha:                ##############
+        if pass_len and pass_digit and pass_alpha:
             EMPLOYEES[username] = {                               ##############
                 "position": position,                             ##############
-                "start_date": date.today().strftime("%d-%m-%Y"),  ##############
-                "name": name
+                "start_date": datetime.now().strftime("%d-%m-%Y"),  ##############
+                "name": name,                                     ##############
+                "password": password                              ##############
             }
             PASSWORD = password
-            print("Користувача успішно створено")           #############
+            print("Користувача успішно створено")                 ##############
             break
         else:
             print("Пароль не пройшов перевірку, введіть новий пароль або згенеруйте автоматичний пароль")
@@ -119,8 +142,8 @@ while True:
         if is_upper == "1":
             chars_for_pass += string.ascii_uppercase
 
-        is_punctuatio = input("Чи використовувати спецсимволи (1 - так, будь який інший символ - ні)? ")
-        if is_punctuatio == "1":
+        is_punctuation = input("Чи використовувати спецсимволи (1 - так, будь який інший символ - ні)? ")
+        if is_punctuation == "1":
             chars_for_pass += string.punctuation
 
         len_pass = input("Введіть довжину пароля (не менше 8) або залишити за замовчуванням (8 символів): ")
@@ -152,6 +175,12 @@ while True:
                 pass_alpha = True
         else:
             PASSWORD = "".join(password)
+            EMPLOYEES[username] = {                               ##############
+                "position": position,                             ##############
+                "start_date": datetime.now().strftime("%d-%m-%Y"),  ##############
+                "name": name,                                     ##############
+                "password": PASSWORD                              ##############
+            }
             print(f"Пароль успішно створено: {PASSWORD}. Запам'ятайте його.")
             break
 
@@ -159,11 +188,12 @@ while True:
         print("Ви вийшли з програми. До побачення")
         break
 
-password = input("Введіть пароль для входу в систему: ") if PASSWORD else quit()    #####################
+password = input("Введіть пароль для входу в систему: ") if PASSWORD else quit()
 
 command = None
 while password == PASSWORD: # PASSWORD and :
     if not command:
+        LOG.append({username: "login", "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")}) ##############
         print("\nПароль вірний. Гарного та продуктивного Вам дня.\n")
 
     print("Введіть номер команди")
@@ -173,6 +203,7 @@ while password == PASSWORD: # PASSWORD and :
     command = input("-> ")
 
     if command == "1":
+        LOG.append({username: command, "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")})
         print(DELIMITER)
         print(TEMPLATE.format(*HEAD))
         for i in range(len(PRODUCTS)):
@@ -182,6 +213,7 @@ while password == PASSWORD: # PASSWORD and :
         input("Натисніть 'Enter' для продовження")
 
     elif command == "2":
+        LOG.append({username: command, "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")})
         product = input("Введіть назву товару: ")
 
         if product not in PRODUCTS:
@@ -193,12 +225,14 @@ while password == PASSWORD: # PASSWORD and :
         input("Натисніть 'Enter' для продовження")
 
     elif command == "3":
+        LOG.append({username: command, "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")})
         prods = input("Введіть список товарів через пробіл:\n")
         prods = prods.split()
         PRODUCTS.extend(prods)
         input("Натисніть 'Enter' для продовження")
 
     elif command == "4":
+        LOG.append({username: command, "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")})
         product = input("Введіть назву товару для видалення: ")
         if product in PRODUCTS:
             PRODUCTS.remove(product)
@@ -208,6 +242,7 @@ while password == PASSWORD: # PASSWORD and :
         input("Натисніть 'Enter' для продовження")
 
     elif command == "5":
+        LOG.append({username: command, "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")})
         product_index = input("Введіть номер товару, щоб видалити: ")
         if not product_index.isdigit():
             print("Це не номер")
@@ -225,11 +260,13 @@ while password == PASSWORD: # PASSWORD and :
         input("Натисніть 'Enter' для продовження")
 
     elif command == "6":
+        LOG.append({username: command, "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")})
         PRODUCTS.sort()
         print("Список відсортовано")
         input("Натисніть 'Enter' для продовження")
 
     elif command == "7":
+        LOG.append({username: command, "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")})
         product = input("Введіть назву товару для продажу: ")
 
         if product not in PRODUCTS:
@@ -242,6 +279,7 @@ while password == PASSWORD: # PASSWORD and :
         input("Натисніть 'Enter' для продовження")
 
     elif command == "8":
+        LOG.append({username: command, "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")})
         product = input("Введіть назву товару для пошуку: ")
 
         if product not in PRODUCTS:
@@ -254,6 +292,7 @@ while password == PASSWORD: # PASSWORD and :
         input("Натисніть 'Enter' для продовження")
 
     elif command == "9":
+        LOG.append({username: command, "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")})
         if not PRODUCTS_SOLD:
             print("Сьогодні ще нічого не продано")
             input("Натисніть 'Enter' для продовження")
@@ -266,6 +305,7 @@ while password == PASSWORD: # PASSWORD and :
         input("Натисніть 'Enter' для продовження")
 
     elif command == "10":
+        LOG.append({username: command, "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")})
         if not PRODUCTS_SOLD:
             print("Сьогодні ще нічого не продано")
             input("Натисніть 'Enter' для продовження")
@@ -280,14 +320,17 @@ while password == PASSWORD: # PASSWORD and :
         input("Натисніть 'Enter' для продовження")
 
     elif command == "11":
+        LOG.append({username: command, "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")})
         print("Дякую що були з нами")
         break
 
     elif command == "12":
+        LOG.append({username: command, "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")})
         review = input("Введіть свій відгук:\n-> ")
         REVIEWS.append(review)
 
     elif command == "13":
+        LOG.append({username: command, "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")})
         reviews = " ".join(REVIEWS)
 
         for i in range(len(reviews)):
@@ -301,6 +344,7 @@ while password == PASSWORD: # PASSWORD and :
         input("\nНатисніть 'Enter' для продовження")
 
     elif command == "14":
+        LOG.append({username: command, "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")})
         palindrome_products = [product for product in PRODUCTS if product == product[::-1]]
         if palindrome_products:
             print(f"Список продуктів, які являються паліндромами: {palindrome_products}")
@@ -309,7 +353,25 @@ while password == PASSWORD: # PASSWORD and :
 
         input("\nНатисніть 'Enter' для продовження")
 
+    elif command == "20":
+        for log in LOG:
+            print(log)
+        input("\nНатисніть 'Enter' для продовження")
+
+    elif command == "21":
+        LOG.append({username: command, "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")})
+        commands_count = {}
+        for log in LOG:
+            if log[username] in commands_count:
+                commands_count[log[username]] += 1
+            else:
+                commands_count[log[username]] = 1
+
+        print(commands_count)
+        input("\nНатисніть 'Enter' для продовження")
+
     else:
+        LOG.append({username: command, "timestamp": datetime.now().strftime("%d.%m.%Y %H:%M:%S")})
         input("Невідома команда.\nНатисніть 'Enter' для продовження")
 
 else:
