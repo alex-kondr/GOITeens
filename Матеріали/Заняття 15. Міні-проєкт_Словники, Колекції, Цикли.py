@@ -123,14 +123,14 @@ while True:
                 pass_alpha = True
 
         if pass_len and pass_digit and pass_alpha:
-            EMPLOYEES[username] = {                               ##############
-                "position": position,                             ##############
+            EMPLOYEES[username] = {                                 ##############
+                "position": position,                               ##############
                 "start_date": datetime.now().strftime("%d-%m-%Y"),  ##############
-                "name": name,                                     ##############
-                "password": password                              ##############
+                "name": name,                                       ##############
+                "password": password                                ##############
             }
             PASSWORD = password
-            print("Користувача успішно створено")                 ##############
+            print("Користувача успішно створено")                   ##############
             break
         else:
             print("Пароль не пройшов перевірку, введіть новий пароль або згенеруйте автоматичний пароль")
@@ -181,7 +181,7 @@ while True:
                 "name": name,                                     ##############
                 "password": PASSWORD                              ##############
             }
-            print(f"Пароль успішно створено: {PASSWORD}. Запам'ятайте його.")
+            print(f"Кjристувачf з паролем '{PASSWORD}' успішно створено.")
             break
 
     else:
