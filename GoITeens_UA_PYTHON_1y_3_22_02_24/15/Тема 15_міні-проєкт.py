@@ -1,6 +1,7 @@
 import string
 import random
 from datetime import datetime
+from pprint import pprint
 
 PRODUCTS = [
     "Гречка",
@@ -39,34 +40,36 @@ PRODUCTS = [
     "Зараз"
 ]
 PRODUCTS_SOLD = []
-COMMANDS = [
-    "Показати список наявних товарів",
-    "Додати новий товар до списку",
-    "Додати список товарів",
-    "Видалити товар за ім'ям",
-    "Видалити товар за номер",
-    "Показати відсортований список товарів за ім'ям",
-    "Продати товар",
-    "Знайти номер товару за ім'ям",
-    "Показати список проданих товарів",
-    "Показати історію продажів",
-    "Вийти з програми",
-    "Написати відгук",
-    "Знайти групи символів, які повторюються (використовуючи всі відгуки)",
-    "Знайти продукти, які є паліндромами",
-    "15. Додати нового працівника",                            #######################
-    "16. Видалити працівника",                                 #######################
-    "17. Переглянути список працівників",                      #######################
-    "18. Змінити заробітну плату працівника",                  #######################
-    "19. Змінити посаду працівника",                           #######################
-    "20. Показати лог",                                        #######################
-    "21. Показати список команд та їх частоту використання"    #######################
-]
+COMMANDS = {
+    "show all prods": "Показати список наявних товарів",
+    "add prod": "Додати новий товар до списку",
+    "add prods": "Додати список товарів",
+    "del prod by name": "Видалити товар за ім'ям",
+    "del prod by numb": "Видалити товар за номер",
+    "show sorted prods": "Показати відсортований список товарів за ім'ям",
+    "sold prod": "Продати товар",
+    "find numb prod by name": "Знайти номер товару за ім'ям",
+    "show sold prods": "Показати список проданих товарів",
+    "show sales history": "Показати історію продажів",
+    "exit": "Вийти з програми",
+    "add review": "Написати відгук",
+    "find repeated chars": "Знайти групи символів, які повторюються (використовуючи всі відгуки)",
+    "find palidrome": "Знайти продукти, які є паліндромами",
+    "add employee": "Додати нового працівника",                            #######################
+    "del employee": "Видалити працівника",                                 #######################
+    "show employees": "Переглянути список працівників",                      #######################
+    "change salary": "Змінити заробітну плату працівника",                  #######################
+    "change position": "Змінити посаду працівника",                           #######################
+    "show log": "Показати лог",                                        #######################
+    "show most using commands": "Показати список команд та їх частоту використання"    #######################
+}
 PASSWORD = ""
 REVIEWS = ["Дуже гарний товар", "ПРОДУКТИ НЕ ДУЖЕ", "дуже погане ставлення від працівників", "Якість товарів просто супер", "Дуже погана як", "Великий асортимент", "Я БІЛЬШЕ СЮДИ НЕ ПОВЕРНУСЬ!!!", "Мені сподобався Ваш магазин", "Якість Во👍", "Боже, яке кчне...💅"]
 TEMPLATE = "|{:^5}|{:<100}|"
 DELIMITER = "—" * 108
 HEAD = TEMPLATE.format("№", "Назва товару")
+TEMPLATE_BY_COMMANDS = "|{:<30}|{:<100}|"                           #################
+HEAD_BY_COMMANDS = TEMPLATE_BY_COMMANDS.format("Command", "Discription")           ####################
 
 EMPLOYEES = {                    #############################
     "andrew": {
@@ -85,17 +88,18 @@ EMPLOYEES = {                    #############################
     }
 }
 LOG = []              ###############
+MOST_USING_COMMAND = {}        #################
 
 while not PASSWORD:
-    username = input("Введіть свій логін: ")
-    if username in EMPLOYEES:
-        PASSWORD = EMPLOYEES[username]["password"]
+    user_name = input("Введіть свій логін: ")
+    if user_name in EMPLOYEES:
+        PASSWORD = EMPLOYEES[user_name]["password"]
         break
 
     position = input("Введіть свою посаду: ")
     salary = input("Введіть свою ЗП: ")
     name = input("Введіть своє ім'я: ")
-    EMPLOYEES[username] = {
+    EMPLOYEES[user_name] = {
         "position": position,
         "salary": salary,
         "name": name,
@@ -119,7 +123,7 @@ while not PASSWORD:
 
         if pass_len and pass_digit and pass_char:
             PASSWORD = password
-            EMPLOYEES[username]["password"] = PASSWORD
+            EMPLOYEES[user_name]["password"] = PASSWORD
         else:
             print("Пароль не пройшов перевірку. Спробуйте ще раз.\n")
 
@@ -155,7 +159,7 @@ while not PASSWORD:
                 password.add(char)
         else:
             PASSWORD = "".join(password)
-            EMPLOYEES[username]["password"] = PASSWORD
+            EMPLOYEES[user_name]["password"] = PASSWORD
 else:
     print(f"\nВаш пароль '{PASSWORD}' успішно створено. Запам'ятайте його для входу в систему.\n")
 
@@ -164,18 +168,25 @@ pass_word = input("Введіть свій пароль для входу в с�
 command = None
 while pass_word == PASSWORD:
     if not command:
+        LOG.append(f"Користувач з логіном '{user_name}' увійшов у систему: {datetime.now()}")
         print("Доброго дня. Вітаємо в нашій інформаційній системі")
 
     print()
     print(DELIMITER)
-    print(HEAD)
+    print(HEAD_BY_COMMANDS)
     print(DELIMITER)
-    for i, command in enumerate(COMMANDS, start=1):
-        print(TEMPLATE.format(i, command))
+    for command, discription in COMMANDS.items():
+        print(TEMPLATE_BY_COMMANDS.format(command, discription))
 
     command = input("Введіть номер команди: ")
+    LOG.append(f"Користувач з логіном '{user_name}' ввів команду {command}: {datetime.now()}")
 
-    if command == "1":
+    if command in MOST_USING_COMMAND:
+        MOST_USING_COMMAND[command] += 1
+    else:
+        MOST_USING_COMMAND[command] = 1
+
+    if command == "show all prods":
         print(DELIMITER)
         print(HEAD)
         print(DELIMITER)
@@ -185,7 +196,7 @@ while pass_word == PASSWORD:
         print(DELIMITER)
         input("\nНатисніть 'Enter' для продовження ")
 
-    elif command == "2":
+    elif command == "add prod":
         product = input("Введіть новий товар для додавання до списку: ")
 
         if product not in PRODUCTS:
@@ -194,13 +205,13 @@ while pass_word == PASSWORD:
         else:
             input("\nТакий товар вже є у списку. Натисніть 'Enter' для продовження ")
 
-    elif command == "3":
+    elif command == "add prods":
         prods = input("Введіть список товар для додавання через пробіл\n-> ")
         prods = prods.split()
         PRODUCTS.extend(prods)
         input("\nСписок товарів розширено. Натисніть 'Enter' для продовження ")
 
-    elif command == "4":
+    elif command == "del prod by name":
         product = input("Введіть назву товару для видалення зі списку товарів: ")
 
         if product in PRODUCTS:
@@ -209,7 +220,7 @@ while pass_word == PASSWORD:
         else:
             input("\nТакого товару немає у списку. Натисніть 'Enter' для продовження ")
 
-    elif command == "5 ":
+    elif command == "del prod by numb ":
         index = input("Введіть номер товару для видалення: ")
 
         if index and index.isdigit() and 0 < int(index) <= len(PRODUCTS):
@@ -218,7 +229,7 @@ while pass_word == PASSWORD:
         else:
             input("Ви ввели не вірний номер товару. Натисніть 'Enter' для продовження ")
 
-    elif command == "6":
+    elif command == "show sorted prods":
         print()
         prods = sorted(PRODUCTS)
         for product in prods:
@@ -226,7 +237,7 @@ while pass_word == PASSWORD:
 
         input("\nНатисніть 'Enter' для продовження ")
 
-    elif command == "7":
+    elif command == "sold prod":
         product = input("Введіть назву товару для продажу: ")
 
         if product in PRODUCTS:
@@ -236,7 +247,7 @@ while pass_word == PASSWORD:
         else:
             input("\nТакого товару немає у списку. Натисніть 'Enter' для продовження ")
 
-    elif command == "8":
+    elif command == "find numb prod by name":
         product = input("Введіть назву товару для пошуку: ")
 
         if product in PRODUCTS:
@@ -245,7 +256,7 @@ while pass_word == PASSWORD:
         else:
             input("\nТакого товару немає у списку. Натисніть 'Enter' для продовження ")
 
-    elif command == "9":
+    elif command == "show sold prods":
         if not PRODUCTS_SOLD:
             print("Список проданих товарів пустий")
 
@@ -254,22 +265,23 @@ while pass_word == PASSWORD:
 
         input("\nНатисніть 'Enter' для продовження ")
 
-    elif command == "10":
+    elif command == "show sales history":
         prods_sold = PRODUCTS_SOLD[::-1]
         for product in prods_sold:
             print(product)
 
         input("\nНатисніть 'Enter' для продовження ")
 
-    elif command == "11":
+    elif command == "exit":
+        LOG.append(f"Користувач з логіном '{user_name}' увійшов у систему: {datetime.now()}")
         print("До побачення")
         break
 
-    elif command == "12":
+    elif command == "add review":
         review = input("Залиште свій відгук:\n")
         REVIEWS.append(review)
 
-    elif command == "13":
+    elif command == "find repeated chars":
         reviews = " ".join(REVIEWS)
 
         repeated_groups = set()
@@ -281,7 +293,7 @@ while pass_word == PASSWORD:
 
         input(f"Список груп символів, які повторюються не менше 2 разів:\n{repeated_groups}")
 
-    elif command == "14":
+    elif command == "find palidrome":
         palin_prod = []
         for product in PRODUCTS:
             if product.lower() == product[::-1].lower():
@@ -289,7 +301,7 @@ while pass_word == PASSWORD:
 
         input(f"В списку товарів є такі слова-паліндроми:\n{palin_prod}") if palin_prod else input("В списку товарів відсутні слова паліндроми.")
 
-    elif command == "15":
+    elif command == "add employee":
         username = input("Введіть логін користувача: ")
         name = input("Введіть ім'я працівника: ")
         position = input("Введіть посаду працівника: ")
@@ -309,20 +321,22 @@ while pass_word == PASSWORD:
         else:
             input("Такий логін вже зареєстрований в системі.\nНатисніть 'Enter' для продовження ")
 
-    elif command == "16":
+    elif command == "del employee":
         username = input("Введіть логін працівника для видалення: ")
         if username in EMPLOYEES:
             del EMPLOYEES[username]
+            # EMPLOYEES.pop(username)
             input(f"Користувача з логіном '{username}' успішно видалено.\nНатисніть 'Enter' для продовження ")
         else:
             input("Такого користувача немає в системі.\nНатисніть 'Enter' для продовження ")
 
-    elif command == "17":
+    elif command == "show employees":
         for username in EMPLOYEES:
-            print(username, EMPLOYEES[username])
+            # print(username, EMPLOYEES[username])
+            print(f"Користувач з логіном '{username}' має ім'я {EMPLOYEES[username]["name"]} почав свою роботу '{EMPLOYEES[username]["start_date"]}'")
         input("\nНатисніть 'Enter' для продовження ")
 
-    elif command == "18":
+    elif command == "change salary":
         username = input("Введіть логін працівника: ")
         salary = input("Введіть нове значення ЗП: ")
         if username in EMPLOYEES:
@@ -331,7 +345,7 @@ while pass_word == PASSWORD:
         else:
             input("Такого користувача немає в системі.\nНатисніть 'Enter' для продовження ")
 
-    elif command == "19":
+    elif command == "change position":
         username = input("Введіть логін працівника: ")
         position = input("Введіть нову посаду: ")
         if username in EMPLOYEES:
@@ -339,6 +353,14 @@ while pass_word == PASSWORD:
             input(f"Посаду для користувача з логіном '{username}' змінено.\nНатисніть 'Enter' для продовження ")
         else:
             input("Такого користувача немає в системі.\nНатисніть 'Enter' для продовження ")
+
+    elif command == "show log":
+        pprint(LOG)
+        input("\nНатисніть 'Enter' для продовження ")
+
+    elif command == "show most using commands":
+        pprint(MOST_USING_COMMAND)
+        input("\nНатисніть 'Enter' для продовження ")
 
 else:
     print("Пароль невірний, доступ заборонено")
