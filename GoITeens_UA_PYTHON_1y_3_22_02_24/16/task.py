@@ -1,3 +1,50 @@
+# def print_message(name, last_name):
+#     print(f"Привіт {name}, {last_name}")
+
+# print_message("Дмитро!!!!!!!!", "Абабагаламага")
+
+# def print_message(name, last_name="Kondr"):
+#     print(f"Привіт {name}, {last_name}")
+
+# print_message(None, "Абабагаламага")
+# print_message(True, "Абабагаламага")
+# print_message(None, "Абабагаламага")
+# print_message(last_name="Абабагаламага")
+
+# def draw_box(x=10, y=14):
+#     print("*" * x)
+
+#     for i in range(y-2):
+#         print("*" + " " * (x - 2) + "*")
+
+#     print("*" * x)
+
+# draw_box(50)
+
+
+
+# Написати функцію, яка бронює столик у ресторані. В якості аргументів
+# функції використати прізвище клієнта та кількість. Для другого параметру передбачити значення за замовчуванням — 2.
+# Забронювати два столики (двічі викликати функцію), для 2 і 4 осіб.
+
+my_dict = {}
+def reserve(last_name, count=2):
+    my_dict.update({
+        last_name: count
+    })
+
+reserve("Kondr")
+reserve("Абабагаламага", 4)
+print(my_dict)
+
+
+
+
+
+
+
+
+
 # subscribers_list_news = list()
 # subscribers_list_what_new = list()
 # subscribers_list_ads = list()
@@ -5,7 +52,7 @@
 # def subscribe(email, is_news = True, is_new = True, is_ads = True):
 #     global subscribers_list_news, subscribers_list_what_new, subscribers_list_ads
 #     if(is_news):
-#         subscribers_list_news.append(email)
+        # subscribers_list_news.append(email)
 #     if(is_new):
 #         subscribers_list_what_new.append(email)
 #     if(is_ads):
@@ -19,9 +66,9 @@
 #         print(delimiter)
 #         print()
 
-# subscribe('ivanov@gmail.com')
+# # subscribe('ivanov@gmail.com')
 # subscribe('petrov@gmail.com', True, False, False)
-# subscribe('ivanova@gmail.com', is_ads = False)
+# # subscribe('ivanova@gmail.com', is_ads = False)
 
 # print_subscribers(subscribers_list_news, '"Новини"')
 # print_subscribers(subscribers_list_what_new, '"Що нового ?"')
