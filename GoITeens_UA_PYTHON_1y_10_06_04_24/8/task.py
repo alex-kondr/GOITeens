@@ -1,11 +1,58 @@
-# one_line_text = """Textual data in Python is handled with str objects, or strings. "\
-#             	"Strings are immutable sequences of Unicode code points. "\
-#             	"String literals are written in a variety of ways."""
-
-# print(one_line_text[-5:-15:-1])
 
 
+# Ввести рядок з клавіатури. Видалити з неї всі цифри
 
+one_line_text = '''Textual data in Py453thon is handle345d with str objects, or strings.
+            	Strings are immutable seque8888nces of Unicode code points.889
+            	String lit11erals are written in a variety5443 of ways.'''
+
+new_string = ""
+for char in one_line_text:
+    if not char.isdigit():
+        new_string += char
+
+print(new_string)
+
+
+
+
+
+
+# print(one_line_text[-10:-20:-2])
+
+# one_line_text[5] = "Абабагаламага"
+
+# delimiter = "Hi there! " * 100
+# print(delimiter)
+
+
+
+
+# number_1 = input("Введіть число: ") # 5
+# number_2 = input("Введіть число: ") # 6
+# numbers = number_1 + number_2
+# print(numbers)
+# print(type(number))
+
+# a = 5
+# b = 6
+# print(a)
+# print(one_line_text + str(a))
+
+# numbers = [1, 5, 6, 9]
+# index = numbers.index(5)
+# numbers[1] = 10
+# print(numbers)
+
+
+# str_by_numbers = str(numbers)
+# new_numbers = list(str_by_numbers)
+# print(new_numbers)
+
+# print(f"{numbers[0] = }")
+# print(f"{str_by_numbers[3] = }")
+
+# print(type(str_by_numbers))
 
 
 
