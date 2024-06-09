@@ -6,13 +6,15 @@ one_line_text = '''Textual data in Py453thon is handle345d with str objects, or 
             	Strings are immutable seque8888nces of Unicode code points.889
             	String lit11erals are written in a variety5443 of ways.'''
 
-new_string = ""
-for char in one_line_text:
-    if not char.isdigit():
-        new_string += char
+# new_string = ""
+# for char in one_line_text:
+#     if not char.isdigit():
+#         new_string += char
 
-print(new_string)
-
+# print(new_string)
+# chars = [char for char in one_line_text if not char.isdigit()]
+# new_string = "".join(chars)
+# print(new_string)
 
 
 
@@ -69,11 +71,15 @@ print(new_string)
 # string_1 = "ка приймає від користувача д"
 # string_2 = "оріть програму"
 
+# max_string = max(string_1, string_2, key=len)
+# print(max_string)
 
+# if len(string_1) > len(string_2):
+#     print("string_1 > string_2")
+# else:
+#     print("string_1 < string_2")
 
-
-
-
+# print("string_1 > string_2" if len(string_1) > len(string_2) else "string_1 < string_2")
 
 
 
@@ -93,8 +99,19 @@ print(new_string)
 # b = 842
 # c = 9
 
+# # count = 0
+# # for number in range(a, b+1):
+# #     if number % c == 0:
+# #         count += 1 # count = count + 1
 
+# # numbers = [number for number in range(a, b+1) if number % c == 0]
+# numbers = [1 for number in range(a, b+1) if number % c == 0]
+# count_1 = len(numbers)
+# count_2 = sum(numbers)
+# # print(f"{numbers = }")
 
+# print(f"Кількість чисел, які діляться на {c} в діапазоні від {a} до {b} дорівнює {count_1}")
+# print(f"Кількість чисел, які діляться на {c} в діапазоні від {a} до {b} дорівнює {count_2}")
 
 
 
@@ -107,12 +124,15 @@ print(new_string)
 # Створіть програму, яка приймає від користувача дві строки та порівнює їх лексикографічно (за алфавітом).
 # Виведіть результат порівняння у вигляді логічного значення (True або False).
 
-# string_1 = "творіть програму, яка приймає від користувача дві"
-# string_2 = "творіть програму, яка приймає від користувача дві"
+string_1 = "творіть програму, яка приймає від користувача дві"
+string_2 = "творітьg програму, яка приймає від користувача дві"
 
+# if string_1 == string_2:
+#     print("Рядки однакові")
+# else:
+#     print("Рядки різні")
 
-
-
+print("Рядки однакові" if string_1 == string_2 else "Рядки різні")
 
 
 

@@ -26,22 +26,22 @@
 
 
 
-# X = input("Введіть координату X > ")
-# X = float(X)
-# Y = input("Введіть координату Y > ")
-# Y = float(Y)
+X = input("Введіть координату X > ")
+X = float(X)
+Y = input("Введіть координату Y > ")
+Y = float(Y)
 
-# if X > 0 and Y > 0:
-#     print(1)
+if X > 0 and Y > 0:
+    print(1)
 
-# elif X < 0 and Y > 0:
-#     print(2)
+elif X < 0 and Y > 0:
+    print(2)
 
-# elif X < 0 and Y < 0:
-#     print(3)
+elif X < 0 and Y < 0:
+    print(3)
 
-# else:
-#     print(4)
+else:
+    print(4)
 
 
 
