@@ -1,3 +1,117 @@
+# def say_hello():
+#     print("Hi there!!!!!")
+
+# say_hello()
+
+# def summ(x, y=8):
+#     print(x + y)
+
+# # x = int(input("Введіть число 'x': ")) # 5
+# # y = int(input("Введіть число 'y': ")) # 9
+# summ()
+
+# def draw_box(w=10, h=14):
+#     print("*" * w)
+#     for _ in range(h - 2):
+#         print("*" + (" " * (w - 2)) + "*")
+
+#     print("*" * w)
+
+# draw_box(h=50, w=8)
+# print(end="")
+
+
+
+# Написати функцію, яка бронює столик у ресторані.
+# В якості аргументів функції використати прізвище клієнта та кількість.
+# Для другого параметру передбачити значення за замовчуванням — 2.
+
+# Забронювати два столики (двічі викликати функцію), для 2 і 4 осіб.
+
+# reserve = {}
+
+# def reserve_table(last_name, count=2):
+#     reserve.update({last_name: count})
+
+# reserve_table("Kondr")
+# print(reserve)
+
+# reserve_table("Абабагамалга", 4)
+
+# print(reserve)
+
+
+# def mul(a, b=1, c=7):
+#     return a * b * c
+
+# mulltiple = mul(4, 9, 2)
+# print(mulltiple)
+
+# def my_func(a, b, c):
+#     return mul(a, b, c) + a + b + c
+
+# result = my_func(4, 9, 2)
+# print(result)
+
+# print(my_func(4, 1, 0))
+
+
+# def my_func(*args):
+#     print(args)
+
+#     for arg in args:
+#         print(arg)
+
+# my_func(1, 5, 8, -7)
+# my_func()
+
+# def my_func(x, *args):
+#     print(f"{x = }")
+#     print(f"{args = }")
+
+# my_func(4, 8, 9, -9)
+
+
+# def my_func(x, *args, y=8, **kwargs):
+#     print(f"{x = }")
+#     print(f"{y = }")
+#     print(f"{args = }")
+#     print(f"{kwargs = }")
+
+# my_func(4, 1, 3, 9, 0, y=4, a=9, k=0)
+
+# a = 8
+
+# def my_fuc():
+#     a = 9
+#     print(f"{a = }")
+
+# print(f"Буква 'a' до функції: {a = }")
+# my_fuc()
+# print(f"Буква 'a' після фінкції: {a = }")
+
+
+# a = 8
+
+# def my_fuc():
+#     global a
+
+#     print(f"До {a = }")
+#     a = 9
+#     print(f"Після {a = }")
+
+# print(f"Буква 'a' до функції: {a = }")
+# my_fuc()
+# print(f"Буква 'a' після фінкції: {a = }")
+
+
+
+
+
+
+
+
+
 # subscribers_list_news = list()
 # subscribers_list_what_new = list()
 # subscribers_list_ads = list()
