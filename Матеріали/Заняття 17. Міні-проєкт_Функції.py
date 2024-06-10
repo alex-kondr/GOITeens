@@ -40,31 +40,68 @@ PRODUCTS = [
     "Зараз"
 ]
 PRODUCTS_SOLD = []
+
+###########################
+HELP = """
+"show all prods": "Показати список наявних товарів",
+"add prod": "Додати новий товар до списку",
+"add prods": "Додати список товарів",
+"del prod by name": "Видалити товар за ім'ям",
+"del prod by numb": "Видалити товар за номер",
+"show sorted prods": "Показати відсортований список товарів за ім'ям",
+"sold prod": "Продати товар",
+"find numb prod by name": "Знайти номер товару за ім'ям",
+"show sold prods": "Показати список проданих товарів",
+"show sales history": "Показати історію продажів",
+"exit": "Вийти з програми",
+"add review": "Написати відгук",
+"find repeated chars": "Знайти групи символів, які повторюються (використовуючи всі відгуки)",
+"find palidrome": "Знайти продукти, які є паліндромами",
+"add employee": "Додати нового працівника",
+"del employee": "Видалити працівника",
+"show employees": "Переглянути список працівників",
+"change salary": "Змінити заробітну плату працівника",
+"change position": "Змінити посаду працівника",
+"show log": "Показати лог",
+"show most using commands": "Показати список команд та їх частоту використання"
+"""
+
 COMMANDS = {
-    "show all prods": "Показати список наявних товарів",
-    "add prod": "Додати новий товар до списку",
-    "add prods": "Додати список товарів",
-    "del prod by name": "Видалити товар за ім'ям",
-    "del prod by numb": "Видалити товар за номер",
-    "show sorted prods": "Показати відсортований список товарів за ім'ям",
-    "sold prod": "Продати товар",
-    "find numb prod by name": "Знайти номер товару за ім'ям",
-    "show sold prods": "Показати список проданих товарів",
-    "show sales history": "Показати історію продажів",
-    "exit": "Вийти з програми",
-    "add review": "Написати відгук",
-    "find repeated chars": "Знайти групи символів, які повторюються (використовуючи всі відгуки)",
-    "find palidrome": "Знайти продукти, які є паліндромами",
-    "add employee": "Додати нового працівника",
-    "del employee": "Видалити працівника",
-    "show employees": "Переглянути список працівників",
-    "change salary": "Змінити заробітну плату працівника",
-    "change position": "Змінити посаду працівника",
-    "show log": "Показати лог",
-    "show most using commands": "Показати список команд та їх частоту використання"
+    "show all prods": show_all_prods,
+    "add prod": add_prod,
+    "add prods": add_prods,
+    "del prod by name": del_prod_by_name,
+    "del prod by numb": del_prod_by_numb,
+    "show sorted prods": show_sorted_prods,
+    "sold prod": sold_prod,
+    "find numb prod by name": find_numb_prod_by_name,
+    "show sold prods": show_sold_prods,
+    "show sales history": show_sales_history,
+    "exit": exit,
+    "add review": add_review,
+    "find repeated chars": find_repeated_chars,
+    "find palidrome": find_palidrome,
+    "add employee": add_employee,
+    "del employee": del_employee,
+    "show employees": show_employees,
+    "change salary": change_salary,
+    "change position": change_position,
+    "show log": show_log,
+    "show most using commands": show_most_using_commands,
+    "help": help
 }
 PASSWORD = ""
-REVIEWS = ["Дуже гарний товар", "ПРОДУКТИ НЕ ДУЖЕ", "дуже погане ставлення від працівників", "Якість товарів просто супер", "Дуже погана як", "Великий асортимент", "Я БІЛЬШЕ СЮДИ НЕ ПОВЕРНУСЬ!!!", "Мені сподобався Ваш магазин", "Якість Во👍", "Боже, яке кчне...💅"]
+REVIEWS = [
+    "Дуже гарний товар",
+    "ПРОДУКТИ НЕ ДУЖЕ",
+    "дуже погане ставлення від працівників",
+    "Якість товарів просто супер",
+    "Дуже погана як",
+    "Великий асортимент",
+    "Я БІЛЬШЕ СЮДИ НЕ ПОВЕРНУСЬ!!!",
+    "Мені сподобався Ваш магазин",
+    "Якість Во👍",
+    "Боже, яке кчне...💅"]
 TEMPLATE = "|{:^5}|{:<100}|"
 DELIMITER = "—" * 108
 HEAD = TEMPLATE.format("№", "Назва товару")
@@ -87,8 +124,52 @@ EMPLOYEES = {
         "password": "1234567b"
     }
 }
-LOG = []              ###############
-MOST_USING_COMMAND = {}        #################
+LOG = []
+MOST_USING_COMMAND = {}
+
+
+def is_verify_password(password: str) -> bool:
+    pass_len = False if len(password) < 8 else True
+    pass_digit = False
+    pass_char = False
+
+    for char in password:
+        if char.isdigit():
+            pass_digit = True
+        if char.isalpha():
+            pass_char = True
+
+    return True if pass_len and pass_digit and pass_char else False
+
+
+def generate_password(
+    len_password: int = 8,
+    is_upper: bool = False,
+    is_punctuation: bool = False,
+    is_repeat: bool = False
+) -> str:
+
+    pass_chars = string.ascii_lowercase + string.digits
+    pass_chars += string.ascii_uppercase if is_upper else ""
+    pass_chars += string.punctuation if is_punctuation else ""
+    password = random.choices(pass_chars, k=len_password) if is_repeat else random.sample(pass_chars, k=len_password)
+    return "".join(password)
+
+
+# def create_password(
+#     generate=False,
+#     len_password: int = 8,
+#     is_upper: bool = False,
+#     is_punctuation: bool = False,
+#     is_repeat: bool = False
+# ) -> str:
+
+#     if generate:
+#         while not is_verify_password(password):
+#             password = generate_password(len_password, is_upper, is_punctuation, is_repeat)
+
+#     return password
+
 
 while not PASSWORD:
     user_name = input("Введіть свій логін: ")
@@ -106,60 +187,16 @@ while not PASSWORD:
         "start_date": datetime.now().strftime("%d.%m.%Y")
     }
 
-    command = input("Введіть 1 для введення свого паролю;\nВведіть 2 для автоматичної генерації паролю.\nАбо будь який символ для виходу з програми\n-> ")
+    command = input("Введіть 'create' для введення свого паролю;\nВведіть 'generate' для автоматичної генерації паролю.\nАбо будь який символ для виходу з програми\n-> ")
+    if command == "create":
+        password = input("Введіть свій пароль (повинен містити не менше 8 символів, а також повинен містити хоча б одну букву та одну цифру): ")
 
-    if command == "1":
-        password = input("Введіть свій пароль. Пароль повинен бути не менше 8 символів, а також містити 1 букву та 1 цифру\n-> ")
-
-        pass_len = False if len(password) < 8 else True
-        pass_digit = False
-        pass_char = False
-
-        for char in password:
-            if char.isdigit():
-                pass_digit = True
-            if char.isalpha():
-                pass_char = True
-
-        if pass_len and pass_digit and pass_char:
+        if is_verify_password(password):
             PASSWORD = password
             EMPLOYEES[user_name]["password"] = PASSWORD
         else:
-            print("Пароль не пройшов перевірку. Спробуйте ще раз.\n")
 
-    elif command == "2":
-        pass_chars = string.ascii_lowercase + string.digits
 
-        len_password = input("Введіть довжину паролю, або залиште за замовчуванням (8 символів): ")
-        len_password = int(len_password) if len_password.isdigit() and int(len_password) > 8 else 8
-
-        is_upper = input("Чи використовувати великі літери: 1 - так, інший символ - ні\n->")
-        pass_chars += string.ascii_uppercase if is_upper == "1" else ""
-
-        is_punctuation = input("Чи використовувати спецсимволи: 1 - так, інший символ - ні\n->")
-        pass_chars += string.punctuation if is_punctuation == "1" else ""
-
-        is_repeate = input("Чи можуть символи паролю повторюватись: 1 - так, інший символ - ні\n->")
-        password = [] if is_repeate == "1" else set()
-
-        pass_digit = False
-        pass_char = False
-
-        while len(password) < len_password or not pass_digit or not pass_char:
-            char = random.choice(pass_chars)
-
-            if char.isdigit():
-                pass_digit = True
-            elif char.isalpha():
-                pass_char = True
-
-            if isinstance(password, list):
-                password.append(char)
-            elif isinstance(password, set):
-                password.add(char)
-        else:
-            PASSWORD = "".join(password)
-            EMPLOYEES[user_name]["password"] = PASSWORD
 else:
     print(f"\nВаш пароль '{PASSWORD}' успішно створено. Запам'ятайте його для входу в систему.\n")
 
