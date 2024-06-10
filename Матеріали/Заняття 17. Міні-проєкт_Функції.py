@@ -68,8 +68,8 @@ REVIEWS = ["Дуже гарний товар", "ПРОДУКТИ НЕ ДУЖЕ",
 TEMPLATE = "|{:^5}|{:<100}|"
 DELIMITER = "—" * 108
 HEAD = TEMPLATE.format("№", "Назва товару")
-TEMPLATE_BY_COMMANDS = "|{:<30}|{:<100}|"                           #################
-HEAD_BY_COMMANDS = TEMPLATE_BY_COMMANDS.format("Command", "Discription")           ####################
+TEMPLATE_BY_COMMANDS = "|{:<30}|{:<100}|"
+HEAD_BY_COMMANDS = TEMPLATE_BY_COMMANDS.format("Command", "Discription")
 
 EMPLOYEES = {
     "andrew": {
