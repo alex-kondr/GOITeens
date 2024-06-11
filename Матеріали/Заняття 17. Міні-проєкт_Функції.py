@@ -411,7 +411,7 @@ if __name__ == "__main__":
             LOG.append(f"Користувач з логіном '{user_name}' увійшов у систему: {datetime.now()}")
             print("Доброго дня. Вітаємо в нашій інформаційній системі")
 
-        command = input("Введіть номер команди ('help' для довідки): ")
+        command = input("Введіть команду ('help' для довідки): ")
         LOG.append(f"Користувач з логіном '{user_name}' ввів команду {command}: {datetime.now()}")
 
         if command in MOST_USING_COMMAND:
