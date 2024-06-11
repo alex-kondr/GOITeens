@@ -80,9 +80,6 @@ REVIEWS = [
     "Якість Во👍",
     "Боже, яке кчне...💅"]
 
-# TEMPLATE_BY_COMMANDS = "|{:<30}|{:<100}|"
-# HEAD_BY_COMMANDS = TEMPLATE_BY_COMMANDS.format("Command", "Discription")
-
 EMPLOYEES = {
     "andrew": {
         "position": "Менеджер",
