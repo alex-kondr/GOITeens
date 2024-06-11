@@ -27,22 +27,65 @@
 # функції використати прізвище клієнта та кількість. Для другого параметру передбачити значення за замовчуванням — 2.
 # Забронювати два столики (двічі викликати функцію), для 2 і 4 осіб.
 
-my_dict = {}
-def reserve(last_name, count=2):
-    my_dict.update({
-        last_name: count
-    })
+# my_dict = {}
+# def reserve(last_name, count=2):
+#     my_dict.update({
+#         last_name: count
+#     })
 
-reserve("Kondr")
-reserve("Абабагаламага", 4)
-print(my_dict)
-
-
+# reserve("Kondr")
+# reserve("Абабагаламага", 4)
+# print(my_dict)
 
 
 
+# def my_func(a, b=5):
+#     print(f"{a = }, {b = }")
+#     return a + b
+
+# b = 123
+# a = 6
+# result = my_func(b=a, a=b)
+# print(result)
+
+# def summ(*args):
+#     print(args)
+#     for i in args:
+#         print(f"{i = }")
+
+# string = "Hello word"
+# summ(*string)
 
 
+# def my_func(**kwargs):
+#     print(kwargs)
+#     for k, v in kwargs.items():
+#         print(f"{k = }, {v = }")
+
+# my_dict = {'a': 5, 'b': 10, 'ababagalamaga': 456}
+# # my_func(a=5, b=10, ababagalamaga=456)
+# my_func(**my_dict)
+
+
+# def my_func(a, b, *args, c=5, d=8, e=9, **kwargs):
+#     print(f"{a = }, {b = }, {args = }, {c = }, {d = }, {e = }, {kwargs = }")
+
+# my_func(1, 5, 6, 8, 6, k=10, l=11, c=13)
+
+# a = 41
+
+# def my_func():
+#     print(f"До {a = }")
+#     a = 45
+#     print(f"Після {a = }")
+
+#     def my_func2():
+#         print(a)
+#     # global a
+
+# print(f"До функції {a = }")
+# my_func()
+# print(f"Після функції {a = }")
 
 
 # subscribers_list_news = list()
