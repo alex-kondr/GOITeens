@@ -40,38 +40,40 @@ PRODUCTS = [
     "Зараз"
 ]
 PRODUCTS_SOLD = []
-COMMANDS = {
-    "show all prods": "Показати список наявних товарів",
-    "add prod": "Додати новий товар до списку",
-    "add prods": "Додати список товарів",
-    "del prod by name": "Видалити товар за ім'ям",
-    "del prod by numb": "Видалити товар за номер",
-    "show sorted prods": "Показати відсортований список товарів за ім'ям",
-    "sold prod": "Продати товар",
-    "find numb prod by name": "Знайти номер товару за ім'ям",
-    "show sold prods": "Показати список проданих товарів",
-    "show sales history": "Показати історію продажів",
-    "exit": "Вийти з програми",
-    "add review": "Написати відгук",
-    "find repeated chars": "Знайти групи символів, які повторюються (використовуючи всі відгуки)",
-    "find palidrome": "Знайти продукти, які є паліндромами",
-    "add employee": "Додати нового працівника",                            #######################
-    "del employee": "Видалити працівника",                                 #######################
-    "show employees": "Переглянути список працівників",                      #######################
-    "change salary": "Змінити заробітну плату працівника",                  #######################
-    "change position": "Змінити посаду працівника",                           #######################
-    "show log": "Показати лог",                                        #######################
-    "show most using commands": "Показати список команд та їх частоту використання"    #######################
-}
+
+HELP = """
+"show all prods": "Показати список наявних товарів",
+"add prod": "Додати новий товар до списку",
+"add prods": "Додати список товарів",
+"del prod by name": "Видалити товар за ім'ям",
+"del prod by numb": "Видалити товар за номер",
+"show sorted prods": "Показати відсортований список товарів за ім'ям",
+"sold prod": "Продати товар",
+"find numb prod by name": "Знайти номер товару за ім'ям",
+"show sold prods": "Показати список проданих товарів",
+"show sales history": "Показати історію продажів",
+"exit": "Вийти з програми",
+"add review": "Написати відгук",
+"find repeated chars": "Знайти групи символів, які повторюються (використовуючи всі відгуки)",
+"find palidrome": "Знайти продукти, які є паліндромами",
+"add employee": "Додати нового працівника",
+"del employee": "Видалити працівника",
+"show employees": "Переглянути список працівників",
+"change salary": "Змінити заробітну плату працівника",
+"change position": "Змінити посаду працівника",
+"show log": "Показати лог",
+"show most using commands": "Показати список команд та їх частоту використання"
+"""
+
 PASSWORD = ""
 REVIEWS = ["Дуже гарний товар", "ПРОДУКТИ НЕ ДУЖЕ", "дуже погане ставлення від працівників", "Якість товарів просто супер", "Дуже погана як", "Великий асортимент", "Я БІЛЬШЕ СЮДИ НЕ ПОВЕРНУСЬ!!!", "Мені сподобався Ваш магазин", "Якість Во👍", "Боже, яке кчне...💅"]
 TEMPLATE = "|{:^5}|{:<100}|"
 DELIMITER = "—" * 108
 HEAD = TEMPLATE.format("№", "Назва товару")
-TEMPLATE_BY_COMMANDS = "|{:<30}|{:<100}|"                           #################
-HEAD_BY_COMMANDS = TEMPLATE_BY_COMMANDS.format("Command", "Discription")           ####################
+TEMPLATE_BY_COMMANDS = "|{:<30}|{:<100}|"
+HEAD_BY_COMMANDS = TEMPLATE_BY_COMMANDS.format("Command", "Discription")
 
-EMPLOYEES = {                    #############################
+EMPLOYEES = {
     "andrew": {
         "position": "Менеджер",
         "salary": "30000",
@@ -87,8 +89,94 @@ EMPLOYEES = {                    #############################
         "password": "1234567b"
     }
 }
-LOG = []              ###############
-MOST_USING_COMMAND = {}        #################
+LOG = []
+MOST_USING_COMMAND = {}
+
+
+def is_verify_password(password: str) -> bool:
+    pass_len = False if len(password) < 8 else True
+    pass_digit = False
+    pass_char = False
+
+    for char in password:
+        if char.isdigit():
+            pass_digit = True
+        if char.isalpha():
+            pass_char = True
+
+    return True if all(pass_len, pass_digit, pass_char) else False
+
+
+def generate_password(
+    len_password: int = 8,
+    is_punctuation: bool = False,
+    is_upper: bool = False,
+    is_repeate : bool = True
+) -> str:
+    pass_chars = string.ascii_lowercase + string.digits
+    pass_chars += string.ascii_uppercase if is_upper else ""
+    pass_chars += string.punctuation if is_punctuation else ""
+    password = random.choices(pass_chars, k=len_password) if is_repeate else random.sample(pass_chars, k=len_password)
+    return "".join(password)
+
+
+def help():
+    print(HELP)
+
+
+def show_all_prods(products: list) -> None:
+    print(DELIMITER)
+    print(HEAD)
+    print(DELIMITER)
+    for i, product in enumerate(products, start=1):
+        print(TEMPLATE.format(i, product))
+
+    print(DELIMITER)
+
+
+def add_prod(products: list) -> list:
+    product = input("Введіть новий товар для додавання до списку: ")
+
+    if product not in products:
+        products.append(product)
+        print(f"\nТовар '{product}' доданий до списку")
+    else:
+        print("\nТакий товар вже є у списку")
+
+    return products
+
+
+def add_prods(products: list) -> list:
+    prods = input("Введіть список товар для додавання через пробіл\n-> ")
+    prods = prods.split()
+    products.extend(prods)
+    print("\nСписок товарів розширено")
+    return products
+
+
+def del_prod_by_name(products: list) -> list:
+    product = input("Введіть назву товару для видалення зі списку товарів: ")
+
+    if product in products:
+        products.remove(product)
+        print(f"\nТовар '{product}' видалено зі списку")
+    else:
+        print("\nТакого товару немає у списку")
+
+    return products
+
+
+def del_prod_by_numb(products: list) -> list:
+    index = input("Введіть номер товару для видалення: ")
+
+    if index and index.isdigit() and 0 < int(index) <= len(PRODUCTS):
+        product = products.pop(int(index) - 1)
+        print(f"Товар '{product}' видалено")
+    else:
+        print("Ви ввели не вірний номер товару")
+
+    return products
+
 
 while not PASSWORD:
     user_name = input("Введіть свій логін: ")
@@ -106,60 +194,33 @@ while not PASSWORD:
         "start_date": datetime.now().strftime("%d.%m.%Y")
     }
 
-    command = input("Введіть 1 для введення свого паролю;\nВведіть 2 для автоматичної генерації паролю.\nАбо будь який символ для виходу з програми\n-> ")
+    command = input("Введіть 'create' для введення свого паролю;\nВведіть 'generate' для автоматичної генерації паролю.\nАбо будь який символ для виходу з програми\n-> ")
+    if command == "create":
+        password = input("Введіть пароль 8 і більше символів, цифра і буква: ")
 
-    if command == "1":
-        password = input("Введіть свій пароль. Пароль повинен бути не менше 8 символів, а також містити 1 букву та 1 цифру\n-> ")
-
-        pass_len = False if len(password) < 8 else True
-        pass_digit = False
-        pass_char = False
-
-        for char in password:
-            if char.isdigit():
-                pass_digit = True
-            if char.isalpha():
-                pass_char = True
-
-        if pass_len and pass_digit and pass_char:
+        if is_verify_password(password):
             PASSWORD = password
-            EMPLOYEES[user_name]["password"] = PASSWORD
         else:
-            print("Пароль не пройшов перевірку. Спробуйте ще раз.\n")
-
-    elif command == "2":
-        pass_chars = string.ascii_lowercase + string.digits
-
-        len_password = input("Введіть довжину паролю, або залиште за замовчуванням (8 символів): ")
-        len_password = int(len_password) if len_password.isdigit() and int(len_password) > 8 else 8
-
-        is_upper = input("Чи використовувати великі літери: 1 - так, інший символ - ні\n->")
-        pass_chars += string.ascii_uppercase if is_upper == "1" else ""
-
-        is_punctuation = input("Чи використовувати спецсимволи: 1 - так, інший символ - ні\n->")
-        pass_chars += string.punctuation if is_punctuation == "1" else ""
-
-        is_repeate = input("Чи можуть символи паролю повторюватись: 1 - так, інший символ - ні\n->")
-        password = [] if is_repeate == "1" else set()
-
-        pass_digit = False
-        pass_char = False
-
-        while len(password) < len_password or not pass_digit or not pass_char:
-            char = random.choice(pass_chars)
-
-            if char.isdigit():
-                pass_digit = True
-            elif char.isalpha():
-                pass_char = True
-
-            if isinstance(password, list):
-                password.append(char)
-            elif isinstance(password, set):
-                password.add(char)
+            print("Пароль не пройшов перевірку")
+    elif command == "generate":
+        len_password = input("Введіть довжину пароля: ")
+        if len_password.isdigit() and int(len_password) > 8:
+            len_password = int(len_password)
         else:
-            PASSWORD = "".join(password)
-            EMPLOYEES[user_name]["password"] = PASSWORD
+            len_password = 8
+
+        is_upper = input("Введіть 1 щоб використати великі букви: ")
+        is_upper = True if is_upper == "1" else False
+        is_punctuation = input("Введіть 1 щоб використовувати спецсимволи: ")
+        is_punctuation = True if is_punctuation == "1" else False
+        is_repeate = input("Введіть 1 щоб символи повторювались: ")
+        is_repeate = True if is_repeate == "1" else False
+        password = generate_password(len_password=len_password, is_upper=is_upper, is_punctuation=is_punctuation, is_repeate=is_repeate)
+        if is_verify_password(password):
+            PASSWORD = password
+        else:
+            print("Пароль не пройшов перевірку")
+
 else:
     print(f"\nВаш пароль '{PASSWORD}' успішно створено. Запам'ятайте його для входу в систему.\n")
 
@@ -171,12 +232,6 @@ while pass_word == PASSWORD:
         LOG.append(f"Користувач з логіном '{user_name}' увійшов у систему: {datetime.now()}")
         print("Доброго дня. Вітаємо в нашій інформаційній системі")
 
-    print()
-    print(DELIMITER)
-    print(HEAD_BY_COMMANDS)
-    print(DELIMITER)
-    for command, discription in COMMANDS.items():
-        print(TEMPLATE_BY_COMMANDS.format(command, discription))
 
     command = input("Введіть номер команди: ")
     LOG.append(f"Користувач з логіном '{user_name}' ввів команду {command}: {datetime.now()}")
@@ -186,50 +241,15 @@ while pass_word == PASSWORD:
     else:
         MOST_USING_COMMAND[command] = 1
 
-    if command == "show all prods":
-        print(DELIMITER)
-        print(HEAD)
-        print(DELIMITER)
-        for i, product in enumerate(PRODUCTS, start=1):
-            print(TEMPLATE.format(i, product))
 
-        print(DELIMITER)
-        input("\nНатисніть 'Enter' для продовження ")
 
-    elif command == "add prod":
-        product = input("Введіть новий товар для додавання до списку: ")
 
-        if product not in PRODUCTS:
-            PRODUCTS.append(product)
-            input(f"\nТовар '{product}' доданий до списку. Натисніть 'Enter' для продовження ")
-        else:
-            input("\nТакий товар вже є у списку. Натисніть 'Enter' для продовження ")
 
-    elif command == "add prods":
-        prods = input("Введіть список товар для додавання через пробіл\n-> ")
-        prods = prods.split()
-        PRODUCTS.extend(prods)
-        input("\nСписок товарів розширено. Натисніть 'Enter' для продовження ")
 
-    elif command == "del prod by name":
-        product = input("Введіть назву товару для видалення зі списку товарів: ")
 
-        if product in PRODUCTS:
-            PRODUCTS.remove(product)
-            input(f"\nТовар '{product}' видалено зі списку. Натисніть 'Enter' для продовження ")
-        else:
-            input("\nТакого товару немає у списку. Натисніть 'Enter' для продовження ")
 
-    elif command == "del prod by numb ":
-        index = input("Введіть номер товару для видалення: ")
 
-        if index and index.isdigit() and 0 < int(index) <= len(PRODUCTS):
-            product = PRODUCTS.pop(int(index) - 1)
-            input(f"Товар '{product}' видалено. Натисніть 'Enter' для продовження ")
-        else:
-            input("Ви ввели не вірний номер товару. Натисніть 'Enter' для продовження ")
-
-    elif command == "show sorted prods":
+    def show sorted prods":
         print()
         prods = sorted(PRODUCTS)
         for product in prods:
@@ -237,7 +257,7 @@ while pass_word == PASSWORD:
 
         input("\nНатисніть 'Enter' для продовження ")
 
-    elif command == "sold prod":
+    def sold prod":
         product = input("Введіть назву товару для продажу: ")
 
         if product in PRODUCTS:
