@@ -61,7 +61,7 @@ def show_all_prods(products: list) -> None:
     template = "|{:^5}|{:<100}|"
     delimiter = "—" * 108
     head = template.format("№", "Назва товару")
-    print(template)
+    print(delimiter)
     print(head)
     print(delimiter)
     for i, product in enumerate(products, start=1):
@@ -151,10 +151,8 @@ def show_sold_prods(products_sold: list) -> None:
     for product in products_sold:
         print(product)
 
-    input("\nНатисніть 'Enter' для продовження ")
 
-
-def show_sales_history(products_sold: list) -> list:
+def show_sales_history(products_sold: list) -> None:
     prods_sold = products_sold[::-1]
     for product in prods_sold:
         print(product)
@@ -249,21 +247,20 @@ def change_position(employees: dict) -> dict:
     position = input("Введіть нову посаду: ")
     if username in employees:
         employees[username]["position"] = position
-        input(f"Посаду для користувача з логіном '{username}' змінено.\nНатисніть 'Enter' для продовження ")
+        print(f"Посаду для користувача з логіном '{username}' змінено.")
     else:
-        input("Такого користувача немає в системі.\nНатисніть 'Enter' для продовження ")
+        print("Такого користувача немає в системі.")
 
-    return products, products_sold, employees, reviews
+    return employees
 
 
-def show_log() -> None:
+def show_log(log: list) -> None:
     pprint(log)
-    input("\nНатисніть 'Enter' для продовження ")
 
 
-def show_most_using_commands() -> None:
-    pprint(most_using_command)
-    input("\nНатисніть 'Enter' для продовження ")
+
+def show_most_using_commands(most_using_commands: dict) -> None:
+    pprint(most_using_commands)
 
 
 def help() -> None:
@@ -289,7 +286,6 @@ def create_password() -> str:
         is_upper = True if input("Чи використовувати великі букви (1 - так, будь який інший символ - ні)? ") == "1" else False
         is_punctuation = True if input("Чи використовувати спецсимволи (1 - так, будь який інший символ - ні)? ") == "1" else False
         is_repeat = True if input("Чи можуть символи повторюватись (1 - Так, будь який інший символ - Ні)? ") == "1" else False
-        password = ""
 
         password = generate_password(len_password=len_pass, is_punctuation=is_punctuation, is_upper=is_upper, is_repeat=is_repeat)
 
@@ -362,7 +358,7 @@ def main() -> None:
         }
     }
     log = []
-    most_using_command = {}
+    most_using_commands = {}
 
     user_name = input("Введіть свій логін: ")
     password = employees.get(user_name, {}).get("password", "")
@@ -395,10 +391,10 @@ def main() -> None:
         command = input("Введіть команду ('help' для довідки): ")
         log.append(f"Користувач з логіном '{user_name}' ввів команду {command}: {datetime.now()}")
 
-        if command in most_using_command:
-            most_using_command[command] += 1
+        if command in most_using_commands:
+            most_using_commands[command] += 1
         else:
-            most_using_command[command] = 1
+            most_using_commands[command] = 1
 
         match command:
             case "show all prods":
@@ -438,7 +434,13 @@ def main() -> None:
             case "change salary":
                 employees = change_salary(employees)
             case "change position":
-                
+                employees = change_position(employees)
+            case "show log":
+                show_log(log)
+            case "show most using commands":
+                show_most_using_commands(most_using_commands)
+            case "help":
+                help()
             case _:
                 unknown_command()
 
@@ -446,32 +448,6 @@ def main() -> None:
 
     else:
         print("Пароль невірний, доступ заборонено")
-
-
-# COMMANDS = {
-#     "show all prods": show_all_prods,
-#     "add prod": add_prod,
-#     "add prods": add_prods,
-#     "del prod by name": del_prod_by_name,
-#     "del prod by numb": del_prod_by_numb,
-#     "show sorted prods": show_sorted_prods,
-#     "sold prod": sold_prod,
-#     "find numb prod by name": find_numb_prod_by_name,
-#     "show sold prods": show_sold_prods,
-#     "show sales history": show_sales_history,
-#     "exit": exit,
-#     "add review": add_review,
-#     "find repeated chars": find_repeated_chars,
-#     "find palidrome": find_palidrome,
-#     "add employee": add_employee,
-#     "del employee": del_employee,
-#     "show employees": show_employees,
-#     "change salary": change_salary,
-#     "change position": change_position,
-#     "show log": show_log,
-#     "show most using commands": show_most_using_commands,
-#     "help": help
-# }
 
 
 if __name__ == "__main__":
