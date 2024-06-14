@@ -1,3 +1,72 @@
+
+# count = string.count(char, 5, 15)
+# print(f"Буква '{char}' зустрічається {count} р.")
+
+# string_2 = string.lower()
+# print(string_2)
+
+
+# # command = "Exit"
+# if command.lower() == "EXIT":
+# #     print("Exit")
+
+# string_3 = string.upper()
+# print(string_3)
+
+# string = string.capitalize()
+# string = string.title()
+# string = string.swapcase()
+# print(string)
+
+# char = "о"
+# index = string.rfind(char)
+# print(index)
+
+# my_list = string.split("о", 2)
+# my_list = [string[:10], string[10:20], string[20:]]
+# print(my_list)
+# new_string = "Абабагаламага".join(my_list)
+# print(new_string)
+
+# string = "        Вивести таблицю проданих за день товарів в наступному форматі    aaa\n \t    і,   "
+# print(string)
+# print(len(string))
+# clear_string = string.rstrip(" Ві,")
+# print(clear_string)
+# print(len(clear_string))
+
+
+# map = {
+#     ord("а"): "Q",
+#     ord("ю"): "U"
+# }
+
+# new_string = string.translate(map)
+# print(new_string)
+
+
+# age = 45
+# name = "Alex"
+# print(f"Мене звати {name}, мені {age} років")
+# print("Мене звати {}, мені {} років".format(name, age))
+# print("Мене звати {name}, мені {age} років".format(age=age, name=name))
+# print("Мене звати %s, мені %d років" % (name, age))
+
+# Порахувати, яка літера найчастіше зустрічається у вашому прізвищі.
+
+string = "орахувати, яка літера найчастіше зустрічається у вашому прізвищі"
+
+count = 0
+char = ""
+
+for c in string:
+    if count < string.count(c):
+        count = string.count(c)
+        char = c
+
+print(f"Символ '{char}' зустрічається в нашому речені '{count}' разів")
+
+
 # Вивести таблицю проданих за день товарів в наступному форматі:
 # номер, назва, кількість, ціна.
 # --------------------------------------------------
