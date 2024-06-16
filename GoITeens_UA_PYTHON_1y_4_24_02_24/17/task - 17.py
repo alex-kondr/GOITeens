@@ -92,7 +92,7 @@ def sort(products: list) -> None:
         print(product)
 
 
-def sold_prod(products: list, products_sold: list) -> tuple[list[str]]:
+def sold_prod(products: list[str], products_sold: list[str]) -> tuple:
     product = input("Введіть назву товару для продажу: ")
 
     if product in products:
@@ -133,7 +133,7 @@ def add_review(reviews: list) -> list:
     return reviews
 
 
-def find_dublicate_char(reviews: list) -> None:
+def find_dublicate_char(reviews: list[str]) -> None:
     reviews = " ".join(reviews).lower()
 
     repeated_groups = set()
