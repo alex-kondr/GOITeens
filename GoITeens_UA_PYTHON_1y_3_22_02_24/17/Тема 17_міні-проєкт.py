@@ -261,7 +261,7 @@ def show_log(log: list) -> None:
     pprint(log)
 
 
-def show_most_using_commands(most_using_command: list) -> None:
+def show_most_using_commands(most_using_command: dict) -> None:
     pprint(most_using_command)
 
 
