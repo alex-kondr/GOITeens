@@ -3,43 +3,6 @@ import random
 from datetime import datetime
 from pprint import pprint
 
-PRODUCTS = [
-    "Гречка",
-    "леонід",
-    "Цукорій",
-    "Макарони",
-    "Йогурт",
-    "Спагеті",
-    "Картопля",
-    "Буряк",
-    "Морква",
-    "Локшина",
-    "Дмитро",
-    "Айзен",
-    "Петух",
-    "російське немовля",
-    "Капуста",
-    "Капуста",
-    "Дондон",
-    "Цибуля",
-    "Часник",
-    "Борошно",
-    "Яйця",
-    "Бульба",
-    "Соняшникова олія",
-    "Вершкове масло",
-    "Сіль",
-    "Додод",
-    "Перець",
-    "Цукор",
-    "Оцет",
-    "Сода",
-    "Чай",
-    "Кава",
-    "Око",
-    "Зараз"
-]
-PRODUCTS_SOLD = []
 
 HELP = """
 "show all prods": "Показати список наявних товарів",
@@ -64,33 +27,9 @@ HELP = """
 "show log": "Показати лог",
 "show most using commands": "Показати список команд та їх частоту використання"
 """
-
-PASSWORD = ""
-REVIEWS = ["Дуже гарний товар", "ПРОДУКТИ НЕ ДУЖЕ", "дуже погане ставлення від працівників", "Якість товарів просто супер", "Дуже погана як", "Великий асортимент", "Я БІЛЬШЕ СЮДИ НЕ ПОВЕРНУСЬ!!!", "Мені сподобався Ваш магазин", "Якість Во👍", "Боже, яке кчне...💅"]
-TEMPLATE = "|{:^5}|{:<100}|"
-DELIMITER = "—" * 108
+TEMPLATE = "|{:^5}|{:<30}|"
+DELIMITER = "—" * 38
 HEAD = TEMPLATE.format("№", "Назва товару")
-TEMPLATE_BY_COMMANDS = "|{:<30}|{:<100}|"
-HEAD_BY_COMMANDS = TEMPLATE_BY_COMMANDS.format("Command", "Discription")
-
-EMPLOYEES = {
-    "andrew": {
-        "position": "Менеджер",
-        "salary": "30000",
-        "start_date": "22.02.2024",
-        "name": "Андрій",
-        "password": "1234567a"
-    },
-    "dima": {
-        "position": "Продавець",
-        "salary": "14000",
-        "start_date": "10.03.2024",
-        "name": "Дмитро",
-        "password": "1234567b"
-    }
-}
-LOG = []
-MOST_USING_COMMAND = {}
 
 
 def is_verify_password(password: str) -> bool:
@@ -104,7 +43,7 @@ def is_verify_password(password: str) -> bool:
         if char.isalpha():
             pass_char = True
 
-    return True if all(pass_len, pass_digit, pass_char) else False
+    return True if all([pass_len, pass_digit, pass_char]) else False
 
 
 def generate_password(
@@ -113,6 +52,7 @@ def generate_password(
     is_upper: bool = False,
     is_repeate : bool = True
 ) -> str:
+
     pass_chars = string.ascii_lowercase + string.digits
     pass_chars += string.ascii_uppercase if is_upper else ""
     pass_chars += string.punctuation if is_punctuation else ""
@@ -169,7 +109,7 @@ def del_prod_by_name(products: list) -> list:
 def del_prod_by_numb(products: list) -> list:
     index = input("Введіть номер товару для видалення: ")
 
-    if index and index.isdigit() and 0 < int(index) <= len(PRODUCTS):
+    if index and index.isdigit() and 0 < int(index) <= len(products):
         product = products.pop(int(index) - 1)
         print(f"Товар '{product}' видалено")
     else:
@@ -178,209 +118,326 @@ def del_prod_by_numb(products: list) -> list:
     return products
 
 
-while not PASSWORD:
-    user_name = input("Введіть свій логін: ")
-    if user_name in EMPLOYEES:
-        PASSWORD = EMPLOYEES[user_name]["password"]
-        break
-
-    position = input("Введіть свою посаду: ")
-    salary = input("Введіть свою ЗП: ")
-    name = input("Введіть своє ім'я: ")
-    EMPLOYEES[user_name] = {
-        "position": position,
-        "salary": salary,
-        "name": name,
-        "start_date": datetime.now().strftime("%d.%m.%Y")
-    }
-
-    command = input("Введіть 'create' для введення свого паролю;\nВведіть 'generate' для автоматичної генерації паролю.\nАбо будь який символ для виходу з програми\n-> ")
-    if command == "create":
-        password = input("Введіть пароль 8 і більше символів, цифра і буква: ")
-
-        if is_verify_password(password):
-            PASSWORD = password
-        else:
-            print("Пароль не пройшов перевірку")
-    elif command == "generate":
-        len_password = input("Введіть довжину пароля: ")
-        if len_password.isdigit() and int(len_password) > 8:
-            len_password = int(len_password)
-        else:
-            len_password = 8
-
-        is_upper = input("Введіть 1 щоб використати великі букви: ")
-        is_upper = True if is_upper == "1" else False
-        is_punctuation = input("Введіть 1 щоб використовувати спецсимволи: ")
-        is_punctuation = True if is_punctuation == "1" else False
-        is_repeate = input("Введіть 1 щоб символи повторювались: ")
-        is_repeate = True if is_repeate == "1" else False
-        password = generate_password(len_password=len_password, is_upper=is_upper, is_punctuation=is_punctuation, is_repeate=is_repeate)
-        if is_verify_password(password):
-            PASSWORD = password
-        else:
-            print("Пароль не пройшов перевірку")
-
-else:
-    print(f"\nВаш пароль '{PASSWORD}' успішно створено. Запам'ятайте його для входу в систему.\n")
-
-pass_word = input("Введіть свій пароль для входу в систему: ")
-
-command = None
-while pass_word == PASSWORD:
-    if not command:
-        LOG.append(f"Користувач з логіном '{user_name}' увійшов у систему: {datetime.now()}")
-        print("Доброго дня. Вітаємо в нашій інформаційній системі")
+def show_sorted_prods(products: list) -> None:
+    prods = sorted(products)
+    for product in prods:
+        print(product)
 
 
-    command = input("Введіть номер команди: ")
-    LOG.append(f"Користувач з логіном '{user_name}' ввів команду {command}: {datetime.now()}")
+def sold_prod(products: list, products_sold: list) -> tuple[list, list]:
+    product = input("Введіть назву товару для продажу: ")
 
-    if command in MOST_USING_COMMAND:
-        MOST_USING_COMMAND[command] += 1
+    if product in products:
+        products.remove(product)
+        products_sold.append(product)
+        print(f"\nТовар '{product}' продано. Натисніть 'Enter' для продовження ")
     else:
-        MOST_USING_COMMAND[command] = 1
+        print("\nТакого товару немає у списку. Натисніть 'Enter' для продовження ")
+
+    return products, products_sold
 
 
+def find_numb_prod_by_name(products: list) -> None:
+    product = input("Введіть назву товару для пошуку: ")
+
+    if product in products:
+        index = products.index(product)
+        print(f"Товар '{product}' знаходиться під номером {index + 1}.")
+    else:
+        print("\nТакого товару немає у списку.")
 
 
+def show_sold_prods(products_sold: list) -> None:
+    if not products_sold:
+        print("Список проданих товарів пустий")
+
+    for product in products_sold:
+        print(product)
 
 
+def show_sales_history(products_sold: list) -> None:
+    prods_sold = products_sold[::-1]
+    for product in prods_sold:
+        print(product)
 
 
+def exit() -> None:
+    print("До побачення")
+    quit()
 
-    def show sorted prods":
-        print()
-        prods = sorted(PRODUCTS)
-        for product in prods:
-            print(product)
 
-        input("\nНатисніть 'Enter' для продовження ")
+def add_review(reviews: list) -> list:
+    review = input("Залиште свій відгук:\n")
+    reviews.append(review)
 
-    def sold prod":
-        product = input("Введіть назву товару для продажу: ")
 
-        if product in PRODUCTS:
-            PRODUCTS.remove(product)
-            PRODUCTS_SOLD.append(product)
-            input(f"\nТовар '{product}' продано. Натисніть 'Enter' для продовження ")
+def find_repeated_chars(reviews: list) -> None:
+    reviews = " ".join(reviews)
+
+    repeated_groups = set()
+    for i in range(len(reviews)):
+        for j in range(i+1, len(reviews)):
+            slice = reviews[i:j]
+            if reviews.count(slice) >= 2:
+                repeated_groups.add(slice)
+
+    print(f"Список груп символів, які повторюються не менше 2 разів:\n{repeated_groups}")
+
+
+def find_palidrome(products: list) -> None:
+    palin_prod = []
+    for product in products:
+        if product.lower() == product[::-1].lower():
+            palin_prod.append(product)
+
+    message = f"В списку товарів є такі слова-паліндроми:\n{palin_prod}" if palin_prod else "В списку товарів відсутні слова паліндроми."
+    print(message)
+
+
+def add_employee(employees: dict) -> dict:
+    username = input("Введіть логін користувача: ")
+    name = input("Введіть ім'я працівника: ")
+    position = input("Введіть посаду працівника: ")
+    salary = input("Введіть ЗП: ")
+    start_date = input("Введіть дату початку роботи у форматі '01.01.2024': ")
+    password = input("Введіть пароль для працівника: ")
+
+    if username not in employees:
+        employees[username] = {
+            "position": position,
+            "salary": salary,
+            "name": name,
+            "start_date": start_date,
+            "password": password
+        }
+        print("Працівника успішно зареєстровано в системі.")
+    else:
+        print("Такий логін вже зареєстрований в системі.")
+
+    return employees
+
+
+def del_employee(employees: dict) -> dict:
+    username = input("Введіть логін працівника для видалення: ")
+    if username in employees:
+        del employees[username]
+        print(f"Користувача з логіном '{username}' успішно видалено.")
+    else:
+        print("Такого користувача немає в системі.")
+
+    return employees
+
+
+def show_employees(employees: dict) -> None:
+    for username in employees:
+        print(f"Користувач з логіном '{username}' має ім'я {employees[username]['name']} почав свою роботу '{employees[username]['start_date']}'")
+
+
+def change_salary(employees: dict) -> dict:
+    username = input("Введіть логін працівника: ")
+    salary = input("Введіть нове значення ЗП: ")
+    if username in employees:
+        employees[username]["salary"] = salary
+        print(f"ЗП для користувача з логіном '{username}' змінено.")
+    else:
+        print("Такого користувача немає в системі.")
+
+    return employees
+
+
+def change_position(employees: dict) -> dict:
+    username = input("Введіть логін працівника: ")
+    position = input("Введіть нову посаду: ")
+    if username in employees:
+        employees[username]["position"] = position
+        print(f"Посаду для користувача з логіном '{username}' змінено.")
+    else:
+        print("Такого користувача немає в системі.")
+
+    return employees
+
+
+def show_log(log: list) -> None:
+    pprint(log)
+
+
+def show_most_using_commands(most_using_command: dict) -> None:
+    pprint(most_using_command)
+
+
+def unknowing_command() -> None:
+    print("Невідома команда. Спробуйте ще раз.")
+
+
+def main():
+    products = [
+    "Гречка",
+    "леонід",
+    "Цукорій",
+    "Макарони",
+    "Йогурт",
+    "Спагеті",
+    "Картопля",
+    "Буряк",
+    "Морква",
+    "Локшина",
+    "Дмитро",
+    "Айзен",
+    "Петух",
+    "російське немовля",
+    "Капуста",
+    "Капуста",
+    "Дондон",
+    "Цибуля",
+    "Часник",
+    "Борошно",
+    "Яйця",
+    "Бульба",
+    "Соняшникова олія",
+    "Вершкове масло",
+    "Сіль",
+    "Додод",
+    "Перець",
+    "Цукор",
+    "Оцет",
+    "Сода",
+    "Чай",
+    "Кава",
+    "Око",
+    "Зараз"
+]
+    products_sold = []
+    reviews = ["Дуже гарний товар", "ПРОДУКТИ НЕ ДУЖЕ", "дуже погане ставлення від працівників", "Якість товарів просто супер", "Дуже погана як", "Великий асортимент", "Я БІЛЬШЕ СЮДИ НЕ ПОВЕРНУСЬ!!!", "Мені сподобався Ваш магазин", "Якість Во👍", "Боже, яке кчне...💅"]
+    employees = {
+        "andrew": {
+            "position": "Менеджер",
+            "salary": "30000",
+            "start_date": "22.02.2024",
+            "name": "Андрій",
+            "password": "1234567a"
+        },
+        "dima": {
+            "position": "Продавець",
+            "salary": "14000",
+            "start_date": "10.03.2024",
+            "name": "Дмитро",
+            "password": "1234567b"
+        }
+    }
+    log = []
+    most_using_command = {}
+
+    user_name = input("Введіть свій логін: ")
+    pass_word = employees.get(user_name, {}).get("password", "")
+
+    while not pass_word:
+        position = input("Введіть свою посаду: ")
+        salary = input("Введіть свою ЗП: ")
+        name = input("Введіть своє ім'я: ")
+        employees[user_name] = {
+            "position": position,
+            "salary": salary,
+            "name": name,
+            "start_date": datetime.now().strftime("%d.%m.%Y")
+        }
+
+        command = input("Введіть 'create' для введення свого паролю;\nВведіть 'generate' для автоматичної генерації паролю.\nАбо будь який символ для виходу з програми\n-> ")
+        if command == "create":
+            password = input("Введіть пароль 8 і більше символів, цифра і буква: ")
+
+            if is_verify_password(password):
+                pass_word = password
+            else:
+                print("Пароль не пройшов перевірку")
+
+        elif command == "generate":
+            len_password = input("Введіть довжину пароля: ")
+            if len_password.isdigit() and int(len_password) > 8:
+                len_password = int(len_password)
+            else:
+                len_password = 8
+
+            is_upper = input("Введіть 1 щоб використати великі букви: ")
+            is_upper = True if is_upper == "1" else False
+            is_punctuation = input("Введіть 1 щоб використовувати спецсимволи: ")
+            is_punctuation = True if is_punctuation == "1" else False
+            is_repeate = input("Введіть 1 щоб символи повторювались: ")
+            is_repeate = True if is_repeate == "1" else False
+            password = generate_password(len_password=len_password, is_upper=is_upper, is_punctuation=is_punctuation, is_repeate=is_repeate)
+            if is_verify_password(password):
+                pass_word = password
+            else:
+                print("Пароль не пройшов перевірку")
+
+    else:
+        print(f"\nВаш пароль '{pass_word}' успішно створено. Запам'ятайте його для входу в систему.\n")
+
+    password = input("Введіть свій пароль для входу в систему: ")
+
+    command = None
+    while pass_word == password:
+        if not command:
+            log.append(f"Користувач з логіном '{user_name}' увійшов у систему: {datetime.now()}")
+            print("Доброго дня. Вітаємо в нашій інформаційній системі")
+
+        command = input("Введіть номер команди: ")
+        log.append(f"Користувач з логіном '{user_name}' ввів команду {command}: {datetime.now()}")
+
+        if command in most_using_command:
+            most_using_command[command] += 1
         else:
-            input("\nТакого товару немає у списку. Натисніть 'Enter' для продовження ")
+            most_using_command[command] = 1
 
-    elif command == "find numb prod by name":
-        product = input("Введіть назву товару для пошуку: ")
+        match command:
+            case "show all prods":
+                show_all_prods(products)
+            case "add prod":
+                products = add_prod(products)
+            case "add prods":
+                products = add_prods(products)
+            case "del prod by name":
+                products = del_prod_by_name(products)
+            case "del prod by numb":
+                products = del_prod_by_numb(products)
+            case "show sorted prods":
+                show_sorted_prods(products)
+            case "sold prod":
+                products, products_sold = sold_prod(products, products_sold)
+            case "find numb prod by name":
+                find_numb_prod_by_name(products)
+            case "show sold prods":
+                show_sold_prods(products_sold)
+            case "show sales history":
+                show_sales_history(products_sold)
+            case "exit":
+                exit()
+            case "add review":
+                reviews = add_review(reviews)
+            case "find repeated chars":
+                find_repeated_chars(reviews)
+            case "find palidrome":
+                find_palidrome(products)
+            case "add employee":
+                employees = add_employee(employees)
+            case "del employee":
+                employees = del_employee(employees)
+            case "show employees":
+                show_employees(employees)
+            case "change salary":
+                employees = change_salary(employees)
+            case "change position":
+                employees = change_position(employees)
+            case "show log":
+                show_log(log)
+            case "show most using commands":
+                show_most_using_commands(most_using_command)
+            case _:
+                unknowing_command()
 
-        if product in PRODUCTS:
-            index = PRODUCTS.index(product)
-            input(f"Товар '{product}' знаходиться під номером {index + 1}. Натисніть 'Enter' для продовження ")
-        else:
-            input("\nТакого товару немає у списку. Натисніть 'Enter' для продовження ")
+        input("\nНатисніть 'enter' для продовження\n")
+    else:
+        print("Пароль невірний, доступ заборонено")
 
-    elif command == "show sold prods":
-        if not PRODUCTS_SOLD:
-            print("Список проданих товарів пустий")
 
-        for product in PRODUCTS_SOLD:
-            print(product)
-
-        input("\nНатисніть 'Enter' для продовження ")
-
-    elif command == "show sales history":
-        prods_sold = PRODUCTS_SOLD[::-1]
-        for product in prods_sold:
-            print(product)
-
-        input("\nНатисніть 'Enter' для продовження ")
-
-    elif command == "exit":
-        LOG.append(f"Користувач з логіном '{user_name}' увійшов у систему: {datetime.now()}")
-        print("До побачення")
-        break
-
-    elif command == "add review":
-        review = input("Залиште свій відгук:\n")
-        REVIEWS.append(review)
-
-    elif command == "find repeated chars":
-        reviews = " ".join(REVIEWS)
-
-        repeated_groups = set()
-        for i in range(len(reviews)):
-            for j in range(i+1, len(reviews)):
-                slice = reviews[i:j]
-                if reviews.count(slice) >= 2:
-                    repeated_groups.add(slice)
-
-        input(f"Список груп символів, які повторюються не менше 2 разів:\n{repeated_groups}")
-
-    elif command == "find palidrome":
-        palin_prod = []
-        for product in PRODUCTS:
-            if product.lower() == product[::-1].lower():
-                palin_prod.append(product)
-
-        input(f"В списку товарів є такі слова-паліндроми:\n{palin_prod}") if palin_prod else input("В списку товарів відсутні слова паліндроми.")
-
-    elif command == "add employee":
-        username = input("Введіть логін користувача: ")
-        name = input("Введіть ім'я працівника: ")
-        position = input("Введіть посаду працівника: ")
-        salary = input("Введіть ЗП: ")
-        start_date = input("Введіть дату початку роботи у форматі '01.01.2024': ")
-        password = input("Введіть пароль для працівника: ")
-
-        if username not in EMPLOYEES:
-            EMPLOYEES[username] = {
-                "position": position,
-                "salary": salary,
-                "name": name,
-                "start_date": start_date,
-                "password": password
-            }
-            input("Працівника успішно зареєстровано в системі.\nНатисніть 'Enter' для продовження ")
-        else:
-            input("Такий логін вже зареєстрований в системі.\nНатисніть 'Enter' для продовження ")
-
-    elif command == "del employee":
-        username = input("Введіть логін працівника для видалення: ")
-        if username in EMPLOYEES:
-            del EMPLOYEES[username]
-            # EMPLOYEES.pop(username)
-            input(f"Користувача з логіном '{username}' успішно видалено.\nНатисніть 'Enter' для продовження ")
-        else:
-            input("Такого користувача немає в системі.\nНатисніть 'Enter' для продовження ")
-
-    elif command == "show employees":
-        for username in EMPLOYEES:
-            # print(username, EMPLOYEES[username])
-            print(f"Користувач з логіном '{username}' має ім'я {EMPLOYEES[username]['name']} почав свою роботу '{EMPLOYEES[username]['start_date']}'")
-        input("\nНатисніть 'Enter' для продовження ")
-
-    elif command == "change salary":
-        username = input("Введіть логін працівника: ")
-        salary = input("Введіть нове значення ЗП: ")
-        if username in EMPLOYEES:
-            EMPLOYEES[username]["salary"] = salary
-            input(f"ЗП для користувача з логіном '{username}' змінено.\nНатисніть 'Enter' для продовження ")
-        else:
-            input("Такого користувача немає в системі.\nНатисніть 'Enter' для продовження ")
-
-    elif command == "change position":
-        username = input("Введіть логін працівника: ")
-        position = input("Введіть нову посаду: ")
-        if username in EMPLOYEES:
-            EMPLOYEES[username]["position"] = position
-            input(f"Посаду для користувача з логіном '{username}' змінено.\nНатисніть 'Enter' для продовження ")
-        else:
-            input("Такого користувача немає в системі.\nНатисніть 'Enter' для продовження ")
-
-    elif command == "show log":
-        pprint(LOG)
-        input("\nНатисніть 'Enter' для продовження ")
-
-    elif command == "show most using commands":
-        pprint(MOST_USING_COMMAND)
-        input("\nНатисніть 'Enter' для продовження ")
-
-else:
-    print("Пароль невірний, доступ заборонено")
+if __name__ == "__main__":
+    main()
