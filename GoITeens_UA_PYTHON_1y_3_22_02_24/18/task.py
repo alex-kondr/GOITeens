@@ -1,4 +1,64 @@
-# import matplotlib.pyplot as plt
+# import random
+
+
+# print(random.sample([1, 2, 6]))
+# print(random.choices([1, 2, 6]))
+
+
+
+# # from random import sample, choice, choices
+
+
+# # sample([], k=1)
+
+
+
+# from random import *
+
+# add([1, 2], k=1)
+
+
+
+# def add(a, b):
+#     return a + b
+
+
+
+# # import math_
+# from math_ import add, subtrac
+
+# # print(math_.add(5, 9))
+# # print(math_.subtrac(1, 8))
+
+# summ_1 = add(2, 8)
+# print(f"{summ_1 = }")
+# summ_2 = add(5, -9)
+# print(f"{summ_2 = }")
+
+# print(subtrac(9, 4))
+
+
+# Matplotlib
+# import matplotlib
+
+
+
+
+
+# Створити модуль, що містить функцію, яка повертає набір даних Х та Y
+# Імпортувати цей модуль в основний скрипт і побудувати графік Х від Y,
+# використовуючи бібліотеку Matplotlib.
+
+
+
+import matplotlib.pyplot as plt
+
+from my_data import X, Y
+
+
+plt.plot(X, Y)
+plt.show()
+
 # import numpy as np
 
 # x = np.linspace(0, 2, 100)
@@ -10,6 +70,7 @@
 # plt.ylabel('y label')
 # plt.title("Simple Plot")
 # plt.legend()
+# plt.show()
 
 
 
