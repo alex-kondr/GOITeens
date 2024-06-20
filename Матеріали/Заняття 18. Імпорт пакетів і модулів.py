@@ -64,9 +64,15 @@
 # Створити власний модуль my_statistics.py, який містить функції для обчислення
 # статистичних показників (наприклад, середнього значення, медіани, дисперсії) для списку даних.
 # Імпортувати модуль та використати ці функції для обробки списку даних.
+# D(X)= E(X^2) − μ^2
+# average = sum(numbers) / len(numbers)
+# avg_idx = len(numbers) // 2
+# if len(numbers) % 2 == 0:
+#     median = (numbers[avg_idx] + numbers[avg_idx+1]) / 2
+# else:
+#     median = numbres[avg_idx+1]
 
-
-
+# D = sum([number**2 for number in numbers]) - average**2
 
 
 
