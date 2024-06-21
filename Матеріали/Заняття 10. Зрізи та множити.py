@@ -28,25 +28,25 @@
 # Дано рядок, який містить довільне речення, слова в якому розділені пробілами.
 # З використанням зрізів знайти і вивести слово, яке має найбільшу довжину.
 
-string = "Дано рядок, який містить довільне речення, слова в якому розділені пробілами. З використанням зрізів знайти і вивести слово, яке має найбільшу довжинуttttttttttttttttttttttttttttttt."
-delimiter = " "
+# string = "Дано рядок, який містить довільне речення, слова в якому розділені пробілами. З використанням зрізів знайти і вивести слово, яке має найбільшу довжинуttttttttttttttttttttttttttttttt."
+# delimiter = " "
 
-longest_word = ""
-len_longest_word = 0
+# longest_word = ""
+# len_longest_word = 0
 
-idx = 0
-delimiter_count = string.count(delimiter)
+# idx = 0
+# delimiter_count = string.count(delimiter)
 
-for _ in range(delimiter_count+1):
-    idx_start = idx
-    idx = string.find(delimiter, idx) + 1
-    word = string[idx_start:idx-1]
-    len_word = len(word)
-    if len_word > len_longest_word:
-        longest_word = word
-        len_longest_word = len_word
+# for _ in range(delimiter_count+1):
+#     idx_start = idx
+#     idx = string.find(delimiter, idx) + 1
+#     word = string[idx_start:idx-1]
+#     len_word = len(word)
+#     if len_word > len_longest_word:
+#         longest_word = word
+#         len_longest_word = len_word
 
-print(longest_word)
+# print(longest_word)
 
 
 
