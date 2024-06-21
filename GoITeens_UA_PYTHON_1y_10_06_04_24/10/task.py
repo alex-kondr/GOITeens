@@ -1,8 +1,29 @@
 # Зрізи
-# numbers = list(range(1, 11))
-# print(numbers[::2])
-# print(numbers[1::2])
-# print(numbers[2::3])
+# start = 1
+# end = 10
+# numbers = list(range(start, end+1))
+# print(numbers)
+# print(numbers[2:])
+# print(numbers[:5])
+# print(numbers[::3])
+# print(numbers[::-3])
+# print(numbers[-5:-1])
+# print(numbers[-2:-5:-1])
+
+# print(numbers)
+# # numbers.reverse()
+# # print(numbers)
+
+# numbers_new = numbers[::-1]
+# print(numbers)
+# print(numbers_new)
+
+
+# string = "Заданий рядок, який містить ім’я та прізвище користувача"
+# print(string[10:])
+# print(string[:50])
+# print(string[::-1])
+# print(string[::100])
 
 
 
@@ -11,19 +32,29 @@
 
 
 
-
-
-
-
-# Виокремлення ім’я та прізвища
+# Відокремлення ім’я та прізвища
 # Заданий рядок, який містить ім’я та прізвище користувача, що розділені пробілом
 # Написати програму з використанням зрізів, яка виокремить ім’я та прізвище
 
 # my_string = "Ivan,Ivanov,Ivanovich,hello"
 # delimiter = ","
 
+# count = my_string.count(delimiter)
+# # print(f"{count = }")
+# # input()
+# idx = 0
 
-
+# for _ in range(count):
+#     idx_start = idx
+#     idx = my_string.find(delimiter, idx_start) + 1
+#     world = my_string[idx_start:idx-1]
+#     print(world)
+#     print(len(world))
+#     input()
+# else:
+#     world = my_string[idx:]
+#     print(world)
+#     print(len(world))
 
 
 
@@ -37,17 +68,61 @@
 # Дано рядок, який містить довільне речення, слова в якому розділені пробілами.
 # З використанням зрізів знайти і вивести слово, яке має найменшу довжину.
 
-# string = "Дано рядок, який містить довільне речення, слова в якому розділені пробілами. З використанням зрізів знайти і вивести слово, яке має найбільшу довжину."
+# string = "Дано рядок, який містить довільне речення, слова вв якому розділені пробілами. Зз використанням зрізів знайти іі вивести слово, яке має найбільшу довжину. 5"
 # string = string.replace(",", "").replace(".", "")
 # delimiter = " "
 
+# smalest_world = ""
+# smalest_len_world = 7894512
+
+# idx = 0
+# count = string.count(delimiter)
+# for _ in range(count):
+#     idx_start = idx
+#     idx = string.find(delimiter, idx_start) + 1
+#     world = string[idx_start:idx-1]
+
+#     len_world = len(world)
+#     if len_world < smalest_len_world:
+#         smalest_world = world
+#         smalest_len_world = len_world
+# else:
+#     world = string[idx:]
+
+#     len_world = len(world)
+#     if len_world < smalest_len_world:
+#         smalest_world = world
+#         smalest_len_world = len_world
+
+# print(f"Слово '{smalest_world}' має наменшу довжину, яка дорівнює '{smalest_len_world}'")
 
 
+# my_set = set()
+# print(my_set)
+# print(type(my_set))
 
+# my_set = {1, 5, 8}
 
 
 # numbers = [1, 5, 6, 1, 9, 6]
+# print(f"{numbers = }")
 # my_set = set(numbers)
+# print(f"{my_set = }")
+# new_numbers = list(my_set)
+# print(f"{new_numbers = }")
+
+# my_set.add(1)
+# print(f"{my_set = }")
+
+
+string = "Hello world"
+my_list = list(string)
+print(f"{my_list = }")
+my_set = set(string)
+print(f"{my_set = }")
+
+
+
 # # print(len(my_set))
 # my_set.discard(89)
 # print(my_set)
