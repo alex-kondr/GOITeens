@@ -115,15 +115,15 @@
 # print(f"{my_set = }")
 
 
-string = "Hello world"
-my_list = list(string)
-print(f"{my_list = }")
-my_set = set(string)
-print(f"{my_set = }")
+# string = "Hello world"
+# my_list = list(string)
+# print(f"{my_list = }")
+# my_set = set(string)
+# print(f"{my_set = }")
 
 
 
-# # print(len(my_set))
+# print(len(my_set))
 # my_set.discard(89)
 # print(my_set)
 
@@ -134,8 +134,22 @@ print(f"{my_set = }")
 # Вважаючи, що всі номери записані у форматі +38 (код) 111-11-11,
 # порахувати кількість абонентів оператора, що має коди «067», «097», «068»
 
+# vodafone = {"066", "050", "099", "095", "066"}
+# kyivstar = {"067", "096", "097", "098"}
+# lifecell = {"063", "093", "065"}
 
+# number = input(f"Введіть номер телефону у такому форматі: '+38 (067) 111-11-11': ")
+# mobile_code = number[5:8]
+# print(f"{mobile_code = }")
 
+# if mobile_code in vodafone:
+#     print("Ви обслуговуєтесь у оперетора Vodafone")
+# elif mobile_code in kyivstar:
+#     print("Ви обслуговуєтесь у оперетора Kyivstar")
+# elif mobile_code in lifecell:
+#     print("Ви обслуговуєтесь у оперетора Lifecell")
+# else:
+#     print("Невідомий оператор")
 
 
 
@@ -156,19 +170,23 @@ print(f"{my_set = }")
 
 
 ### Видалити елемент з виключенням
-# numbers.remove("o")
-# print(numbers)
+# chars = set("hello")
+# print(chars)
+# chars.remove("d")
+# print(chars)
 
 
 
 
 ### Видалити елемент з множини не викликаючи виключення
-# numbers.discard("d")
-# print(numbers)
+# chars.discard("d")
+# print(chars)
 
-# number = numbers.pop()
-# print(f"{numbers = }")
-# print(f"{number = }")
+# char = chars.pop()
+# print(f"{char = }")
+# char = chars.pop()
+# print(f"{char = }")
+# print(chars)
 
 
 
@@ -186,7 +204,10 @@ print(f"{my_set = }")
 
 # print(f"Список клієнтів, які купили обидва товари: {clients_a & clients_b}")
 # print(f"Список клієнтів, які щось купили: {clients_a | clients_b}")
-# print(f"Список клієнтів, які один із товарів: {clients_a.symmetric_difference(clients_b)}")
+# print(f"Список клієнтів, які купили один із товарів, але не обидва: {clients_a.symmetric_difference(clients_b)}")
+# print(clients_a ^ clients_b)
+# print(clients_a.intersection(clients_b))
+# print(clients_a.union(clients_b))
 
 
 
@@ -196,8 +217,8 @@ print(f"{my_set = }")
 
 
 # Створіть список з чисел від 1 до 10 та використайте зрізи для виводу елементів від другого до п'ятого включно.
-
-
+# numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# print(numbers[1:5])
 
 
 
@@ -217,30 +238,29 @@ print(f"{my_set = }")
 
 # Визначити, чи порядок значень у запропонованому списку є строго зростаючим
 # numbers = [4, 5, 60, 80, 79, 95, 140]
+
+# result = True
 # for i in range(1, len(numbers)):
-#     if numbers[i] < numbers[i-1]:
-#         print("Список не зростаючий")
-#         break
-# else:
-#     print("Список строго зростаючий")
+#     if numbers[i] <= numbers[i-1]:
+#         result = False
 
-
-
-
+# print(f"{result = }")
 
 
 
 # Створіть список зі стрічок та використайте зрізи для виводу останніх трьох символів з кожної стрічки.
 # strings = ["Створіть список", "стрічок та", "зрізи для виводу", "трьох!"]
-# last_chars = [string[-3:] for string in strings if len(string) > 5]
-# print(last_chars)
 
 # for string in strings:
 #     print(string[-3:])
 
+# last_3_chars = []
+# for string in strings:
+#     last_3_chars.append(string[-3:])
 
+# last_3_chars = [string[-3:] for string in strings]
 
-
+# print(last_3_chars)
 
 
 
