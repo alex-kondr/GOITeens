@@ -1,4 +1,11 @@
 # import random
+# import math
+# import datetime
+# import time
+
+# import matplotlib.pyplot as plt
+
+# import my_module
 
 
 # print(random.sample([1, 2, 6]))
@@ -6,16 +13,18 @@
 
 
 
-# # from random import sample, choice, choices
+# from random import sample, choice, choices
 
 
-# # sample([], k=1)
+# sample([], k=1)
 
 
 
 # from random import *
+# from my_module_1 import *
+# from my_module_2 import *
 
-# add([1, 2], k=1)
+# shuffle([1, 2], k=1)
 
 
 
@@ -51,13 +60,13 @@
 
 
 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
-from my_data import X, Y
+# import my_data
 
 
-plt.plot(X, Y)
-plt.show()
+# plt.plot(my_data.x_coordination(), my_data.y_coordination())
+# plt.show()
 
 # import numpy as np
 
@@ -88,8 +97,15 @@ plt.show()
 
 
 # Створити власний модуль my_math.py, який містить функції add(x, y) та subtract(x, y).
-# Імпортувати модуль та використати ці функції для додавання та віднімання чисел.
+# # Імпортувати модуль та використати ці функції для додавання та віднімання чисел.
+# import my_math
 
+
+# if __name__ == "__main__":
+#     result_add = my_math.add(41, 5)
+#     print(f"{result_add = }")
+#     result_sub = my_math.subtract(41, 5)
+#     print(f"{result_sub = }")
 
 
 
@@ -99,9 +115,15 @@ plt.show()
 
 # Створити власний модуль my_geometry.py, який містить функції circle_area(radius)
 # та rectangle_area(width, height).
-# Імпортувати модуль та використати ці функції для обчислення площі кола та прямокутника.
+# Імпортувати модуль та використати ці функції для обчислення площі круга та прямокутника.
+import my_geometry
 
 
+circle_area = my_geometry.circle_area(12)
+print(f"{circle_area = }")
+
+rectangle_area = my_geometry.rectangle_area(4, 5)
+print(f"{rectangle_area = }")
 
 
 
