@@ -85,8 +85,8 @@ while True:
         if is_upper == "1":
             chars_for_pass += string.ascii_uppercase
 
-        is_punctuatio = input("Чи використовувати спецсимволи (1 - так, будь який інший символ - ні)? ")
-        if is_punctuatio == "1":
+        is_punctuation = input("Чи використовувати спецсимволи (1 - так, будь який інший символ - ні)? ")
+        if is_punctuation == "1":
             chars_for_pass += string.punctuation
 
         len_pass = input("Введіть довжину пароля (не менше 8) або залишити за замовчуванням (8 символів): ")

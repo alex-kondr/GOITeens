@@ -1,4 +1,8 @@
-products = [
+import string
+import random
+
+
+PRODUCTS = [
     "Гречка",
     "Макарони",
     "Спагеті",
@@ -21,9 +25,11 @@ products = [
     "Кава"
 ]
 
-products_sold = []
+PRODUCTS_SOLD = []
 
-commands = [
+PASSWORD = ""
+
+COMMANDS = [
     "1. Показати список наявних товарів",
     "2. Додати новий товар до списку",
     "3. Додати список товарів",
@@ -40,14 +46,71 @@ commands = [
     "14. Знайти продукти, які є паліндромами"            ################################
 ]
 
-while True:
-    for command in commands:
+while not PASSWORD:
+    command = input("Потрібно створити пароль для можливості працювати в системі.\n"
+                    "Введіть 1 - для введення свого паролю.\n"
+                    "Введіть 2 - для автоматичної генерації паролю\n-> ")
+
+    if command == "1":
+        password = input("Введіть свій пароль. Довжина паролю має бути не менше 8 символіd, містити мінім одна буква та одну цифру.\n-> ")
+
+        if len(password) >= 8:
+            is_len_pass = True
+        else:
+            is_len_pass = False
+
+        is_have_digit = False
+        is_have_char = False
+
+        for char in password:
+            if char.isalpha():
+                is_have_char = True
+            elif char.isdigit():
+                is_have_digit = True
+
+        if is_len_pass and is_have_digit and is_have_char:
+            PASSWORD = password
+        else:
+            input("Ваш пароль не пройшов перевірку. Спробуйте ще раз. 'Enter' для проовження ")
+
+    elif command == "2":
+        string_password = string.ascii_lowercase + string.digits
+
+        len_password = input("Введіть довжину паролю, мінім 8 символів: ")
+        if len_password.isdigit() and int(len_password) > 8:
+            len_password = int(len_password)
+        else:
+            len_password = 8
+
+        is_upper = input("Чи використовувати великі літери для генерації паролю: 1 - так, будь який інший символ - ні -> ")
+        if is_upper == "1":
+            string_password += string.ascii_uppercase
+
+        is_punctuation = input("Чи використовувати спецсимволи для генерації паролю: 1 - так, будь який інший символ - ні -> ")
+        if is_punctuation == "1":
+            string_password += string.punctuation
+
+        is_repeat = input("Чи можуть символи у паролю повторюватись. 1 - так, будь який інший символ - ні -> ")
+        if is_repeat == "1":
+            password = random.choices(string_password, k=len_password)
+        else:
+            password = random.sample(string_password, k=len_password)
+
+        PASSWORD = "".join(password)
+
+else:
+    input(f"\nПароль успішно створено: '{PASSWORD}'. Запам'ятайте його. 'Enter' для продовження ")
+
+password = input("\nВведіть пароль для входу у систему: ")
+
+while password == PASSWORD:
+    for command in COMMANDS:
         print(command)
 
     command = input("\nВведіть номер команди: ")
 
     if command == "1":
-        for i, product in enumerate(products, start=1):
+        for i, product in enumerate(PRODUCTS, start=1):
             print(f"{i}: {product}")
 
         input("\nНатисніть 'enter' для продовження\n")
@@ -55,22 +118,22 @@ while True:
     elif command == "2":
         product = input("\nВведіть новий товар для додавання до списку: ")
 
-        if product in products:
+        if product in PRODUCTS:
             input("\nТакий товар вже доданий\nНатисніть 'enter' для продовження\n")
         else:
-            products.append(product)
+            PRODUCTS.append(product)
             input("\nНовий товар доданий до списку\nНатисніть 'enter' для продовження\n")
 
     elif command == "3":
         prods = input("\nВведіть список товарів через пробіл:\n").split()
-        products.extend(prods)
+        PRODUCTS.extend(prods)
         input("\nСписок продуктів розширено\nНатисніть 'enter' для продовження\n")
 
     elif command == "4":
         product = input("Введіть назву товару для видалення: ")
 
-        if product in products:
-            products.remove(product)
+        if product in PRODUCTS:
+            PRODUCTS.remove(product)
             input(f"\nТовар '{product}' видалено зі списку\nНатисніть 'enter' для продовження\n")
         else:
             input(f"\nТовар '{product}' відсутній у списку\nНатисніть 'enter' для продовження\n")
@@ -78,14 +141,14 @@ while True:
     elif command == "5":
         number = input("Введіть номер товару для видалення: ")
 
-        if number.isdigit() and 0 < int(number) <= len(products):
-            product = products.pop(int(number) - 1)
+        if number.isdigit() and 0 < int(number) <= len(PRODUCTS):
+            product = PRODUCTS.pop(int(number) - 1)
             input(f"\nТовар '{product}' видалено зі списку\nНатисніть 'enter' для продовження\n")
         else:
             input("\nВвели невірний номер")
 
     elif command == "6":
-        prods = sorted(products)
+        prods = sorted(PRODUCTS)
 
         for i, prod in enumerate(prods, start=1):
             print(f"{i}: {prod}")
@@ -95,9 +158,9 @@ while True:
     elif command == "7":
         product = input("Введіть товар для продажу: ")
 
-        if product in products:
-            products.remove(product)
-            products_sold.append(product)
+        if product in PRODUCTS:
+            PRODUCTS.remove(product)
+            PRODUCTS_SOLD.append(product)
             input(f"Товар '{product}' продано\nНатисніть 'enter' для продовження\n")
         else:
             input(f"Товар '{product}' відсутній у списку")
@@ -105,21 +168,21 @@ while True:
     elif command == "8":
         product = input("Введіть назву товару для пошуку: ")
 
-        if product in products:
-            index = products.index(product)
+        if product in PRODUCTS:
+            index = PRODUCTS.index(product)
             input(f"\nТовар '{product}' знаходить під номер '{index + 1}'\nНатисніть 'enter' для продовження\n")
         else:
             input(f"\nТовар '{product}' відсутній у списку")
 
     elif command == "9":
         print("\nСписок проданий товарів\n")
-        for i, product in enumerate(products_sold, start=1):
+        for i, product in enumerate(PRODUCTS_SOLD, start=1):
             print(f"{i}: {product}")
 
         input("\nНатисніть 'enter' для продовження\n")
 
     elif command == "10":
-        prods_sold = products_sold[::-1]
+        prods_sold = PRODUCTS_SOLD[::-1]
 
         if not prods_sold:
             input("\nСписок проданих товарів порожній\n")
@@ -133,3 +196,6 @@ while True:
     elif command =="11":
         print("\nДякую що були з нами. Чекаємо наступної зустрічі.\n")
         break
+
+else:
+    print("\nПароль введено не вірно. Доступ заборонено.")
