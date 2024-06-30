@@ -22,12 +22,14 @@ PRODUCTS = [
     "Оцет",
     "Сода",
     "Чай",
-    "Кава"
+    "Кава",
+    "Око",
+    "Зараз"
 ]
 
 PRODUCTS_SOLD = []
-
 PASSWORD = ""
+REVIEWS = ["Чудове обслуговування", "Такий собі продуктовий магазин", "свіжі товари", "не свіжі товари", "Чудовий магазин,не один раз вже тут купую продукти"]
 
 COMMANDS = [
     "1. Показати список наявних товарів",
@@ -43,8 +45,12 @@ COMMANDS = [
     "11. Вийти з програми",
     "12. Написати відгук",         ######################################
     "13. Знайти групи символів, які повторюються (використовуючи всі відгуки)",    ############################
-    "14. Знайти продукти, які є паліндромами"            ################################
+    "14. Знайти назви продуктів, які є паліндромами",            ################################
+    "15. Показати відгуки"                               ###############################
 ]
+
+DELIMITER = "-" * 28
+TEMPLATE = "|{:<5}|{:<20}|"
 
 while not PASSWORD:
     command = input("Потрібно створити пароль для можливості працювати в системі.\n"
@@ -103,15 +109,22 @@ else:
 
 password = input("\nВведіть пароль для входу у систему: ")
 
+command = ""
 while password == PASSWORD:
+    if not command:
+        print("Доброго дня. Вітаємо в нашій інформаційній системі")
+
     for command in COMMANDS:
         print(command)
 
     command = input("\nВведіть номер команди: ")
 
     if command == "1":
+        print(DELIMITER)
         for i, product in enumerate(PRODUCTS, start=1):
-            print(f"{i}: {product}")
+            print(TEMPLATE.format(i, product))
+        else:
+            print(DELIMITER)
 
         input("\nНатисніть 'enter' для продовження\n")
 
@@ -193,9 +206,41 @@ while password == PASSWORD:
 
         input("\nНатисніть 'enter' для продовження\n")
 
-    elif command =="11":
+    elif command == "11":
         print("\nДякую що були з нами. Чекаємо наступної зустрічі.\n")
         break
+
+    elif command == "12":
+        review = input("Введіть свій відгук: ")
+        REVIEWS.append(review)
+        input("\nВаш відгук додано до системи.\nНатисніть 'enter' для продовження ")
+
+    elif command == "13":
+        reviews = " ".join(REVIEWS).lower()
+
+        # repeated_chars = {reviews[i:j] for i in range(len(reviews)) for j in range(i+1, len(reviews)) if reviews.count(reviews[i:j]) >= 2}
+
+        repeated_chars = set()
+        for i in range(len(reviews)):
+            for j in range(i+1, len(reviews)):
+                if reviews.count(reviews[i:j]) >= 2:
+                    repeated_chars.add(reviews[i:j])
+
+        input(f"\nГрупи символів, які повторююьюся не менше 2-х разів:\n{repeated_chars}\nНатисніть 'enter' для продовження ")
+
+    elif command == "14":
+        palin_prod = [product for product in PRODUCTS if product.lower() == product.lower()[::-1]]
+
+        # palin_prod = []
+        # for product in PRODUCTS:
+        #     if product.lower() == product.lower()[::-1]:
+        #         palin_prod.append(product)
+
+        input(f"Слова-паліндроми:\n{palin_prod}\nНатисніть 'enter' для продовження ")
+
+    elif command == "15":
+        for review in REVIEWS:
+            print(review)
 
 else:
     print("\nПароль введено не вірно. Доступ заборонено.")
