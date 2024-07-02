@@ -1,4 +1,7 @@
 # fh = open("hello", "r", encoding="utf-8")
+# pass
+# pass
+# fh.close()
 # fh = open("hello", "r+")
 # fh = open("hello", "w")
 # fh = open("hello", "w+")
@@ -45,11 +48,28 @@
 #     # print(fh.readlines())
 #     fh.seek(3)
 #     fh.read()
-    
+# with open("file.txt", "r", encoding="utf-8") as fh:
+#     for line in fh.readlines():
+#         pass
+
+products = []
+with open("dir/file.txt", "a", encoding="utf-8") as fh:
+    fh.writelines(products)
+    for product in products:
+        fh.write(product + "\n")
 
 
+# with open("file.bin", "rb") as fh:
+#     pass
 
+# with open("file.bin", "wb") as fh:
+#     pass
 
+# def my_func(1, 2, 3) -> str:
+#     pass
+
+# def my_func(1, 2, 3) -> str:
+#    return
 
 
 # Напишіть програму, яка зчитує вміст файлу "input.txt"
@@ -62,6 +82,12 @@
 # with open("output.txt", "w", encoding="utf-8") as fh:
 #     fh.writelines(strings)
 
+
+with open("input.txt", "r", encoding="utf-8") as fh:
+    file = fh.read()
+
+with open("output.txt", "w", encoding="utf-8") as fh:
+    fh.write(file[::-1])
 
 
 # Реалізуйте програму, яка зчитує вміст файла "input.txt"
