@@ -1,0 +1,6 @@
+products = "files/products.txt"
+products_sold = "files/products_sold.txt"
+reviews = "files/reviews.txt"
+employees = "files/employees.json"
+log = "files/log.txt"
+using_commands = "files/using_commands.json"
