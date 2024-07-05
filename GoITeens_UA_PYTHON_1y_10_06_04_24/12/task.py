@@ -1,6 +1,80 @@
+# empty_dict = dict()
+# print(type(empty_dict))
+# empty_dict = {1,}
+# print(type(empty_dict))
+
+# my_dict = {"first_name": "alex", "last_name": "kondr"}
+# print(len(my_dict))
+
+# print(my_dict["name"])
+
+# name = my_dict.get("name", 789)
+# print(f"{name = }")
+
+
+month = {
+    1: "Січень",
+    2: "Лютий",
+    3: "Березень"
+}
+
+# new_month = month.copy()
+# new_month[5] = "Травень"
+# print(f"{new_month = }")
+# print(f"{month = }")
+
+# month.clear()
+# print(month)
+
+# get_month = month.pop(2)
+# print(get_month)
+# print(month)
+
+# del month[9]
+# print(month)
+
+# # month[4] = "Квітень"
+# # month[7] = "Липень"
+
+# print(month)
+
+# # month[3] = "Грудень"
+
+
+# new_month = {2: "Квітень", 7: "Липень"}
+
+# month.update(new_month)
+# print(month)
+
+# now_month = month.get(5, "Назва місяці з таким номером ще не записана")
+# print(now_month)
+
+
+
+
+
+# Створити словник з назвами кольорів та їх RGB кодами у форматі (R, G, B).
+# Запитати у користувача назву кольору.
+# Вивести на екран RGB код введеного користувачем кольору. Інакше - вивести “Колір не знайдено”.
+
+# (255, 45, 8)
+
+
+
+
+
 # Створіть словник з переліком фруктів та їх калорійністю.
 # Виведіть на екран калорійність вашого улюбленого фрукту.
 
+# fruits = {
+#     "Яблоко": 100,
+#     "Банан": 213,
+#     "Ананас": 421
+# }
+
+# fruit = input("Введіть назву фрукту, калорійність якого Ви хочете дізнатись: ")
+# calory = fruits.get(fruit, "Такий фрукт не знайдено")
+# print(calory)
 
 
 
@@ -8,13 +82,34 @@
 # Створіть словник з іменами та віком декількох людей.
 # Виведіть на екран найстаршу людину.
 
+# people = {
+#     "Алекс": 44,
+#     "Влад": 14,
+#     "Артем": 13,
+#     "Микола": 14
+# }
+
+# find_name = ""
+# max_age = 100
+
+# for name in people:
+# for name in people.keys():
+# for age in people.values():
+
+# for name, age in people.items():
+#     if age < max_age:
+#         find_name = name
+#         max_age = age
+
+# print(f"Людина з ім'ям '{find_name}' наймолодша та її вік {max_age} р.")
 
 
 
 
 # Створіть список з чисел від 1 до 10 та використайте зрізи для виводу елементів від другого до п'ятого включно.
 
-
+numbers = list(range(1, 11))
+print(numbers[1:5])
 
 
 
@@ -76,7 +171,7 @@
 # чи є вони анаграмами (слова, у яких ті самі літери, але в різному порядку).
 # Виведіть результат у вигляді логічного значення (True або False).
 
-##################################
+
 
 
 
