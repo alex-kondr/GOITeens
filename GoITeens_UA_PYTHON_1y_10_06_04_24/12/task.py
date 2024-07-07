@@ -1,12 +1,12 @@
 # empty_dict = dict()
 # print(type(empty_dict))
-# empty_dict = {1,}
+# my_set = {1,}
 # print(type(empty_dict))
 
 # my_dict = {"first_name": "alex", "last_name": "kondr"}
-# print(len(my_dict))
+# # print(len(my_dict))
 
-# print(my_dict["name"])
+# # print(my_dict["name"])
 
 # name = my_dict.get("name", 789)
 # print(f"{name = }")
@@ -33,8 +33,8 @@ month = {
 # del month[9]
 # print(month)
 
-# # month[4] = "Квітень"
-# # month[7] = "Липень"
+# month[4] = "Квітень"
+# month[7] = "Липень"
 
 # print(month)
 
@@ -108,8 +108,8 @@ month = {
 
 # Створіть список з чисел від 1 до 10 та використайте зрізи для виводу елементів від другого до п'ятого включно.
 
-numbers = list(range(1, 11))
-print(numbers[1:5])
+# numbers = list(range(1, 11))
+# print(numbers[1:5])
 
 
 
@@ -123,18 +123,28 @@ print(numbers[1:5])
 
 
 
+
+
+
+
+
 # Створіть словник з назвами міст та їх кількістю населення.
 # Виведіть на екран назву міста з найбільшою кількістю населення.
+# cities = {'Київ': 2.884,'Харків': 1.419, 'Одеса': 1.010, 'Дніпро': 0.968, 'Львів': 0.717}
+# count = sum(cities.values())
+# print(count)
 
-
-
-
+# avg = sum(cities.values()) / len(cities)
+# print(f"{avg}")
 
 
 # Напишіть програму, яка об'єднує два словники в один.
 # Ключі та значення в обох словниках повинні бути різними.
+# cities_1 = {'Київ': 2.884,'Харків': 1.419, 'Одеса': 1.010}
+# cities_2 = {'Дніпро': 0.968, 'Львів': 0.717}
 
-
+# cities_1.update(cities_2)
+# print(cities_1)
 
 
 
@@ -222,11 +232,7 @@ print(numbers[1:5])
 
 
 
-
 # Створіть множину та перевірте, чи є вона підмножиною іншої множини.
-
-
-
 
 
 
