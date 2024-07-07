@@ -22,11 +22,23 @@ from functions.employees import (
     change_position
 )
 from functions.password import is_verify_password, generate_password
-from files import list_files
 from functions import open_files, close_files
 
 
-def exit() -> None:
+def exit(
+    products: list,
+    log: list,
+    employees: dict,
+    products_sold: list,
+    using_commands: dict,
+    reviews: list) -> None:
+
+    close_files.save_products(products)
+    close_files.save_log(log)
+    close_files.save_employees(employees)
+    close_files.save_products_sold(products_sold)
+    close_files.save_using_commands(using_commands)
+    close_files.save_reviews(reviews)
     print("До побачення")
     quit()
 
@@ -49,27 +61,12 @@ def unknown_command() -> None:
 
 def main():
     login = input("Введіть свій логін: ")
-    employees = {
-        "andrew": {
-            "position": "Менеджер",
-            "salary": 30000,
-            "start_date": "22.02.2024",
-            "name": "Андрій",
-            "password": "1234567a"
-        },
-        "dima": {
-            "position": "Продавець",
-            "salary": 14000,
-            "start_date": "10.03.2024",
-            "name": "Дмитро",
-            "password": "1234567b"
-        }
-    }
+    employees = open_files.employees
     password = employees.get(login, {}).get("password", "")
 
     while not password:
         position = input("Введіть посаду працівника: ")
-        salary = input("Введіть ЗП: ")
+        salary = int(input("Введіть ЗП: "))
         name = input("Введіть ім'я працівника: ")
 
         employees[login] = {
@@ -114,10 +111,10 @@ def main():
 
     input(f"Ваш пароль '{password}'. Запам'ятайте його. Натисніть 'enter' для продовження\n")
     products = open_files.products
-    products_sold = []
+    products_sold = open_files.products_sold
     log = open_files.log
-    using_commands = {}
-    reviews = []
+    using_commands = open_files.using_commands
+    reviews = open_files.reviews
 
     password_input = input("Введіть пароль для входу в систему: ")
 
@@ -153,8 +150,7 @@ def main():
             case "show history":
                 show_history(products_sold)
             case "exit":
-                close_files.save_progres(products, log)
-                exit()
+                exit(products, log, employees, products_sold, using_commands, reviews)
             case "add review":
                 reviews = add_review(reviews)
             case "find dublicate char":

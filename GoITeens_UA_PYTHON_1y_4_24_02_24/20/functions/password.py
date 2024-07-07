@@ -13,7 +13,7 @@ def is_verify_password(password: str) -> bool:
         elif char.isdigit():
             pass_digit = True
 
-    return True if all(pass_len, pass_alpha, pass_digit) else False
+    return True if all([pass_len, pass_alpha, pass_digit]) else False
 
 
 def generate_password(
