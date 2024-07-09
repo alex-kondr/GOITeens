@@ -24,6 +24,7 @@ from functions.employees import (
 from functions.password import is_verify_password, generate_password
 from functions.reviews import add_review, find_repeated_chars
 from files import list_files
+from functions import open_files, save_files
 
 
 def help():
@@ -37,7 +38,7 @@ def exit() -> None:
 
 
 def show_log(log: list) -> None:
-    pprint(log)
+    pprint(log, width=200)
 
 
 def show_most_using_commands(most_using_command: dict) -> None:
@@ -49,29 +50,12 @@ def unknowing_command() -> None:
 
 
 def main():
-    products = [
-
-]
-    products_sold = []
-    reviews = ["Дуже гарний товар", "ПРОДУКТИ НЕ ДУЖЕ", "дуже погане ставлення від працівників", "Якість товарів просто супер", "Дуже погана як", "Великий асортимент", "Я БІЛЬШЕ СЮДИ НЕ ПОВЕРНУСЬ!!!", "Мені сподобався Ваш магазин", "Якість Во👍", "Боже, яке кчне...💅"]
-    employees = {
-        "andrew": {
-            "position": "Менеджер",
-            "salary": "30000",
-            "start_date": "22.02.2024",
-            "name": "Андрій",
-            "password": "1234567a"
-        },
-        "dima": {
-            "position": "Продавець",
-            "salary": "14000",
-            "start_date": "10.03.2024",
-            "name": "Дмитро",
-            "password": "1234567b"
-        }
-    }
-    log = []
-    most_using_command = {}
+    products = open_files.products
+    products_sold = open_files.products_sold
+    reviews = open_files.reviews
+    employees = open_files.employees
+    log = open_files.log
+    most_using_command = open_files.most_using_command
 
     user_name = input("Введіть свій логін: ")
     pass_word = employees.get(user_name, {}).get("password", "")
@@ -126,7 +110,7 @@ def main():
             log.append(f"Користувач з логіном '{user_name}' увійшов у систему: {datetime.now()}")
             print("Доброго дня. Вітаємо в нашій інформаційній системі")
 
-        command = input("Введіть номер команди: ")
+        command = input("Введіть команду (help для допомоги): ")
         log.append(f"Користувач з логіном '{user_name}' ввів команду {command}: {datetime.now()}")
 
         if command in most_using_command:
@@ -156,6 +140,12 @@ def main():
             case "show sales history":
                 show_sales_history(products_sold)
             case "exit":
+                save_files.save_products(products)
+                save_files.save_employees(employees)
+                save_files.save_log(log)
+                save_files.save_most_using_command(most_using_command)
+                save_files.save_products_sold(products_sold)
+                save_files.save_reviews(reviews)
                 exit()
             case "add review":
                 reviews = add_review(reviews)
@@ -177,6 +167,8 @@ def main():
                 show_log(log)
             case "show most using commands":
                 show_most_using_commands(most_using_command)
+            case "help":
+                help()
             case _:
                 unknowing_command()
 
