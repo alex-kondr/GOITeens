@@ -7,6 +7,8 @@ from aiogram.types import Message
 from aiogram.utils.markdown import hbold
 from aiogram.client.default import DefaultBotProperties
 
+from .routers import film_router #Імпорт роутера логіки з фільмами
+
 
 # Завантажимо дані середовища з файлу .env(За замовчуванням)
 load_dotenv()
@@ -14,6 +16,7 @@ load_dotenv()
 
 # Усі обробники варто закріплювати за Router або Dispatcher
 root_router = Router()
+root_router.include_routers(film_router) #Включення роутера в головний
 
 
 # Обробник для команди /start
