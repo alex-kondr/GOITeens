@@ -3,10 +3,11 @@ from aiogram.fsm.context import FSMContext
 from aiogram.filters import Command
 from aiogram.types import Message, CallbackQuery
 from aiogram.utils.markdown import hbold
+from aiogram.types.reply_keyboard_remove import ReplyKeyboardRemove
 
 from ..data import get_films, get_film, save_film
 from ..fsm import FilmCreateForm
-from ..keyboards import build_films_keyboard
+from ..keyboards import build_films_keyboard, build_menu_keyboard, build_film_details_keyboard
 
 
 film_router = Router()
@@ -58,8 +59,6 @@ async def procees_title(message: Message, state: FSMContext) -> None:
    await edit_or_answer(message, "Який опис фільму?", ReplyKeyboardRemove())
 
 
-
-
 @film_router.message(FilmCreateForm.desc)
 async def procees_desctription(message: Message, state: FSMContext) -> None:
    data = await state.update_data(desc=message.text)
@@ -89,7 +88,6 @@ async def procees_photo_binary(message: Message, state: FSMContext) -> None:
    photo = message.photo[-1]
    photo_id = photo.file_id
 
-
    data = await state.update_data(photo=photo_id)
    await state.set_state(FilmCreateForm.rating)
    await edit_or_answer(
@@ -97,3 +95,8 @@ async def procees_photo_binary(message: Message, state: FSMContext) -> None:
        f"Надайте рейтинг фільму: {hbold(data.get('title'))}",
        ReplyKeyboardRemove(),
    )
+
+
+@film_router.callback_query(F.data == "back")
+async def back_handler(callback: CallbackQuery, state: FSMContext) -> None:
+   return await show_films_command(callback.message, state)
