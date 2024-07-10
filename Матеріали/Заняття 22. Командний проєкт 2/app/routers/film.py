@@ -1,9 +1,8 @@
 from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
 from aiogram.filters import Command
-from aiogram.types import Message, CallbackQuery
+from aiogram.types import Message, CallbackQuery, ReplyKeyboardRemove
 from aiogram.utils.markdown import hbold
-from aiogram.types.reply_keyboard_remove import ReplyKeyboardRemove
 
 from ..data import get_films, get_film, save_film
 from ..fsm import FilmCreateForm
@@ -95,6 +94,14 @@ async def procees_photo_binary(message: Message, state: FSMContext) -> None:
        f"Надайте рейтинг фільму: {hbold(data.get('title'))}",
        ReplyKeyboardRemove(),
    )
+
+
+@film_router.message(FilmCreateForm.rating)
+async def procees_rating(message: Message, state: FSMContext) -> None:
+   data = await state.update_data(rating=message.text)
+   await state.clear()
+   save_film(data)
+   return await show_films_command(message, state)
 
 
 @film_router.callback_query(F.data == "back")
