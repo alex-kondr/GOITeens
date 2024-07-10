@@ -11,7 +11,8 @@ from aiogram.types import Message
 from aiogram.utils.markdown import hbold
 from aiogram.client.default import DefaultBotProperties
 
-from routers.products import product_router #Імпорт роутера логіки з фільмами
+from routers.products import product_router #Імпорт роутера логіки з товарами
+from files import list_files
 
 
 # Завантажимо дані середовища з файлу .env(За замовчуванням)
@@ -26,7 +27,13 @@ root_router.include_routers(product_router) #Включення роутера �
 # Обробник для команди /start
 @root_router.message(CommandStart())
 async def command_start_handler(message: Message) -> None:
-   await message.answer(f"Вітаю, {hbold(message.from_user.full_name)}!")
+   with open(list_files.help, "r", encoding="utf-8") as fh:
+        help = fh.read()
+
+   await message.answer(
+      f"Вітаю, {hbold(message.from_user.full_name)}!\n"
+      f"\nКоманди які підтримує цей бот\n\n{help}"
+      )
 
 
 # Головна функція пакету
