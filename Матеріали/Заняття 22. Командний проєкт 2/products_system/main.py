@@ -6,14 +6,13 @@ import sys
 
 from aiogram import Bot, Dispatcher, Router
 from aiogram.enums import ParseMode
+from aiogram.client.default import DefaultBotProperties
 from aiogram.filters import CommandStart
 from aiogram.types import Message
-from aiogram.utils.markdown import hbold
-from aiogram.client.default import DefaultBotProperties
 
 from routers.products import product_router #Імпорт роутера логіки з товарами
-from files import list_files
-
+from functions import open_files
+from keyboards.products import build_global_menu
 
 # Завантажимо дані середовища з файлу .env(За замовчуванням)
 load_dotenv()
@@ -27,14 +26,18 @@ root_router.include_routers(product_router) #Включення роутера �
 # Обробник для команди /start
 @root_router.message(CommandStart())
 async def command_start_handler(message: Message) -> None:
-   with open(list_files.help, "r", encoding="utf-8") as fh:
-        help = fh.read()
-
-   await message.answer(
-      f"Вітаю, {hbold(message.from_user.full_name)}!\n"
-      f"\nКоманди які підтримує цей бот\n\n{help}"
-      )
-
+    products = open_files.products
+    keyboard = build_global_menu()
+   #  keyboard = build_products_keyboard(products)
+    text = (
+      #   f"Вітаю, {hbold(message.from_user.full_name)}, в інформаційній системі продуктового магазину!\n"
+        "\nОсь список товарів доступних для продажу:"
+    )
+    # await edit_or_answer(
+    await message.answer(
+        text="Список товарів",
+        reply_markup=keyboard
+    )
 
 # Головна функція пакету
 async def main() -> None:

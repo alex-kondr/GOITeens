@@ -1,32 +1,51 @@
 from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
-from aiogram.filters import Command
+from aiogram.filters import Command, CommandStart
 from aiogram.types import Message, CallbackQuery, ReplyKeyboardRemove
 from aiogram.utils.markdown import hbold
 
 from functions import open_files
-from keyboards.products import build_products_keyboard, build_product_action
+from keyboards.products import build_global_menu, build_products_keyboard, build_product_action
 from functions import products as funcs_prods
 
 
 product_router = Router()
 
 
-@product_router.message(Command("products"))
-@product_router.message(F.text.casefold() == "товари")
+# # Обробник для команди /start
+# @product_router.message(CommandStart())
+# async def command_start_handler(message: Message) -> None:
+#     products = open_files.products
+#     # keyboard = build_global_menu()
+#     keyboard = build_products_keyboard(products)
+#     text = (
+#         f"Вітаю, {hbold(message.from_user.full_name)}, в інформаційній системі продуктового магазину!\n"
+#         "\nОсь список товарів доступних для продажу:"
+#     )
+#     # await edit_or_answer(
+#     await message.answer(
+#         text="Список товарів",
+#         reply_markup=keyboard
+#     )
+
+
+# @product_router.message(Command("products"))
+# @product_router.message(F.text.casefold() == "товари")
+@product_router.callback_query(F.data == "products")
 async def show_all_prods(message: Message, state: FSMContext) -> None:
     products = open_files.products
     keyboard = build_products_keyboard(products)
-    await edit_or_answer(
-        message,
-        "Список товарів",
-        keyboard,
-        ReplyKeyboardRemove()
-    )
-    # await message.answer(
-    #     text="Список товарів",
-    #     reply_markup=keyboard,
+    # print(keyboard)
+    # await edit_or_answer(
+    #     message,
+    #     "Список товарів",
+    #     keyboard,
+    #     # ReplyKeyboardRemove()
     # )
+    await message.answer(
+        text="Список товарів",
+        reply_markup=keyboard,
+    )
 
 
 @product_router.callback_query(F.data.startswith("product_"))
