@@ -4,9 +4,8 @@ from files import list_files
 
 
 def save_products(products: list) -> None:
-    products = [f"{product}\n" for product in products]
     with open(list_files.products, "w", encoding="utf-8") as fh:
-        fh.writelines(products)
+        json.dump(products, fh, indent=4)
 
 
 def save_reviews(reviews: list) -> None:

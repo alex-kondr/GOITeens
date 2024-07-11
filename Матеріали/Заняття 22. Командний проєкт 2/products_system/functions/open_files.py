@@ -5,12 +5,11 @@ from files import list_files
 
 
 if not os.path.exists(list_files.products):
-    with open(list_files.products, "w", encoding="utf-8"):
-        pass
+    with open(list_files.products, "w", encoding="utf-8") as fh:
+        json.dump([], fh)
 
 with open(list_files.products, "r", encoding="utf-8") as fh:
-    products = fh.readlines()
-    products = [product.strip() for product in products]
+    products = json.load(fh)
 
 if not os.path.exists(list_files.reviews):
     with open(list_files.reviews, "w", encoding="utf-8"):

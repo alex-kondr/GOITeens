@@ -1,3 +1,6 @@
+from functions import save_files, open_files
+
+
 def show_all_prods(products: list) -> None:
     template = "|{:^5}|{:<30}|"
     delimiter = "—" * 38
@@ -20,7 +23,7 @@ def add_prod(products: list) -> list:
     else:
         print("\nТакий товар вже є у списку")
 
-    return products
+    # save_products((products))
 
 
 def add_prods(products: list) -> list:
@@ -31,8 +34,8 @@ def add_prods(products: list) -> list:
     return products
 
 
-def del_prod_by_name(products: list) -> list:
-    product = input("Введіть назву товару для видалення зі списку товарів: ")
+def del_prod_by_name(product: list) -> list:
+    products = open_files.products
 
     if product in products:
         products.remove(product)
@@ -40,7 +43,7 @@ def del_prod_by_name(products: list) -> list:
     else:
         print("\nТакого товару немає у списку")
 
-    return products
+    save_files.save_products((products))
 
 
 def del_prod_by_numb(products: list) -> list:
