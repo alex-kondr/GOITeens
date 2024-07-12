@@ -1,17 +1,6 @@
+from log.log import bot_log
+
 from functions import save_files, open_files
-
-
-def show_all_prods(products: list) -> None:
-    template = "|{:^5}|{:<30}|"
-    delimiter = "—" * 38
-    head = template.format("№", "Назва товару")
-    print(delimiter)
-    print(head)
-    print(delimiter)
-    for i, product in enumerate(products, start=1):
-        print(template.format(i, product))
-
-    print(delimiter)
 
 
 def add_prod(products: list) -> list:
@@ -26,65 +15,31 @@ def add_prod(products: list) -> list:
     # save_products((products))
 
 
-def add_prods(products: list) -> list:
-    prods = input("Введіть список товар для додавання через пробіл\n-> ")
-    prods = prods.split()
-    products.extend(prods)
-    print("\nСписок товарів розширено")
-    return products
-
-
-def del_prod_by_name(product: list) -> list:
+def del_prod_by_name(product: list) -> None:
     products = open_files.products
 
     if product in products:
         products.remove(product)
-        print(f"\nТовар '{product}' видалено зі списку")
+        bot_log(f"\nТовар '{product}' видалено зі списку")
     else:
-        print("\nТакого товару немає у списку")
+        bot_log("\nТакого товару немає у списку")
 
     save_files.save_products((products))
 
 
-def del_prod_by_numb(products: list) -> list:
-    index = input("Введіть номер товару для видалення: ")
-
-    if index and index.isdigit() and 0 < int(index) <= len(products):
-        product = products.pop(int(index) - 1)
-        print(f"Товар '{product}' видалено")
-    else:
-        print("Ви ввели не вірний номер товару")
-
-    return products
-
-
-def show_sorted_prods(products: list) -> None:
-    prods = sorted(products)
-    for product in prods:
-        print(product)
-
-
-def sold_prod(products: list, products_sold: list) -> tuple[list, list]:
-    product = input("Введіть назву товару для продажу: ")
+def sold_prod(product) -> None:
+    products = open_files.products
+    products_sold = open_files.products_sold
 
     if product in products:
         products.remove(product)
         products_sold.append(product)
-        print(f"\nТовар '{product}' продано. Натисніть 'Enter' для продовження ")
+        bot_log(f"\nТовар '{product}' продано. Натисніть 'Enter' для продовження ")
     else:
-        print("\nТакого товару немає у списку. Натисніть 'Enter' для продовження ")
+        bot_log("\nТакого товару немає у списку. Натисніть 'Enter' для продовження ")
 
-    return products, products_sold
-
-
-def find_numb_prod_by_name(products: list) -> None:
-    product = input("Введіть назву товару для пошуку: ")
-
-    if product in products:
-        index = products.index(product)
-        print(f"Товар '{product}' знаходиться під номером {index + 1}.")
-    else:
-        print("\nТакого товару немає у списку.")
+    save_files.save_products(products)
+    save_files.save_products_sold(products_sold)
 
 
 def show_sold_prods(products_sold: list) -> None:

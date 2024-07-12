@@ -2,49 +2,24 @@ from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
 from aiogram.filters import Command, CommandStart
 from aiogram.types import Message, CallbackQuery, ReplyKeyboardRemove
-from aiogram.utils.markdown import hbold
 
 from functions import open_files
-from keyboards.products import build_global_menu, build_products_keyboard, build_product_action
+from keyboards.products import build_products_keyboard, build_product_action
 from functions import products as funcs_prods
+from form.form import ProdCreateForm
 
 
 product_router = Router()
 
 
-# # Обробник для команди /start
-# @product_router.message(CommandStart())
-# async def command_start_handler(message: Message) -> None:
-#     products = open_files.products
-#     # keyboard = build_global_menu()
-#     keyboard = build_products_keyboard(products)
-#     text = (
-#         f"Вітаю, {hbold(message.from_user.full_name)}, в інформаційній системі продуктового магазину!\n"
-#         "\nОсь список товарів доступних для продажу:"
-#     )
-#     # await edit_or_answer(
-#     await message.answer(
-#         text="Список товарів",
-#         reply_markup=keyboard
-#     )
-
-
-# @product_router.message(Command("products"))
-# @product_router.message(F.text.casefold() == "товари")
-@product_router.callback_query(F.data == "products")
+@product_router.message(F.text == "Список наявних товарів")
 async def show_all_prods(message: Message, state: FSMContext) -> None:
     products = open_files.products
     keyboard = build_products_keyboard(products)
-    # print(keyboard)
-    # await edit_or_answer(
-    #     message,
-    #     "Список товарів",
-    #     keyboard,
-    #     # ReplyKeyboardRemove()
-    # )
-    await message.answer(
-        text="Список товарів",
-        reply_markup=keyboard,
+    await edit_or_answer(
+        message,
+        "Список товарів",
+        keyboard
     )
 
 
@@ -59,7 +34,7 @@ async def show_prod_action(callback: CallbackQuery, state: FSMContext) -> None:
         ReplyKeyboardRemove())
 
 
-async def edit_or_answer(message: Message, text: str, keyboard, *args, **kwargs):
+async def edit_or_answer(message: Message, text: str, keyboard=None, *args, **kwargs):
    if message.from_user.is_bot:
        await message.edit_text(text=text, reply_markup=keyboard, **kwargs)
    else:
@@ -71,12 +46,30 @@ async def del_prod_action(callback: CallbackQuery, state: FSMContext) -> None:
     product = callback.data.split(":")[-1]
     funcs_prods.del_prod_by_name(product)
     text = f"Товар '{product}' видалено"
-    state.clear()
+    await edit_or_answer(callback.message, text)
     return await show_all_prods(callback.message, state)
-    # await edit_or_answer(callback.message, text, build_product_action(product))
+
+
+@product_router.callback_query(F.data.startswith("sold prod"))
+async def sold_prod_action(callback: CallbackQuery, state: FSMContext):
+    product = callback.data.split(":")[-1]
+    funcs_prods.sold_prod(product)
+    text = f"Товар '{product}' продано"
+    await edit_or_answer(callback.message, text)
+    return await show_all_prods(callback.message, state)
 
 
 @product_router.callback_query(F.data == "back")
 async def back_handler(callback: CallbackQuery, state: FSMContext) -> None:
     state.clear()
     return await show_all_prods(callback.message, state)
+
+
+@product_router.message(F.text == "Додати новий товар")
+async def add_new_prod_action(message: Message, state: FSMContext):
+    await state.set_state(ProdCreateForm.name)
+    await edit_or_answer(message, "Введіть назву товару")
+
+
+@product_router.message(ProdCreateForm.name)
+async def 
