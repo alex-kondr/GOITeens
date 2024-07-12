@@ -7,6 +7,7 @@ from functions import open_files
 from keyboards.products import build_products_keyboard, build_product_action
 from functions import products as funcs_prods
 from form.products import ProdCreateForm
+from log.log import bot_log
 
 
 product_router = Router()
@@ -67,9 +68,30 @@ async def back_handler(callback: CallbackQuery, state: FSMContext) -> None:
 
 @product_router.message(F.text == "Додати новий товар")
 async def add_new_prod_action(message: Message, state: FSMContext):
+    await state.clear()
     await state.set_state(ProdCreateForm.name)
     await edit_or_answer(message, "Введіть назву товару")
 
 
 @product_router.message(ProdCreateForm.name)
-async def 
+async def process_prod_name(message: Message, state: FSMContext):
+    data = await state.update_data(name=message.text)
+    await state.clear()
+    funcs_prods.add_prod(data.get("name"))
+    return await show_all_prods(message, state)
+
+
+@product_router.message(F.text == "Список проданих товарів")
+async def show_products_sold(message: Message, state: FSMContext):
+    products_sold = open_files.products_sold
+    for prod in products_sold:
+        await message.answer(prod)
+    return await show_all_prods(message, state)
+
+
+@product_router.message(F.text == "Відгуки")
+async def show_reviews(message: Message, state: FSMContext):
+    reviews = open_files.reviews
+    for review in reviews:
+        await message.answer(review)
+    return await show_all_prods(message, state)

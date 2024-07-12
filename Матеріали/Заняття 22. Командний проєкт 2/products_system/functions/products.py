@@ -3,16 +3,16 @@ from log.log import bot_log
 from functions import save_files, open_files
 
 
-def add_prod(products: list) -> list:
-    product = input("Введіть новий товар для додавання до списку: ")
+def add_prod(product: str) -> None:
+    products = open_files.products
 
     if product not in products:
         products.append(product)
-        print(f"\nТовар '{product}' доданий до списку")
+        bot_log(f"\nТовар '{product}' доданий до списку")
     else:
-        print("\nТакий товар вже є у списку")
+        bot_log("\nТакий товар вже є у списку")
 
-    # save_products((products))
+    save_files.save_products(products)
 
 
 def del_prod_by_name(product: list) -> None:
