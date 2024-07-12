@@ -6,7 +6,7 @@ from aiogram.types import Message, CallbackQuery, ReplyKeyboardRemove
 from functions import open_files
 from keyboards.products import build_products_keyboard, build_product_action
 from functions import products as funcs_prods
-from form.form import ProdCreateForm
+from form.products import ProdCreateForm
 
 
 product_router = Router()
