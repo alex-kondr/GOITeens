@@ -1,11 +1,11 @@
-# transport = {
-#     'AA1111AA': 'Іванов Іван',
-#     'IVANOV'  : 'Іванов Іван',
-#     'AA0007AA': 'Семенов Андрій',
-#     'AA007AA' : 'Іванов Іван',
-#     'AВ1111AВ': 'Вінниця Водоканал',
-#     'AІ1010КК': 'Семенов Андрій',
-# }
+transport = {
+    'AA1111AA': 'Іванов Іван',
+    'IVANOV'  : 'Іванов Іван',
+    'AA0007AA': 'Семенов Андрій',
+    'AA007AA' : 'Іванов Іван',
+    'AВ1111AВ': 'Вінниця Водоканал',
+    'AІ1010КК': 'Семенов Андрій',
+}
 
 # for car_numb in transport:
 #     print(car_numb)
@@ -16,7 +16,6 @@
 # for full_name in transport.values():
 #     print(full_name)
 
-# for key, value in transport.items():
 # for car_num, full_name in transport.items():
 #     print(f"Власник Автомобіля з номерним знаком {car_num} - {full_name}")
 
@@ -127,22 +126,67 @@
 
 # Дано словник, який містить «Прізвище»-«оцінка».
 # На його основі створити новий словник, який буде містити лише учнів, які навчаються на 4 та 5.
+# from pprint import pprint
+
+# students = {
+#     "Артем": 5,
+#     "Владислав": 5,
+#     "Микола": 5,
+#     "Алекс": 2,
+#     "Тетяна":4
+# }
+
+# new_students = {}
+
+# # for student in students:
+# #     if students[student] in [4, 5]:
+# #         # new_students.update({student: students[student]})
+# #         new_students[student] = students[student]
+
+# for student, grade in students.items():
+#     if grade in [4, 5]:
+#         # new_students.update({student: grade})
+#         new_students[student] = grade
+
+# pprint(new_students, width=50)
+
+
+
+
 
 
 # Погода. У словнику збережено інформацію про температуру в різних містах: ключами є назви міст,
 # значеннями - температура. Розрахуйте середню температуру за вказаними містами
 
+# temperatures = {"Київ" : 36,
+#                 "Львів" : 32,
+#                 "Черкаси" : 30,
+#                 "Одеса" : 33
+# }
+# print(list(temperatures.values()))
 
-
+# sum_temp = sum(temperatures.values())
+# avg = sum_temp / len(temperatures)
+# print(f"Середня температура по містам дорівнює {avg}")
 
 
 # Створіть словник, який містить ключ — ім’я студента, значення — список із балами.
 # Попросіть користувача ввести ім’я студента.
 # Порахувати середній бал студента, ім’я якого ввів користувач.
 
+# students = {"коля" : [3, 5, 4, 5, 5, 4, 4],
+#             "василь" : [3, 2, 2, 1, 2, 3, 2],
+#             "петро" : [5, 5, 5, 5, 5, 4, 5],
+#             "олег" : [3, 3, 3, 2, 4, 4, 3],
+#             "ігорь" : [4, 5, 4, 5, 5, 5, 4]
+# }
 
+# student = input("Введіть ім'я студента: ")
+# grades = students.get(student, [0])
 
-
+# sum_grades = sum(grades)
+# avg = sum_grades / len(grades)
+# print(f"Серендній бал студента '{student}' дорівнює {avg} б")
 
 
 
@@ -151,7 +195,22 @@
 # Створіть словник, який містить ключ — ім’я студента, значення — список із балами.
 # Напишіть програму, яка порахує середній бал усіх учнів та виведе його на екран.
 
+# students = {"коля" : [3, 5, 4, 5, 5, 4, 4],
+#             "василь" : [3, 2, 2, 1, 2, 3, 2],
+#             "петро" : [5, 5, 5, 5, 5, 4, 5],
+#             "олег" : [3, 3, 3, 2, 4, 4, 3],
+#             "ігорь" : [4, 5, 4, 5, 5, 5, 4]
+# }
 
+# sum_all_grades = 0
+# grades_count = 0
+
+# for grades in students.values():
+#     sum_all_grades += sum(grades)
+#     grades_count += len(grades)
+
+# avg = sum_all_grades / grades_count
+# print(f"Середня оцінка всіх студентів: {avg} б")
 
 
 
@@ -192,13 +251,262 @@
 
 # Потрібно підсумувати числа, виключивши будь-які цифри, які є частиною слова.
 # Текст складається з чисел, пробілів та літер з англійського алфавіту.
-# my_string = "This picture is an oil on canvas painting by Danish artist Anna Petersen between 1845 and 1910 year"
+# my_string = "This picture is an oil on canvas painting 5 by Danish artist Anna Petersen between a1845 and 1910 year"
 
+# words = my_string.split()
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# numbers = [float(word) for word in words if word.isdigit()]
+# # print(f"Сума всіх чисел, які знаходяться у речені дорівнює {sum(numbers)}")
 
+O_O
 
-
-
-
+magic
 
 
 
