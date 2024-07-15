@@ -1,12 +1,12 @@
 from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
-from aiogram.filters import Command, CommandStart
 from aiogram.types import Message, CallbackQuery, ReplyKeyboardRemove
 
 from functions import open_files
 from keyboards.products import build_products_keyboard, build_product_action
-from functions import products as funcs_prods
+from functions import products as funcs_prods, reviews as funcs_revs
 from form.products import ProdCreateForm
+from form.reviews import ReviewCreateForm
 from log.log import bot_log
 
 
@@ -92,4 +92,28 @@ async def show_products_sold(message: Message, state: FSMContext):
 async def show_reviews(message: Message, state: FSMContext):
     reviews = open_files.reviews
     await message.answer("\n".join(reviews))
+    return await show_all_prods(message, state)
+
+
+@product_router.message(F.text == "Додати відгук")
+async def add_new_review(message: Message, state: FSMContext):
+    await state.clear()
+    await state.set_state(ReviewCreateForm.text)
+    await edit_or_answer(message, "Введіть свій відгук")
+
+
+@product_router.message(ReviewCreateForm.text)
+async def process_review_text(message: Message, state: FSMContext):
+    data = await state.update_data(text=message.text)
+    await state.clear()
+    msg = funcs_revs.add_review(data.get("text"))
+    await message.answer(msg)
+    return await show_all_prods(message, state)
+
+
+@product_router.message(F.text == "Знайти групи символів,\nякі повторюються\n(використовуючи всі відгуки)")
+async def find_repeated_chars(message: Message, state: FSMContext):
+    reviews = open_files.reviews
+    msg = funcs_revs.find_repeated_chars(reviews)
+    await message.answer(msg)
     return await show_all_prods(message, state)

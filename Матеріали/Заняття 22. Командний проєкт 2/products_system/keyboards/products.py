@@ -9,6 +9,7 @@ def build_global_menu():
     builder.button(text="Список проданих товарів")
     builder.button(text="Відгуки")
     builder.button(text="Додати відгук")
+    builder.button(text="Знайти групи символів,\nякі повторюються\n(використовуючи всі відгуки)")
     builder.adjust(1)
     return builder.as_markup()
 

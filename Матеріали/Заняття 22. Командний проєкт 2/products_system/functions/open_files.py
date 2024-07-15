@@ -16,8 +16,7 @@ if not os.path.exists(list_files.reviews):
         pass
 
 with open(list_files.reviews, "r", encoding="utf-8") as fh:
-    reviews = fh.readlines()
-    reviews = [review.strip() for review in reviews]
+    reviews = json.load(fh)
 
 if not os.path.exists(list_files.employees):
     with open(list_files.employees, "w", encoding="utf-8") as fh:

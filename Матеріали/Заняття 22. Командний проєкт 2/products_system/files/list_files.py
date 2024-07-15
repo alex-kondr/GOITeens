@@ -1,6 +1,6 @@
 help = "files/help.txt"
 products = "files/products.json"
-reviews = "files/reviews.txt"
+reviews = "files/reviews.json"
 employees = "files/employees.json"
 products_sold = "files/products_sold.json"
 log = "files/log.json"

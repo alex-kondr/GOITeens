@@ -48,20 +48,6 @@ def sold_prod(product) -> str:
     return msg
 
 
-def show_sold_prods(products_sold: list) -> None:
-    if not products_sold:
-        print("Список проданих товарів пустий")
-
-    for product in products_sold:
-        print(product)
-
-
-def show_sales_history(products_sold: list) -> None:
-    prods_sold = products_sold[::-1]
-    for product in prods_sold:
-        print(product)
-
-
 def find_palidrome(products: list) -> None:
     palin_prod = []
     for product in products:
