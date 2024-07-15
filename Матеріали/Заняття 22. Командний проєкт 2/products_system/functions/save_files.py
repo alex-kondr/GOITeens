@@ -9,9 +9,8 @@ def save_products(products: list) -> None:
 
 
 def save_reviews(reviews: list) -> None:
-    reviews = [f"{review}\n" for review in reviews]
     with open(list_files.reviews, "w", encoding="utf-8") as fh:
-        fh.writelines(reviews)
+        json.dump(reviews, fh, indent=4)
 
 
 def save_products_sold(products_sold: list) -> None:

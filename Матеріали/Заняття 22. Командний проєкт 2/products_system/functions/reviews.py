@@ -1,8 +1,15 @@
 from log.log import bot_log
+from functions import open_files, save_files
+from log.log import bot_log
 
-def add_review(reviews: list) -> list:
-    review = input("Залиште свій відгук:\n")
+
+def add_review(review: str) -> str:
+    reviews = open_files.reviews
     reviews.append(review)
+    save_files.save_reviews(reviews)
+    msg = "Відгук успішно додано"
+    bot_log(msg)
+    return msg
 
 
 def find_repeated_chars(reviews: list) -> str:

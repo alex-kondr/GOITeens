@@ -47,7 +47,7 @@ async def del_prod_action(callback: CallbackQuery, state: FSMContext) -> None:
     product = callback.data.split(":")[-1]
     msg = funcs_prods.del_prod_by_name(product)
     await callback.message.answer(msg)
-    return await show_all_prods(callback.message, state)
+    # return await show_all_prods(callback.message, state)
 
 
 @product_router.callback_query(F.data.startswith("sold prod"))
@@ -56,7 +56,7 @@ async def sold_prod_action(callback: CallbackQuery, state: FSMContext):
     funcs_prods.sold_prod(product)
     text = f"Товар '{product}' продано"
     await callback.message.answer(text)
-    return await show_all_prods(callback.message, state)
+    # return await show_all_prods(callback.message, state)
 
 
 @product_router.callback_query(F.data == "back")
@@ -78,21 +78,22 @@ async def process_prod_name(message: Message, state: FSMContext):
     await state.clear()
     msg = funcs_prods.add_prod(data.get("name"))
     await message.answer(msg)
-    return await show_all_prods(message, state)
+    # return await show_all_prods(message, state)
 
 
 @product_router.message(F.text == "Список проданих товарів")
 async def show_products_sold(message: Message, state: FSMContext):
     products_sold = open_files.products_sold
     await message.answer("\n".join(products_sold))
-    return await show_all_prods(message, state)
+    # return await show_all_prods(message, state)
 
 
 @product_router.message(F.text == "Відгуки")
 async def show_reviews(message: Message, state: FSMContext):
     reviews = open_files.reviews
-    await message.answer("\n".join(reviews))
-    return await show_all_prods(message, state)
+    reviews = [f"{i}. {review}\n" for i, review in enumerate(reviews, start=1)]
+    await message.answer("".join(reviews))
+    # return await show_all_prods(message, state)
 
 
 @product_router.message(F.text == "Додати відгук")
@@ -108,7 +109,7 @@ async def process_review_text(message: Message, state: FSMContext):
     await state.clear()
     msg = funcs_revs.add_review(data.get("text"))
     await message.answer(msg)
-    return await show_all_prods(message, state)
+    # return await show_all_prods(message, state)
 
 
 @product_router.message(F.text == "Знайти групи символів,\nякі повторюються\n(використовуючи всі відгуки)")
@@ -116,4 +117,4 @@ async def find_repeated_chars(message: Message, state: FSMContext):
     reviews = open_files.reviews
     msg = funcs_revs.find_repeated_chars(reviews)
     await message.answer(msg)
-    return await show_all_prods(message, state)
+    # return await show_all_prods(message, state)
