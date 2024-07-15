@@ -3,43 +3,49 @@ from log.log import bot_log
 from functions import save_files, open_files
 
 
-def add_prod(product: str) -> None:
+def add_prod(product: str) -> str:
     products = open_files.products
 
     if product not in products:
         products.append(product)
-        bot_log(f"\nТовар '{product}' доданий до списку")
+        msg = f"\nТовар '{product}' доданий до списку"
+        save_files.save_products(products)
     else:
-        bot_log("\nТакий товар вже є у списку")
+        msg = "\nТакий товар вже є у списку"
 
-    save_files.save_products(products)
+    bot_log(msg)
+    return msg
 
 
-def del_prod_by_name(product: list) -> None:
+def del_prod_by_name(product: list) -> str:
     products = open_files.products
 
     if product in products:
         products.remove(product)
-        bot_log(f"\nТовар '{product}' видалено зі списку")
+        msg = f"\nТовар '{product}' видалено зі списку"
+        save_files.save_products((products))
     else:
-        bot_log("\nТакого товару немає у списку")
+        msg = "\nТакого товару немає у списку"
 
-    save_files.save_products((products))
+    bot_log(msg)
+    return msg
 
 
-def sold_prod(product) -> None:
+def sold_prod(product) -> str:
     products = open_files.products
     products_sold = open_files.products_sold
 
     if product in products:
         products.remove(product)
         products_sold.append(product)
-        bot_log(f"\nТовар '{product}' продано. Натисніть 'Enter' для продовження ")
+        msg = f"\nТовар '{product}' продано"
+        save_files.save_products(products)
+        save_files.save_products_sold(products_sold)
     else:
-        bot_log("\nТакого товару немає у списку. Натисніть 'Enter' для продовження ")
+        msg = "\nТакого товару немає у списку"
 
-    save_files.save_products(products)
-    save_files.save_products_sold(products_sold)
+    bot_log(msg)
+    return msg
 
 
 def show_sold_prods(products_sold: list) -> None:

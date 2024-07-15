@@ -45,9 +45,8 @@ async def edit_or_answer(message: Message, text: str, keyboard=None, *args, **kw
 @product_router.callback_query(F.data.startswith("del prod"))
 async def del_prod_action(callback: CallbackQuery, state: FSMContext) -> None:
     product = callback.data.split(":")[-1]
-    funcs_prods.del_prod_by_name(product)
-    text = f"Товар '{product}' видалено"
-    await edit_or_answer(callback.message, text)
+    msg = funcs_prods.del_prod_by_name(product)
+    await callback.message.answer(msg)
     return await show_all_prods(callback.message, state)
 
 
@@ -56,7 +55,7 @@ async def sold_prod_action(callback: CallbackQuery, state: FSMContext):
     product = callback.data.split(":")[-1]
     funcs_prods.sold_prod(product)
     text = f"Товар '{product}' продано"
-    await edit_or_answer(callback.message, text)
+    await callback.message.answer(text)
     return await show_all_prods(callback.message, state)
 
 
@@ -77,21 +76,20 @@ async def add_new_prod_action(message: Message, state: FSMContext):
 async def process_prod_name(message: Message, state: FSMContext):
     data = await state.update_data(name=message.text)
     await state.clear()
-    funcs_prods.add_prod(data.get("name"))
+    msg = funcs_prods.add_prod(data.get("name"))
+    await message.answer(msg)
     return await show_all_prods(message, state)
 
 
 @product_router.message(F.text == "Список проданих товарів")
 async def show_products_sold(message: Message, state: FSMContext):
     products_sold = open_files.products_sold
-    for prod in products_sold:
-        await message.answer(prod)
+    await message.answer("\n".join(products_sold))
     return await show_all_prods(message, state)
 
 
 @product_router.message(F.text == "Відгуки")
 async def show_reviews(message: Message, state: FSMContext):
     reviews = open_files.reviews
-    for review in reviews:
-        await message.answer(review)
+    await message.answer("\n".join(reviews))
     return await show_all_prods(message, state)
