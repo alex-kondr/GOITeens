@@ -1,8 +1,6 @@
 from dotenv import load_dotenv
 from os import getenv
 import asyncio
-# import logging
-# import sys
 
 from aiogram import Bot, Dispatcher, Router
 from aiogram.enums import ParseMode
