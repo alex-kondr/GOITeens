@@ -504,9 +504,6 @@ transport = {
 # numbers = [float(word) for word in words if word.isdigit()]
 # # print(f"Сума всіх чисел, які знаходяться у речені дорівнює {sum(numbers)}")
 
-O_O
-
-magic
 
 
 
