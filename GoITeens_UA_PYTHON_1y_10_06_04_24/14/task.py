@@ -84,23 +84,30 @@ cities = {
 # Напишіть програму, яка приймає список чисел та повертає новий список,
 # що містить лише унікальні елементи вхідного.
 
-numbers = [1, 5, 9, 1, 5, 7, 4, 5]
+# numbers = [1, 5, 9, 1, 5, 7, 4, 5]
 
-print(set(numbers))
-set()
-list()
-dict()
-str()
-tuple()
+# print(set(numbers))
+# set()
+# list()
+# dict()
+# str()
+# tuple()
 
 
 
 
 # Напишіть програму, яка приймає словник, та змінює всі значення на їх квадрати.
 
+# numbers = {
+#     "one": 1,
+#     "two": 2,
+#     "three": 3
+# }
 
+# for key in numbers:
+#     numbers[key] = numbers[key] ** 2
 
-
+# print(numbers)
 
 
 
@@ -112,9 +119,15 @@ tuple()
 # Створіть програму, яка приймає список рядків та повертає список унікальних слів,
 # які зустрічаються в цих рядках.
 
+# strings = ["Створіть програму, яка приймає список", "зустрічаються в цих рядках", "список", "# Створіть програму, яка приймає список рядків та повертає список унікальних слів, \n# які зустрічаються в цих рядках."]
 
+# unique_words = set()
 
+# for string in strings:
+#     for word in string.replace(",", "").replace("#", "").replace("\n", "").split():
+#         unique_words.add(word)
 
+# print(list(unique_words))
 
 
 
@@ -128,20 +141,33 @@ tuple()
 # Напишіть програму, яка приймає список рядків та повертає список,
 # в якому кожен елемент — це рядок, який містить першу літеру кожного слова в вхідному рядку.
 
+# strings = ["Створіть програму, яка приймає список", "зустрічаються в цих рядках", "список", "# Створіть програму, яка приймає список рядків та повертає список унікальних слів, \n# які зустрічаються в цих рядках."]
 
+# first_letter = []
 
+# for string in strings:
+#     for word in string.split():
+#         first_letter.append(word[0])
+# print(f"Перші літери рядків у списку - {first_letter}")
 
-
-
+# string = " ".join(strings)
+# print(f"{string = }")
+# first_letters = [word[0] for word in string.replace("#", "").split()]
+# print(f"{first_letters = }")
 
 
 # Створіть програму, яка приймає список та повертає рядок,
 # який містить всі елементи вхідного списку, розділені комами.
 
+# numbers = list(range(100))
+# numbers = [str(number) for number in numbers]
+# print(numbers)
 
+# numbers = ",".join(numbers)
 
-
-
+# numbers = str(numbers).strip("[]")
+# print(type(numbers))
+# print(numbers)
 
 
 
@@ -149,7 +175,14 @@ tuple()
 # Напишіть програму, яка приймає два словника та повертає словник,
 # що містить ключі та значення обох вхідних словників.
 
+dict_1 = {
+    "one": 1,
+    "two": 2
+}
 
+dict_2 = {
+    "tree": 3
+}
 
 
 
