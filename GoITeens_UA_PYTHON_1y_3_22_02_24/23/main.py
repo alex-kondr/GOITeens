@@ -9,14 +9,14 @@ from aiogram.client.default import DefaultBotProperties
 from app.log.log import get_log
 from app.routers.start import start_router
 from app.routers.products import product_router
+from app.routers.reviews import review_router
 
 
 load_dotenv()
 
 
 root_router = Router()
-root_router.include_router(start_router)
-root_router.include_router(product_router)
+root_router.include_routers(start_router, product_router, review_router)
 
 
 async def main() -> None:
@@ -30,5 +30,4 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    get_log()
     asyncio.run(main())
