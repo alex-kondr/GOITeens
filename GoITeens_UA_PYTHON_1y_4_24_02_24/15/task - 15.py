@@ -285,7 +285,7 @@ while password_input == PASSWORD:        #############
     elif command == "add employee":
         login = input("Введіть логін для користувача: ")
         if login in EMPLOYEES:
-            input("\nКористувач із таким логіном вже зареєстрований.\Натисніть 'enter' для продовження ")
+            input("\nКористувач із таким логіном вже зареєстрований.\nНатисніть 'enter' для продовження ")
             continue
 
         position = input("Введіть посаду працівника: ")
