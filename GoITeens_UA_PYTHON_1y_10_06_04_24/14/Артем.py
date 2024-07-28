@@ -135,4 +135,26 @@
 
 
 
+# Створіть програму, яка приймає список та повертає список,
+# який містить тільк
+# 
+# 
+# хідного списку.
 
+# numbers = list(range(1, 51))
+# even_numbers = []
+# not_even_numbers = []
+# for number in numbers:
+#   if number % 2:
+#     not_even_numbers.append(number)
+#   else:
+#     even_numbers.append(number)
+# print(not_even_numbers)
+
+
+
+# Напишіть програму, яка приймає два списки та повертає список,
+# який містить елементи, які зустрічаються у обох вхідних списках.
+
+numbers_1 = list(range(-50,0))
+numbers_2 = list(range(0, 51))

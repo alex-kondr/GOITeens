@@ -1,6 +1,7 @@
 import string
 import random
 from datetime import datetime
+from pprint import pprint
 
 
 PRODUCTS = [
@@ -81,9 +82,9 @@ DELIMITER = "-" * 28
 TEMPLATE = "|{:<5}|{:<20}|"
 
 while not PASSWORD:
-    login = input("Введіть свій логін користувача: ")
-    if login in EMPLOYEES:
-        PASSWORD = EMPLOYEES[login]["password"]
+    login_global = input("Введіть свій логін користувача: ")
+    if login_global in EMPLOYEES:
+        PASSWORD = EMPLOYEES[login_global]["password"]
         break
 
     position = input("Введіть свою посаду: ")
@@ -91,7 +92,7 @@ while not PASSWORD:
     name = input("Введіть своє ім'я: ")
     start_date = datetime.now().strftime("%d.%m.%Y")
 
-    EMPLOYEES[login] = {
+    EMPLOYEES[login_global] = {
         "posiotion": position,
         "salary": salary,
         "start_date": start_date,
@@ -121,7 +122,7 @@ while not PASSWORD:
 
         if is_len_pass and is_have_digit and is_have_char:
             PASSWORD = password
-            EMPLOYEES[login]["password"] = PASSWORD
+            EMPLOYEES[login_global]["password"] = PASSWORD
         else:
             input("Ваш пароль не пройшов перевірку. Спробуйте ще раз. 'Enter' для проовження ")
 
@@ -149,7 +150,7 @@ while not PASSWORD:
             password = random.sample(string_password, k=len_password)
 
         PASSWORD = "".join(password)
-        EMPLOYEES[login]["password"] = PASSWORD
+        EMPLOYEES[login_global]["password"] = PASSWORD
 
 else:
     input(f"\nПароль успішно створено: '{PASSWORD}'. Запам'ятайте його. 'Enter' для продовження ")
@@ -159,9 +160,12 @@ password_input = input("\nВведіть пароль для входу у си�
 command = ""
 while password_input == PASSWORD:
     if not command:
+        LOG.append(f"Користувач з логіном '{login_global}' ввішов у систему: {datetime.now()}")
         print("Доброго дня. Вітаємо в нашій інформаційній системі")
 
-    command = input("\nВведіть команду: ")
+    command = input("\nВведіть команду або введіть 'help' для допомоги: ")
+    LOG.append(f"Корисчувач з логіном '{login_global}' ввів команду '{command}': {datetime.now()}")
+    USING_COMMANDS[command] = USING_COMMANDS.get(command, 0) + 1
 
     if command == "show all products":
         print(DELIMITER)
@@ -301,17 +305,50 @@ while password_input == PASSWORD:
         if login in EMPLOYEES:
             # info_user = EMPLOYEES.pop(login)
             del EMPLOYEES[login]
-            input("Користувача успішно видалено\nНатисніть 'enter' для продовження ")
+            input(f"Користувача '{login}' успішно видалено\nНатисніть 'enter' для продовження ")
         else:
             input("Такого користувача не знайдено\nНатисніть 'enter' для продовження ")
 
     elif command == "show employees":
         for employee in EMPLOYEES:
-            print(f"Інформація про користувача з логіном {employee}\n\n")
+            print(f"Інформація про користувача з логіном {employee}\n")
             for key, value in EMPLOYEES[employee].items():
                 print(f"{key}: {value}")
-            print("\n\n")
+            print("\n")
         input("\nНатисніть 'enter' для продовження ")
+
+    elif command == "change salary":
+        login = input("Введіть логін користувача: ")
+
+        if login in EMPLOYEES:
+            salary = input("Введіть нове значення ЗП: ")
+            EMPLOYEES[login]["salary"] = salary
+            input("Суму ЗП успішно змінено\nНатисніть 'enter' для продовження ")
+        else:
+            input("Такого користувача не знайдено\nНатисніть 'enter' для продовження ")
+
+    elif command == "change position":
+        login = input("Введіть логін працівника: ")
+
+        if login in EMPLOYEES:
+            position = input("Введіть нову посаду: ")
+            EMPLOYEES[login]["position"] = position
+            input("Посаду користувача успішно змінено\nНатисніть 'enter' для продовження ")
+        else:
+            input("Такого користувача не знайдено\nНатисніть 'enter' для продовження ")
+
+    elif command == "help":
+        pprint(COMMANDS, width=200)
+
+    elif command == "show log":
+        pprint(LOG, width=100)
+
+    elif command == "show using commands":
+        for command, count in USING_COMMANDS.items():
+            print(f"Команда '{command}' використана таку кількість разів: {count}")
+
+    else:
+        input("\nНевідома команда. Спробуйте ще раз\nНатисніть 'enter' для продовження ")
 
 else:
     print("\nПароль введено не вірно. Доступ заборонено.")

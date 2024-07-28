@@ -136,14 +136,41 @@
 # Напишіть програму, яка приймає два словника та повертає словник,
 # що містить ключі та значення обох вхідних словників.
 
-dict_1 = {
-    "one": 1,
-    "two": 2
-}
+# dict_1 = {
+#     "one": 1,
+#     "two": 2
+# }
 
-dict_2 = {
-    "tree": 3
-}
+# dict_2 = {
+#     "tree": 3
+# }
 
-dict_2.update(dict_1)
-print(dict_2)
+# dict_2.update(dict_1)
+# print(dict_2)
+
+
+# Створіть програму, яка приймає список та повертає список,
+# який містить тільки непарні елементи вхідного списку.
+
+# numbers = list(range(1, 51))
+# even_elements = []
+# odd_elements = []
+# for number in numbers:
+#     if number % 2 == 0:
+#         even_elements.append(number)
+#     else:
+#         odd_elements.append(number)
+# print(odd_elements)
+
+
+# Напишіть програму, яка приймає два списки та повертає список,
+# який містить елементи, які зустрічаються у обох вхідних списках.
+
+numbers_1 = list(range(-50,0))
+numbers_2 = list(range(0, 51))
+
+# numbers = numbers_1 + numbers_2
+# print(numbers)
+
+numbers_1.extend(numbers_2)
+print(numbers_1)
