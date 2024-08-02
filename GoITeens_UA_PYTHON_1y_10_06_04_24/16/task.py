@@ -1,3 +1,94 @@
+# def say_hello(name, age):
+#     print(f"Hello my friend {name}!")
+#     print(f"Your age: {age}")
+
+# say_hello(45, "Dima")
+# say_hello("Alex", 13)
+# say_hello("Ivan", 21)
+
+
+# def say_hello(name="Dima", age=20):
+#     print(f"Hello my friend {name}!")
+#     print(f"Your age: {age}")
+
+
+# say_hello("Alex")
+
+
+# def say_hello(name="Dima", age=20):
+#     print(f"Hello my friend {name}!")
+#     print(f"Your age: {age}")
+
+
+# say_hello(age=13, name="Alex")
+
+
+# def say_hello(name, age=20):
+#     print(f"Hello my friend {name}!")
+#     print(f"Your age: {age}")
+
+
+# say_hello(13, "Alex")
+
+
+# def calc(a, b, action="+"):
+#     result = 0
+
+#     if action == "+":
+#         result = a + b
+#     elif action == "-":
+#         result = a - b
+#     elif action == "*":
+#         result = a * b
+#     elif action == "/":
+#         result = a / b
+
+#     return result
+
+
+# result1 = calc(-78, 9, "*")
+# print(result1)
+# result2 = calc(40, 9, "-")
+# result3 = calc(-1.2, 1.6, "*")
+# result4 = calc(48, -9)
+
+# print(result1 + result2 + result3 + result4)
+
+
+# bus = {}
+
+# def reserve_bus(name, count=3):
+#     # bus.update({name: count})
+#     bus[name] = count
+
+
+# reserve_bus("Alex")
+# print(bus)
+
+# reserve_bus("Dima", 5)
+# print(bus)
+
+# reserve_bus("Alex", 1)
+# print(bus)
+
+
+
+a = 45
+input(f"До функції: {a = }")
+
+
+def plus(a, b=5):
+    input(f"У функції: {a = }")
+    a = a + b
+    input(f"Після операції: {a = }")
+    return a
+
+input(f"Після функції: {a = }")
+
+c = plus(a=6)
+
+input(f"a в кінці: {a = }")
+
 
 
 
@@ -182,4 +273,4 @@
 
 
 
-# Написати функцію, яка приймає словник та повертає список ключів, які відповідають максимальному значенню в словнику.
+# Написати функцію, яка приймає словник та повертає список ключів, які відповідають максимальному значенню в словнику
