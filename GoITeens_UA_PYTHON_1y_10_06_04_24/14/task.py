@@ -1,5 +1,5 @@
 # Зробити перевірку того, чи є число 3 в множині перших дев'яти простих чисел prime_numbers:
-prime_numbers = {2, 3, 5, 7, 11, 13, 17, 19, 23}
+# prime_numbers = {2, 3, 5, 7, 11, 13, 17, 19, 23}
 
 
 
@@ -9,11 +9,13 @@ prime_numbers = {2, 3, 5, 7, 11, 13, 17, 19, 23}
 # Створити словник із наступними ключами (дивись нижче).
 # Зробити перевірку чи є елемент 'age' серед ключів словника та вивести інформацію, яка подана в Результаті.
 
-user = {
-    "name": "Bill",
-    "surname": "Bosh",
-    "age": 22
-}
+# user = {
+#     "name": "Bill",
+#     "surname": "Bosh",
+#     "age": 22
+# }
+
+
 
 
 
@@ -21,18 +23,21 @@ user = {
 
 
 # Задано словник, що містить відстані від Києва до обласних центрів. Знайти обласний центр, найбільш віддалений від Києва.
-cities = {
-    'Київ'    : 0,
-    'Вінниця' : 240,
-    'Харків'  : 470,
-    'Ужгород' : 808,
-    'Львів'   : 540,
-    'Житомир' : 120,
-    'Одеса'   : 430
-}
+# cities = {
+#     'Київ'    : 0,
+#     'Вінниця' : 240,
+#     'Харків'  : 470,
+#     'Ужгород' : 808,
+#     'Львів'   : 540,
+#     'Житомир' : 120,
+#     'Одеса'   : 430
+# }
 
-# city = max(cities, key=cities.get)
-# print(city)
+
+
+
+
+
 
 
 
@@ -45,17 +50,12 @@ cities = {
 # post_new = {'Київ', 'Фастів', 'Кагарлик', 'Узин', 'Ірпінь', 'Гатне', 'Боярка', 'Гостомель'}
 # user_city_min_lenth = 3
 
-# city_name = input("Введіть не менше 3 символів назви міста: ")
 
-# for city in post_ukr:
-#     if city_name in city:
-#         print("Доставка можлива Укрпоштою")
-#         break
 
-# for city in post_new:
-#     if city_name in city:
-#         print("Доставка можлива Новою Поштою")
-#         break
+
+
+
+
 
 
 
@@ -73,10 +73,8 @@ cities = {
 #     ['Буковель', 'Іванова', 5]
 # ]
 
-# otels = {}
-# for client in clients:
-#     otels[client[0]] = otels.get(client[0], 0) + client[-1]
-#     input(otels)
+
+
 
 
 
@@ -86,12 +84,10 @@ cities = {
 
 # numbers = [1, 5, 9, 1, 5, 7, 4, 5]
 
-# print(set(numbers))
-# set()
-# list()
-# dict()
-# str()
-# tuple()
+
+
+
+
 
 
 
@@ -104,10 +100,8 @@ cities = {
 #     "three": 3
 # }
 
-# for key in numbers:
-#     numbers[key] = numbers[key] ** 2
 
-# print(numbers)
+
 
 
 
@@ -121,13 +115,7 @@ cities = {
 
 # strings = ["Створіть програму, яка приймає список", "зустрічаються в цих рядках", "список", "# Створіть програму, яка приймає список рядків та повертає список унікальних слів, \n# які зустрічаються в цих рядках."]
 
-# unique_words = set()
 
-# for string in strings:
-#     for word in string.replace(",", "").replace("#", "").replace("\n", "").split():
-#         unique_words.add(word)
-
-# print(list(unique_words))
 
 
 
@@ -143,31 +131,22 @@ cities = {
 
 # strings = ["Створіть програму, яка приймає список", "зустрічаються в цих рядках", "список", "# Створіть програму, яка приймає список рядків та повертає список унікальних слів, \n# які зустрічаються в цих рядках."]
 
-# first_letter = []
 
-# for string in strings:
-#     for word in string.split():
-#         first_letter.append(word[0])
-# print(f"Перші літери рядків у списку - {first_letter}")
 
-# string = " ".join(strings)
-# print(f"{string = }")
-# first_letters = [word[0] for word in string.replace("#", "").split()]
-# print(f"{first_letters = }")
+
+
+
+
+
+
+
 
 
 # Створіть програму, яка приймає список та повертає рядок,
 # який містить всі елементи вхідного списку, розділені комами.
 
 # numbers = list(range(100))
-# numbers = [str(number) for number in numbers]
-# print(numbers)
 
-# numbers = ",".join(numbers)
-
-# numbers = str(numbers).strip("[]")
-# print(type(numbers))
-# print(numbers)
 
 
 
@@ -194,7 +173,7 @@ cities = {
 # який містить тільки непарні елементи вхідного списку.
 
 # numbers = list(range(1, 51))
-# print(numbers[::2])
+
 
 
 
@@ -204,11 +183,9 @@ cities = {
 # Напишіть програму, яка приймає два списки та повертає список,
 # який містить елементи, які зустрічаються у обох вхідних списках.
 
-numbers_1 = list(range(-50,0))
-numbers_2 = list(range(0, 51))
+# numbers_1 = list(range(-50,0))
+# numbers_2 = list(range(0, 51))
 
-numbers =numbers_1 + numbers_2
-print(numbers)
 
 
 
