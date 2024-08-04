@@ -71,29 +71,33 @@
 # reserve_bus("Alex", 1)
 # print(bus)
 
+# import datetime
+
+# a = 45
+# input(f"До функції: {a = }")
 
 
-a = 45
-input(f"До функції: {a = }")
+# def plus(a, b=5):
+#     global c
+#     input(f"У функції: {a = }")
+#     def plus_2(b=10):
+#         nonlocal a
+#         a = a + b
+#         return a
+#     input(f"Після операції: {a = }")
+#     return plus_2()
+
+# input(f"Після функції: {a = }")
+
+# c = plus(a=1)
+
+# input(f"a в кінці: {a = }")
 
 
-def plus(a, b=5):
-    input(f"У функції: {a = }")
-    a = a + b
-    input(f"Після операції: {a = }")
-    return a
-
-input(f"Після функції: {a = }")
-
-c = plus(a=6)
-
-input(f"a в кінці: {a = }")
 
 
 
-
-
-# def draw_box(x=10, y=14):
+# def draw_box(x=10, y=2):
 #     print("*" * x)
 
 #     for i in range(y-2):
@@ -118,52 +122,78 @@ input(f"a в кінці: {a = }")
 
 # *args
 
+# def plus(a, b, c, d, f):
+#     return a + b + c + d + f
+
+# def plus(*args):
+#     print(f"{args = }")
+#     return sum(args)
+
+# numbers = list(range(1, 51))
+# print(numbers)
+
+# print(plus())
+
+
+# **kwargs
+
+# def plus(a=4, b=5, c=6):
+#     print(a, b, c)
+#     return a + b + c
+
+# my_dict = {'b': 1, 'a': 5, 'c': 9}
+# print(plus())
+# from datetime import datetime
+# def plus(**kwargs):
+#     print(f"{kwargs = }")
+#     return sum(kwargs.values())
+
+# my_dict = {'a': 1, 'b': 5, 'c': 9}
+# print(plus(**my_dict)) # (a=1, b=5, c=9)
+
+
+# def plus(*args, **kwargs):
+#     # print(f"{a = }")
+#     # print(f"{b = }")
+#     print(f"{args = }")
+#     # print(f"{c = }")
+#     # print(f"{d = }")
+#     print(f"{kwargs = }")
+
+#     return sum([*args, *kwargs.values()])
+
+# print(plus(4, 8, 9, 1, -8, g=9, d=-5, o=78))
 
 
 
-# *kwargs
+subscribers_list_news = list()
+subscribers_list_what_new = list()
+subscribers_list_ads = list()
 
+def subscribe(email, is_news = True, is_new = True, is_ads = True):
+    global subscribers_list_news, subscribers_list_what_new, subscribers_list_ads
+    if is_news:
+        subscribers_list_news.append(email)
+    if is_new:
+        subscribers_list_what_new.append(email)
+    if is_ads:
+        subscribers_list_ads.append(email)
 
+def print_subscribers(subscribers_list, list_name) :
+    delimiter = '---------------------------'
+    print('На розсилку {} підписалися {} користувачі'.format(list_name, len(subscribers_list)))
+    for user in subscribers_list:
+        print(user)
+        print(delimiter)
+        print()
 
+subscribe('ivanov@gmail.com')
+subscribe('petrov@gmail.com', True, False, False)
+subscribe('ivanova1@gmail.com', is_ads = False)
 
-
-
-
-
-
-
-
-
-
-
-# subscribers_list_news = list()
-# subscribers_list_what_new = list()
-# subscribers_list_ads = list()
-
-# def subscribe(email, is_news = True, is_new = True, is_ads = True):
-#     global subscribers_list_news, subscribers_list_what_new, subscribers_list_ads
-#     if(is_news):
-        # subscribers_list_news.append(email)
-#     if(is_new):
-#         subscribers_list_what_new.append(email)
-#     if(is_ads):
-#         subscribers_list_ads.append(email)
-
-# def print_subscribers(subscribers_list, list_name) :
-#     delimiter = '---------------------------'
-#     print('На розсилку {} підписалися {} користувачі'.format(list_name, len(list_name)))
-#     for user in subscribers_list:
-#         print(user)
-#         print(delimiter)
-#         print()
-
-# # subscribe('ivanov@gmail.com')
-# subscribe('petrov@gmail.com', True, False, False)
-# # subscribe('ivanova@gmail.com', is_ads = False)
-
-# print_subscribers(subscribers_list_news, '"Новини"')
-# print_subscribers(subscribers_list_what_new, '"Що нового ?"')
-# print_subscribers(subscribers_list_ads, '"Рекламні пропозиції"')
+print_subscribers(subscribers_list_news, '"Новини"')
+print_subscribers(subscribers_list_what_new, '"Що нового ?"')
+print_subscribers(subscribers_list_ads, '"Рекламні пропозиції"')
 
 
 
