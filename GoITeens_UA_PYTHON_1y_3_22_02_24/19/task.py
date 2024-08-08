@@ -52,11 +52,11 @@
 #     for line in fh.readlines():
 #         pass
 
-products = []
-with open("dir/file.txt", "a", encoding="utf-8") as fh:
-    fh.writelines(products)
-    for product in products:
-        fh.write(product + "\n")
+# products = []
+# with open("dir/file.txt", "a", encoding="utf-8") as fh:
+#     fh.writelines(products)
+#     for product in products:
+#         fh.write(product + "\n")
 
 
 # with open("file.bin", "rb") as fh:
@@ -83,11 +83,11 @@ with open("dir/file.txt", "a", encoding="utf-8") as fh:
 #     fh.writelines(strings)
 
 
-with open("input.txt", "r", encoding="utf-8") as fh:
-    file = fh.read()
+# with open("input.txt", "r", encoding="utf-8") as fh:
+#     file = fh.read()
 
-with open("output.txt", "w", encoding="utf-8") as fh:
-    fh.write(file[::-1])
+# with open("output.txt", "w", encoding="utf-8") as fh:
+#     fh.write(file[::-1])
 
 
 # Реалізуйте програму, яка зчитує вміст файла "input.txt"
