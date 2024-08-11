@@ -254,30 +254,55 @@ def change_salary(employees: dict) -> dict:
     return employees
 
 
-elif command == "change position":
+def change_position(employees: dict) -> dict:
     login = input("Введіть логін працівника: ")
 
-    if login in EMPLOYEES:
+    if login in employees:
         position = input("Введіть нову посаду: ")
-        EMPLOYEES[login]["position"] = position
+        employees[login]["position"] = position
         input("Посаду користувача успішно змінено\nНатисніть 'enter' для продовження ")
     else:
         input("Такого користувача не знайдено\nНатисніть 'enter' для продовження ")
 
-elif command == "help":
-    pprint(COMMANDS, width=200)
+    return employees
 
-elif command == "show log":
-    pprint(LOG, width=100)
 
-elif command == "show using commands":
-    for command, count in USING_COMMANDS.items():
+def help():
+    commands = {
+        "show all products": "Показати список наявних товарів",
+        "add product": "Додати новий товар до списку",
+        "add products": "Додати список товарів",
+        "del prod by name": "Видалити товар за ім'ям",
+        "del prod by numb": "Видалити товар за номер",
+        "sort prod by name": "Відсортувати список товарів за ім'ям",
+        "sold product": "Продати товар",
+        "find numb prod ny name": "Знайти номер товару за ім'ям",
+        "show sold product": "Показати список проданих товарів",
+        "history sold": "Показати історію продажів",
+        "exit": "Вийти з програми",
+        "add review": "Написати відгук",
+        "find repeated groups": "Знайти групи символів, які повторюються (використовуючи всі відгуки)",
+        "find palindrome": "Знайти назви продуктів, які є паліндромами",
+        "show reviews": "Показати відгуки",
+        "add employee": "Додати нового працівника",
+        "del employee": "Видалити працівника",
+        "show employees": "Переглянути список працівників",
+        "change salary": "Змінити заробітну плату працівника",
+        "change position": "Змінити посаду працівника",
+        "show log": "Показати лог",
+        "show using commands": "Показати список команд та їх частоту використання",
+        "help": "Показати список доступних команд"
+    }
+    pprint(commands, width=200)
+
+
+def show_log(log: list) -> None:
+    pprint(log, width=100)
+
+
+def show_using_commands(using_commands: dict) -> None:
+    for command, count in using_commands.items():
         print(f"Команда '{command}' використана таку кількість разів: {count}")
-
-else:
-    input("\nНевідома команда. Спробуйте ще раз\nНатисніть 'enter' для продовження ")
-
-
 
 
 def main():
@@ -307,31 +332,6 @@ def main():
     ]
     products_sold = []
     reviews = ["Чудове обслуговування", "Такий собі продуктовий магазин", "свіжі товари", "не свіжі товари", "Чудовий магазин,не один раз вже тут купую продукти"]
-    commands = {
-        "show all products": "Показати список наявних товарів",
-        "add product": "Додати новий товар до списку",
-        "add products": "Додати список товарів",
-        "del prod by name": "Видалити товар за ім'ям",
-        "del prod by numb": "Видалити товар за номер",
-        "sort prod by name": "Відсортувати список товарів за ім'ям",
-        "sold product": "Продати товар",
-        "find numb prod ny name": "Знайти номер товару за ім'ям",
-        "show sold product": "Показати список проданих товарів",
-        "history sold": "Показати історію продажів",
-        "exit": "Вийти з програми",
-        "add review": "Написати відгук",
-        "find repeated groups": "Знайти групи символів, які повторюються (використовуючи всі відгуки)",
-        "find palindrome": "Знайти назви продуктів, які є паліндромами",
-        "show reviews": "Показати відгуки",
-        "add employee": "Додати нового працівника",
-        "del employee": "Видалити працівника",
-        "show employees": "Переглянути список працівників",
-        "change salary": "Змінити заробітну плату працівника",
-        "change position": "Змінити посаду працівника",
-        "show log": "Показати лог",
-        "show using commands": "Показати список команд та їх частоту використання",
-        "help": "Показати список доступних команд"
-    }
     log = []
     using_commands = {}
     employees = {
@@ -370,7 +370,6 @@ def main():
         password = generate_password()
         employees[login_global]["password"] = password
 
-    else:
         input(f"\nПароль успішно створено: '{password}'. Запам'ятайте його. 'Enter' для продовження ")
 
     password_input = input("\nВведіть пароль для входу у систему: ")
@@ -385,3 +384,59 @@ def main():
         log.append(f"Корисчувач з логіном '{login_global}' ввів команду '{command}': {datetime.now()}")
         using_commands[command] = using_commands.get(command, 0) + 1
 
+        match command:
+            case "show all products":
+                show_all_products(products)
+            case "add product":
+                products = add_product(products)
+            case "add products":
+                products = add_products(products)
+            case "del prod by name":
+                products = del_prod_by_name(products)
+            case "del prod by numb":
+                products = del_prod_by_numb(products)
+            case "sort prod by name":
+                sort_prod_by_name(products)
+            case "sold product":
+                products, products_sold = sold_product(products, products_sold)
+            case "find numb prod ny name":
+                find_numb_prod_by_name(products)
+            case "show sold product":
+                show_sold_product(products_sold)
+            case "history sold":
+                history_sold(products_sold)
+            case "exit":
+                exit()
+            case "add review":
+                reviews = add_review(reviews)
+            case "find repeated groups":
+                find_repeated_groups(reviews)
+            case "find palindrome":
+                find_palindrome(products)
+            case "show reviews":
+                show_reviews(reviews)
+            case "add employee":
+                employees = add_employee(employees)
+            case "del employee":
+                employees = del_employee(employees)
+            case "show employees":
+                show_employees(employees)
+            case "change salary":
+                employees = change_salary(employees)
+            case "change position":
+                employees = change_position(employees)
+            case "show log":
+                show_log(log)
+            case "show using commands":
+                show_using_commands(using_commands)
+            case "help":
+                help()
+            case _:
+                print("Невідома команда. Спробуйте ще раз...")
+
+    else:
+        print("Пароль невірний. Доступ заборонено.")
+
+
+if __name__ == "__main__":
+    main()
