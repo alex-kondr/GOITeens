@@ -7,6 +7,7 @@
 #         self.__private_attribute = "Private attribute"
 
 #     def public_method(self):
+#         # print(f"Print private attr: {self.__private_attribute}")
 #         print("This is a public method")
 
 #     def _protected_method(self):
@@ -24,7 +25,10 @@
 # print(obj._protected_attribute)
 # obj._protected_method()
 
-# print(obj.__private_attribute)
+# print(f"{obj._MyClass__private_attribute = }")
+# obj.__private_attribute = "Ababagalamaga"
+# print(f"{obj.__private_attribute = }")
+# print(f"{obj._MyClass__private_attribute = }")
 # obj.__private_method()
 
 
@@ -49,6 +53,7 @@
 #         self.fuel_type = fuel_type
 
 #     def drive(self):
+#         # super().drive()
 #         print("The car is driving on the road.")
 
 
@@ -83,28 +88,36 @@
 # class Author:
 #     def __init__(self, name):
 #         self.name = name
+#         self.books = ["Name book"]
 
-#     def write(self):
-#         print(f"{self.name} is writing a book.")
+#     def write(self, name: str):
+#         print(f"{self.name} is writing {name}")
+
+
+# class Title:
+#     def __init__(self, title: str):
+#         self.title = title
 
 
 # class Book:
-#     def __init__(self, title, author):
+#     def __init__(self, title: Title, author: Author):
 #         self.title = title
 #         self.author = author
 
 #     def display_info(self):
-#         print(f"Title: {self.title}")
+#         print(f"Title: {self.title.title}")
 #         print(f"Author: {self.author.name}")
 
 
 # author = Author("John Smith")
-# book = Book("Python Programming", author)
+# title = Title("Python Programming")
+# book = Book(title, author)
 # book.display_info()
+# book.author.write(book.title)
 
 # author.write()
 
-
+##############################
 
 
 # Поліморфізм (Polymorphism)
