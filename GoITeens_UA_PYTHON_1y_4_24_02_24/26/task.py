@@ -25,7 +25,14 @@
 # print(obj._protected_attribute)
 # obj._protected_method()
 
-# print(f"{obj.__private_attribute = }")
+# print(obj._MyClass__private_attribute)
+# input()
+# obj."__private_attribute" = "Hello"
+# input()
+# print(obj.__private_attribute)
+# input()
+# print(obj._MyClass__private_attribute)
+
 # obj.__private_method()
 
 
@@ -50,7 +57,7 @@
 #         self.fuel_type = fuel_type
 
 #     def drive(self):
-#         # super().drive()
+#         super().drive()
 #         print("The car is driving on the road.")
 
 
@@ -109,7 +116,9 @@
 # author = Author("John Smith")
 # title = Title("Python Programming")
 # book = Book(title, author)
-# book.display_info()
+# # book.display_info()
+# print(book.title.title)
+# print(book.author.name)
 # book.author.write(book.title)
 
 # author.write()
