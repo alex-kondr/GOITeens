@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "my super project"
+version = "1.0"
+description = "Super project"
+authors = ["Oleksandr Kondratiuk <alex_kondr@outlook.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+matplotlib = "^3.9.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

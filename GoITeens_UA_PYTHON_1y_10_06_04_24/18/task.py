@@ -68,6 +68,7 @@
 
 # from random import *
 # import random
+# random.randint()
 
 
 # print(randint(1, 6))
@@ -93,15 +94,30 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Створити власний модуль my_module.py, який містить функцію print_message(msg),
 # що приймає один аргумент msg та виводить його на екран.
 # Потім імпортувати функцію print_message() в головний файл програми та викликати її.
 
-# import my_module
-
-
-# my_module.print_message("Hello world")
-# my_module.print_message_end("Hello world")
 
 
 
@@ -118,18 +134,14 @@
 
 
 
+
 # Створити власний модуль my_geometry.py, який містить функції circle_area(radius)
 # та rectangle_area(width, height).
 # Імпортувати модуль та використати ці функції для обчислення площі кола та прямокутника.
 
-# import my_geometry as mg
 
 
-# circle_area = mg.circle_area(10)
-# print(f"Площа круга: {circle_area}")
 
-# rectangle_area = mg.rectangle_area(4.47951, 5.10226)
-# print(f"Площа прямокутника: {rectangle_area}")
 
 
 
@@ -137,10 +149,6 @@
 
 # Створити власний модуль my_data.py, який містить список даних (наприклад, список чисел).
 # Імпортувати модуль та вивести список даних на екран.
-# from my_data import my_data
-
-
-# print(f"main -> {my_data = }")
 
 
 
@@ -154,15 +162,10 @@
 # статистичних показників (наприклад, середнього значення, медіани, дисперсії) для списку даних.
 # Імпортувати модуль та використати ці функції для обробки списку даних.
 # D(X)= E(X^2) − μ^2
-# import my_statistics as ms
-# from my_data import my_data
 
 
-# avg = ms.evarage(my_data)
-# print(f"Середнє арифметичне: {avg}")
 
-# med = ms.median(my_data)
-# print(f"Медіана: {med}")
+
 
 
 
