@@ -127,8 +127,12 @@
 
 
 # Поліморфізм (Polymorphism)
+# from abc import ABC, abstractmethod
 
-# class Shape:
+
+# class Shape(ABC):
+
+#     @abstractmethod
 #     def area(self):
 #         pass
 
@@ -147,7 +151,7 @@
 #         self.radius = radius
 
 #     def area(self):
-#         return 3.14 * self.radius * self.radius
+#         return 3.14 * self.radius ** 2
 
 
 # shapes = [Rectangle(5, 3), Circle(2), Rectangle(4, 6)]
@@ -166,6 +170,8 @@
 #     # Створення нового класу з метакласом
 #         return super().__new__(cls, name, bases, attrs)
 
+#     # def __init__(self)
+#     # def __call__(self)
 
 # class MyClass(metaclass=MyMeta):
 #     pass
@@ -173,3 +179,62 @@
 
 # obj = MyClass()
 # print(obj.extra_attr) # Виведе: 100
+
+
+
+
+# products
+# reviews
+# employees
+# logs
+
+
+class Product:
+    count = 0
+    color = "white"
+    employee = None
+
+    def __init__(self, name: str) -> None:
+        self.name = name
+
+    def sold(self) -> str:
+        if self.count > 0:
+            self.count -= 1
+            return "Товар успішно продано"
+        else:
+            return "Товар відсутній"
+
+    def show_count(self) -> int:
+        return self.count
+
+
+class Review:
+    def __init__(self, text: str, grade: float, author) -> None:
+        self.text = text
+        self.grade = grade
+        self.author = author
+
+    def change_review(self, author, text: str) -> str:
+        if author != self.author:
+            return "Не можливо змінити чужий відгук"
+
+        self.text = text
+        return "Відгук успішно змінено"
+
+
+class Employee:
+    start_date: str|None = None
+    is_work: bool = False
+
+    def __init__(self, name: str, posititon: str, salary: float) -> None:
+        self.name = name
+        self.position = posititon
+        self.salary = salary
+
+    def change_salary(self, new_salary) -> str:
+        self.salary = new_salary
+        return "ЗП успішно змінено"
+
+
+products = [Product("Кава"), Product("Хліб")]
+employees = [Employee("Алекс", "Менеджер", 12000)]
