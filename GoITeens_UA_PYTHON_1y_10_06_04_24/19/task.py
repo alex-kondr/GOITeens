@@ -1,3 +1,63 @@
+# file = open("input.txt", "r", encoding="utf-8")
+# print(file.read())
+# file.close()
+
+# file = open("sub_dir/test_file.txt")
+# text = file.read()
+# file.close()
+
+# print(text)
+
+# file = open("text.txt", "w", encoding="utf-8")
+# file.write("Який чудовий день!!!!!")
+# file.close()
+
+# file = open("text.txt", "a", encoding="utf-8")
+# file.write("\nЗавтра буде чудовий день!!!")
+# file.close()
+
+# file = open("text.txt", "r")
+# file = open("text.txt", "w")
+# file = open("text.txt", "r+")
+# file = open("text.txt", "w+")
+# file = open("text.txt", "a")
+# file = open("text.txt", "a+")
+
+
+# file = open("text.txt", "r", encoding="utf-8")
+# text = file.readlines()
+# file.close()
+
+# for t in text:
+#     print(t, end="")
+
+# text = 'Реалізуйте програму, яка зчитує вміст файла "input.txt"'
+# strings = ["Hello\n", "world\n", "!!!!!!!!!!!\n"]
+
+
+# # file = open("text1.txt", "w", encoding="utf-8")
+# # file.writelines(strings)
+# # file.close()
+
+# file = open("text1.txt", "a", encoding="utf-8")
+
+# for text in strings:
+#     file.write(text)
+
+# file.close()
+
+
+# with open("text.txt", "r", encoding="utf-8") as file:
+#     string = file.read()
+
+# print("Hello")
+
+# print(f"{string = }")
+
+
+
+
+
 # fh = open("my_file")
 # # fh = open("test/test.txt")
 # text = fh.read()
@@ -56,30 +116,9 @@
 # Реалізуйте програму, яка зчитує вміст файла "input.txt"
 # і зберігає його у файлі "output.txt" у зворотньому порядку.
 
-# with open("input.txt", "r", encoding="utf-8") as input_file:
-#     string = input_file.read()
 
-# with open("output.txt", "w", encoding="utf-8") as output_file:
-#     output_file.write(string[::-1])
-
-
-# output.txt
-
-# fh = open("output.txt", "w", encoding="utf-8")
-# fh.write("Абагаламага")
-# fh.close()
-
-# fh = open("output.txt", "a", encoding="utf-8")
-# fh.write("Абагаламага")
-# fh.close()
-
-# with open("output.txt", "w", encoding="utf-8") as fh:
-#     fh.write("Абагаламага")
-
-# with open("output.txt", "a", encoding="utf-8") as fh:
-#     fh.write("Абагаламага")
-
-
+# string = "Hello"
+# print(string[::-1])
 
 
 
@@ -98,16 +137,14 @@
 # і записує його у файл "output.txt" з виключенням повторюваних рядків.
 
 # with open("input.txt", "r", encoding="utf-8") as file:
-#     lines = file.readlines()
+#     strings = file.readlines()
 
-# print(lines)
-# print(set(lines))
+# my_set = set(strings)
+# string = "".join(my_set)
 
-# with open("output.txt", "w", encoding="utf-8") as file:
-#     file.writelines(set(lines))
-
-
-
+# with open("output.txt", "w", encoding="utf-8") as fh:
+#     # fh.writelines(my_set)
+#     fh.write(string)
 
 
 
@@ -115,25 +152,39 @@
 
 # Напишіть функцію, яка приймає шлях до файла як аргумент і повертає кількість рядків у файлі.
 
-# def len_lines(path: str) -> int:
-#     with open(path, "r", encoding="utf-8") as fh:
-#         lines = fh.readlines()
-#         print(lines)
+# def count_lines(path: str) -> int:
+#     with open(path, "r", encoding="utf-8") as fd:
+#         strings = fd.readlines()
 
-#     return len(lines)
+#     return len(strings)
 
-# print(len_lines("output.txt"))
+
+# print(count_lines("input.txt"))
+
+
+
+
+
+
+
+
+
 
 
 
 # Реалізуйте програму, яка зчитує вміст файла "data.txt" і виводить кількість слів у цьому файлі.
 
-# with open("data.txt", "r", encoding="utf-8") as file:
-#     text = file.read()
+# with open("input.txt", "r", encoding="utf-8") as file:
+#     my_file = file.read()
 
-# words = text.split()
-# print(words)
+# words = my_file.split()
 # print(len(words))
+
+
+
+
+
+
 
 
 
@@ -143,18 +194,23 @@
 # Напишіть функцію, яка отримує шлях до файла і слово як аргументи.
 # Функція повинна перевіряти, скільки разів слово зустрічається у файлі.
 
-# def find_word(path: str, word: str) -> int:
-#     with open(path, "rb", encoding="utf-8") as file:
-#         text = file.read()
+# def count_word(path: str, word: str) -> int:
+#     with open(path, "r", encoding="utf-8") as file:
+#         string = file.read()
 
-#     return text.count(word)
+#     return string.count(word)
+
+# print(count_word(word="програму", path="input.txt"))
+# print(count_word("input.txt", "записує"))
+# print(count_word("input.txt", "hello"))
 
 
-# print(find_word("data.txt", "програму"))
 
 
-# with open("test.bin", "wb") as file:
-#     file.write("Абабагаламага\n".encode(encoding="win-1256"))
+
+
+
+
 
 
 

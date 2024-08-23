@@ -1,0 +1,27 @@
+Який чудовий день!!!!!
+
+
+# file = open("text.txt", "r", encoding="utf-8")
+# print(file.read())
+# file.close()
+
+# file = open("sub_dir/test_file.txt")
+# text = file.read()
+# file.close()
+
+# print(text)
+
+# file = open("text.txt", "w", encoding="utf-8")
+# file.write("Який чудовий день!!!!!")
+# file.close()
+
+# file = open("text.txt", "a", encoding="utf-8")
+# file.write("\nЗавтра буде чудовий день!!!")
+# file.close()
+
+# file = open("text.txt", "r")
+# file = open("text.txt", "w")
+# file = open("text.txt", "r+")
+# file = open("text.txt", "w+")
+# file = open("text.txt", "a")
+# file = open("text.txt", "a+")
