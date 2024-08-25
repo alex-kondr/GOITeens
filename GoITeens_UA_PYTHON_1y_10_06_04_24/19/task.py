@@ -118,7 +118,7 @@
 
 
 # string = "Hello"
-# print(string[::-1])
+# string = string[::-1]
 
 
 
@@ -204,10 +204,25 @@
 # print(count_word("input.txt", "записує"))
 # print(count_word("input.txt", "hello"))
 
+# string = "Напишіть функцію, яка отримує шлях до файла і слово як аргументи"
 
+# with open("data.txt", "w", encoding="utf-8") as file:
+#     count_symb = file.write(string)
 
+# print(f"{count_symb = }")
 
+# with open("data.txt", "r", encoding="utf-8") as fh:
+#     string = fh.read()
 
+# string += ".\nЦе новий доданий текст\n"
+
+# with open("data_new.txt", "w", encoding="utf-8") as fh:
+#     fh.write(string)
+
+# with open("data_new.txt", "r", encoding="utf-8") as file:
+#     text = file.read()
+
+# print(len(text))
 
 
 
@@ -215,6 +230,13 @@
 
 
 # Реалізуйте програму, яка зчитує вміст кількох файлів і об'єднує їх у новий файл "combined.txt".
+
+# combined_text = "Реалізуйте програму, яка зчитує вміст кількох файлів і об'єднує їх у новий файл"
+
+# with open("file.txt", "w", encoding="utf-8") as file:
+#     for char in combined_text:
+#         print(f"{char}\n")
+#         file.write(f"{char}\n")
 
 
 
@@ -224,6 +246,16 @@
 
 # Напишіть функцію, яка перевіряє, чи є файл "data.txt" порожнім.
 
+def is_empty_file(path: str) -> bool:
+    with open(path, "a", encoding="utf-8"):
+        pass
+
+    with open(path, "r", encoding="utf-8") as file:
+        text = file.read()
+
+    return not bool(text)
+
+print(is_empty_file("data.txt"))
 
 
 
