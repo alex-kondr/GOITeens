@@ -1,0 +1,17 @@
+{# templates/test.html #}
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ test_name }} {{ title }}</h1>
+<ul>
+{% for student in students %}
+<li>
+{% if student.score > 80 %}🙂{% else %}🙁{% endif %}
+<em>{{ student.name }}:</em> {{ student.score }}/{{ max_score }}
+</li>
+{% endfor %}
+</ul>
+{% endblock content %}
+
+<h1>Дані дочірнього шаблону</h1>

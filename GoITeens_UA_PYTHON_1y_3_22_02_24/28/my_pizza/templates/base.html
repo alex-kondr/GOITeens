@@ -1,0 +1,17 @@
+{# templates/base.html #}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{% block title %}{{ title }}{% endblock title %}</title>
+</head>
+
+<body>
+  <h1>Дані з базового шаблону</h1>
+{% block content %}
+<h1>Welcome to {{ title }}!</h1>
+<p>Дані поточного шаблону</p>
+{% endblock content %}
+</body>
+</html>
