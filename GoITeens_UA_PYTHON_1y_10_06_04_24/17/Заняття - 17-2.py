@@ -128,7 +128,7 @@ def sort_prod_by_name(products: list) -> None:
     print("\nСписок товарі відсортовано")
 
 
-def sold_product(products: list, products_sold: list) -> tuple[list]:
+def sold_product(products: list, products_sold: list) -> tuple[list, list]:
     product = input("Введіть товар для продажу: ")
 
     if product in products:
