@@ -1,0 +1,14 @@
+{
+    "help": 6,
+    "show products": 2,
+    "show all products": 2,
+    "del prod by numb": 1,
+    "sold product": 3,
+    "Кава": 1,
+    "find palindrome": 1,
+    "show log": 1,
+    "show using commands": 1,
+    "exit": 2,
+    "find repeated groups": 1,
+    "del employee": 1
+}

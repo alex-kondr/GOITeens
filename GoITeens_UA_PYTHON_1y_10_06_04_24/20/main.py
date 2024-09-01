@@ -27,7 +27,7 @@ from src.employees import (
     change_salary,
     change_position
 )
-from src import files
+from src import files_actions
 from files.list_files import HELP
 
 
@@ -51,27 +51,12 @@ def show_using_commands(using_commands: dict) -> None:
 
 
 def main():
-    products = files.open_products()
-    products_sold = files.open_products_sold()
-    reviews = files.open_reviews()
-    log = []
-    using_commands = {}
-    employees = {
-    "andrew": {
-        "position": "Менеджер",
-        "salary": 30000,
-        "start_date": "22.02.2024",
-        "name": "Андрій",
-        "password": "1234567a"
-    },
-    "dima": {
-        "position": "Продавець",
-        "salary": 14000,
-        "start_date": "10.03.2024",
-        "name": "Дмитро",
-        "password": "1234567b"
-    }
-}
+    products = files_actions.open_products()
+    products_sold = files_actions.open_products_sold()
+    reviews = files_actions.open_reviews()
+    log = files_actions.open_log()
+    using_commands = files_actions.open_using_commands()
+    employees = files_actions.open_employees()
 
     login_global = input("Введіть свій логін користувача: ")
     password = employees.get(login_global, {}).get("password")
@@ -128,6 +113,12 @@ def main():
             case "history sold":
                 history_sold(products_sold)
             case "exit":
+                files_actions.save_products(products)
+                files_actions.save_products_sold(products_sold)
+                files_actions.save_reviews(reviews)
+                files_actions.save_employees(employees)
+                files_actions.save_log(log)
+                files_actions.save_using_commands(using_commands)
                 exit()
             case "add review":
                 reviews = add_review(reviews)
