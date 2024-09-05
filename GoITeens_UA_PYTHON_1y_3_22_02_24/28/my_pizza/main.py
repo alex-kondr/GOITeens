@@ -24,9 +24,14 @@ def index():
 
 @app.get("/menu/")
 def menu():
+    pizzas = [
+        {"name": "1", "ingredients": "1, 2, 3", "price": 20},
+        {}
+    ]
+    discounts = [random.randint(0, 100) for _ in range(5)]
     context = {
         "price": random.randint(15, 50),
-        "discount": random.randint(0, 100)
+        "discounts": discounts
     }
     return render_template("menu.html", **context)
 

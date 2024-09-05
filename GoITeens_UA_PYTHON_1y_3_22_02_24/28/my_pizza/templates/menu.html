@@ -79,7 +79,9 @@
               <div class="u-container-layout u-container-layout-1">
                 <div class="u-border-10 u-border-grey-90 u-container-align-center u-container-style u-group u-palette-3-base u-preserve-proportions u-shape-circle u-group-1" data-custom-animation="{&quot;animation&quot;:{&quot;XXL&quot;:{&quot;steps&quot;:[],&quot;hidden&quot;:false,&quot;start&quot;:{&quot;at&quot;:&quot;bottom&quot;,&quot;off&quot;:0},&quot;end&quot;:{&quot;at&quot;:&quot;top&quot;,&quot;off&quot;:0}},&quot;XL&quot;:{&quot;steps&quot;:[{&quot;dist&quot;:0.5,&quot;blur&quot;:0,&quot;sticky&quot;:false,&quot;fixed&quot;:false,&quot;mx&quot;:&quot;-320&quot;,&quot;my&quot;:0,&quot;op&quot;:1,&quot;rot&quot;:0,&quot;sx&quot;:1,&quot;sy&quot;:1,&quot;bgy&quot;:0},{&quot;dist&quot;:0.5,&quot;blur&quot;:0,&quot;sticky&quot;:false,&quot;fixed&quot;:false,&quot;mx&quot;:&quot;0&quot;,&quot;my&quot;:0,&quot;op&quot;:1,&quot;rot&quot;:0,&quot;sx&quot;:1.18,&quot;sy&quot;:1.18,&quot;bgy&quot;:0}],&quot;hidden&quot;:false,&quot;start&quot;:{&quot;at&quot;:&quot;bottom&quot;,&quot;off&quot;:0},&quot;end&quot;:{&quot;at&quot;:&quot;top&quot;,&quot;off&quot;:0}},&quot;LG&quot;:{&quot;steps&quot;:[],&quot;hidden&quot;:false,&quot;start&quot;:{&quot;at&quot;:&quot;bottom&quot;,&quot;off&quot;:0},&quot;end&quot;:{&quot;at&quot;:&quot;top&quot;,&quot;off&quot;:0}},&quot;MD&quot;:{&quot;steps&quot;:[],&quot;hidden&quot;:false,&quot;start&quot;:{&quot;at&quot;:&quot;bottom&quot;,&quot;off&quot;:0},&quot;end&quot;:{&quot;at&quot;:&quot;top&quot;,&quot;off&quot;:0}},&quot;SM&quot;:{&quot;steps&quot;:[],&quot;hidden&quot;:false,&quot;start&quot;:{&quot;at&quot;:&quot;bottom&quot;,&quot;off&quot;:0},&quot;end&quot;:{&quot;at&quot;:&quot;top&quot;,&quot;off&quot;:0}},&quot;XS&quot;:{&quot;steps&quot;:[],&quot;hidden&quot;:false,&quot;start&quot;:{&quot;at&quot;:&quot;bottom&quot;,&quot;off&quot;:0},&quot;end&quot;:{&quot;at&quot;:&quot;top&quot;,&quot;off&quot;:0}}},&quot;container&quot;:&quot;&quot;}">
                   <div class="u-container-layout u-valign-middle u-container-layout-2">
-                    <h2 class="u-align-center u-text u-text-default u-text-1">{{ discount }} %</h2>
+                    {% for discount in discounts %}
+                      <h2 class="u-align-center u-text u-text-default u-text-1">{{ discount }} %</h2>
+                    {% endfor %}
                     <h5 class="u-align-center u-text u-text-2">business lunch</h5>
                   </div>
                 </div>
@@ -112,14 +114,17 @@
               <div class="u-size-30">
                 <div class="u-layout-row">
                   <div class="u-container-style u-layout-cell u-palette-2-light-3 u-size-20 u-layout-cell-1">
+                    {% for pizza in pizzas|sort(attribute="price") %}
                     <div class="u-container-layout u-container-layout-1">
-                      <h3 class="u-text u-text-default u-text-3"> Parma ham and arugula</h3>
+                      <h3 class="u-text u-text-default u-text-3"> {{ pizza.name }}</h3>
                       <img class="u-image u-image-contain u-image-default u-image-2" src="/static/images/4545.png" alt="" data-image-width="1500" data-image-height="1500">
                       <div class="u-rotation-parent u-rotation-parent-1" data-custom-animation="{&quot;animation&quot;:{&quot;XXL&quot;:{&quot;steps&quot;:[],&quot;hidden&quot;:false,&quot;start&quot;:{&quot;at&quot;:&quot;bottom&quot;,&quot;off&quot;:0},&quot;end&quot;:{&quot;at&quot;:&quot;top&quot;,&quot;off&quot;:0}},&quot;XL&quot;:{&quot;steps&quot;:[{&quot;dist&quot;:0.5,&quot;blur&quot;:0,&quot;sticky&quot;:false,&quot;fixed&quot;:false,&quot;mx&quot;:0,&quot;my&quot;:&quot;100&quot;,&quot;op&quot;:1,&quot;rot&quot;:&quot;91&quot;,&quot;sx&quot;:0.78,&quot;sy&quot;:0.78,&quot;bgy&quot;:0},{&quot;dist&quot;:0.5,&quot;blur&quot;:0,&quot;sticky&quot;:false,&quot;fixed&quot;:false,&quot;mx&quot;:0,&quot;my&quot;:&quot;250&quot;,&quot;op&quot;:1,&quot;rot&quot;:&quot;0&quot;,&quot;sx&quot;:0.58,&quot;sy&quot;:0.58,&quot;bgy&quot;:0},{&quot;dist&quot;:0.5,&quot;blur&quot;:0,&quot;sticky&quot;:false,&quot;fixed&quot;:false,&quot;mx&quot;:0,&quot;my&quot;:&quot;400&quot;,&quot;op&quot;:1,&quot;rot&quot;:&quot;75&quot;,&quot;sx&quot;:0.33,&quot;sy&quot;:0.33,&quot;bgy&quot;:0}],&quot;hidden&quot;:false,&quot;start&quot;:{&quot;at&quot;:&quot;bottom&quot;,&quot;off&quot;:0},&quot;end&quot;:{&quot;at&quot;:&quot;top&quot;,&quot;off&quot;:0}},&quot;LG&quot;:{&quot;steps&quot;:[],&quot;hidden&quot;:false,&quot;start&quot;:{&quot;at&quot;:&quot;bottom&quot;,&quot;off&quot;:0},&quot;end&quot;:{&quot;at&quot;:&quot;top&quot;,&quot;off&quot;:0}},&quot;MD&quot;:{&quot;steps&quot;:[],&quot;hidden&quot;:false,&quot;start&quot;:{&quot;at&quot;:&quot;bottom&quot;,&quot;off&quot;:0},&quot;end&quot;:{&quot;at&quot;:&quot;top&quot;,&quot;off&quot;:0}},&quot;SM&quot;:{&quot;steps&quot;:[],&quot;hidden&quot;:false,&quot;start&quot;:{&quot;at&quot;:&quot;bottom&quot;,&quot;off&quot;:0},&quot;end&quot;:{&quot;at&quot;:&quot;top&quot;,&quot;off&quot;:0}},&quot;XS&quot;:{&quot;steps&quot;:[],&quot;hidden&quot;:false,&quot;start&quot;:{&quot;at&quot;:&quot;bottom&quot;,&quot;off&quot;:0},&quot;end&quot;:{&quot;at&quot;:&quot;top&quot;,&quot;off&quot;:0}}},&quot;container&quot;:&quot;&quot;}">
                         <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-3" src="/static/images/Untitled-1.png" alt="" data-image-width="239" data-image-height="201">
                       </div>
-                      <h5 class="u-text u-text-4"> Nulla consequat massa quis enim. Donec pede justo fringilla vel.</h5>
+                      <h4>{{ pizza.price }}</h4>
+                      <h5 class="u-text u-text-4"> {{ pizza.ingredients }}</h5>
                     </div>
+                    {% endfor %}
                   </div>
                   <div class="u-container-style u-layout-cell u-palette-2-light-3 u-size-20 u-layout-cell-2">
                     <div class="u-container-layout u-container-layout-2">
