@@ -1,6 +1,6 @@
 {# "templates/menu.html" #}
 
-{% extends "base.html" %}
+{% extends "_base.html" %}
 
 {% block content %}
 <table>
@@ -9,13 +9,7 @@
         <th>Склад</th>
         <th>Ціна</th>
     </tr>
-    {% for pizza in pizzas|sort(attribute="price")|sort(attribute="name") %}
-    <tr>
-        <td>{{ pizza.name }}</td>
-        <td>{{ pizza.ingredients }}</td>
-        <td>{{ pizza.price }}</td>
-    </tr>
-    {% endfor %}
+    {{ macros.max_price(pizzas)}}
 </table>
 <h1><em>Сума цін</em>: {{ pizzas|sum(attribute="price") }}</h1>
 {% endblock content %}
