@@ -1,7 +1,11 @@
-{# "templates/index.html" #}
+{# templates/index.html #}
 
 {% extends "base.html" %}
 
 {% block content %}
-<a type="button", href="/menu"><em>Перейти в Мега меню</em></button>
+<ol>
+    {% for number in numbers|sort(reverse=True) %}
+    <li>{{ number }}</li>
+    {% endfor %}
+</ol>
 {% endblock content %}

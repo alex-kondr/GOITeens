@@ -1,4 +1,4 @@
-{# "templates/base.html" #}
+{# templates/base.html #}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,17 +6,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/style.css">
-    <title>
-        {% block title %}
-        {{ title }}
-        {% endblock title %}
-    </title>
+    <title>{% block title %}{{ title }}{% endblock title %}</title>
 </head>
 <body>
-    {% include "_navigation.html" %}
-    <br>
-
+    <head>
+        {% include "_navigation.html" %}
+    </head>
     {% block content %}
     {% endblock content %}
 </body>
+<footer>
+    <p>tel: <em>{{ contact }}</em></p>
+</footer>
 </html>

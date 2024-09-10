@@ -1,9 +1,7 @@
-{# "templates/_navigation.html" #}
+{# templates/_navigation.html #}
 
 <nav>
-{% for menu_item in ["index", "menu"] %}
-<button>
-    <a href="{{ url_for(menu_item) }}">{{ menu_item|upper }}</a>
-</button>
-{% endfor %}
+    {% for menu_item in ["index", "results"] %}
+        <a href="{{ url_for(menu_item) }}">{{ menu_item|replace("index", "Index") }}</a>
+    {% endfor %}
 </nav>

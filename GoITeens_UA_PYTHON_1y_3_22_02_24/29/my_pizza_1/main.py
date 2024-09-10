@@ -1,27 +1,38 @@
+import random
+
 from flask import Flask, render_template
 
 
 app = Flask(__name__)
 
 
+CONTACT = "+380731570901"
+
+
 @app.get("/")
 def index():
-    return render_template("index.html", title="Моя супер піцерія")
+    numbers = [random.randint(0, 100) for _ in range(10)]
+    return render_template("index.html", contact=CONTACT, numbers=numbers)
 
 
-@app.get("/menu-ababagalamaga/")
-def menu():
-    pizzas = [
-        {"name": "Пепероні", "price": 22, "ingredients": "ковбаса 'Пепероні', сир, соус"},
-        {"name": "Пепероні", "price": 29, "ingredients": "ковбаса 'Пепероні', сир, соус"},
-        {"name": "Моцарела", "price": 20, "ingredients": "сир 'Моцарела', соус, петрушка"},
-        {"name": "Чотири сира", "price": 30, "ingredients": "сир 'Моцарела', сир 'Чедер', сир 'Сологуні', сир 'Брю'"}
-    ]
+@app.get('/results-ababagalamaga/')
+def results():
     context = {
-        "pizzas": pizzas,
-        "title": "Мега меню"
+        "max_score": 100,
+        "test_name": "Python Challenge",
+        "students": [
+        {"name": "Vlad", "score": 100},
+        {"name": "Vlad", "score": 42},
+        {"name": "Sviatoslav", "score": 99},
+        {"name": "Юстин", "score": 100},
+        {"name": "Viktor", "score": 79},
+        {"name": "Ярослав", "score": 93},
+        ],
+        "title": "Результати тестування",
+        "contact": CONTACT
     }
-    return render_template("menu.html", **context)
+
+    return render_template("results.html", **context)
 
 
 if __name__ == "__main__":
