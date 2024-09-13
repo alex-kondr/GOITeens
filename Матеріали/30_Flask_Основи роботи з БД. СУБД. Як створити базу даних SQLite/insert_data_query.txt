@@ -1,1 +1,1 @@
-INSERT INTO Students
+INSERT INTO Students (id, first_name, last_name, age, grade) VALUES (1, "Alex", "Kondr", 14, 99);
