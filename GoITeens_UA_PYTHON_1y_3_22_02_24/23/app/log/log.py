@@ -5,5 +5,5 @@ import logging
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 
 
-def get_log(msg: str = None) -> None:
+def get_log(msg: str|None = None) -> None:
     logging.log(level=logging.INFO, msg=msg)
