@@ -1,0 +1,13 @@
+{% extends "_base.html" %}
+
+{% block content %}
+    <p>
+        Посада: <em>{{ position }}</em>
+    </p>
+    <p>
+        Кабінети, які доступні:
+        {% for cabinet in position.cabinets %}
+            <em>{{ cabinet }},</em>
+        {% endfor %}
+    </p>
+{% endblock content %}

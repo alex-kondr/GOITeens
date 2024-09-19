@@ -3,9 +3,9 @@ from typing import List
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from .base import Base
-from .position import Position
-from .associates import cabinet_position_assoc_table
+from app.models.base import Base
+from app.models.position import Position
+from app.models.associates import cabinet_position_assoc_table
 
 
 class Cabinet(Base):

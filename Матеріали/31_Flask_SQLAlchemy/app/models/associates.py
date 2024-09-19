@@ -1,6 +1,6 @@
-from colorama import Fore
 from sqlalchemy import Table, Column, ForeignKey
-from . import Base
+
+from app.models.base import Base
 
 
 employee_position_assoc_table = Table(

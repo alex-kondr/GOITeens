@@ -6,7 +6,7 @@
             {% for position in positions %}
                 <tr>
                     <td>
-                        <a href="{{ url_for('positions.get_positions', id=position.id) }}">{{ position }}</a>
+                        <a href="{{ url_for('positions.get_position', id=position.id) }}">{{ position }}</a>
                     </td>
                 </tr>
             {% endfor %}

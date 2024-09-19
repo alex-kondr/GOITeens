@@ -1,0 +1,46 @@
+{% extends "_base.html" %}
+
+{% block content %}
+    {% if employees %}
+        <table>
+            {% for employee in employees %}
+                <tr>
+                    <td>
+                        <a href="{{ url_for('employees.get_employee', id=employee.id) }}">{{ employee.last_name }} {{ employee.first_name }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Відсутні працівники</p>
+    {% endif %}
+
+    <form action="{{ url_for('employees.add_employee') }}" method="post">
+        <p>
+            <label for="first_name">Ім'я</label>
+            <input type="text" name="first_name">
+        </p>
+        <p>
+            <label for="last_name">Призвіще</label>
+            <input type="text" name="last_name">
+        </p>
+        <p>
+            <label for="age">Вік</label>
+            <input type="text" name="age">
+        </p>
+        <p>
+            <label for="salary">Зарплатня</label>
+            <input type="text" name="salary">
+        </p>
+        <p>
+            <label for="positions">Посади</label>
+            <select name="positions" id="positions" multiple>
+                {% for position in positions %}
+                    <option value="{{ position.id }}">{{ position }}</option>
+                {% endfor %}
+            </select>
+        </p>
+        <p><button type="submit">Додати працівника</button></p>
+    </form>
+
+{% endblock content %}
