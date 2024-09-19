@@ -8,11 +8,13 @@ from app.models.associates import cabinet_position_assoc_table, employee_positio
 from app.models.cabinet import Cabinet
 from app.models.employee import Employee
 from app.models.position import Position
+from app.routes.root import root_blueprint
 
 
 app = Flask(__name__)
 app.register_blueprint(employees_blueprint)
 app.register_blueprint(positions_blueprint)
 app.register_blueprint(cabinets_blueprint)
+app.register_blueprint(root_blueprint)
 
 create_db()
