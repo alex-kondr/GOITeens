@@ -1,0 +1,25 @@
+{% extends "_base.html" %}
+
+{% block content %}
+    <p>
+        Працівник: <em>{{ employee.last_name }} {{ employee.first_name }}</em>
+    </p>
+    <p>
+        Зарплатня: <em>{{ employee.salary }}</em>
+    </p>
+    <p>
+        Вік: <em>{{employee.age }}</em>
+    </p>
+    <p>
+        Обов'язки:
+        {% for position in employee.positions %}
+            <em>{{ position }},</em>
+        {% endfor %}
+    </p>
+    <p>
+        Доступні кабінети:
+        {% for cabinet in cabinets %}
+            <em>{{ cabinet }},</em>
+        {% endfor %}
+    </p>
+{% endblock content %}

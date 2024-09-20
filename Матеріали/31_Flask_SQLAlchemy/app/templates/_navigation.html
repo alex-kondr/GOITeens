@@ -1,0 +1,5 @@
+{% for url in ["root.index", "employees.add_employee", "positions.add_position", "cabinets.add_cabinet"] %}
+<button>
+    <a href="{{ url_for(url)}}">{{ url }}</a>
+</button>
+{% endfor %}

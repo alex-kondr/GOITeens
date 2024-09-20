@@ -1,0 +1,33 @@
+{% extends "_base.html" %}
+
+{% block content %}
+    {% if cabinets %}
+        <table>
+            {% for cabinet in cabinets %}
+                <tr>
+                    <td>
+                        <a href="{{ url_for('cabinets.get_cabinet', id=cabinet.id) }}">{{ cabinet }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+    <p>Кабінети відсутні</p>
+    {% endif %}
+
+    <form action="{{ url_for('cabinets.add_cabinet') }}" method="post">
+        <p>
+            <label for="name">Назва кабінету</label>
+            <input type="text" name="name">
+        </p>
+        <p>
+            <label for="positions">Посади, які мають доступ</label>
+            <select name="positions" id="positions" multiple>
+                {% for position in positions %}
+                    <option value="{{ position.id }}">{{ position }}</option>
+                {% endfor %}
+            </select>
+        </p>
+        <p><button value="submit">Додати кабінет</button></p>
+    </form>
+{% endblock %}
