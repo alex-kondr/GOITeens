@@ -17,3 +17,6 @@ class Employee(Base):
     age: Mapped[int] = mapped_column()
     salary: Mapped[float] = mapped_column(Float())
     positions: Mapped[List[Position]] = relationship(secondary=position_employee_assoc)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"

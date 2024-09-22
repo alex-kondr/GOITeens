@@ -9,3 +9,6 @@ class Position(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(50))
+
+    def __str__(self):
+        return self.name
