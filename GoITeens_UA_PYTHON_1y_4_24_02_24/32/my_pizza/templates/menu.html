@@ -1,0 +1,45 @@
+{# "templates/menu.html" #}
+
+{% extends "_base.html" %}
+
+{% block content %}
+<img src="{{ url_for('static', filename='img/cat.avif') }}" alt="">
+<table>
+    <tr>
+        <td>№</td>
+        <td>Назва піци</td>
+        <td>Ціна</td>
+        <td>Склад піци</td>
+    </tr>
+    {% for pizza in pizzas %}
+        <tr>
+            <td>{{ pizza.id }}</td>
+            <td>{{ pizza.name }}</td>
+            <td>{{ pizza.price }}</td>
+            <td>
+                {% for ingredient in pizza.ingredients %}
+                    <em>{{ ingredient.name }}|</em>
+                {% endfor %}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<form action="{{ url_for('pizzas.add_pizza')}}" method="post">
+    <p>
+        <label>Назва піци</label>
+        <input type="text" name="name">
+    </p>
+    <p>
+        <label>Ціна</label>
+        <input type="text" name="price">
+    </p>
+    <select name="ingredients" multiple>
+        {% for ingredient in ingredients %}
+            <option value="{{ ingredient.id}}">{{ ingredient.name }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Додати нову піцу</button>
+</form>
+
+{% endblock content %}

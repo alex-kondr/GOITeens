@@ -1,0 +1,16 @@
+<div>
+    <h1>{{ wheather.city }}</h1>
+    <h2>{{ wheather.text }}</h1>
+    <h3>
+        Температура повітря: {{ wheather.temp }}
+    </h3>
+    <img src="{{ wheather.icon }}">
+    <br>
+    <form action="{{ url_for('pizzas.index') }}" method="post">
+        <p>
+            <label>Місто</label>
+            <input type="text" name="city">
+        </p>
+        <button type="submit">Показати</button>
+    </form>
+</div>
