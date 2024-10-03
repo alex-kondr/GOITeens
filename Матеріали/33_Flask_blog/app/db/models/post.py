@@ -1,10 +1,11 @@
 from datetime import datetime
 
-from sqlalchemy.types import Text, DateTime, TIMESTAMP
+from sqlalchemy.types import Text, TIMESTAMP
 from sqlalchemy.sql import func
 from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy import ForeignKey
 
-from app.db.base import Base
+from app.db import Base, User
 
 
 class Post(Base):
@@ -14,3 +15,4 @@ class Post(Base):
     created: Mapped[datetime] = mapped_column(TIMESTAMP(), server_default=func.now())
     title: Mapped[str] = mapped_column(Text(), nullable=False)
     content: Mapped[str] = mapped_column(Text(), nullable=False)
+    user: Mapped[User] = mapped_column(ForeignKey(User.id))

@@ -10,6 +10,7 @@ packages = [{include = "33_flask_blog"}]
 python = "^3.10"
 flask = "^3.0.3"
 sqlalchemy = "^2.0.35"
+python-dotenv = "^1.0.1"
 
 
 [build-system]
