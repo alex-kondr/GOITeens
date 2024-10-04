@@ -6,10 +6,47 @@
     <label for="exampleInputEmail1" class="form-label">Назва посади</label>
     <input type="text" name="name">
   </div>
-  <div class="mb-3">
+  <div class="mb-3" id="user_name">
+    <label for="exampleInputEmail1" class="form-label">Логін</label>
+    <input type="text" name="user_name">
+  </div>
+  <div class="mb-3" id="pass">
     <label for="exampleInputPassword1" class="form-label">Введіть пароль адміністратора</label>
     <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+  </div class="mb-3">
+      <input type="hidden" class="temp_pass" id="temp_pass" name="temp_pass" value="">
+  <div>
   </div>
   <button type="submit" class="btn btn-primary">Додати</button>
 </form>
+
+<script>
+  const temp_pass = localStorage.getItem("temp_pass");
+
+  (async () => {
+  const rawResponse = await fetch("{{ url_for('positions.is_validate_temp_pass') }}", {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({temp_pass: temp_pass})
+  });
+  const content = await rawResponse.json();
+  console.log(content);
+
+  if (content.is_valid) {
+    console.log("Valid");
+
+    document.getElementById("user_name").style.display = "none";
+    document.getElementById("pass").style.display = "none";
+    document.getElementById("temp_pass").value = temp_pass;
+  } else {
+    console.log("InValid");
+    localStorage.setItem("temp_pass", "{{ temp_pass }}");
+  }
+})();
+
+
+</script>
 {% endblock content %}
