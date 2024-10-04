@@ -2,6 +2,10 @@
 #     pass
 
 
+
+
+
+
 # class Animal:
 #     color = "Black"
 #     weight = 5
@@ -17,33 +21,111 @@
 #         else:
 #             print("No yet :(")
 
+# print(Animal.color)
 
-# class Animal:
-#     eat = False
+# cat = Animal()
+# dog = Animal()
 
-#     def __init__(self, color: str, weight: float):
-#         self.color = color
-#         self.weight = weight
+# print(f"{cat.color = }")
+# print(f"{dog.color = }")
 
-#     def eating(self):
-#         self.eat = True
-#         print("Eating...")
+# cat.color = "White"
 
-#     def run(self):
-#         if self.eat:
-#             print("Run->")
-#         else:
-#             print("No yet :(")
+# print(f"{cat.color = }")
+# print(f"{dog.color = }")
+# print("run")
+# cat.run()
 
-#     def change_weight(self, weight: float):
-#         self.weight = weight
+# # print("eating...")
+# cat.eating()
+
+# # print("run")
+# cat.run()
+# cat.run()
+# cat.run()
+# cat.run()
+# cat.run()
+# cat.run()
+# print("dog")
+# dog.run()
 
 
-# class Pulse:
-#     live = True
 
-#     def is_live(self):
-#         print("It`s a LIVE!!!!!!!" if self.live else "Ups.... You die")
+
+
+class Animal:
+    eat = False
+
+    def __init__(self, color: str, weight: float):
+        self.color = color
+        self.weight = weight
+
+    def eating(self):
+        self.eat = True
+        print("Eating...")
+
+    def run(self):
+        if self.eat:
+            print("Run->")
+        else:
+            print("No yet :(")
+
+    def change_weight(self, weight: float):
+        self.weight = weight
+
+
+class Cat(Animal):
+    def run(self):
+        if self.eat:
+            print("Run ->")
+        else:
+            print("Walking...")
+
+    def sleep(self):
+        print("..zzzz")
+
+
+class BlackCat(Cat):
+    def __init__(self, weigth):
+        self.color = "Black"
+        self.weight = weigth
+
+
+class Dog(Animal):
+    pass
+
+
+cat = Cat("White", 3)
+print(cat.color)
+cat.run()
+cat.eating()
+cat.run()
+cat.sleep()
+
+dog = Dog("Black", 9)
+# dog.sleep()
+
+# print(Animal.color)
+
+# cat = Animal("White", 3)
+# dog = Animal("Black", 6)
+
+# cat.eating()
+# print(cat.weight)
+# cat.change_weight(4)
+# print(cat.weight)
+
+# print(dog.weight)
+
+class Pulse:
+    live = True
+
+    def is_live(self):
+        print("It`s a LIVE!!!!!!!" if self.live else "Ups.... You die")
+
+# obj = Pulse()
+# obj.live = False
+# obj.is_live()
 
 
 # animal = Animal("Black", 8)
