@@ -75,6 +75,8 @@ class Animal:
 
 
 class Cat(Animal):
+    eat = True
+
     def run(self):
         if self.eat:
             print("Run ->")
@@ -95,14 +97,14 @@ class Dog(Animal):
     pass
 
 
-cat = Cat("White", 3)
-print(cat.color)
-cat.run()
-cat.eating()
-cat.run()
-cat.sleep()
+# cat = Cat("White", 3)
+# print(cat.color)
+# cat.run()
+# cat.eating()
+# cat.run()
+# cat.sleep()
 
-dog = Dog("Black", 9)
+# dog = Dog("Black", 9)
 # dog.sleep()
 
 # print(Animal.color)
@@ -132,16 +134,16 @@ class Pulse:
 # animal.eating()
 
 
-# class Dog(Animal, Pulse):
+# class Dog(BlackCat, Pulse):
 #     speed = 50
 
 #     def run_by_cat(self):
 #         print("Runing chase the cat")
 
 
-# # animal.run_by_cat()
+# animal.run_by_cat()
 
-# dog = Dog("Black", 3)
+# dog = Dog(3)
 # dog.run()
 # dog.eating()
 # dog.run()
@@ -200,7 +202,8 @@ class Pulse:
 #     paw = Paw()
 
 
-# # dog = Dog(7)
+# dog = BlackDog(7)
+# dog.paw_up()
 # # cat = Cat(2.6)
 
 # dog = BlackDog(7)
@@ -258,77 +261,70 @@ class Pulse:
 
 
 
-# class MyClass:
-#     attr_class = 5
-#     my_list = [2]
+class MyClass:
+    attr_class = 5
+    my_list = [2, 8]
 
-#     def __new__(cls, *args, **kwargs):
-#         print("Call __new__ method...")
-#         return super().__new__(cls)
+    def __new__(cls, *args, **kwargs):
+        print("Call __new__ method...")
+        return super().__new__(cls)
 
-#     def __init__(self, value: str|float = "Hello"):
-#         print(f"Class __init__ method... {value = }")
-#         self.value = value
+    def __init__(self, value: str|float = "Hello"):
+        print(f"Class __init__ method... {value = }")
+        self.value = value
 
-#     def __del__(self):
-#         print("Call __del__ method")
+    def __del__(self):
+        print("Call __del__ method")
 
-#     def __call__(self, value):
-#         return f"Call __call__ method.... {value = }"
+    def __call__(self, value):
+        return f"Call __call__ method.... {value = }"
 
-#     def __len__(self):
-#         print("Call __len__ method")
-#         return len(self.my_list)
+    def __len__(self):
+        print("Call __len__ method")
+        return len(self.my_list)
 
-#     def __str__(self):
-#         return "Call __str__ method. This is MyClass obj"
+    def __str__(self):
+        return "Call __str__ method. This is MyClass obj"
 
-#     def __add__(self, other): # +
-#         print("Call __add__ method...")
-#         return self.value + " " + other.value
+    def __add__(self, other): # +
+        print("Call __add__ method...")
+        return self.value + " " + other.value
 
-#     def __sub__(self, other): # -
-#         pass
+    def __sub__(self, other): # -
+        pass
 
-#     def __truediv__(self, other): # /
-#         pass
+    def __truediv__(self, other): # /
+        pass
 
-#     def __floordiv__(self, other):  # //
-#         pass
+    def __floordiv__(self, other):  # //
+        pass
 
-#     def __mod__(self, other): # %
-#         pass
+    def __mod__(self, other): # %
+        pass
 
-#     def __mul__(self, other): # *
-#         pass
+    def __mul__(self, other): # *
+        pass
 
-#     def __pow__(self, other): # **
-#         pass
+    def __pow__(self, other): # **
+        pass
 
-#     def __gt__(self, other): # >
-#         pass
+    def __gt__(self, other): # >
+        pass
 
-#     def __lt__(self, other): # <
-#         pass
+    def __lt__(self, other): # <
+        pass
 
-#     def __eq__(self, other): # ==
-#         pass
+    def __eq__(self, other): # ==
+        pass
 
-#     @staticmethod
-#     def my_func(value):
-#         print(f"Value by my_func '{value}'")
+    @staticmethod
+    def my_func(value):
+        print(f"Value by my_func '{value}'")
 
-#     @classmethod
-#     def my_class_method(cls):
-#         print(f"Attr class '{cls.attr_class}'")
+    @classmethod
+    def my_class_method(cls):
+        print(f"Attr class '{cls.attr_class}'")
 
 
-# my_class = MyClass()
-# my_class_2 = MyClass("Bye")
-# print(my_class.attr_class)
-# # my_class_2.my_func("Hello")
-# my_class.attr_class = "Hi"
-# print(my_class.attr_class)
-
-# MyClass.my_func("Bye")
-# MyClass.my_class_method()
+MyClass.my_func("Hello")
+MyClass.my_class_method()
