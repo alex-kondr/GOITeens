@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import String, TEXT, ForeignKey
 from sqlalchemy.types import TIMESTAMP
 from sqlalchemy.sql import func
@@ -16,3 +16,4 @@ class Post(Base):
     text: Mapped[str] = mapped_column(TEXT())
     create: Mapped[datetime] = mapped_column(TIMESTAMP(), server_default=func.now())
     user_id: Mapped[int] = mapped_column(ForeignKey(User.id))
+    user: Mapped[User] = relationship()
