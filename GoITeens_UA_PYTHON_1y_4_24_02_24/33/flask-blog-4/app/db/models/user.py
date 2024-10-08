@@ -1,4 +1,4 @@
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import String, ForeignKey
 
 from app.db import Base, Position
@@ -12,3 +12,4 @@ class User(Base):
     last_name: Mapped[int] = mapped_column(String(50))
     age: Mapped[int] = mapped_column(nullable=True)
     position_id: Mapped[int] = mapped_column(ForeignKey(Position.id))
+    position: Mapped[Position] = relationship()
