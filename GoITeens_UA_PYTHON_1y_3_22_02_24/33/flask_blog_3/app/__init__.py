@@ -1,12 +1,13 @@
 from flask import Flask
 
 from app.db import create_db
-from app.routes import index_route, position_route
+from app.routes import position_route, user_route, post_route
 
 
 app = Flask(__name__)
-app.register_blueprint(index_route)
 app.register_blueprint(position_route)
+app.register_blueprint(user_route)
+app.register_blueprint(post_route)
 
 
 def main():
