@@ -8,7 +8,6 @@
     <title>{% block title %} FlaskBlog {% endblock title %}</title>
 </head>
 <body class="p-5 bg-primary-subtle">
-    {% include "_navigation.html" %}
     {% block content %}
     {% endblock content %}
     <div class="container text-center">
@@ -27,5 +26,10 @@
             </div>
         </div>
     </div>
+    {% with messages = get_flashed_messages() %}
+        {% for msg in messages %}
+            <p class="btn btn-info position-absolute top-70 start-50 translate-middle-x">{{ msg }}</p>
+        {% endfor %}
+    {% endwith %}
 </body>
 </html>

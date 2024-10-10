@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text">{{ post.text }}</p>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block left_content %}
+    <form action="{{ url_for('posts.del_post', id=post.id) }}" method="post" class="form-control">
+        <label class="form-control">Пароль адміністратора</label>
+        <input class="form-control" type="password" name="password">
+        <button class="btn btn-info"><a href="{{ url_for('posts.edit_post', id=post.id) }}">Редагувати статтю</a></button>
+        <button type="submit" class="btn btn-danger">Видалити статтю</button>
+    </form>
+
+
+
+{% endblock left_content %}
