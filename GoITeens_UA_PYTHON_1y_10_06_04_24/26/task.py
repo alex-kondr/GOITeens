@@ -1,24 +1,25 @@
 # Інкапсуляція (Encapsulation)
 
-# class MyClass:
-#     def __init__(self):
-#         self.public_attribute = "Public attribute"
-#         self._protected_attribute = "Protected attribute"
-#         self.__private_attribute = 36.6
+class MyClass:
+    def __init__(self):
+        self.brand = "Public attribute"
+        self._fuel = "Protected attribute"
+        self.__range = 36.6
 
-#     def change_temp(self, new_temp):
-#         # if temp
-#         print(f"Print private attr: {self.__private_attribute = }")
-#         print("This is a public method")
+    def change_temp(self, new_temp):
+        print(f"Print private attr: {self.__temp = }")
+        self.__temp = new_temp
+        print(f"Print private attr: {self.__temp = }")
+        print("This is a public method")
 
-#     def _protected_method(self):
-#         print("This is a protected method")
+    def _protected_method(self):
+        print("This is a protected method")
 
-#     def __private_method(self):
-#         print("This is a private method")
+    def __private_method(self):
+        print("This is a private method")
 
-#     def start(self):
-#         self._protected_method()
+    def start(self):
+        self._protected_method()
 
 
 # class MyClass2(MyClass):
@@ -26,10 +27,14 @@
 
 # obj = MyClass()
 
-# # print(obj.public_attribute)
+# obj.__temp = 40
+# obj.change_temp(36.7)
+# print(obj.public_attribute)
+# print(obj._protected_attribute)
+# obj.__private_attribute = 5
+# print(obj.__private_attribute)
 # # obj.public_method()
 # # obj.start()
-# obj.__private_attribute = 5
 
 # print(obj._protected_attribute)
 # obj._protected_method()
@@ -37,51 +42,53 @@
 # print(f"{obj._MyClass__private_attribute = }")
 # obj.__private_attribute = "Ababagalamaga"
 # print(f"{obj.__private_attribute = }")
-# print(f"{obj._MyClass__private_attribute = }")
+# print(f"{obj._MyClass__temp = }")
+# obj._MyClass__temp = 40
+# print(f"{obj._MyClass__temp = }")
 # obj.__private_method()
 
 
 
 # Наслідування (Inheritance)
 
-# class Vehicle:
-#     def __init__(self, brand, year):
-#         self.brand = brand
-#         self.year = year
+class Vehicle:
+    def __init__(self, brand, year):
+        self.brand = brand
+        self.year = year
 
-#     def drive(self, name):
-#         print("The vehicle is in motion.")
+    def drive(self):
+        print("The vehicle is in motion.")
 
-#     def stop(self):
-#         print("The vehicle has stopped.")
-
-
-# class Car(Vehicle):
-#     def __init__(self, brand, year, fuel_type):
-#         super().__init__(brand, year)
-#         self.fuel_type = fuel_type
-
-#     def drive(self):
-#         super().drive()
-#         super().stop()
-#         print("The car is driving on the road.")
+    def stop(self):
+        print("The vehicle has stopped.")
 
 
-# class Bicycle(Vehicle, Car):
-#     def __init__(self, brand, year, color):
-#         super(Car).__init__(brand, year)
-#         self.color = color
+class Car(Vehicle):
+    def __init__(self, brand, year, fuel_type):
+        super().__init__(brand, year)
+        self.fuel_type = fuel_type
 
-#     def drive(self):
-#         print("The bicycle is being pedaled.")
+    def drive(self):
+        print("The car is driving on the road.")
+        super().drive()
+        super().stop()
 
 
-# car = Car("Toyota", 2021, "Petrol")
-# car.drive()
-# car.stop()
-# print(car.brand)
-# print(car.year)
-# print(car.fuel_type)
+class Bicycle(Vehicle):
+    def __init__(self, brand, year, color):
+        super().__init__(brand, year)
+        self.color = color
+
+    def drive(self):
+        print("The bicycle is being pedaled.")
+
+
+car = Car("Toyota", 2021, "Petrol")
+car.drive()
+car.stop()
+print(car.brand)
+print(car.year)
+print(car.fuel_type)
 
 # bicycle = Bicycle("Giant", 2022, "Red")
 # bicycle.drive()
