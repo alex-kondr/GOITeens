@@ -1,25 +1,26 @@
 # Інкапсуляція (Encapsulation)
 
-class MyClass:
-    def __init__(self):
-        self.brand = "Public attribute"
-        self._fuel = "Protected attribute"
-        self.__range = 36.6
+# class MyClass:
+#     def __init__(self):
+#         self.brand = "Public attribute"
+#         self._fuel = "Protected attribute"
+#         self.__range = 36.6
 
-    def change_temp(self, new_temp):
-        print(f"Print private attr: {self.__temp = }")
-        self.__temp = new_temp
-        print(f"Print private attr: {self.__temp = }")
-        print("This is a public method")
+#     def change_temp(self, new_temp):
+#         print(f"Print private attr: {self.__temp = }")
+#         self.__temp = new_temp
+#         print(f"Print private attr: {self.__temp = }")
+#         print("This is a public method")
 
-    def _protected_method(self):
-        print("This is a protected method")
+#     def _protected_method(self):
+#         print("This is a protected method")
 
-    def __private_method(self):
-        print("This is a private method")
+#     def __private_method(self):
+#         print("This is a private method")
 
-    def start(self):
-        self._protected_method()
+#     def start(self):
+#         self._protected_method()
+#         self.__private_method()
 
 
 # class MyClass2(MyClass):
@@ -51,44 +52,44 @@ class MyClass:
 
 # Наслідування (Inheritance)
 
-class Vehicle:
-    def __init__(self, brand, year):
-        self.brand = brand
-        self.year = year
+# class Vehicle:
+#     def __init__(self, brand, year):
+#         self.brand = brand
+#         self.year = year
 
-    def drive(self):
-        print("The vehicle is in motion.")
+#     def drive(self):
+#         print("The vehicle is in motion.")
 
-    def stop(self):
-        print("The vehicle has stopped.")
-
-
-class Car(Vehicle):
-    def __init__(self, brand, year, fuel_type):
-        super().__init__(brand, year)
-        self.fuel_type = fuel_type
-
-    def drive(self):
-        print("The car is driving on the road.")
-        super().drive()
-        super().stop()
+#     def stop(self):
+#         print("The vehicle has stopped.")
 
 
-class Bicycle(Vehicle):
-    def __init__(self, brand, year, color):
-        super().__init__(brand, year)
-        self.color = color
+# class Car(Vehicle):
+#     def __init__(self, brand, year, fuel_type):
+#         super().__init__(brand, year)
+#         self.fuel_type = fuel_type
 
-    def drive(self):
-        print("The bicycle is being pedaled.")
+#     def drive(self):
+#         print("The car is driving on the road.")
+#         super().drive()
+#         super().stop()
 
 
-car = Car("Toyota", 2021, "Petrol")
-car.drive()
-car.stop()
-print(car.brand)
-print(car.year)
-print(car.fuel_type)
+# class Bicycle(Vehicle):
+#     def __init__(self, brand, year, color):
+#         super().__init__(brand, year)
+#         self.color = color
+
+#     def drive(self):
+#         print("The bicycle is being pedaled.")
+
+
+# car = Car("Toyota", 2021, "Petrol")
+# car.drive()
+# car.stop()
+# print(car.brand)
+# print(car.year)
+# print(car.fuel_type)
 
 # bicycle = Bicycle("Giant", 2022, "Red")
 # bicycle.drive()
@@ -105,13 +106,15 @@ print(car.fuel_type)
 # class Author:
 #     def __init__(self, name):
 #         self.name = name
-#         self.books = ["Name book"]
+#         self.titles: list[Title] = []
 
 #     def write(self, name: str):
 #         print(f"{self.name} is writing {name}")
+#         self.titles.append(Title(title=name))
 
-#     def blabla(self):
-#         pass
+#     def get_books(self):
+#         for title in self.titles:
+#             print(title.title)
 
 
 # class Title:
@@ -123,6 +126,7 @@ print(car.fuel_type)
 #     def __init__(self, title: Title, author: Author):
 #         self.title = title
 #         self.author = author
+#         self.author.titles.append(title)
 
 #     def display_info(self):
 #         print(f"Title: {self.title.title}")
@@ -130,9 +134,15 @@ print(car.fuel_type)
 
 
 # author = Author("John Smith")
+# author.write("Нова ціква книга")
+# print("get books..")
+# author.get_books()
 # title = Title("Python Programming")
 # book = Book(title, author)
-# # book.display_info()
+# book.display_info()
+
+# print("get books..")
+# author.get_books()
 # book.author.write(book.title)
 
 # author.write()
@@ -169,10 +179,13 @@ print(car.fuel_type)
 #         return 3.14 * self.radius * self.radius
 
 
-# # shapes = [Rectangle(5, 3), Circle(2), Rectangle(4, 6)]
+# shapes: list[Rectangle|Circle] = [Rectangle(5, 3), Circle(2), Rectangle(4, 6)]
 
-# # for shape in shapes:
-# #     print(shape.area())
+# for shape in shapes:
+#     print(shape.area())
+
+
+
 # rectangle = Rectangle(1, 5)
 # print(rectangle.area())
 
@@ -182,9 +195,9 @@ print(car.fuel_type)
 
 # class MyMeta(type):
 #     def __new__(cls, name, bases, attrs):
-#     # Додавання атрибуту до класу
+#         # Додавання атрибуту до класу
 #         attrs['extra_attr'] = 100
-#     # Створення нового класу з метакласом
+#         # Створення нового класу з метакласом
 #         return super().__new__(cls, name, bases, attrs)
 
 #     def __init_subclass__(cls) -> None:
@@ -202,42 +215,48 @@ print(car.fuel_type)
 # print(obj.extra_attr) # Виведе: 100
 
 
-# class Product:
-#     def __init__(self, name: str, color: str, start_date: str, end_date: str) -> None:
-#         self.name = name
-#         self.color = color
-#         self.start_date = start_date
-#         self.end_date = end_date
+class Product:
+    def __init__(self, name: str, color: str, start_date: str, end_date: str) -> None:
+        self.name = name
+        self.color = color
+        self.start_date = start_date
+        self.end_date = end_date
 
-#     def change_end_date(self, new_date):
-#         self.end_date = new_date
-
-
-# class Employee:
-#     def __init__(self, name: str, position: str) -> None:
-#         self.name = name
-#         self.posititon = position
-
-#     def change_position(self, new_position: str):
-#         self.posititon = new_position
+    def change_end_date(self, new_date):
+        self.end_date = new_date
 
 
-# class Shop:
-#     def __init__(self, title: str) -> None:
-#         self.title = title
-#         self.products: list[Product] = []
-#         self.employees: list[Employee] = []
+class Employee:
+    def __init__(self, name: str, position: str) -> None:
+        self.name = name
+        self.posititon = position
 
-#     def add_product(self, product: Product):
-#         self.products.append(product)
+    def change_position(self, new_position: str):
+        self.posititon = new_position
 
 
-# product = Product("Хліб", "Білий", "18.08.2024", "20.08.2024")
+class Shop:
+    def __init__(self, title: str) -> None:
+        self.title = title
+        self.products: list[Product] = []
+        self.employees: list[Employee] = []
 
-# mayak = Shop("Маяк")
-# mayak.add_product(product)
-# mayak.add_product(product)
+    def add_product(self, product: Product):
+        self.products.append(product)
 
-# urahara = Shop("Urahara")
-# urahara.add_product(product)
+    def add_employee(self, employee: Employee):
+        self.employees.append(employee)
+
+
+product = Product("Хліб", "Білий", "18.08.2024", "20.08.2024")
+
+mayak = Shop("Маяк")
+mayak.add_product(product)
+mayak.add_product(product)
+print(f"{mayak.products = }")
+
+urahara = Shop("Urahara")
+urahara.add_product(product)
+print(f"{urahara.products = }")
+
 
