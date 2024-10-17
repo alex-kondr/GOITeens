@@ -1,0 +1,12 @@
+{% extends "_base.html" %}
+
+{% block content %}
+    <h1 class="text-warning-emphasis">Пройдіть невеличке опитування</h1>
+    <h5>{{ data.question }}</h5>
+    <form action="{{ url_for('poll')}}">
+        {% for field in data.fields %}
+            <input type="radio" name="vote" value="{{ field }}">{{ field }} <br>
+        {% endfor %}
+        <input type="submit" value="Проголосувати">
+    </form>
+{% endblock content %}
