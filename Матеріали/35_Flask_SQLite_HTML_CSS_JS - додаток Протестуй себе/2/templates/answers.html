@@ -1,0 +1,20 @@
+{% extends "_base.html" %}
+
+{% block content %}
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <td>№</td>
+                <td>Відповіді</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for answer in answers %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ answer }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

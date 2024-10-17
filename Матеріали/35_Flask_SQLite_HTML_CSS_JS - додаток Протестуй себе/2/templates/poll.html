@@ -1,0 +1,13 @@
+{% extends "_base.html" %}
+
+{% block content %}
+    <h3>{{ question }}</h3>
+    <form action="{{ url_for('pizzas.add_answer') }}">
+        {% for pizza in pizzas %}
+            <p>
+                <input type="radio" name="answer" value="{{ pizza.name }}">{{ pizza.name }}
+            </p>
+        {% endfor %}
+        <input type="submit">
+    </form>
+{% endblock content %}
