@@ -10,7 +10,7 @@ class Room(Base):
     __tablename__ = "rooms"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    number: Mapped[int] = mapped_column()
+    number: Mapped[int] = mapped_column(unique=True)
     name: Mapped[Optional[str]] = mapped_column((String(50)), nullable=True)
     img_url: Mapped[Optional[str]] = mapped_column(String(), nullable=True)
     img_name: Mapped[Optional[str]] = mapped_column(String(100), nullable=True)
