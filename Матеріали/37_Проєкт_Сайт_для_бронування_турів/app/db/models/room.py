@@ -18,4 +18,4 @@ class Room(Base):
     is_reserved: Mapped[bool] = mapped_column(Boolean(), default=False)
 
     def __str__(self):
-        return f"№ {self.number}: {self.name}"
+        return f"Номер кімнати № {self.number}: {self.name}"

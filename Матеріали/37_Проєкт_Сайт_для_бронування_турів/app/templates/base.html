@@ -8,6 +8,8 @@
     <title>{% block title %} Головна сторінка {% endblock title %}</title>
 </head>
 <body class="p-5 bg-primary-subtle">
+    {% include "navigation.html" %}
+    <br><br>
     {% block content %}
     {% endblock content %}
 </body>
