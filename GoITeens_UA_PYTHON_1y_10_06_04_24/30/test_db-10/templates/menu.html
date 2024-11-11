@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <td>Номер по порядку</td>
+                <td>Назва піци</td>
+                <td>Інгредієнти</td>
+                <td>Ціна</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pizza in pizzas %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ pizza.name }}</td>
+                <td>{{ pizza.ingredients }}</td>
+                <td>{{ pizza.price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
