@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "38-test-app"
+version = "0.1.0"
+description = ""
+authors = ["Oleksandr Kondratiuk <alex_kondr@outlook.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "38_test_app"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flask = "^3.0.3"
+flask-restful = "^0.3.10"
+flask-swagger-ui = "^4.11.1"
+flask-cors = "^5.0.0"
+sqlalchemy = "^2.0.36"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
