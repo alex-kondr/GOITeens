@@ -35,11 +35,19 @@
 # """)
 
 # Типи змінних
-
+# str
 # int
+# float
+# print(type(7.8))
+
+# number = input("Введи число: ")
+# number = float(number)
+# print(number)
+# print(type(number))
 
 # a = "7"
 # None
+# wether = request.get("url-city=Ababagalanmaga")
 # print(10 ** 4200)
 
 
@@ -51,20 +59,39 @@
 # print(type(c))
 
 
+# hoby = "програмування"
+# city = "Одеса"
+# lang = "Python"
+
+# message_1 = "Моє хобі {hoby}. Мова програмування яку я вивчаю {lang}. Проживаю у місті {city}".format(hoby=hoby, city=city, lang=lang)
+# message_2 = "Моє хобі {0}. Мова програмування яку я вивчаю {2}. Проживаю у місті {1}".format(hoby, city, lang)
+# message_3 = "Моє хобі {}. Мова програмування яку я вивчаю {}. Проживаю у місті {}".format(hoby, lang, city)
+# print(f"{message_1 = }")
+# print(f"{message_2 = }")
+# print(f"{message_3 = }")
 
 # Input
+# print("Hello!")
+# number = input("Введи кількість років: ")
+# print("Варіант 1:", "Мені", number, "років")
+# # print("Робота завершена")
+
+# print(f"Варіант 2: Мені {number} років")
+# print("Варіант 3: Мені {number_1} років".format(number_1=number))
+# print("Варіант 4: Мені {} років".format(89))
+
 
 # input(f"What is your name?{a} My name is ")
 
 # name = input("Введіть своє ім'я: ")
-# # print(f"My name is {name}")
+# print(f"Мене звати {name}")
 
 # age = input("Скільки тобі років ")
-# # print(type(age))
-# # print("Мені {}".format(age))
+# print(type(age))
+# print("Мені {}".format(age))
 
 # city = input("Де ти проживаєш? ")
-# # print(f"Я живу у місті {city}")
+# print(f"Я живу у місті {city}")
 
 # print(f"Мене звати {name}. Мені {age} років. На даний час я проживаю в місті {city}")
 # input("Натисніть 'enter' щоб закрити програму")
@@ -79,10 +106,26 @@
 # print(type(b))
 # print(a + b)
 
+# b: int = 5
+# b = 6.5
+# b = "Hello"
+# b = None
+# print(str(b))
+
 # Передати програмі кількість своїх домашніх тварин.
 # Порахувати скільки всього тварин є в домогосподарстві,
 # та вивести повідомлення у форматі "Котів: 5, собак: 1, корів: 9. Всього тварин 15"
+# cats = input("Введи кількість котів: ")
+# print(f"{ cats = }")
+# cats = int(cats.split()[0])
+# print(f"{ cats = }")
 
+# dogs = input("Введи кількість собак: ")
+# dogs = int(dogs)
+# cows = input("Введи кількість корів: ")
+# cows = int(cows)
+# sum = cats + dogs + cows
+# print(f"Котів: {cats}, собак: {dogs}, корів: {cows}. Всього тварин {sum}")
 
 
 
@@ -94,6 +137,7 @@
 # b = int(float(input("Введіть друге ціле число:\n")))
 # +, -, *, /, **, //, %
 
+# print(25 ** .5)
 
 
 
@@ -102,7 +146,12 @@
 # Написати програму, яка буде рахувати площу поля за довжиною та шириною
 
 # length = input("Введіть довжину поля: ")
+# length = int(length)
 # width = input("Введіть ширину поля: ")
+# width = int(width)
+# area = length * width
+# message = f"Довжина поля: {length}, а ширина: {width}. Тоді площа даного поля дорівнює '{area}' кв.м"
+# print(message)
 
 
 
@@ -122,7 +171,10 @@
 # count_25 = int(input("Скільки у вас монет по 25 копійок? "))
 # count_10 = int(input("Скільки у вас монет по 10 копійок? "))
 # count_5 = int(input("Скільки у вас монет по 5 копійок? "))
-
+# sum_coin = count_50 * 50 + count_25 * 25 + count_10 * 10 + count_5 * 5
+# grn_coin = sum_coin // 100
+# other_coin = sum_coin % 100
+# print(f"Загальна сума монет {sum_coin} коп.\n{grn_coin} грн. та {other_coin} коп.")
 
 
 # Обчисліть добуток перших 20 натуральних чисел. Виведіть на екран обчислене значення.
@@ -131,7 +183,8 @@
 
 
 # Запишіть букву 'A' (латинську, велику) 87 разів поспіль.
-
+# print("Animal " * 87)
+# print("*\n" + "*" * 2 + "\n" + "*" * 3)
 
 
 
