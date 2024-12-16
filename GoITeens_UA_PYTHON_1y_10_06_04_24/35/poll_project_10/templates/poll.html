@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block center %}
+<form action="{{ url_for('add_vote') }}">
+
+    <h3><em>{{ question }}</em></h3>
+
+    {% for answer in answers %}
+    <div class="form-check">
+        <input type="radio" name="vote" value="{{ answer }}" class="form-check-input">
+        <label class="form-check-label">{{ answer }}</label>
+    </div>
+    {% endfor %}
+
+    <button type="submit" class="btn btn-primary">Проголосувати</button>
+</form>
+{% endblock center %}
