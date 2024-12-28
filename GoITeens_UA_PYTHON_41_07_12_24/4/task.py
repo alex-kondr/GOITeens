@@ -1,17 +1,65 @@
 # user_name = input("Введи своє ім'я: ")
 
 # if user_name:
-
-
+#     print(f"Тут є ім'я: {user_name}")
+# elif not user_name:
+#     print("Пусте повідомлення")
 # else:
+#     print("Ви нічого не ввели")
+
+# print("Цей код виконується завжди")
+
+# number = input("Введіть число: ")
+# number = int(number)
+
+# if number > 100:
+#     print("Число більше 100")
+# elif number > 10:
+#     print("Число більше 10")
+# elif number > 5:
+#     print("Число більше 5")
+# elif number > 2:
+#     print("Число більше 2")
+# else:
+#     print("Все інше")
 
 
-# name = "Тарас"
-# age = 25
-# has_driver_licence = True
 
-# if name and age >= 18 and not has_driver_licence:
-#     print("Щасливої дороги")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+name = "Тарас"
+age = 17
+has_driver_licence = True
+
+# if name:
+#     print("Є ім'я")
+#     if age >= 18:
+#         print("Ти повнолітній")
+#         if has_driver_licence:
+#             print("Ти можеш водити авто. Щасливої дороги")
+
+
+if (name and has_driver_licence) or (age >= 18 and has_driver_licence):
+    print("Щасливої дороги")
 
 # else:
 #     print("У Вас не має дозволу рухатись далі")
