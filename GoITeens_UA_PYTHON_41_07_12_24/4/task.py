@@ -46,31 +46,28 @@
 
 
 
-name = "Тарас"
-age = 17
-has_driver_licence = True
+# name = "Тарас"
+# age = 25
+# has_driver_licence = True
 
-# if name:
-#     print("Є ім'я")
-#     if age >= 18:
-#         print("Ти повнолітній")
-#         if has_driver_licence:
-#             print("Ти можеш водити авто. Щасливої дороги")
+# message = "Щасливої дороги" if name and has_driver_licence and age >= 18 and has_driver_licence else "У Вас не має дозволу рухатись далі"
+
+# print(message)
 
 
-if (name and has_driver_licence) or (age >= 18 and has_driver_licence):
-    print("Щасливої дороги")
+# message = 0 or 2
+# print(message)
 
-# else:
-#     print("У Вас не має дозволу рухатись далі")
 
-# age = 15
-# is_adult =
+# age = 19
+# is_adult = False
 
 # if age >= 18:
 #     is_adult = True
 # else:
 #     is_adult = False
+
+# print(is_adult)
 
 # count_apple = 1
 # print("На складі залишилось мало яблук" if count_apple < 2 else "Яблук на складі достатньо")
@@ -82,7 +79,11 @@ if (name and has_driver_licence) or (age >= 18 and has_driver_licence):
 # x = -89
 # y = 5
 
-# if x > 0 and y > 0:
+# if x > 0:
+#     if y > 0:
+#         print("Перша чверть")
+#     else:
+#         print("Четверта чверть")
 
 
 
@@ -91,6 +92,10 @@ if (name and has_driver_licence) or (age >= 18 and has_driver_licence):
 
 
 # Оголосити змінні х, у, z  (числа). За допомогою умовного оператора перевірити яке число більше.
+
+
+
+
 
 
 
