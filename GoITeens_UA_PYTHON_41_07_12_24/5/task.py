@@ -79,8 +79,8 @@
 
 
 
-for _ in range(5):
-    print("Hello")
+# for _ in range(5):
+#     print("Hello")
 
 
 # suma = 1
@@ -114,7 +114,6 @@ for _ in range(5):
 
 
 # a = 1
-
 # while a <= 5:
 #     print(a)
 #     a += 1
@@ -139,16 +138,26 @@ for _ in range(5):
 
 
 
+# while True:
+#     command = input("Введіть команду 'exit' для виходу > ")
+#     print(f"Ви ввели команду '{command}'")
+
+#     if command.strip().lower() == "exit":
+#         print("Ви вийшли з програми. До побачення!")
+#         break
+
+
+
 
 # a = 0
 
 # while True:
 #     print(a)
 
-#     # if a >= 20:
-#     #     break
+#     if a >= 20:
+#         break
 
-#     a += 1
+#     a += 3
 
 # print("Done")
 
@@ -166,11 +175,10 @@ for _ in range(5):
 
 
 # a = 0
-
 # while a < 60:
 #     a += 1
 
-#     if a % 2:
+#     if a % 2 == 0:
 #         continue
 
 #     print(a)
@@ -196,6 +204,16 @@ for _ in range(5):
 # Якщо число більше 20, то вивести його на екран.
 # Якщо число більше 100 — закінчити роботу програми.
 
+# while True:
+#     try:
+#         number = float(input("Введіть число: "))
+#         if number > 100:
+#             print("Число більше 100. Завершення роботи програми.")
+#             break
+#         elif number > 20:
+#             print(f"Число більше 20: {number}")
+#     except ValueError:
+#         print("Будь ласка, введіть коректне число.")
 
 
 
@@ -239,7 +257,7 @@ for _ in range(5):
 
 
 # Написати програму, яка буде підраховувати суму всіх парних чисел від 1 до 100. ---------1
-
+# print(sum(range(0, 101, 2)))
 
 
 
@@ -253,7 +271,23 @@ for _ in range(5):
 # і підраховує кількість входження в рядок останньої літери,
 # якою закінчується цей рядок.
 
+# char = "а"
+# string = "Сьогодні неділя. Дуже чудовий день, гарна погода"
 
+# for char in string:
+#     pass
+
+# count = 0
+# for c in string:
+#     if c == char:
+#         count += 1
+# else:
+#     print(f"Символ '{char}' зустрічається {count} р.")
+
+# string = "Сьогодні неділя. Дуже чудовий день, гарна погода"
+# char = string[-1]
+# count = string.count(string[-1])
+# print(f"Символ '{char}' зустрічається {count} р.")
 
 
 
@@ -267,7 +301,22 @@ for _ in range(5):
 # Дано ціле число, що лежить у діапазоні 1-999.
 # Вивести рядок-опис виду «парне двозначне число», «непарне тризначне число» тощо.
 
+number = int(input("Введіть ціле число, що лежить у діапазоні 1-999 > "))
+count_char = 0
+info = ""
+if number < 10:
+    count_char = 1
+elif number < 100:
+    count_char = 2
+else:
+    count_char = 3
 
+if number % 2 == 0:
+    info = "парне"
+else:
+    info = "непарне"
+
+print(f"Число {number} {info} та має таку кількість цифр - {count_char}")
 
 
 
