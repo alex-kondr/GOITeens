@@ -301,22 +301,22 @@
 # Дано ціле число, що лежить у діапазоні 1-999.
 # Вивести рядок-опис виду «парне двозначне число», «непарне тризначне число» тощо.
 
-number = int(input("Введіть ціле число, що лежить у діапазоні 1-999 > "))
-count_char = 0
-info = ""
-if number < 10:
-    count_char = 1
-elif number < 100:
-    count_char = 2
-else:
-    count_char = 3
+# number = int(input("Введіть ціле число, що лежить у діапазоні 1-999 > "))
+# count_char = 0
+# info = ""
+# if number < 10:
+#     count_char = 1
+# elif number < 100:
+#     count_char = 2
+# else:
+#     count_char = 3
 
-if number % 2 == 0:
-    info = "парне"
-else:
-    info = "непарне"
+# if number % 2 == 0:
+#     info = "парне"
+# else:
+#     info = "непарне"
 
-print(f"Число {number} {info} та має таку кількість цифр - {count_char}")
+# print(f"Число {number} {info} та має таку кількість цифр - {count_char}")
 
 
 
