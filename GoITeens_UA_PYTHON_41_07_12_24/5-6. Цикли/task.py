@@ -394,11 +394,29 @@
 # Написати програму, яка виведе числа від 7 до 77 використовуючи цикл
 
 
+# for number in range(7, 78):
+#     print(number)
+
+# for number in range(7 ,  78):
+#     print(number)
 
 
 
+# Написати програму, яка приймає на вхід рядок,
+# введений з клавіатури, і підраховує кількість
+# входження в рядок першої літери, з якої починається цей рядок.
+# string = input("")
+# # first_char = string[0]
+# for char in string:
+#     first_char = char.lower()
+#     break
 
+# count = 0
+# for char in string:
+#     if char.lower() == first_char:
+#         count += 1
 
+# count = string.count(first_char)
 
 
 

@@ -1,95 +1,103 @@
-# Організувати безперервне введення з клавіатури чисел.
-# Якщо число більше 20, то вивести його на екран.
-# Якщо число більше 100 — закінчити роботу програми.
+# Написати код який буде просити команду і відразу її друкувати
+# до поки він його не напише "stop", "exit" aбо "bye".
 
-
-
-
-
+# STOP_LIST = ["stop", "exit", "bye"]
 
 # while True:
-#     number = input("Введіть ціле число ")
-#     number = int(number)
-    
-#     if number > 100:
-#         print("роботу програми завершенно")
-#         break
-#     elif number > 20:
-#         print(number)
-
-
-
-# while True:
-#     number = int(input("Введіть ваше число"))
-    
-#     if number > 100:
-#         print("Ви завершили програму")
+#     command = input("Введіть команду ('stop', 'exit', 'bye'  для виходу): ")
+#     print(f"Ви ввели: '{command}'")
+#     # if command.strip().lower() == "exit" or command.strip().lower() == "stop" or command.strip().lower() == "bye":
+#     # if command.strip().lower() in {"stop", "exit", "bye"}:
+#     if command.strip().lower() in STOP_LIST:
+#         print("Програма завершена. До побачення!")
 #         break
 
-#     elif number > 20:
-#         print(f"Ви обрали число {number}")
 
-# sum_e_num = 0
-# for number in range(0, 101, 2):
-#     sum_e_num += number
-# print(f"сума всіх парних чисел від 1 до 100 дорівнює {sum_e_num}")
+# Написати код який рахує добуток всіх чисел в діапазоні який задав користувач
 
+# first_num = int(input("введіть перше число"))
+# second_num = int(input("введіть друге число"))
+# # second_num += 1
+# numbers = 1
 
+# for number in range(first_num , second_num + 1):
+#     numbers *= number
 
+# print(numbers)
 
-# while True:
-#  number = int(input('Ведите число '))
-# if number > 100:
-#    print ('число больше 100')
-#    break
-#  elif number > 20:
-#     print(f'вы выбрали число: {number}')  
+# a = int(input("Введіть перше число діапазону: "))
+# b = int(input("Введіть друге число діапазону: "))
+# dob = 1
+# for number in range(a,b+1):
+#     dob *= number
 
-# while True:
-#     try:                                 
-#         number = float(input("Введіть число: "))
-#         if number > 100:
-#             print("Число більше 100. Завершення роботи програми.")
-#             break
-#         elif number > 20:
-#             print(f"Число більше 20: {number}")
-#     except ValueError:
-#         print("Будь ласка, введіть коректне число.")
-
-# while True:
-#     number = int(input("Введіть число: "))
-#     if number > 20:
-#         print(number)
-#     if number > 100:
-#         print("Процес завершено")
-#         break
-        
+# print(f"добуток заданого діапазону = {dob}")
 
 
 
+# У нас є три логічні змінні.
+# Перша визначає статус користувача is_active, яка дорівнює True або False.
+# Друга is_admin визначає, чи є у користувача права адміністратора теж булевого типу.
+# Третя is_permission — чи дозволено доступ, теж булевого типу.
+# Приведіть змінні is_active, is_admin та is_permission до булевого вигляду.
+# Надайте змінній access значення, яке покаже, чи є доступ у користувача. Використовуйте логічні оператори.
+# Адміністратор завжди має доступ, незалежно від значень змінних is_permission та is_active.
+# Користувач має доступ, тільки якщо is_permission дорівнює True та is_active також дорівнює True.
 
-# Написати програму, яка буде підраховувати суму всіх парних чисел від 1 до 100.
+# is_active = False
+# is_admin = False
+# is_permission = False
 
-sum_even = 0
+# if is_admin:
+#     print("Доступ дозволено")
+# else:
+#     print("Доступ заборонено")
 
-for number in range(1, 101):
-    if number % 2 == 0:
-        sum_even += number
+# if is_active and is_permission:
+#     print("Доступ дозволено")
+# else:
+#     print("Доступ заборонено")
 
-print(f"Сума всіх парних чисел від 1 до 100 дорівнює {sum_even}")
+# if is_admin:
+#     access = True
+# else:
+#     access = is_active and is_permission 
+
+# if is_admin or (is_active and is_permission):
+#     print("Доступ дозволено")
+# else:
+#     print("Доступ заборонено")
+
+# access = is_admin or (is_active and is_permission)
+# msg = "Доступ дозволено" if is_admin or (is_active and is_permission) else "Доступ заборонено"
 
 
+# Написати програму, яка виведе список квадратів чисел.
+# a = int(input("Введіть перше число діапазону: "))
+# b = int(input("Введіть друге число діапазону: "))
+# for number in range(a, b+1):
+#     number **= 2
+#     print(number)
 
-sum_e_num = 0
-for number in range(0, 101, 2):
-    sum_e_num += number
-print(f"сума всіх парних чисел від 1 до 100 дорівнює {sum_e_num}")
+
+# for i in range(7, 78):
+#     print(i)
+
+# Дано змінну a = -56. Виводити a, поки a <= 15, збільшуючи змінну на 3
+
+# a = -56
+# while a <= 15:
+#     print(a)
+#     a += 3
 
 
+# Дано слово "Молоко".
+# За допомогою циклу порахувати
+# скільки літер "о" містить в собі це слово.
+# word = "Молоко"
+# count = 0
+# for letter in word:
+#     if letter == "о":
+#         count += 1
 
-# Написати програму, яка приймає на вхід рядок, введений з клавіатури, ---------------2
-# і підраховує кількість входження в рядок останньої літери,
-# якою закінчується цей рядок.
-
-# Дано ціле число, що лежить у діапазоні 1-999.
-# Вивести рядок-опис виду «парне двозначне число», «непарне тризначне число» тощо.
+# print(count)
