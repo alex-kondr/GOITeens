@@ -36,3 +36,15 @@ commands = [
     "10. Показати історію продажів",
     "11. Вийти з програми"
 ]
+
+while True:
+    for command in commands:
+        print(command)
+
+    command = input("Введіть номер команди: ")
+    if command == "1":
+        print()
+        for i, product in enumerate(products, start=1):
+            print(f"{i}: {product}")
+
+        input("\nНатисніть enter для продовження\n")
