@@ -1,64 +1,6 @@
+# my_string = "Hello world!\rN0000000"
 
-
-# Ввести рядок з клавіатури. Видалити з неї всі цифри
-
-one_line_text = '''Textual data in Py453thon is handle345d with str objects, or strings.
-            	Strings are immutable seque8888nces of Unicode code points.889
-            	String lit11erals are written in a variety5443 of ways.'''
-
-# new_string = ""
-# for char in one_line_text:
-#     if not char.isdigit():
-#         new_string += char
-
-# print(new_string)
-# chars = [char for char in one_line_text if not char.isdigit()]
-# new_string = "".join(chars)
-# print(new_string)
-
-
-
-
-
-# print(one_line_text[-10:-20:-2])
-
-# one_line_text[5] = "Абабагаламага"
-
-# delimiter = "Hi there! " * 100
-# print(delimiter)
-
-
-
-
-# number_1 = input("Введіть число: ") # 5
-# number_2 = input("Введіть число: ") # 6
-# numbers = number_1 + number_2
-# print(numbers)
-# print(type(number))
-
-# a = 5
-# b = 6
-# print(a)
-# print(one_line_text + str(a))
-
-# numbers = [1, 5, 6, 9]
-# index = numbers.index(5)
-# numbers[1] = 10
-# print(numbers)
-
-
-# str_by_numbers = str(numbers)
-# new_numbers = list(str_by_numbers)
-# print(new_numbers)
-
-# print(f"{numbers[0] = }")
-# print(f"{str_by_numbers[3] = }")
-
-# print(type(str_by_numbers))
-
-
-
-
+# print(my_string)
 
 
 
@@ -68,18 +10,20 @@ one_line_text = '''Textual data in Py453thon is handle345d with str objects, or 
 
 
 # Створіть програму, яка приймає від користувача два рядки та виводить повідомлення, де більше символів.
-# string_1 = "ка приймає від користувача д"
-# string_2 = "оріть програму"
+# string_1 = input("Введіть перший рядок: ")
+# string_2 = input("Введіть другий рядок: ")
 
-# max_string = max(string_1, string_2, key=len)
-# print(max_string)
+# count_1 = 0
+# count_2 = 0
 
-# if len(string_1) > len(string_2):
-#     print("string_1 > string_2")
-# else:
-#     print("string_1 < string_2")
+# for _ in string_1:
+#     count_1 += 1
 
-# print("string_1 > string_2" if len(string_1) > len(string_2) else "string_1 < string_2")
+# for _ in string_2:
+#     count_2 += 1
+
+# print("Перший рядок довший" if count_1 > count_2 else "Другий рядок довший")
+# print("Перший рядок довший" if len(string_1) > len(string_2) else "Другий рядок довший")
 
 
 
@@ -95,23 +39,7 @@ one_line_text = '''Textual data in Py453thon is handle345d with str objects, or 
 
 
 # Написати програму, яка зчитає 3 числа (a, b, c) та порахує скільки чисел лежить між “a” i “b”, які діляться на “с”
-# a = -569
-# b = 842
-# c = 9
 
-# # count = 0
-# # for number in range(a, b+1):
-# #     if number % c == 0:
-# #         count += 1 # count = count + 1
-
-# # numbers = [number for number in range(a, b+1) if number % c == 0]
-# numbers = [1 for number in range(a, b+1) if number % c == 0]
-# count_1 = len(numbers)
-# count_2 = sum(numbers)
-# # print(f"{numbers = }")
-
-# print(f"Кількість чисел, які діляться на {c} в діапазоні від {a} до {b} дорівнює {count_1}")
-# print(f"Кількість чисел, які діляться на {c} в діапазоні від {a} до {b} дорівнює {count_2}")
 
 
 
@@ -124,15 +52,8 @@ one_line_text = '''Textual data in Py453thon is handle345d with str objects, or 
 # Створіть програму, яка приймає від користувача дві строки та порівнює їх лексикографічно (за алфавітом).
 # Виведіть результат порівняння у вигляді логічного значення (True або False).
 
-# string_1 = "творіть програму, яка приймає від користувача дві"
-# string_2 = "творітьg програму, яка приймає від користувача дві"
 
-# if string_1 == string_2:
-#     print("Рядки однакові")
-# else:
-#     print("Рядки різні")
 
-# print("Рядки однакові" if string_1 == string_2 else "Рядки різні")
 
 
 
@@ -143,7 +64,7 @@ one_line_text = '''Textual data in Py453thon is handle345d with str objects, or 
 # Створіть програму, яка приймає від користувача строку та знаходить кількість слів у цьому рядку
 # (слово — це послідовність символів, розділених пробілами). Виведіть цю кількість.
 
-# string = "Створіть програму, яка приймає від користувача строку та знаходить кількість слів"
+
 
 
 
@@ -215,8 +136,15 @@ one_line_text = '''Textual data in Py453thon is handle345d with str objects, or 
 
 
 
+
+
+
+
 # Визначи, чи порядок значень у запропонованому списку є строго зростаючим
 # my_list = [4, 5, 6, 7, 3, 7, 9]
+
+
+
 
 
 
