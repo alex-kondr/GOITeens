@@ -1,3 +1,43 @@
+# import re
+# my_string = "  777 овертає кількість разів, коли вказане знаколичення з’являється в рядку. "\
+# "Ви можете обмежити пошук, вказавши додаткові аргументи start і end:    \n000"
+
+# print(ord("ю"))
+
+# new_string = my_string.replace("коли", "мабуть").replace("7", "9")
+# print(new_string)
+
+# print(len(my_string))
+# count = my_string.count("і", 20, 25)
+# print(count)
+
+# index = my_string.rfind("і")
+# print(index)
+# my_string.
+# print(re.findall("і", my_string))
+
+# strings = my_string.split(". ")
+# # print(strings)
+# new_string = "!".join(strings)
+# print(new_string)
+# new_string = my_string.strip(".+- \n")
+# print(len(new_string))
+# print(new_string)
+
+
+# print("|{left:<10}|{center:*^10}|{right:>10}|".format(left='left', right='right', center='center'))
+
+
+
+
+
+
+
+
+
+
+
+
 # Вивести таблицю проданих за день товарів в наступному форматі:
 # номер, назва, кількість, ціна.
 # --------------------------------------------------
@@ -8,13 +48,21 @@
 # |  2  |Картопля            |        10|        80|
 # --------------------------------------------------
 
+delimiter = "-" * 50
+header = ["№", "Товар", "Кількість", "Вартість"]
+products = [["Апельсин", 6, 15], ["Лимон", 8, 367], ["Картопля", 10, 80]]
+template = "|{:^5}|{:<20}|{:>10}|{:>10}|"
 
+print(delimiter)
+# print(template.format(header[0], header[1], header[2], header[3]))
+print(template.format(*header))
+print(delimiter)
 
+for i, product in enumerate(products):
+    # print(template.format(i, product[0], product[1], product[2]))
+    print(template.format(i, *product))
 
-
-
-
-
+print(delimiter)
 
 
 
