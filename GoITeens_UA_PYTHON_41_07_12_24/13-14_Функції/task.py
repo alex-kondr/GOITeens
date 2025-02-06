@@ -47,16 +47,16 @@
 # reserve_vet_clinic("Tomy", 4)
 # print(f"{reserve = }")
 
-def plus(a, b, c, d, e):
-    print(f"{a = }")
-    print(f"{b = }")
-    print(f"{c = }")
-    print(f"{d = }")
-    print(f"{e = }")
-    print(a + b + c + d + e)
+# def plus(a, b, c, d, e):
+#     print(f"{a = }")
+#     print(f"{b = }")
+#     print(f"{c = }")
+#     print(f"{d = }")
+#     print(f"{e = }")
+#     print(a + b + c + d + e)
 
 
-plus(c=1, e=2, d=3, b=4, a=5)
+# plus(c=1, e=2, d=3, b=4, a=5)
 
 
 # Написати функцію, яка бронює столик у ресторані. В якості аргументів
