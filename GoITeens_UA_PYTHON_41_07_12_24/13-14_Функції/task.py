@@ -1,3 +1,22 @@
+# my_string = input("Введіть речення: ")
+
+# count = 0
+# most_common_char = ""
+# for char in my_string:
+#     temp_count = my_string.count(char)
+#     if count < temp_count:
+#         count = temp_count
+#         most_common_char = char
+# string = "hello"
+# string.replace()
+# string.isdigit()
+
+# def my_func(s: str):
+#     s.replace("", "")
+#     s.isdigit()
+
+# my_func(45)
+
 # LOGIN = "my_name"
 
 
@@ -65,17 +84,33 @@
 
 # Забронювати два столики (двічі викликати функцію), для 2 і 4 осіб.
 
+# def sum(a, b):
+#     return a + b
+
+# # print(sum(1, 5))
+# c = sum(1, 5)
+# print(c)
+
+# char = "A"
+# print(f"Start - {char = }")
+# char = "B"
+
+# def my_func(char):
+#     print(f"1. {char = }")
+#     char = "B"
+#     print(f"2. {char = }")
 
 
-
-
-
-
+# my_func(char="K")
+# print(f"End - {char = }")
 
 # *args
+# def my_sum(*args):
+#     print(args)
+#     return sum(args)
 
 
-
+# print(my_sum(1, 2, 5, 20, 50), 2, "hello")
 
 
 
@@ -83,13 +118,44 @@
 
 
 # **kwargs
+# def my_func(**kwargs):
+#     print(kwargs)
+
+# my_func(a=1, b=5, c=0)
+
+
+# def my_func(a, b, *args, c=0, d=50, **kwargs):
+#     print(f"{a = }, {b = }, {args = }, {c = }, {d = }, {kwargs = }")
+
+
+# my_func(20, 30, 3, 4, 5, 6, e=90, f=80, d=47)
+
+# char = "A"
+# char = "B"
+# print(char)
+
+
+
+# LEGB
+
+# char = "A"
+
+# def my_func_out():
+#     char = "B"
+
+#     def my_func_inner():
+#         nonlocal char
+#         print(f"{char = }")
+#         char = "C"
+#         print(f"{char = }")
+
+#     my_func_inner()
 
 
 
 
-
-
-
+# my_func_out()
+# print(f"{char = }")
 
 # subscribers_list_news = list()
 # subscribers_list_what_new = list()
@@ -134,6 +200,23 @@
 
 
 # Написати функцію, яка приймає рядок і повертає кількість голосних букв у цьому рядку.
+def count_letter(s: str):
+    letters = ["а", "о", "и", "і", "у", "е"]
+    return sum([1 for char in s if char in letters])
+    # count = 0
+    # for char in s:
+    #     if char in letters:
+    #         count += 1
+
+    # return count
+
+
+my_string = input("Введіть речення: ")
+count = count_letter(my_string)
+print(count)
+
+
+
 
 
 
