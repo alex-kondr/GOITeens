@@ -1,3 +1,22 @@
+# my_func = lambda x: x + 2
+# print(my_func(5))
+# print((lambda x: x + 2)(6))
+# def my_func(student: list):
+#     return student[1]
+
+# students = [["Алекс", 87], ["Петро", 45], ["Михайло", 98]]
+# students.sort(key=my_func)
+# students.sort(key=lambda x: x[1])
+# print(f"{students = }")
+
+# numbers = list(range(1, 60))
+# sqr = list(map(lambda x: x**2, numbers))
+# print(f"{sqr = }")
+# print(f"{numbers = }")
+
+
+
+
 # Створіть лямбда-функцію для обчислення куба числа.
 
 
@@ -16,9 +35,29 @@
 
 # Створіть лямбда-функцію для обчислення середнього арифметичного двох чисел.
 
+# num_1 = float(input("Введіть друге число > "))
+# num_2 = float(input("Введіть перше число > "))
+# my_func = lambda num_1, num_2: (num_1 + num_2)/2
+# print(f"Середнє арифметичне чисел {num_1} і {num_2}: {my_func(num_1, num_2)}")
+
+# num_1 = int(input("Введіть перше число: "))
+# num_2 = int(input("Введіть друге число: "))
+# my_func = lambda x,y: (x+y)/2
+# print(f"Середнє арифметичне {num_1} та {num_2} = {my_func(num_1,num_2)}")
+
+# numbers = lambda x, y: (x + y)/2
+# print(numbers(3, 5))
 
 
 
+
+# average = lambda a, b: (a + b) / 2 
+# result = average(10, 30)
+
+
+
+# my_func = lambda x,y: (x + y) / 2 
+# print(my_func(2, 5))
 
 
 # Напишіть лямбда-функцію для конвертації температури з Цельсія в Фаренгейт і навпаки.
@@ -29,10 +68,26 @@
 
 # Використовуючи теорему Піфагора,
 # створіть лямбда-функцію для обчислення довжини гіпотенузи прямокутного трикутника за даними катетами.
+kat_1 = float(input("Введіть число > "))
+kat_2 = float(input("Введіть число > "))
+gip = lambda kat_1, kat_2: (kat_1**2 + kat_2**2)**0.5
+print(f"Гіпотенуза дорівнює {gip(kat_1, kat_2)}")
 
 
 
 
+a = 12
+b = 13
+c = lambda a: (a**2 + b**2) ** 0.5 
+print(c)
+
+
+
+import math
+
+numbers = lambda a, b: math.sqrt(math.pow(a, 2) + math.pow(b, 2))
+numbers = kat_1(3, 4)
+numbers = kat_2(10, 15)
 
 
 # Створіть лямбда-функцію для перевірки, чи є заданий рік високосним.
