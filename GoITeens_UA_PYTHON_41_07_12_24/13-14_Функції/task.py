@@ -200,20 +200,20 @@
 
 
 # Написати функцію, яка приймає рядок і повертає кількість голосних букв у цьому рядку.
-def count_letter(s: str):
-    letters = ["а", "о", "и", "і", "у", "е"]
-    return sum([1 for char in s if char in letters])
-    # count = 0
-    # for char in s:
-    #     if char in letters:
-    #         count += 1
+# def count_letter(s: str):
+#     letters = ["а", "о", "и", "і", "у", "е"]
+#     return sum([1 for char in s if char in letters])
+#     # count = 0
+#     # for char in s:
+#     #     if char in letters:
+#     #         count += 1
 
-    # return count
+#     # return count
 
 
-my_string = input("Введіть речення: ")
-count = count_letter(my_string)
-print(count)
+# my_string = input("Введіть речення: ")
+# count = count_letter(my_string)
+# print(count)
 
 
 
