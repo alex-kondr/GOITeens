@@ -1,3 +1,51 @@
+# Вам дано список словників,
+# кожен з яких представляє дані про певний продукт
+# (наприклад, {"name": "apple", "price": 5, "quantity": 20}).
+# Використовуючи map та filter, відіберіть з цього списку всі
+# продукти, ціна яких перевищує задане значення,
+# а потім трансформуйте кожен словник, залишивши тільки
+# інформацію про назву та кількість продукту.
+# Результат повинен бути списком словників зі зменшеним набором полів.
+
+# products = [
+#     {"name": "apple-1", "price": 5, "quantity": 20},
+#     {"name": "apple-2", "price": 4, "quantity": 30},
+#     {"name": "apple-3", "price": 7, "quantity": 40},
+#     {"name": "apple-4", "price": 10, "quantity": 50},
+#     {"name": "apple-5", "price": 1, "quantity": 500},
+# ]
+
+# price = 5
+
+# filtered_products = list(filter(lambda prod: prod["price"] > price, products))
+# new_prods = list(map(lambda prod: {"name": prod["name"], "quantity": prod['quantity']}, filtered_products))
+
+# new_prods_3 = [{"name": prod["name"], "quantity": prod['quantity']} for prod in products if prod["price"] > price]
+
+# new_prods_2 = list(map(lambda prod: {"name": prod["name"], "quantity": prod['quantity']}, filter(lambda prod: prod["price"] > price, products)))
+
+# print(filtered_products)
+# print(new_prods_3)
+
+
+# numbers = [1, 5, 6, 7, 10, 11, 87, 102]
+# filtered_numbers = list(filter(lambda number: number % 2 == 0, numbers))
+
+
+# def filtered(number):
+#     return number % 2 == 0
+
+# filtered_numbers = list(filter(filtered, numbers))
+# filtered_numbers = [number for number in numbers if number % 2 == 0]
+# print(filtered_numbers)
+
+
+
+
+
+
+
+
 # Припустимо, у вас є список назв продуктів,
 # і ви хочете нормалізувати ці рядки до нижнього регістру, щоб забезпечити уніформність даних.
 products = ["Table", "CHAIR", "Desk", "SHELF"]

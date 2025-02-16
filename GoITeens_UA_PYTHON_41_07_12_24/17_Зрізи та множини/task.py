@@ -1,3 +1,13 @@
+# my_string = "Відокремлення ім’я та прізвища"
+# print(my_string[:50])
+
+
+
+
+
+
+
+
 
 
 
@@ -11,14 +21,48 @@
 # Заданий рядок, який містить ім’я та прізвище користувача, що розділені пробілом
 # Написати програму з використанням зрізів, яка виокремить ім’я та прізвище
 
-# my_string = "Ivan,Ivanov,Ivanovich,hello"
 # delimiter = ","
 
+# my_list = []
+
+# if delimiter not in my_string:
+#     print("Міститься тільки одне слово")
+#     my_list.append(my_string)
+# else:
+#     delimiter_count = my_string.count(delimiter)
+
+#     idx = 0
+#     for _ in range(delimiter_count):
+#         idx_start = idx
+#         idx = my_string.find(delimiter, idx_start) + 1
+#         word = my_string[idx_start:idx-1]
+#         my_list.append(word)
+#     else:
+#         word = my_string[idx:]
+#         my_list.append(word)
+
+# print(f"{my_list = }")
 
 
+# my_set = set()
+# my_set = {1, 5, 8, 1, 5, 9, 1}
+# print(my_set)
+# my_set = set(my_string)
+# # print(my_set)
+# for char in my_set:
+#     print(char)
 
+numbers = {1, 5, 5, 1, 8, 1, 1, 1, 5, 8}
+my_string = "Ivan,Ivanov,Ivanovich,hello"
+my_set = set(my_string)
+# numbers.add(1)
+# numbers.add(10)
+# numbers.remove(50)
+# numbers.discard(10)
 
-
+print(my_set)
+print(my_set.pop())
+print(my_set)
 
 
 
