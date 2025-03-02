@@ -1,13 +1,74 @@
+# my_string = "Який чудовий день"
+
+# # print(my_string[-2:-7:-1])
+# strigs = my_string.split()
+# print(strigs[1])
+
+# my_set = {2, 5, "String"}
+# my_set.
+
+# my_dict = {"USD": 1000, "UAH": 20000}
+# # print(my_dict)
+# my_dict = {
+#     "USD": 1000,
+#     "UAH": 20000
+# }
+# # print(my_dict)
+
+# my_dict = dict(USD=1000, UAH=20000)
+# print(my_dict)
+
+# print(my_dict)
+
+# print(my_dict["UAD"])
+
+# my_dict["UAD"] = 15000
+# my_dict["UAD"] = my_dict.get("UAD", 0) + 5000
+
+# my_dict.update({"UAD1": 16000})
+# my_dict.update(dict(UAD2=17000))
+
+# print(my_dict.get("UAD", "Такої валюти у гаманці немає"))
+# print(my_dict.get("UAD1", "Такої валюти у гаманці немає"))
+# print(my_dict.get("UAD2", "Такої валюти у гаманці немає"))
+
+# my_dict = dict(
+#     USD=1000,
+#     UAH=20000
+# )
+
+# my_dict_2 = my_dict.copy()
+# my_dict_2["UAD"] = 15000
+
+# print(my_dict)
+# print(my_dict_2)
+
+# colors = {
+#     "Red": 255,
+#     "Green": 241
+# }
 
 
 
-month = {
-    1: "Січень",
-    2: "Лютий",
-    3: "Березень"
-}
 
 
+
+
+
+
+
+
+
+
+# month = {
+#     1: "Січень",
+#     2: "Лютий",
+#     3: "Березень"
+# }
+
+# month[5] = "Травень"
+# month.update({10: "Жовтень"})
+# print(month)
 
 
 
@@ -54,7 +115,8 @@ month = {
 
 
 
-# Створіть список з чисел від 1 до 10 та використайте зрізи для виводу елементів від другого до п'ятого включно.
+# Створіть список з чисел від 1 до 10 та використайте зрізи
+# для виводу елементів від другого до п'ятого включно.
 
 
 
