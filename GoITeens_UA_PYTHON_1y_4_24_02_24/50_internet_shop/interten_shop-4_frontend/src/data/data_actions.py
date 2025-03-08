@@ -14,7 +14,7 @@ TOKEN_URL = os.getenv("TOKEN_URL")
 def get_product(prod_id: str, url: str = PRODS_URL) -> dict:
     product = requests.get(url + prod_id).json()
     if product:
-        return product[0]
+        return product
 
 
 def get_products(url: str = PRODS_URL) -> dict:
