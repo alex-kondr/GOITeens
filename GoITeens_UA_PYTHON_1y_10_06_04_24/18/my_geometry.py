@@ -1,7 +1,7 @@
 import math
 
 
-def circle_area(radius: float) -> tuple[float]:
+def circle_area(radius: float) -> tuple[float, float, float]:
     area_1 = 3.14 * radius ** 2
     area_2 = math.pi * radius ** 2
     area_3 = math.pi * math.pow(radius, 2)
