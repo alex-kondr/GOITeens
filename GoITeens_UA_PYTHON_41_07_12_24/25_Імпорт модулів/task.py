@@ -1,3 +1,16 @@
+# Додайте анотації типів до функції,
+# яка приймає два цілі числа як аргументи і повертає їх суму.
+
+# def my_func(a: int, b: int) -> int:
+#     pass
+
+
+
+
+
+
+
+
 # import matplotlib.pyplot as plt
 # import numpy as np
 
