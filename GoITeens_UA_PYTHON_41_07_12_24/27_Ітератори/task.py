@@ -14,7 +14,7 @@ my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 # print(next(iterator))
 # print(next(iterator))
 
-from itertools import cycle, count, repeat, accumulate, chain, zip_longest
+from itertools import cycle, count, repeat, accumulate, chain, zip_longest, dropwhile, takewhile, filterfalse
 # Using itertools.cycle to cycle through a list
 # cycled_list = cycle(my_list)
 # for _ in range(15):  # Print 15 elements from the cycled list
@@ -46,3 +46,18 @@ from itertools import cycle, count, repeat, accumulate, chain, zip_longest
 # zipped_list = zip_longest([1, 2, 3], [4, 5, 6, 7], fillvalue='N/A')  # Zip multiple lists together
 # for value in zipped_list:
 #     print(value)    # Print the zipped lists
+
+# Using itertools.dropwhile to drop elements from the iterable
+# dropped_values = takewhile(lambda x: x % 2 != 0, my_list)  # Drop elements from the iterable until the condition is false
+# for value in dropped_values:
+#     print(value)    # Print the
+
+# Using itertools.takewhile to take elements from the iterable
+# taken_values = takewhile(lambda x: x % 2 != 0, my_list)  # Take elements from the iterable until the condition is false
+# for value in taken_values:
+#     print(value)    # Print the
+
+# Using itertools.filterfalse to filter elements from the iterable
+# filtered_values = filterfalse(lambda x: x % 2 != 0, my_list)  # Filter elements from the iterable
+# for value in filtered_values:
+#     print(value)    # Print the filtered values
