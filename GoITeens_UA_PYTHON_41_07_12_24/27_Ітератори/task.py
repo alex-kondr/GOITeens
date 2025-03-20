@@ -56,8 +56,8 @@ from itertools import cycle, count, repeat, accumulate, chain, zip_longest, drop
 # taken_values = takewhile(lambda x: x % 2 != 0, my_list)  # Take elements from the iterable until the condition is false
 # for value in taken_values:
 #     print(value)    # Print the
-
+my_list = [0, 1, 0, 2, 3, 0, 4]
 # Using itertools.filterfalse to filter elements from the iterable
-# filtered_values = filterfalse(lambda x: x % 2 != 0, my_list)  # Filter elements from the iterable
-# for value in filtered_values:
-#     print(value)    # Print the filtered values
+filtered_values = filterfalse(lambda x: x == 0, my_list)  # Filter elements from the iterable
+for value in filtered_values:
+    print(value)    # Print the filtered values
