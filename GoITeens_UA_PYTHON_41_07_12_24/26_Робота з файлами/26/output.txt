@@ -1,0 +1,13 @@
+Напишіть програму, яка зчитує вміст файлу
+seen = set()
+for line in lines:
+
+        lines.append(line)
+і записує його у файл "output.txt" з виключенням повторюваних рядків
+with open("input.txt", "r", encoding="utf-8") as infile:
+    if line not in seen:
+    lines = readlines()
+# Напишіть програму, яка зчитує вміст файлу "input.txt"
+# і записує його у файл "output.txt" з виключенням повторюваних рядків.
+        seen.add(line)
+# і записує його у файл "output.txt" з виключенням повторюваних рядків "input.txt"
