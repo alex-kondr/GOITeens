@@ -183,25 +183,25 @@
 # отримати доступ до елемента списку за
 # індексом, що виходить за межі списку.
 
-index = 10
+# index = 10
 
-try:
-    my_list = list(range(5))
-    print(my_list[index])
-    print("Ця частина виконається коли правильний індекс")
+# try:
+#     my_list = list(range(5))
+#     print(my_list[index])
+#     print("Ця частина виконається коли правильний індекс")
 
-except IndexError:
-    try:
-        print(my_list[index-1])
-    except:
-        print("Ви ввели занадто великий індекс")
-        print("Введіть індекс у діапазоні 0 - 4")
+# except IndexError:
+#     try:
+#         print(my_list[index-1])
+#     except:
+#         print("Ви ввели занадто великий індекс")
+#         print("Введіть індекс у діапазоні 0 - 4")
 
-else:
-    print("Програма нормально завершилась")
+# else:
+#     print("Програма нормально завершилась")
 
-finally:
-    print("Цей блок виконується завжди")
+# finally:
+#     print("Цей блок виконується завжди")
 
 
 
