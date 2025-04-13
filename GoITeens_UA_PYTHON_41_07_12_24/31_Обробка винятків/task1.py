@@ -183,25 +183,25 @@
 # отримати доступ до елемента списку за
 # індексом, що виходить за межі списку.
 
-index = 10
+# index = 10
 
-try:
-    my_list = list(range(5))
-    print(my_list[index])
-    print("Ця частина виконається коли правильний індекс")
+# try:
+#     my_list = list(range(5))
+#     print(my_list[index])
+#     print("Ця частина виконається коли правильний індекс")
 
-except IndexError:
-    try:
-        print(my_list[index-1])
-    except:
-        print("Ви ввели занадто великий індекс")
-        print("Введіть індекс у діапазоні 0 - 4")
+# except IndexError:
+#     try:
+#         print(my_list[index-1])
+#     except:
+#         print("Ви ввели занадто великий індекс")
+#         print("Введіть індекс у діапазоні 0 - 4")
 
-else:
-    print("Програма нормально завершилась")
+# else:
+#     print("Програма нормально завершилась")
 
-finally:
-    print("Цей блок виконується завжди")
+# finally:
+#     print("Цей блок виконується завжди")
 
 
 
@@ -218,8 +218,50 @@ finally:
 # Це може статися, коли розробник 1 передбачає
 # наявність ключа, але забуває перевірити його наявність перед доступом.
 
+# users = {
+#     "alex": {
+#         "name": "Alex",
+#         "city": "Odesa"
+#     },
+#     "volodumur": {
+#         "name": "Volodumur",
+#         "city": "Kyiv"
+#     }
+# }
+
+# try:
+#     print(users["ababbabubu"])
+# except KeyError:
+#     print("У базі даних немає такого користувача")
 
 
+# class UserNotFoundError(Exception):
+#     def __init__(self, message="У базі даних немає такого користувача"):
+#         self.message = message
+#         super().__init__(message)
+
+
+# raise UserNotFoundError("Інше повідомлення про помилку")
+# raise Exception("Якась помилка")
+
+# class NotIntegerError(Exception):
+#     def __init__(self, message="Даний тип даний неможливо перетворити в ціле число"):
+#         self.message = message
+#         super().__init__(message)
+
+
+
+# try:
+#     number = int(number)
+# except ValueError as e:
+#     raise NotIntegerError()
+# else:
+
+# number = input("Введіть ціле число: ")
+# if not number.isdigit():
+#     raise NotIntegerError()
+
+# print("Передаю дані в базу даних")
 
 
 
@@ -233,6 +275,59 @@ finally:
 
 # finally
 # обов'язкове закриття файлу
+
+# try:
+#     file = open("file.txt")
+# except FileNotFoundError:
+#     print("Файл не знайдено")
+# finally:
+#     try:
+#         file.close()
+#     except NameError:
+#         pass
+# import io
+
+# try:
+#     file = open("file.txt", "r")
+#     file.write("Хочу записати текст")
+# except io.UnsupportedOperation as e:
+#     print("Файл відкритий на читання")
+# finally:
+#     try:
+#         file.close()
+#         print("Робота з файлом завершена")
+#     except NameError:
+#         print("Файл не існує")
+
+
+
+
+
+import logging
+
+
+logging.basicConfig(level=logging.DEBUG, format="%(levelname)s: %(message)s", filename="log_file.txt", encoding="utf-8")
+
+
+def read_file(file_name):
+    try:
+        with open(file_name, 'r') as f:
+            logging.info(f"Читання файлу: {file_name}")
+            return f.write()
+    except FileNotFoundError as e:
+        logging.error(f"Файл не знайдено: {file_name}", exc_info=True)
+    except Exception as e:
+        logging.critical("Невідома помилка!", exc_info=True)
+
+
+read_file("file.txt")
+
+
+
+
+
+
+
 
 
 
