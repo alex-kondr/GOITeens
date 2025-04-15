@@ -1,0 +1,294 @@
+[
+  {
+    "fullName": "Гаррі Джеймс Поттер",
+    "nickname": "Гаррі",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "Daniel Radcliffe",
+    "children": [
+      "Джеймс Сіріус Поттер",
+      "Албус Северус Поттер",
+      "Лілі Луна Поттер"
+    ],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/harry_potter.png",
+    "birthdate": "Jul 31, 1980",
+    "index": 0
+  },
+  {
+    "fullName": "Герміона Джин Ґрейнджер",
+    "nickname": "Герміона",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "Emma Watson",
+    "children": [
+      "Роуз Ґрейнджер-Візлі",
+      "Гюґо Ґрейнджер-Візлі"
+    ],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/hermione_granger.png",
+    "birthdate": "Sep 19, 1979",
+    "index": 1
+  },
+  {
+    "fullName": "Рональд Біліус Візлі",
+    "nickname": "Рон",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "Rupert Grint",
+    "children": [
+      "Роуз Ґрейнджер-Візлі",
+      "Гюґо Ґрейнджер-Візлі"
+    ],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/ron_weasley.png",
+    "birthdate": "Mar 1, 1980",
+    "index": 2
+  },
+  {
+    "fullName": "Фредерік Ґідеон Візлі",
+    "nickname": "Фред",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "James Phelps",
+    "children": [],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/fred_weasley.png",
+    "birthdate": "Apr 1, 1978",
+    "index": 3
+  },
+  {
+    "fullName": "Джордж Візлі",
+    "nickname": "Джордж",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "Oliver Phelps",
+    "children": [],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/george_weasley.png",
+    "birthdate": "Apr 1, 1978",
+    "index": 4
+  },
+  {
+    "fullName": "Білл Візлі",
+    "nickname": "Білл",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "Domhnall Gleeson",
+    "children": [],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/bill_weasley.png",
+    "birthdate": "Nov 29, 1970",
+    "index": 5
+  },
+  {
+    "fullName": "Персі Візлі",
+    "nickname": "Персі",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "Chris Rankin",
+    "children": [],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/percy_weasley.png",
+    "birthdate": "Aug 22, 1976",
+    "index": 6
+  },
+  {
+    "fullName": "Чарлі Візлі",
+    "nickname": "Чарлі",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "",
+    "children": [],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/charlie_weasley.png",
+    "birthdate": "Dec 12, 1972",
+    "index": 7
+  },
+  {
+    "fullName": "Джині Візлі",
+    "nickname": "Джині",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "Bonnie Right",
+    "children": [
+      "Джеймс Сіріус Поттер",
+      "Албус Северус Поттер",
+      "Лілі Луна Поттер"
+    ],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/ginny_weasley.png",
+    "birthdate": "Aug 11, 1981",
+    "index": 8
+  },
+  {
+    "fullName": "Моллі Візлі",
+    "nickname": "Моллі",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "Julie Walters",
+    "children": [
+      "Рон Візлі",
+      "Фред Візлі",
+      "Джордж Візлі",
+      "Білл Візлі",
+      "Персі Візлі",
+      "Чарлі Візлі",
+      "Джині Візлі"
+    ],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/molly_weasley.png",
+    "birthdate": "Oct 30, 1949",
+    "index": 9
+  },
+  {
+    "fullName": "Артур Візлі",
+    "nickname": "Артур",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "Mark Williams",
+    "children": [
+      "Рон Візлі",
+      "Фред Візлі",
+      "Джордж Візлі",
+      "Білл Візлі",
+      "Персі Візлі",
+      "Чарлі Візлі",
+      "Джині Візлі"
+    ],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/arthur_weasley.png",
+    "birthdate": "Feb 6, 1950",
+    "index": 10
+  },
+  {
+    "fullName": "Невіл Лонґботом",
+    "nickname": "Невіл",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "Matthew Lewis",
+    "children": [],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/neville_longbottom.png",
+    "birthdate": "Jul 30, 1980",
+    "index": 11
+  },
+  {
+    "fullName": "Луна Лавґуд",
+    "nickname": "Луна",
+    "hogwartsHouse": "Рейвенклов",
+    "interpretedBy": "Evanna Lynch",
+    "children": [],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/luna_lovegood.png",
+    "birthdate": "Feb 13, 1981",
+    "index": 12
+  },
+  {
+    "fullName": "Драко Мелфой",
+    "nickname": "Драко",
+    "hogwartsHouse": "Слизерин",
+    "interpretedBy": "Tom Felton",
+    "children": [
+      "Скорпіус Мелфой"
+    ],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/draco_malfoy.png",
+    "birthdate": "Jun 5, 1980",
+    "index": 13
+  },
+  {
+    "fullName": "Албус Персіваль Вульфрик Браян Дамблдор",
+    "nickname": "Дамблдор",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "Richard Harris",
+    "children": [],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/albus_dumbledore.png",
+    "birthdate": "Aug 29, 1881",
+    "index": 14
+  },
+  {
+    "fullName": "Мінерва Макґонеґел",
+    "nickname": "Мінерва",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "Maggie Smith",
+    "children": [],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/minerva_mcgonagall.png",
+    "birthdate": "Oct 4, 1935",
+    "index": 15
+  },
+  {
+    "fullName": "Ремус Люпин",
+    "nickname": "Люпин",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "David Thewils",
+    "children": [
+      "Тед Люпин"
+    ],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/remus_lupin.png",
+    "birthdate": "Mar 10, 1960",
+    "index": 16
+  },
+  {
+    "fullName": "Рубеус Геґрід",
+    "nickname": "Геґрід",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "Robbie Coltrane",
+    "children": [],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/rubeus_hagrid.png",
+    "birthdate": "Dec 6, 1928",
+    "index": 17
+  },
+  {
+    "fullName": "Сіріус Блек",
+    "nickname": "Сіріус",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "Gary Oldman",
+    "children": [],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/sirius_black.png",
+    "birthdate": "Nov 3, 1959",
+    "index": 18
+  },
+  {
+    "fullName": "Северус Снейп",
+    "nickname": "Снейп",
+    "hogwartsHouse": "Слизерин",
+    "interpretedBy": "Alan Rickman",
+    "children": [],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/severus_snape.png",
+    "birthdate": "Jan 9, 1960",
+    "index": 19
+  },
+  {
+    "fullName": "Белатриса Лестранж",
+    "nickname": "Белла",
+    "hogwartsHouse": "Слизерин",
+    "interpretedBy": "Helena Bonham Carter",
+    "children": [
+      "Дельфі"
+    ],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/bellatrix_lestrange.png",
+    "birthdate": "Dec 13, 1951",
+    "index": 20
+  },
+  {
+    "fullName": "Лорд Волдеморт",
+    "nickname": "Волдеморт",
+    "hogwartsHouse": "Слизерин",
+    "interpretedBy": "Ralph Fiennes",
+    "children": [
+      "Дельфі"
+    ],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/lord_voldemort.png",
+    "birthdate": "Dec 31, 1926",
+    "index": 21
+  },
+  {
+    "fullName": "Седрик Діґорі",
+    "nickname": "Седрик",
+    "hogwartsHouse": "Гафелпаф",
+    "interpretedBy": "Robert Pattinson",
+    "children": [],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/cedric_diggory.png",
+    "birthdate": "Sep 29, 1977",
+    "index": 22
+  },
+  {
+    "fullName": "Німфадора Тонкс",
+    "nickname": "Тонкс",
+    "hogwartsHouse": "Гафелпаф",
+    "interpretedBy": "Natalia Tena",
+    "children": [
+      "Тед Люпин"
+    ],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/nymphadora_tonks.png",
+    "birthdate": "Dec 25, 1972",
+    "index": 23
+  },
+  {
+    "fullName": "Джеймс Поттер",
+    "nickname": "Джеймс",
+    "hogwartsHouse": "Ґрифіндор",
+    "interpretedBy": "Adrian Rawlins",
+    "children": [
+      "Гаррі Поттер"
+    ],
+    "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/james_potter.png",
+    "birthdate": "Mar 27, 1960",
+    "index": 24
+  }
+]
