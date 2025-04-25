@@ -1,4 +1,5 @@
 import unittest
+import pdb
 
 from main import add, minus, sign_in, add_product
 
@@ -11,6 +12,7 @@ class TestMain(unittest.TestCase):
 
     def test_sign_in(self):
         self.assertTrue(sign_in("login", "password"))
+        pdb.set_trace()
         self.assertFalse(sign_in("wrong_login", "password"))
         self.assertFalse(sign_in("login", "wrong_password"))
         self.assertFalse(sign_in("wrong_login", "wrong_password"))
