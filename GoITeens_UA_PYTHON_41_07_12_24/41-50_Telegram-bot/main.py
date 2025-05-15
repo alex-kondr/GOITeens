@@ -8,16 +8,18 @@ from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart, Command
-from aiogram.types import Message
+from aiogram.types import Message, CallbackQuery
 
 from data import get_films
-from keyboards import films_keyboard_markup
+from keyboards import films_keyboard_markup, FilmCallback
 from commands import FILMS_BOT_COMMAND
+from routes import film_route
 
 
 load_dotenv()
 TOKEN = os.getenv(("TBOT"))
 dp = Dispatcher()
+dp.include_routers(film_route)
 
 
 @dp.message(CommandStart())
@@ -41,6 +43,8 @@ async def films(message: Message):
         "Перелік фільмів",
         reply_markup=markup
     )
+
+
 
 
 async def main():
