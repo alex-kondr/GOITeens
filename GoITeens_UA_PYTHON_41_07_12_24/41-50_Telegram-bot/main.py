@@ -12,7 +12,7 @@ from aiogram.types import Message, CallbackQuery
 
 from data import get_films
 from keyboards import films_keyboard_markup, FilmCallback
-from commands import FILMS_BOT_COMMAND
+from commands import BOT_COMMANDS
 from routes import film_route
 
 
@@ -49,7 +49,7 @@ async def films(message: Message):
 
 async def main():
     bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
-    await bot.set_my_commands(commands=[FILMS_BOT_COMMAND])
+    await bot.set_my_commands(commands=BOT_COMMANDS)
     await dp.start_polling(bot)
 
 

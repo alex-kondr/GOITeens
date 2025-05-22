@@ -22,3 +22,12 @@ def films_keyboard_markup(films: List[Dict], offset: Optional[int] = None, skip:
 
     builder.adjust(3, repeat=True)
     return builder.as_markup()
+
+
+def delete_keyboard_markup(film_id):
+    builder = InlineKeyboardBuilder()
+    builder.button(
+        text="Видалити фільм",
+        callback_data=f"delete_film_{film_id}"
+    )
+    return builder.as_markup()
