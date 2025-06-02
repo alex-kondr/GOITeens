@@ -280,5 +280,15 @@
     "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/james_potter.png",
     "birthdate": "Mar 27, 1960",
     "index": 24
+  },
+  {
+    "index": 0,
+    "fullName": "string",
+    "nickname": "string",
+    "hogwartsHouse": "string",
+    "interpretedBy": "string",
+    "children": [],
+    "image": "https://example.com/",
+    "birthdate": "Sep 19, 1979"
   }
 ]

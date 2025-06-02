@@ -20,21 +20,22 @@ class People(BaseModel):
             value = datetime.strptime(value, "%b %d, %Y").date()
 
         if value < date.today():
-            return value
+            return value.strftime("%b %d, %Y")
 
         raise ValueError(f"Дата має бути у форматі 'Sep 19, 1979' та бути меншою за '{date.today()}'")
 
 
 # people_dict = '''{
-#     "fullName": "Рональд Біліус Візлі",
-#     "nickname": "Рон",
-#     "hogwartsHouse": "Ґрифіндор",
-#     "interpretedBy": "Rupert Grint",
-#     "children": ["Роуз Ґрейнджер-Візлі", "Гюґо Ґрейнджер-Візлі"],
-#     "image": "https://raw.githubusercontent.com/fedeperin/potterapi/main/public/images/characters/ron_weasley.png",
-#     "birthdate": "Mar 1, 1980",
-#     "index": 2
-#   }'''
+#   "index": 0,
+#   "fullName": "string",
+#   "nickname": "string",
+#   "hogwartsHouse": "string",
+#   "interpretedBy": "string",
+#   "children": [],
+#   "image": "https://example.com/",
+#   "birthdate": "Sep 19, 1979"
+# }'''
 
 # people = People.model_validate_json(people_dict)
 # print(people)
+# print(people.model_dump())

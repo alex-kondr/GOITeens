@@ -27,7 +27,7 @@ async def get_human(index: int = Path(..., ge=0)):
 
 @app.post("/people/", status_code=status.HTTP_201_CREATED, response_model=People)
 async def add_human(human_model: People):
-    data.add_human(human_model.model_dump())
+    data.add_human(human_model.model_dump(mode='json'))
     return human_model
 
 
