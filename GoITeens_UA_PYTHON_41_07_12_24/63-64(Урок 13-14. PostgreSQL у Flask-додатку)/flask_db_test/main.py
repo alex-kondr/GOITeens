@@ -11,13 +11,13 @@ app = Flask(__name__)
 def get_db():
     if "db" not in g:
         # g.db = sqlite3.connect("products.db")
-        conn_info = psycopg.connection.conninfo_to_dict("postgres://avnadmin:AVNS_YqhgeEauuP-KVS-t6os@internet-shop-4-alex-kondr.e.aivencloud.com:13316/defaultdb?sslmode=require")
+        conn_info = psycopg.connection.conninfo_to_dict("postgres://**defaultdb?sslmode=require")
         g.db = psycopg2.connect(**conn_info)
         # g.db = psycopg2.connect(
-        #     host="internet-shop-4-alex-kondr.e.aivencloud.com",
+        #     host="**",
         #     port=13316,
         #     user="avnadmin",
-        #     password="AVNS_YqhgeEauuP-KVS-t6os",
+        #     password="**s",
         #     database="defaultdb"
         # )
 
