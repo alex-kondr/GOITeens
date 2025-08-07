@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<table class="col-4 text-center table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Назва товару</th>
+            <th>Кількість товару</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product[0] }}</td>
+                <td>{{ product[1] }}</td>
+                <td>{{ product[2] }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
