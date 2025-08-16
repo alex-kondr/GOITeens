@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% block title %}
+    <h1>Список кабінетів</h1>
+{% endblock title %}
+
+<table class="table table-success table-striped-columns">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Назва кабінету</th>
+            <th>Дія</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cabinet in cabinets %}
+            <tr>
+                <td>{{ cabinet.id }}</td>
+                <td>{{ cabinet.name }}</td>
+                <td>
+                    <a href="{{ url_for('remove_cabinet', id=cabinet.id) }}" class="btn btn-danger">Видалити кабінет</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
