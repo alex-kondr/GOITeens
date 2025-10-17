@@ -1,0 +1,24 @@
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+        <a class="nav-link active" href="{{ url_for('index') }}">Головна сторінка</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{{ url_for('get_menu') }}">Меню</a>
+      </li>
+      {% if current_user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link active" href="{{ url_for('logout') }}">Вихід</a>
+        </li>
+      {% else %}
+        <li class="nav-item">
+            <a class="nav-link active" href="{{ url_for('sign_up') }}">Зареєструватись</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{{ url_for('sign_in') }}">Вхід</a>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+</div>

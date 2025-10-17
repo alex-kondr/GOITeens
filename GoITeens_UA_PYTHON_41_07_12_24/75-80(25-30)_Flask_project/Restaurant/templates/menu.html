@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Назва товару</th>
+            <th>Склад</th>
+            <th>Опис товару</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in menu %}
+        <tr>
+            <th>{{ loop.index }}</th>
+            <th>{{ item.name }}</th>
+            <th>{{ item.ingredients }}</th>
+            <th>{{ item.description }}</th>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<form action="{{ url_for('add_item') }}" method="post">
+    {{ from.hidden_tag() }}
+    <div class="form-group">
+        {{ form.name.label(class="form-label") }}
+        {{ form.name(class="form-control") }}
+    </div>
+    <div class="from-group">
+        {{ form.count.label(class="form-label") }}
+        {{ form.count(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.submit(class="btn btn-success") }}
+    </div>
+</form>
+{% endblock content %}
