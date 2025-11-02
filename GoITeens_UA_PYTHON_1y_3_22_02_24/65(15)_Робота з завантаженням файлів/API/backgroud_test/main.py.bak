@@ -17,10 +17,6 @@ FILES_PATH = "files/"
 app = FastAPI()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("test_backgroud")
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
 
 
 async def send_message(text: str, user_id: int, db: AsyncSession = Depends(get_db)):

@@ -1,6 +1,6 @@
 from typing import Optional, List
 
-from sqlalchemy import String, ForeignKey, Integer
+from sqlalchemy import String, ForeignKey, Integer, Text
 from sqlalchemy.orm import declarative_base, Mapped, mapped_column, relationship
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
@@ -16,9 +16,10 @@ class Cabinet(Base):
     __tablename__ = "cabinets"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    name: Mapped[str] = String(length=20)
+    name: Mapped[str] = mapped_column(String(length=20))
     number: Mapped[int] = mapped_column(Integer())
     students: Mapped[List["Student"]] = relationship(back_populates="cabinet", lazy="selectin")
+    description: Mapped[str] = mapped_column(Text(), nullable=True, default=None)
 
 
 class Student(Base):
@@ -33,7 +34,7 @@ class Student(Base):
 async def create_db():
     async with engine.connect() as conn:
         await conn.run_sync(Base.metadata.drop_all)
-        await conn.run_sync(Base.metadata.create_all)
+        # await conn.run_sync(Base.metadata.create_all)
 
 
 async def get_db():
