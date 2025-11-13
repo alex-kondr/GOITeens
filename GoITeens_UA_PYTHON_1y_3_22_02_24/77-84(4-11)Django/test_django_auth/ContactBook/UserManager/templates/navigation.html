@@ -1,0 +1,48 @@
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'index' %}">Кабінет</a>
+      </li>
+      {% if request.user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'get_contacts' %}">Список контактів</a>
+        </li>
+
+        {% if perms.PhoneBook.add_contact %}
+          <li class="nav-item">
+              <a class="nav-link active" href="{% url 'add_contact' %}">Додати контакт</a>
+          </li>
+        {% endif %}
+
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'get_add_form' %}">Додати зустріч</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'planners' %}">Зустрічі</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'list_view' %}">Зустрічі (class)</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'planners_with_me' %}">Зустрічі зі мною</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'logout' %}">Вихід</a>
+        </li>
+        {% if request.user.is_staff %}
+          <li class="nav-item">
+              <a class="nav-link active" href="{% url 'get_users' %}">Користувачі</a>
+          </li>
+        {% endif %}
+      {% else %}
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'sign_in' %}">Вхід</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'sign_up' %}">Реєстрація</a>
+        </li>
+    {% endif %}
+    </ul>
+  </div>
+</div>

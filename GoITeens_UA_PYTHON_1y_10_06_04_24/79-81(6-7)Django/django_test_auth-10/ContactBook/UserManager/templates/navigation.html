@@ -1,0 +1,38 @@
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      {% with request.resolver_match.url_name as url_name %}
+        <li class="nav-item">
+          <a class="nav-link {% if url_name == 'index' %} active {% endif %}" href="{% url 'index' %}">Головна</a>
+        </li>
+        {% if request.user.is_authenticated %}
+          <li class="nav-item">
+              <a class="nav-link {% if url_name == 'add_contact' %} active {% endif %}" href="{% url 'add_contact' %}">Додати новий контакт</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link {% if url_name == 'get_contacts' %} active {% endif %}" href="{% url 'get_contacts' %}">Контакти</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link {% if url_name == 'add_meet' %} active {% endif %}" href="{% url 'add_meet' %}">Створити зустрі</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link {% if url_name == 'get_planers' %} active {% endif %}" href="{% url 'get_planers' %}">Мої зустрічі</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link {% if url_name == 'get_planers_for_me' %} active {% endif %}" href="{% url 'get_planers_for_me' %}">Зустрічі зі мною</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link {% if url_name == 'logout' %} active {% endif %}" href="{% url 'logout' %}">Вихід</a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+              <a class="nav-link {% if url_name == 'sign_up' %} active {% endif %}" href="{% url 'sign_up' %}">Реєстрація</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link {% if url_name == 'sign_in' %} active {% endif %}" href="{% url 'sign_in' %}">Вхід</a>
+          </li>
+        {% endif %}
+      {% endwith %}
+    </ul>
+  </div>
+</div>
