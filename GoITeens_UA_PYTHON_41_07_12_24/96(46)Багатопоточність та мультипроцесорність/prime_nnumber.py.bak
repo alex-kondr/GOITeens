@@ -11,6 +11,10 @@ PRIMES = [
 ]
 
 def is_prime(n):
+    """
+    Функція для перевірки, чи є число простим.
+    Це CPU-bound завдання.
+    """
     if n < 2:
         return False
     if n == 2:
