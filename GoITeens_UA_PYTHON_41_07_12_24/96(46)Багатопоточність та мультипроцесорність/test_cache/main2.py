@@ -13,10 +13,10 @@ import uvicorn
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     redis_client = async_redis.from_url(
-        url="redis://redis-16374.crce175.eu-north-1-1.ec2.cloud.redislabs.com:16374/database-MI0KUVVE",
+        url="redis://",
         decode_responses=True,
         username="default",
-        password="V2IgDD0VXip7HA8Fu8szYZh83M5tdy3I"
+        password="pass"
     )
 
     FastAPICache.init(RedisBackend(redis_client), prefix="Fastapi_cache", expire=60)
