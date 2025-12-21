@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Вітаю <em>{{ request.user.username }}</em> в нашому аномімному світі!</h1>
+
+<h3><em>Зовнішня адреса IP_V4:</em>{{ request.user.service_set.get.ipv_4_ext }}</h3>
+<h3><em>Внутрішня адреса IP_V4:</em>{{ request.user.service_set.get.ipv_4_int }}</h3>
+<h3><em>Адреса IP_V6:</em>{{ request.user.service_set.get.ipv_6 }}</h3>
+<br><br>
+<h2>Твої підписки</h2>
+<table>
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Назва</th>
+            <th>Список сервісів</th>
+            <th>Список локацій</th>
+            <th>Ціна</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for subscription in page_obj %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ subscription.name }}</td>
+                <td>{{ subscription.list_of_service }}</td>
+                <td>
+                    {% for location in subscription.locations.all %}
+                        {{ location }}, 
+                    {% endfor %}
+                </td>
+                <td>{{ subscription.price }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; Перша</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Попередня</a>
+        {% endif %}
+
+        <span class="current">
+            Сторінка {{ page_obj.number }} із {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Наступна</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Остання &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock content %}

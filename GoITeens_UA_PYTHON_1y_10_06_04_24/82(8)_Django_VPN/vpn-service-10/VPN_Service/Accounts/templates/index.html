@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Вітаю <em>{{ request.user.username }}</em> в нашому аномімному світі!</h1>
+
+<h3><em>Зовнішня адреса IP_V4:</em> {{ request.user.service.ipv_4_ext }}</h3>
+<h3><em>Внутрішня адреса IP_V4:</em> {{ request.user.service.ipv_4_int }}</h3>
+<h3><em>Адреса IP_V6:</em> {{ request.user.service.ipv_6 }}</h3>
+<br><br>
+<h2>Твої підписки</h2>
+<table>
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Назва</th>
+            <th>Список сервісів</th>
+            <th>Список локацій</th>
+            <th>Ціна</th>
+            <th>Активна</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for subscription in request.user.service.subscription.all %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ subscription.name }}</td>
+                <td>{{ subscription.list_of_service }}</td>
+                <td>
+                    {% for location in subscription.locations.all %}
+                        {{ location }}, 
+                    {% endfor %}
+                </td>
+                <td>{{ subscription.price }}</td>
+                <td>
+                    {% if request.user.service.subscription_active.name == subscription.name %}
+                        Активна
+                    {% else %}
+                        <a href="{% url 'activate_subscription' %}?subscription_name={{ subscription.name }}" class="btn btn-primary">Активувати</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

@@ -1,0 +1,26 @@
+<!-- <table>
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Назва</th>
+            <th>Список сервісів</th>
+            <th>Список локацій</th>
+            <th>Ціна</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for subscription in service.subscription %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ subscription.name }}</td>
+                <td>{{ subscription.list_of_service }}</td>
+                <td>
+                    {% for location in subscription.locations %}
+                        {{ location }}, 
+                    {% endfor %}
+                </td>
+                <td>{{ subscription.price }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table> -->
