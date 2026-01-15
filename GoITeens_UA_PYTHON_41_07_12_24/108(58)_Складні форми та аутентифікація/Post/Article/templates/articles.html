@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Автор</th>
+            <th>Назва статті</th>
+            <th>Опис</th>
+            <th>Дата публікації</th>
+            <th>Теги</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for article in articles %}
+            <tr>
+                <th>{{ forloop.counter }}</th>
+                <th>{{ article.author }}</th>
+                <th>{{ article.name }}</th>
+                <th>{{ article.description }}</th>
+                <th>{{ article.create_at }}</th>
+                <th>|
+                    {% for tag in article.tags.all %}
+                        {{ tag }}|
+                    {% endfor %}
+                </th>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

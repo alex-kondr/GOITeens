@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <p class="form-group">
+        <label class="form-label">Автор</label>
+        <select name="author" class="form-control">
+            {% for author in authors %}
+                <option value="{{ author.id }}">{{ author }}</option>
+            {% endfor %}
+        </select>
+    </p>
+    <p>
+        <label for="">Назва статті</label>
+        <input type="text" name="name" id="">
+    </p>
+    <p>
+        <label for="">Опис</label>
+        <input type="text" name="description" id="">
+    </p>
+    <p>
+        <label for="">Текст</label>
+        <textarea name="text" id=""></textarea>
+    </p>
+    <p>
+        <label for="">Теги</label>
+        <select name="tags" id="" multiple>
+            {% for tag in tags %}
+                <option value="{{ tag.id }}">{{ tag }}</option>
+            {% endfor %}
+        </select>
+    </p>
+    <button type="submit" class="btn btn-primary">Створити</button>
+</form>
+{% endblock content %}

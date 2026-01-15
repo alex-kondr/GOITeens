@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Ім'я</th>
+            <th>Прізвище</th>
+            <th>Біографія</th>
+            <th>Вік</th>
+            <th>Дата реєстрації</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for author in authors %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ author.first_name }}</td>
+                <td>{{ author.last_name }}</td>
+                <td>{{ author.bio }}</td>
+                <td>{{ author.age }}</td>
+                <td>{{ author.create_at }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
