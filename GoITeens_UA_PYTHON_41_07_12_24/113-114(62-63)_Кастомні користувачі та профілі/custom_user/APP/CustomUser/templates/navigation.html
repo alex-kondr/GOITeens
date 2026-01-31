@@ -1,0 +1,20 @@
+<nav>
+    <li>
+        <a href="{% url 'index' %}">Головна сторінка</a>
+    </li>
+    {% if request.user.is_authenticated %}
+    <li>
+        <a href="{% url 'profile' %}">Профіль</a>
+    </li>
+    <li>
+        <a href="{% url 'logout' %}">Вихід</a>
+    </li>
+    {% else %}
+    <li>
+        <a href="{% url 'sign_up' %}">Реєстрація</a>
+    </li>
+    <li>
+        <a href="{% url 'sign_in' %}">Вхід</a>
+    </li>
+    {% endif %}
+</nav>

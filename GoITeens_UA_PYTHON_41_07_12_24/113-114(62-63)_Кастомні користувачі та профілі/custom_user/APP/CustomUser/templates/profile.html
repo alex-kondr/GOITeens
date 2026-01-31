@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if request.user.profile.avatar %}
+    <img src="{{ MEDIA_URL }}{{ request.user.profile.avatar }}" alt="Аватар">
+{% endif %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ user_form.as_div }}
+    {{ profile_form.as_div }}
+    <button type="submit">Оновити дані</button>
+</form>
+{% endblock content %}

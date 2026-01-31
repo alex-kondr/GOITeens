@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Назва фільму</th>
+                <th>Хто залишив відгук</th>
+                <th>Відгук</th>
+                <th>Оцінка</th>
+                <th>Дата створення</th>
+                <th>Категорії</th>
+                <th>Актори</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for review in reviews %}
+            <tr>
+                <td>{{ review.film.name }}</td>
+                <td>{{ review.user.username }}</td>
+                <td>{{ review.review }}</td>
+                <td>{{ review.rating }}</td>
+                <td>{{ review.create_at }}</td>
+                <td>
+                    {% for category in review.film.categories.all %}
+                        {{ category.name }}|
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for actor in review.film.actors.all %}
+                        {{ actor.full_name }}
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
