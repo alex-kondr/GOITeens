@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block title %}Профіль{% endblock title %} {% block
+content %}
+<div class="school-card">
+  <h1 class="mb-4">Налаштування профілю</h1>
+  <div class="text-center mb-4">
+    {% if request.user.profile.avatar %}
+    <img
+      src="{{ MEDIA_URL }}{{ request.user.profile.avatar }}"
+      alt="Аватар"
+      height="150px"
+      class="rounded-circle shadow-sm"
+    />
+    {% endif %}
+  </div>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %} {{ user_form.as_p }} {{ profile_form.as_p }}
+    <button class="btn btn-primary" type="submit">Оновити</button>
+  </form>
+</div>
+{% endblock content %}

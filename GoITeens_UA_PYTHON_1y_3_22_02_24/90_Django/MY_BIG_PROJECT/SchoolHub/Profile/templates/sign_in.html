@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block title %}Вхід{% endblock title %} {% block
+content %}
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-5">
+    <div class="school-card">
+      <h2 class="text-center mb-4">Вхід у систему</h2>
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <button class="btn btn-primary w-100 mt-3">Вхід</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}
