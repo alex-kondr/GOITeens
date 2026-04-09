@@ -1,0 +1,5 @@
+OrderID;Customer;Spent;Status
+101;Ivan Petrov;1500,50;Completed
+102;Maria Sydorenko;2400,00;Pending
+103;Oleg Bondar;invalid;Cancelled
+104;Anna Koval;850,25;Completed

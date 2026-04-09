@@ -1,0 +1,4 @@
+StockID\tWarehouse\tQuantity\tLast_Check
+A1\tKyiv_North\t500\t2026-01-10
+A2\tLviv_West\t\t2026-01-12
+A3\tOdesa_Port\t120\t2026-01-15

@@ -1,0 +1,6 @@
+ID,Product,Price,Quantity
+1,Laptop,1200,2
+2,Mouse,25.5,10
+3,Keyboard,invalid,5
+4,Monitor,450,1,extra_column_error
+5,Chair,300,3
