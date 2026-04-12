@@ -284,3 +284,216 @@
 # plt.xticks(rotation=45)
 # plt.tight_layout()
 # plt.show()
+
+# data = {
+#     'Department': ['Sales', 'Engineering', 'Sales', 'HR', 'Engineering', 'HR'],
+#     'Employee': ['Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank'],
+#     'Salary': [70000, 80000, 75000, 60000, 82000, 58000]
+# }
+# df = pd.DataFrame(data)
+# grouped = df.groupby('Department')
+# average_salary = grouped['Salary'].mean()
+# count_employees = grouped['Employee'].count()
+# agg_results = grouped.agg(
+#     Average_Salary=('Salary', 'mean'),
+#     Total_Salary=('Salary', 'sum'),
+#     Employee_Count=('Employee', 'count')
+# )
+
+# data = {
+#     'Department': ['Sales', 'Engineering', 'Sales', 'HR', 'Engineering', 'HR', 'Sales'],
+#     'Employee': ['Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank', 'Grace'],
+#     'Salary': [70000, 80000, 75000, 60000, 82000, 58000, 72000],
+#     'Region': ['North', 'South', 'North', 'East', 'South', 'East', 'West']
+# }
+# df = pd.DataFrame(data)
+# grouped_multiple = df.groupby(['Department', 'Region'])
+# agg_multiple = grouped_multiple.agg(
+#     Total_Salary=('Salary', 'sum'),
+#     Employee_Count=('Employee', 'count')
+# )
+
+# data = {
+#     'Region': ['North', 'South', 'North', 'East', 'West', 'South', 'East', 'West'],
+#     'Product': ['Laptop', 'Smartphone', 'Tablet', 'Laptop', 'Tablet', 'Laptop', 'Smartphone', 'Tablet'],
+#     'Sales': [1200, 1500, 800, 1300, 900, 1100, 1600, 850],
+#     'Quantity': [10, 15, 8, 13, 9, 11, 16, 8]
+# }
+# df = pd.DataFrame(data)
+# grouped = df.groupby(['Region', 'Product'])
+# agg_results = grouped.agg(
+#     Total_Sales=('Sales', 'sum'),
+#     Average_Sales=('Sales', 'mean'),
+#     Total_Quantity=('Quantity', 'sum'),
+#     Average_Quantity=('Quantity', 'mean')
+# ).reset_index()
+
+# data = {
+#     'Category': ['Utilities', 'Office Supplies', 'Utilities', 'Office Supplies', 'Travel', 'Travel', 'Utilities', 'Office Supplies'],
+#     'Month': ['January', 'January', 'February', 'February', 'January', 'February', 'March', 'March'],
+#     'Amount': [300, 150, 200, 180, 400, 350, 250, 170]
+# }
+# df = pd.DataFrame(data)
+# grouped = df.groupby(['Category', 'Month'])
+# agg_results = grouped.agg(
+#     Total_Amount=('Amount', 'sum'),
+#     Average_Amount=('Amount', 'mean'),
+#     Transaction_Count=('Amount', 'count')
+# ).reset_index()
+
+
+# Завдання 1
+# Department,Employee,Salary
+# Sales,Alice,70000
+# Engineering,Bob,80000
+# Sales,Charlie,75000
+# HR,David,60000
+# Engineering,Eve,82000
+# HR,Frank,58000
+# Sales,Grace,72000
+# Завдання:
+# Імпортуйте дані з файлу employees.csv у Pandas DataFrame.
+# Групуйте дані за стовпцем 'Department'.
+# Обчисліть середню зарплату для кожного департаменту.
+# Виведіть отримані результати.
+
+
+# Завдання 2
+# Department,Employee,Salary,Region
+# Sales,Alice,70000,North
+# Engineering,Bob,80000,South
+# Sales,Charlie,75000,North
+# HR,David,60000,East
+# Engineering,Eve,82000,South
+# HR,Frank,58000,East
+# Sales,Grace,72000,West
+# Завдання:
+# Імпортуйте дані з файлу employees_region.csv у Pandas DataFrame.
+# Групуйте дані за стовпцями 'Department' та 'Region'.
+# Обчисліть суму зарплат та кількість співробітників для кожної групи.
+# Виведіть отримані результати у вигляді таблиці.
+
+
+# Методи
+# Метод .reset_index(): Метод, який перетворює мультиіндексований DataFrame у звичайний з новими числовими індексами.
+# Метод .unstack(): Метод, який перетворює рівень індексу в стовпці, створюючи широкі таблиці.
+# Метод .pivot_table(): Альтернативний метод для створення агрегаційних таблиць з можливістю багатовимірного групування та агрегації.
+
+# data = {
+#     'Department': ['Sales', 'Engineering', 'Sales', 'HR', 'Engineering', 'HR', 'Sales'],
+#     'Region': ['North', 'South', 'North', 'East', 'South', 'East', 'West'],
+#     'Sales': [1200, 1500, 800, 600, 1600, 750, 900],
+#     'Quantity': [10, 15, 8, 5, 20, 7, 9]
+# }
+# df = pd.DataFrame(data)
+# grouped = df.groupby(['Department', 'Region']).agg(
+#     Total_Sales=('Sales', 'sum'),
+#     Average_Sales=('Sales', 'mean'),
+#     Total_Quantity=('Quantity', 'sum'),
+#     Average_Quantity=('Quantity', 'mean')
+# )
+# agg_table = grouped.reset_index()
+# grouped_sum = df.groupby(['Department', 'Region'])['Sales'].sum().unstack()
+# pivot_avg_salary = pd.pivot_table(
+#     df,
+#     values='Sales',
+#     index='Department',
+#     columns='Region',
+#     aggfunc='mean'
+# )
+# pivot_sum_sales = pd.pivot_table(
+#     df,
+#     values='Sales',
+#     index='Department',
+#     columns='Region',
+#     aggfunc='sum'
+# )
+
+# plt.figure(figsize=(8, 6))
+# sns.heatmap(pivot_sum_sales, annot=True, fmt=".0f", cmap="YlGnBu")
+# plt.title('Сума Продажів за Департаментом та Регіоном')
+# plt.xlabel('Region')
+# plt.ylabel('Department')
+# plt.show()
+
+
+# Region,Product,Sales,Quantity
+# North,Laptop,1200,10
+# South,Smartphone,1500,15
+# North,Tablet,800,8
+# East,Laptop,1300,13
+# South,Tablet,900,9
+# East,Smartphone,1600,16
+# West,Tablet,850,8
+# Завдання:
+# Імпортуйте дані з файлу company_sales.csv у Pandas DataFrame.
+# Групуйте дані за стовпцями 'Region' та 'Product'.
+# Обчисліть для кожної групи:
+# Сума продажів ('Sales').
+# Середнє значення продажів.
+# Кількість транзакцій ('Quantity').
+# Перетворіть результати групування у звичайну таблицю з використанням .reset_index().
+# Виведіть отриману агрегаційну таблицю.
+
+
+# Category,Month,Amount
+# Utilities,January,300
+# Office Supplies,January,150
+# Utilities,February,200
+# Office Supplies,February,180
+# Travel,January,400
+# Travel,February,350
+# Utilities,March,250
+# Office Supplies,March,170
+# Завдання:
+# Імпортуйте дані з файлу company_expenses.csv у Pandas DataFrame.
+# Створіть Pivot Table для обчислення суми та середнього значення витрат за категоріями та місяцями.
+# Виведіть отриману Pivot Table.
+# Імпортуємо дані з CSV-файлу
+# pivot_expenses = pd.pivot_table(
+#     df_expenses,
+#     values='Amount',
+#     index='Category',
+#     columns='Month',
+#     aggfunc=['sum', 'mean'],
+#     fill_value=0
+# )
+
+# Employee,Project,Month,Performance_Score
+# John,Alpha,January,85
+# John,Beta,January,78
+# Anna,Alpha,January,92
+# Anna,Beta,February,88
+# Mike,Alpha,February,75
+# Mike,Beta,March,80
+# Sara,Alpha,March,95
+# Sara,Beta,April,90
+# Tom,Alpha,April,70
+# Tom,Beta,May,65
+# Завдання:
+# 1.Імпортуйте дані з файлу employee_performance.csv у Pandas DataFrame.
+# 2.Групуйте дані за стовпцями 'Project' та 'Month'.
+# 3.Обчисліть для кожної групи:
+# Середній бал продуктивності ('Performance_Score').
+# Максимальний бал продуктивності.
+# 4.Перетворіть результати групування у звичайну таблицю.
+# 5.Виведіть отриману агрегаційну таблицю.
+
+# Store,Quarter,Product,Sales
+# Store_A,Q1,Laptop,5000
+# Store_A,Q1,Smartphone,7000
+# Store_A,Q2,Laptop,6000
+# Store_A,Q2,Smartphone,8000
+# Store_B,Q1,Laptop,4000
+# Store_B,Q1,Smartphone,6500
+# Store_B,Q2,Laptop,5500
+# Store_B,Q2,Smartphone,7500
+# Store_C,Q1,Laptop,3000
+# Store_C,Q1,Smartphone,5000
+# Store_C,Q2,Laptop,4500
+# Store_C,Q2,Smartphone,6000
+# Завдання:
+# Імпортуйте дані з файлу store_sales.csv у Pandas DataFrame.
+# Створіть Pivot Table для обчислення суми продажів за магазинами та продуктами.
+# Виведіть отриману Pivot Table.
+# Побудуйте теплову карту (heatmap) для візуалізації сум продажів.
