@@ -47,6 +47,7 @@ import numpy as np
 # plt.legend()
 # plt.show()
 
+marker=','
 # Код	Опис
 # "."	Крапка (point)
 # ","	Піксель (pixel)
@@ -252,3 +253,173 @@ import numpy as np
 # plt.title("Розподіл Загального Доходу по Регіонах")
 # plt.ylabel('')
 # plt.show()
+
+
+# Кругові діаграми
+# plt.pie(x, labels=None, autopct=None, explode=None, startangle=None, colors=None)
+# x: список або масив чисел, що визначають розмір кожного сегмента.
+# labels: список міток для сегментів.
+# autopct: формат підписів (відображення відсотків). Наприклад, autopct='%1.1f%%' покаже відсотки з одним десятковим знаком.
+# explode: список зсувів сегментів від центру (величина зсуву для кожного сегмента).
+# startangle: початковий кут для першого сегмента (за замовчуванням 0°).
+# colors: кольори сегментів (можна передати список кольорів).
+# shadow: додає тінь до діаграми (значення True або False)
+
+# sizes = [25, 35, 20, 20]
+# labels = ['A', 'B', 'C', 'D']
+# plt.pie(sizes, labels=labels)
+# plt.title("Кругова діаграма з мітками")
+# plt.show()
+
+# Відсотки додаються за допомогою параметра autopct
+# sizes = [10, 20, 30, 40]
+# labels = ['A', 'B', 'C', 'D']
+# plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+# plt.title("Кругова діаграма з відсотками")
+# plt.show()
+
+# Зсув сегмента B
+# sizes = [15, 30, 45, 10]
+# labels = ['A', 'B', 'C', 'D']
+# explode = [0, 0.1, 0, 0]
+# plt.pie(sizes, labels=labels, explode=explode, autopct='%1.1f%%')
+# plt.title("Кругова діаграма зі зсувом")
+# plt.show()
+
+# Початковий кут діаграми задається параметром startangle. За замовчуванням перший сегмент починається з кута 0°.
+# sizes = [15, 25, 35, 25]
+# labels = ['A', 'B', 'C', 'D']
+# plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
+# plt.title("Кругова діаграма з початковим кутом 90°")
+# plt.show()
+
+# Кольори задаються за допомогою параметра colors, в якому можна вказати список кольорів.
+# sizes = [10, 20, 30, 40]
+# labels = ['A', 'B', 'C', 'D']
+# colors = ['#FF9999', '#66B3FF', '#99FF99', '#FFCC99']
+# plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
+# plt.title("Кругова діаграма з кастомними кольорами")
+# plt.show()
+
+# Додавання тіні до діаграми робить її більш об'ємною. Це реалізується за допомогою параметра shadow.
+# sizes = [25, 30, 20, 25]
+# labels = ['A', 'B', 'C', 'D']
+# plt.pie(sizes, labels=labels, autopct='%1.1f%%', shadow=True)
+# plt.title("Кругова діаграма з тінню")
+# plt.show()
+
+# Кільцеві діаграми створюються за допомогою параметра wedgeprops і значення width.
+# sizes = [20, 30, 25, 25]
+# labels = ['A', 'B', 'C', 'D']
+# plt.pie(sizes, labels=labels, autopct='%1.1f%%', wedgeprops={'width': 0.4})
+# plt.title("Кільцева діаграма")
+# plt.show()
+
+# Використаємо кастомні кольори.
+# Два сегменти зсунуті від центру.
+# sizes = [25, 30, 20, 25]
+# labels = ['A', 'B', 'C', 'D']
+# colors = ['#FF9999', '#66B3FF', '#99FF99', '#FFCC99']
+# explode = [0.1, 0, 0.1, 0]
+# plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors, explode=explode, startangle=140, shadow=True)
+# plt.title("Комбінована кругова діаграма")
+# plt.show()
+
+# щоб діаграма виглядала як кільце та були використані кастомні кольори
+# sizes = [30, 45, 15, 10]
+# labels = ['Product A', 'Product B', 'Product C', 'Product D']
+# plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90, wedgeprops={'width': 0.3}, colors=['#FF9999', '#66B3FF', '#99FF99', '#FFCC99'])
+# plt.title("Нестандартна кільцева діаграма")
+# plt.show()
+
+# Типи продуктів: ['Продукт A', 'Продукт B', 'Продукт C', 'Продукт D']
+# Частки (у відсотках): [25, 35, 20, 20]
+# plt.pie(sizes, labels=labels)
+# plt.title("Кругова діаграма для продуктів")
+# plt.show()
+
+# Категорії доходів: ['Продажі', 'Інвестиції', 'Ліцензії', 'Інше']
+# Частка доходів: [40, 30, 20, 10]
+# sizes = [40, 30, 20, 10]
+# labels = ['Продажі', 'Інвестиції', 'Ліцензії', 'Інше']
+# plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+# plt.title("Дохід за категоріями")
+
+# Категорії витрат: ['Оренда', 'Зарплати', 'Маркетинг', 'Інше']
+# Частки витрат: [40, 35, 15, 10]
+# sizes = [40, 35, 15, 10]
+# labels = ['Оренда', 'Зарплати', 'Маркетинг', 'Інше']
+# explode = [0.1, 0, 0, 0]
+# plt.pie(sizes, labels=labels, autopct='%1.1f%%', explode=explode)
+
+# Приклад 5
+# Побудуємо кругову діаграму у вигляді кільця.
+# Типи підписок: ['Безкоштовна', 'Базова', 'Преміум']
+# Частка користувачів: [50, 30, 20]
+# sizes = [50, 30, 20]
+# labels = ['Безкоштовна', 'Базова', 'Преміум']
+# plt.pie(sizes, labels=labels, autopct='%1.1f%%', wedgeprops={'width': 0.4})
+
+# Завдання 1
+# Код:
+# sizes = [30, 30, 20, 20]
+# labels = ['A', 'B', 'C', 'D']
+# ----------
+# plt.pie(sizes, labels=labels)
+# plt.show()
+# Завдання: Додайте заголовок "Розподіл категорій".
+
+# Завдання 2
+# Код:
+# sizes = [50, 25, 15, 10]
+# labels = ['Продажі', 'Інвестиції', 'Ліцензії', 'Інше']
+# -----------------
+# plt.pie(sizes, labels=labels)
+# plt.title("Джерела доходу")
+# plt.show()
+# Завдання: Додайте відображення відсотків у форматі з одним десятковим знаком.
+
+# Завдання 3
+# Код:
+# sizes = [40, 35, 15, 10]
+# labels = ['Оренда', 'Зарплати', 'Маркетинг', 'Інше']
+# plt.pie(sizes, labels=labels)
+# plt.title("Розподіл витрат")
+# plt.show()
+# Завдання: Використайте кольори: ['#FF9999', '#66B3FF', '#99FF99', '#FFCC99'].
+
+# Завдання 4
+# Код:
+# sizes = [60, 25, 10, 5]
+# labels = ['A', 'B', 'C', 'D']
+# explode = [0.1, 0, 0.5]
+# plt.pie(sizes, labels=labels, explode=explode, autopct='%1.1f%%')
+# plt.title("Зсув сегментів")
+# plt.show()
+
+# Завдання 5
+# Код:
+# sizes = [50, 30, 15, 5]
+# labels = ['Категорія 1', 'Категорія 2', 'Категорія 3', 'Категорія 4']
+# plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+# plt.title("Розподіл категорій")
+# plt.show()
+# Завдання: Почніть діаграму з кута 90°. startangle
+
+# Завдання 6
+# Код:
+# sizes = [30, 45, 15, 10]
+# labels = ['Тип A', 'Тип B', 'Тип C', 'Тип D']
+# plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+# plt.title("Транспортні засоби")
+# plt.show()
+# Завдання: Додайте тінь до діаграми. shadow
+
+# Завдання 7
+# Код:
+# sizes = [25, 35, 20, 20]
+# labels = ['A', 'B', 'C', 'D']
+# plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+# plt.title("Кільцева діаграма")
+# plt.show()
+# Завдання: Змініть графік на кільцеву діаграму. wedgeprops={'width': 0.4}
