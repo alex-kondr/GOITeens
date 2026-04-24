@@ -1,6 +1,8 @@
 # pip install seaborn
 # print(sns.__version__)
 
+from turtle import title
+
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -117,8 +119,192 @@ df = sns.load_dataset('tips')
 # plt.show()
 
 # який середній рахунок у ресторані в різні дні тижня
-sns.barplot(data=df, x='day', y='total_bill', hue='day', palette='pastel')
-plt.title('Середній Рахунок за Днями Тижня')
-plt.xlabel('День Тижня')
-plt.ylabel('Середній Рахунок (USD)')
-plt.show()
+# sns.barplot(data=df, x='day', y='total_bill', hue='day', palette='pastel')
+# plt.title('Середній Рахунок за Днями Тижня')
+# plt.xlabel('День Тижня')
+# plt.ylabel('Середній Рахунок (USD)')
+# plt.show()
+
+# Завдання 4
+# Побудувати barplot() для стовпців day, total_bill з розділенням за time.
+# Додати заголовок та підписи до осей.
+# Додати легенду з назвою 'Час Прийому Їжі'.
+# Змінити палітру кольорів на 'deep'.
+# Відобразити графік.
+# sns.barplot(data=df, x="day", y="total_bill", hue="time", palette="deep")
+# plt.legend(title="Час прийому")
+# plt.xlabel("День тижня")
+# plt.ylabel("Сердній рахунок")
+# plt.show()
+
+# Завдання 5
+# Імпортувати бібліотеку numpy для використання функції sum.
+# Побудувати barplot() для стовпців day та total_bill з використанням estimator=np.sum.
+# Додати заголовок та підписи до осей.
+# Змінити палітру кольорів на 'coolwarm'
+# sns.barplot(data=df, x="day", y="total_bill", estimator=np.sum, palette="coolwarm", hue="time")
+# plt.show()
+
+# Завдання 6
+# Побудувати barplot() для стовпців day, tip з розділенням за smoker.
+# Змінити агрегатну функцію на медіану (np.median) та палітру кольорів на 'Set1'.
+# Додати заголовок та підписи до осей.
+# Додати легенду з назвою 'Курець'.
+# Додати анотації на кожен стовпчик, які відображають медіанні значення чайових.
+# sns.barplot(data=df, x="day", y="tip", hue="smoker", estimator=np.median, palette="Set1")
+# plt.legend(title="Курець")
+# plt.ylabel('Медіанні Чайові (USD)')
+# for p in plt.gca().patches:
+#     plt.annotate(format(p.get_height(), '.1f'),
+#                  (p.get_x() + p.get_width() / 2., p.get_height()),
+#                  ha='center', va='center',
+#                  xytext=(0, 10),
+#                  textcoords='offset points')
+# plt.show()
+
+# Завдання 7
+# Побудувати barplot() для стовпців day та total_bill з використанням estimator=np.mean та ci='sd' (додамо стандартне відхилення)
+# Змінити палітру кольорів на 'viridis'.
+# Додати заголовок та підписи до осей.
+# Відобразити графік.
+# sns.barplot(data=df, x="day", y="total_bill", estimator=np.mean, ci="sd", palette="viridis", hue="time")
+# plt.show()
+
+
+# Використання Готових Палітр
+# deep (Палітра deep пропонує насичені кольори, які добре виділяються на графіках)
+# muted (Палітра muted містить менш насичені кольори, що робить графіки більш м'якими та приємними для очей)
+# pastel (Палітра pastel використовує світлі та ніжні кольори, що робить графіки легкими та елегантними)
+# dark (Палітра dark використовує темніші кольори, які добре підходять для графіків з великим контрастом)
+# colorblind (Палітра colorblind розроблена з урахуванням людей з дальтонізмом, забезпечуючи хорошу видимість кольорів для всіх категорій)
+# df = sns.load_dataset('penguins')
+# print(df.head())
+# sns.countplot(data=df, x='species', hue="species", palette='colorblind')
+# plt.title('Кількість Пінгвінів за Видами (Deep Palette)')
+# plt.xlabel('Вид Пінгвіна')
+# plt.ylabel('Кількість Спостережень')
+# plt.show()
+
+# Створення Власних Палітр
+# custom_palette = ['#FF5733', '#33FF57', '#3357FF']
+# sns.countplot(data=df, x='species', palette=custom_palette)
+# plt.title('Кількість Пінгвінів за Видами (Custom Palette)')
+# plt.xlabel('Вид Пінгвіна')
+# plt.ylabel('Кількість Спостережень')
+# plt.show()
+
+# Функція color_palette() дозволяє створювати різні типи палітр, включаючи градієнти та колірні мапи
+# gradient_palette = sns.color_palette("Blues")
+# sns.barplot(data=df, x='species', y='body_mass_g', hue="species", palette=gradient_palette)
+# plt.title('Середня Маса Тіла за Видами Пінгвінів (Gradient Palette)')
+# plt.xlabel('Вид Пінгвіна')
+# plt.ylabel('Середня Маса Тіла (г)')
+# plt.show()
+
+# Функція sns.set_palette() дозволяє встановити
+# глобальну палітру кольорів для всіх графіків у
+# поточній сесії. Це зручно, якщо ви хочете,
+# щоб всі ваші графіки мали однакову кольорову схему.
+# sns.set_palette('pastel')
+# sns.countplot(data=df, x='species')
+# plt.title('Кількість Пінгвінів за Видами (Global Pastel Palette)')
+# plt.xlabel('Вид Пінгвіна')
+# plt.ylabel('Кількість Спостережень')
+# plt.show()
+# sns.barplot(data=df, x='species', y='body_mass_g')
+# plt.title('Середня Маса Тіла за Видами Пінгвінів (Global Pastel Palette)')
+# plt.xlabel('Вид Пінгвіна')
+# plt.ylabel('Середня Маса Тіла (г)')
+# plt.show()
+
+# Seaborn дозволяє створювати власні палітри за допомогою функції sns.color_palette()
+# custom_palette = sns.color_palette(['#FF69B4', '#8A2BE2', '#00CED1'])  # HotPink, BlueViolet, DarkTurquoise
+# sns.set_palette(custom_palette)
+# sns.countplot(data=df, x='species')
+# plt.title('Кількість Пінгвінів за Видами (Custom Color Palette)')
+# plt.xlabel('Вид Пінгвіна')
+# plt.ylabel('Кількість Спостережень')
+# plt.show()
+
+# Зміна розмірів графіку
+# plt.figure(figsize=(width, height))
+# df = sns.load_dataset('penguins')
+# sns.set_style('whitegrid')
+# plt.figure(figsize=(12, 6))
+# sns.barplot(data=df, x='species', y='body_mass_g', palette='pastel')
+# plt.title('Середня Маса Тіла за Видами Пінгвінів (Збільшений Розмір)')
+# plt.xlabel('Вид Пінгвіна')
+# plt.ylabel('Середня Маса Тіла (г)')
+# plt.show()
+
+
+# Практичні завдання
+df = sns.load_dataset('penguins')
+print(df.head())
+
+# Завдання 1
+# Ми хочемо зрозуміти, який вид пінгвінів
+# найпоширеніший у датасеті. Для цього побудуємо
+# графік типу countplot(), який покаже кількість
+# спостережень для кожного виду пінгвінів.
+# sns.countplot(data=df, x='speciеs')
+# plt.title('Кількість Пінгвінів за Видами')
+# plt.xlabel('Вид Пінгвіна')
+# plt.ylabel('Кількість Спостережень')
+# plt.show()
+
+# Завдання 2
+# Ми хочемо дізнатися, чи є різниця у
+# кількості самців та самок серед
+# різних видів пінгвінів. Для цього
+# використаємо аргумент hue, який
+# дозволяє розділити дані за додатковою категорією.
+# sns.countplot(data=df, x='species', hue='sex')
+# plt.title('Кількість Пінгвінів за Видами та Статтю')
+# plt.xlabel('Вид Пінгвіна')
+# plt.ylabel('Кількість Спостережень')
+# plt.legend(title='Стать')
+# plt.show()
+
+# Завдання 3
+# Ми хочемо порівняти, який вид пінгвінів
+# має найвище середнє значення маси тіла.
+# Для цього скористаємося функцією barplot(),
+# яка автоматично обчислює середнє значення для кожної категорії.
+# sns.barplot(data=df, x='species', y='body_mass_g')
+# plt.title('Середня Маса Тіла за Видами Пінгвінів')
+# plt.xlabel('Вид Пінгвіна')
+# plt.ylabel('Середня Маса Тіла (г)')
+# plt.show()
+
+# Завдання 4
+# Ми хочемо порівняти середні маси тіла між
+# різними видами пінгвінів та залежно від статі.
+# Використаємо аргумент hue для розділення даних за статтю
+# sns.barplot(data=df, x="species", y="body_mass_g", hue="sex")#, legend=False)
+# plt.show()
+
+# Завдання 5
+# Ми хочемо порівняти загальну масу тіла пінгвінів
+# різних видів. Для цього змінемо агрегатну функцію з
+# середнього (mean) на суму (sum) за допомогою аргументу estimator
+# sns.barplot(data=df, x="species", y="body_mass_g", hue="sex", estimator=np.sum)
+# plt.show()
+
+# Завдання 6
+# Ми хочемо порівняти середні показники
+# маси тіла між різними видами пінгвінів
+# та залежно від статі. Додамо анотації,
+# які відображатимуть точні значення на кожному стовпчику
+# sns.barplot(data=df, x='species', y='body_mass_g', hue='sex', estimator=np.sum, palette='Set1')
+# plt.title('Медіанні Масси Тіла за Видами Пінгвінів та Статтю')
+# plt.xlabel('Вид Пінгвіна')
+# plt.ylabel('Медіанні Маса Тіла (г)')
+# plt.legend(title='Стать')
+# for p in plt.gca().patches:
+#     plt.annotate(format(p.get_height(), '1f'),
+#                  (p.get_x() + p.get_width() / 2, p.get_height()),
+#                  ha='center', va='center',
+#                  xytext=(0, 0),
+#                  textcoords='offset points')
+# plt.show()
