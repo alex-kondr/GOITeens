@@ -1,0 +1,31 @@
+ProductID,Category,Subcategory,Rating,Price,Availability,Supplier
+1,Electronics,Smartphones,4.5,699,In Stock,Supplier A
+2,Home Appliances,Refrigerators,4.0,1200,Out of Stock,Supplier B
+3,Electronics,Televisions,,850,In Stock,Supplier C
+4,Furniture,Sofas,3.8,500,In Stock,Supplier D
+5,Electronics,Smartphones,4.2,650,In Stock,Supplier A
+6,Home Appliances,Washing Machines,4.1,700,Out of Stock,Supplier B
+7,Furniture,Beds,4.3,400,In Stock,Supplier D
+8,Electronics,Laptops,4.7,1500,In Stock,Supplier C
+9,Home Appliances,Microwaves,,200,In Stock,Supplier B
+10,Electronics,Televisions,3.9,900,Out of Stock,Supplier C
+11,Furniture,Chairs,4.0,150,In Stock,Supplier D
+12,Electronics,Smartphones,4.6,720,In Stock,Supplier A
+13,Home Appliances,Refrigerators,4.2,1250,In Stock,Supplier B
+14,Furniture,Tables,,300,Out of Stock,Supplier D
+15,Electronics,Laptops,4.5,1600,In Stock,Supplier C
+16,Home Appliances,Washing Machines,3.9,680,In Stock,Supplier B
+17,Furniture,Sofas,4.1,550,Out of Stock,Supplier D
+18,Electronics,Televisions,4.4,950,In Stock,Supplier C
+19,Home Appliances,Microwaves,4.0,220,In Stock,Supplier B
+20,Furniture,Beds,4.5,420,In Stock,Supplier D
+21,Electronics,Smartphones,,680,Out of Stock,Supplier A
+22,Home Appliances,Refrigerators,4.3,1300,In Stock,Supplier B
+23,Furniture,Chairs,3.7,140,In Stock,Supplier D
+24,Electronics,Laptops,4.8,1550,In Stock,Supplier C
+25,Home Appliances,Washing Machines,4.2,710,Out of Stock,Supplier B
+26,Furniture,Tables,4.0,320,In Stock,Supplier D
+27,Electronics,Televisions,4.1,920,In Stock,Supplier C
+28,Home Appliances,Microwaves,3.8,210,Out of Stock,Supplier B
+29,Furniture,Beds,4.4,430,In Stock,Supplier D
+30,Electronics,Laptops,,1600,Out of Stock,Supplier C

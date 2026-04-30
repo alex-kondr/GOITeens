@@ -1,0 +1,31 @@
+EmployeeID,Name,Department,Age,Salary,Gender,Manager
+1,John Smith,Sales,34,50000,Male,Jane Doe
+2,Emily Davis,Marketing,29,,Female,Robert Brown
+3,Michael Johnson,Engineering,45,75000,Male,
+4,Sarah Wilson,HR,,62000,Female,Laura White
+5,David Martinez,Sales,38,58000,Male,Jane Doe
+6,Linda Anderson,Engineering,41,,Female,Michael Johnson
+7,James Taylor,Marketing,33,52000,Male,Robert Brown
+8,Patricia Thomas,HR,27,,Female,Laura White
+9,Christopher Lee,Sales,36,61000,Male,Jane Doe
+10,Mary Harris,Engineering,,68000,Female,Michael Johnson
+11,Robert Clark,Marketing,40,55000,Male,Robert Brown
+12,Karen Lewis,HR,31,,Female,Laura White
+13,Daniel Walker,Sales,42,63000,Male,Jane Doe
+14,Nancy Hall,Engineering,39,,Female,Michael Johnson
+15,Paul Young,Marketing,28,49000,Male,Robert Brown
+16,Barbara King,HR,,56000,Female,Laura White
+17,Kevin Wright,Sales,37,60000,Male,Jane Doe
+18,Jennifer Scott,Engineering,35,,Female,Michael Johnson
+19,Mark Green,Marketing,30,51000,Male,Robert Brown
+20,Susan Adams,HR,32,,Female,Laura White
+21,Andrew Baker,Sales,39,62000,Male,Jane Doe
+22,Mary Butler,Engineering,,70000,Female,Michael Johnson
+23,Steven Carter,Marketing,34,53000,Male,Robert Brown
+24,Sandra Diaz,HR,29,,Female,Laura White
+25,George Evans,Sales,40,64000,Male,Jane Doe
+26,Diane Foster,Engineering,43,,Female,Michael Johnson
+27,Edward Garcia,Marketing,31,50000,Male,Robert Brown
+28,Michelle Harris,HR,30,,Female,Laura White
+29,Kevin Ingram,Sales,,66000,Male,Jane Doe
+30,Laura Jenkins,Engineering,36,72000,Female,Michael Johnson
