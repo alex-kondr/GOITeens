@@ -195,9 +195,10 @@ from sklearn.impute import SimpleImputer
 # url = 'https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv'
 # df = pd.read_csv(url)
 # df['Sex'] = df['Sex'].astype('category').cat.codes
+# print(df)
 # Створимо фіктивні змінні за допомогою One-Hot Encoding
 # df_dummies = pd.get_dummies(df, columns=['Sex'], drop_first=True)
-# print(df_dummies.head())
+# print(df_dummies)
 
 
 # ЩО ТАКЕ МЕТОД .replace()?
@@ -225,7 +226,58 @@ from sklearn.impute import SimpleImputer
 # df['City'] = df['City'].replace(rare_cities, 'Other')
 # print(df)
 
-data = {'Color': ['Red', 'Blue', 'Green', 'Blue', 'Red']}
-df = pd.DataFrame(data)
-df_encoded = pd.get_dummies(df, columns=['Color'], drop_first=True)
-print(df_encoded)
+# data = {'Color': ['Red', 'Blue', 'Green', 'Blue', 'Red']}
+# df = pd.DataFrame(data)
+# df_encoded = pd.get_dummies(df, columns=['Color'], drop_first=True)
+# print(df_encoded)
+
+# df_encoded = pd.get_dummies(df, columns=['fuel_type'])
+# One-Hot Encoding (OHE) — це метод перетворення категоріальних
+# даних у числовий формат, який найкраще підходить для номінальних
+# змінних (тих, що не мають внутрішнього порядку, наприклад: кольори, країни, моделі авто).
+
+
+# Рахуємо частоту кожної категорії
+# counts = df['city'].value_counts(normalize=True)
+# # Визначаємо рідкісні категорії (менше 2%)
+# rare_labels = counts[counts < 0.02].index
+# # Замінюємо їх на 'Other'
+# df['city'] = df['city'].replace(rare_labels, 'Other')
+# Запобігання перенавчанню: Коли модель бачить категорію лише
+# один або два рази, вона може знайти в ній хибні закономірності,
+# які не спрацюють на реальних даних.
+# Зменшення розмірності: Це критично важливо для One-Hot Encoding.
+# Замість створення сотень нових колонок для рідкісних
+# значень, ви створюєте лише одну колонку "Інше".
+# Стабільність: Моделі стають стійкішими
+# до появи нових рідкісних значень у майбутньому.
+
+
+# ЗАВДАННЯ 1
+# Зробіть заміну значень у стовпці
+# Availability з 'In Stock' на 1
+# та 'Out of Stock' на 0 за допомогою методу .replace()
+# df = pd.read_csv('product_data.csv')
+# df['Availability'] = df['Availability'].replace({'In Stock': 1})
+# print(df['Availability'].head())
+
+# ЗАВДАННЯ 3
+# Виправіть код, щоб замінити назви постачальників
+# у стовпці Supplier на числові коди за допомогою методу .replace()
+# df = pd.read_csv('product_data.csv')
+# df['Supplier'] = df['Supplier'].replace({'Supplier A': 1, 'Supplier B': 2})
+# print(df['Supplier'].head())
+
+# ЗАВДАННЯ 4
+# Зробіть заміну варіантів написання
+# 'SmartPhones' та 'smartphones' на 'Smartphones' у стовпці Subcategory
+# df = pd.read_csv('product_data.csv')
+# df['Subcategory'] = df['Subcategory'].replace({'SmartPhones': 'Smartphones'})
+# print(df['Subcategory'].unique())
+
+# ЗАВДАННЯ 5
+# Використайте регулярні вирази для заміни
+# категорій, що починаються з 'Electro', на 'Electronics'
+# df = pd.read_csv('product_data.csv')
+# df['Category'] = df['Category'].replace('Electro*', 'Electronics1', regex=True)
+# print(df['Category'].unique())
