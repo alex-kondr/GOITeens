@@ -161,3 +161,9 @@ cython_debug/
 .venv
 .vscode
 *.db
+Матеріали/Python_data_5/large_diamonds.csv
+Матеріали/Python_data_5/large_diamonds.h5
+Матеріали/Python_data_5/large_diamonds.parquet
+Матеріали/Python_data_5/large_fake_data.csv
+Матеріали/Python_data_5/large_titanic.csv
+Матеріали/Python_data_5/homework.csv
