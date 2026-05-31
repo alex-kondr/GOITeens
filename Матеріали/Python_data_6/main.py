@@ -11,7 +11,7 @@ df = pd.read_csv('https://raw.githubusercontent.com/ValdisW/datasets/master/vide
 # df = pd.read_csv('Video_Game_Sales.csv')
 # df = df.convert_dtypes()
 # df["Year"] = pd.to_datetime(df["Year"], errors='coerce', format='%Y')
-# df["Rank"] = df["Rank"].astype(np.int8)
+df["Rank"] = df["Rank"].astype(np.int8)
 # print(df.info())
 # print(df.head())
 # df.describe()
