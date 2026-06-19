@@ -1,6 +1,8 @@
 import logging
 from typing import Dict, Optional
 from datetime import datetime
+import sys
+sys.stdout
 
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Query, Path
 import uvicorn

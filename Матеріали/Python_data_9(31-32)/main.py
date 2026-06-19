@@ -95,21 +95,111 @@ import matplotlib.pyplot as plt
 # plt.show()
 
 # ЗАВДАННЯ 4: Grid Search - обирає найкращий набір
-from sklearn.datasets import load_iris
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.model_selection import GridSearchCV
+# from sklearn.datasets import load_iris
+# from sklearn.tree import DecisionTreeClassifier
+# from sklearn.model_selection import GridSearchCV
 
-iris = load_iris()
-X = iris.data
-y = iris.target
+# iris = load_iris()
+# X = iris.data
+# y = iris.target
 
-dt = DecisionTreeClassifier()
-param_grid = {
-    'max_depth': [3, 5, 7, None],
-    'min_samples_split': [2, 5, 10],
-    'min_samples_leaf': [1, 2, 4]
+# dt = DecisionTreeClassifier()
+# param_grid = {
+#     'max_depth': [3, 5, 7, None],
+#     'min_samples_split': [2, 5, 10],
+#     'min_samples_leaf': [1, 2, 4]
+# }
+# grid_search = GridSearchCV(estimator=dt, param_grid=param_grid, cv=5, scoring='accuracy')
+# grid_search.fit(X, y)
+# print("Найкращі параметри:", grid_search.best_params_)
+# print("Найкраща точність:", grid_search.best_score_)
+
+
+# ПРИКЛАДИ
+
+# ЗАВДАННЯ 1
+# Ви отримали дані про висоту та вагу людей, але деякі записи містять пропущені значення.
+# Висота: [170, 165, None, 180, 175]
+# Вага: [70, None, 60, 80, 75]
+# Створити DataFrame з наданими даними.
+# Заповнити пропущені значення середнім значенням за колонкою.
+# Вивести оновлений DataFrame.
+
+# from sklearn.impute import SimpleImputer
+# data = {
+#     "H": [170, 165, None, 180, 175],
+#     "W": [70, None, 60, 80, 75]
+# }
+# df = pd.DataFrame(data)
+# impute = SimpleImputer(strategy="mean")
+# full_df = impute.fit_transform(df)
+# print(full_df)
+
+# ЗАВДАННЯ 2
+# Ви маєте категоріальні дані про типи автомобілів, які потрібно перетворити на числовий формат для подальшого аналізу.
+# Типи: ["Sedan", "SUV", "Coupe", "SUV", "Sedan"]
+# Створити DataFrame з наданими даними.
+# Використати OneHotEncoder для кодування категоріальних змінних.
+# Вивести результат кодування.
+
+# from sklearn.preprocessing import OneHotEncoder
+# cat_avto = np.array(["Sedan", "SUV", "Coupe", "SUV", "Sedan"]).reshape(-1, 1)
+# # cat_avto = np.array([["Sedan"], ["SUV"], ["Coupe"], ["SUV"], ["Sedan"]])
+# # print(cat_avto)
+# encoder = OneHotEncoder(sparse_output=False)
+# encoded_data = encoder.fit_transform(cat_avto)
+# print(encoded_data)
+
+# ЗАВДАННЯ 3
+# Ви працюєте з набором даних, який містить числові та категоріальні ознаки.
+# Потрібно підготувати дані для навчання моделі машинного навчання.
+# Вік: [25, 30, 22, 35, 28]
+# Дохід: [50000, 60000, None, 80000, 55000]
+# Стать: ["Male", "Female", "Female", "Male", "Female"]
+# Створити DataFrame з наданими даними.
+# Заповнити пропущені значення у колонці Дохід середнім значенням.
+# Стандартизувати числові дані (Вік, Доход) за допомогою StandardScaler.
+# Закодувати категоріальні дані (Стать) за допомогою LabelEncoder.
+# Вивести готовий DataFrame.
+
+# from sklearn.preprocessing import StandardScaler, LabelEncoder
+# data = {
+#     "Вік": [25, 30, 22, 35, 28],
+#     "Дохід": [50000, 60000, None, 80000, 55000],
+#     "Стать": ["Male", "Female", "Female", "Male", "Female"]
+# }
+# df = pd.DataFrame(data)
+# df["Дохід"] = df["Дохід"].fillna(df["Дохід"].mean())
+# scaler = StandardScaler()
+# df[["Вік", "Дохід"]] = scaler.fit_transform(df[["Вік", "Дохід"]])
+# encoder = LabelEncoder()
+# df["Стать"] = encoder.fit_transform(df["Стать"])
+# print(df)
+
+# ЗАВДАННЯ 4
+# Ви маєте дані про студентів, включаючи їхні оцінки та факультет.
+# Необхідно підготувати дані для побудови моделі прогнозування успішності.
+# Оцінка з математики: [88, 92, 79, None, 85]
+# Оцінка з фізики: [90, None, 85, 80, 88]
+# Факультет: ["Engineering", "Science", "Arts", "Science", "Engineering"]
+# Створити DataFrame з наданими даними.
+# Заповнити пропущені значення у колонках оцінок середнім значенням.
+# Нормалізувати дані за допомогою MinMaxScaler.
+# Використати OneHotEncoder для кодування категоріальної змінної Факультет.
+# Об'єднати всі підготовлені дані та вивести результат.
+
+from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
+data = {
+    "Оцінка з математики": [88, 92, 79, None, 85],
+    "Оцінка з фізики": [90, None, 85, 80, 88],
+    "Факультет": ["Engineering", "Science", "Arts", "Science", "Engineering"]
 }
-grid_search = GridSearchCV(estimator=dt, param_grid=param_grid, cv=5, scoring='accuracy')
-grid_search.fit(X, y)
-print("Найкращі параметри:", grid_search.best_params_)
-print("Найкраща точність:", grid_search.best_score_)
+df = pd.DataFrame(data)
+df["Оцінка з математики"] = df["Оцінка з математики"].fillna(df["Оцінка з математики"].mean())
+df["Оцінка з фізики"] = df["Оцінка з фізики"].fillna(df["Оцінка з фізики"].mean())
+scaler = MinMaxScaler()
+scaled_data = scaler.fit_transform(df[["Оцінка з математики", "Оцінка з фізики"]])
+encoder = OneHotEncoder(sparse_output=False)
+encoded_data = encoder.fit_transform(df[["Факультет"]])
+final_data = np.hstack((scaled_data, encoded_data))
+print(final_data)
