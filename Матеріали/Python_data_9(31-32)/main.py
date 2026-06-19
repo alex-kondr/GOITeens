@@ -188,18 +188,54 @@ import matplotlib.pyplot as plt
 # Використати OneHotEncoder для кодування категоріальної змінної Факультет.
 # Об'єднати всі підготовлені дані та вивести результат.
 
-from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
-data = {
-    "Оцінка з математики": [88, 92, 79, None, 85],
-    "Оцінка з фізики": [90, None, 85, 80, 88],
-    "Факультет": ["Engineering", "Science", "Arts", "Science", "Engineering"]
-}
-df = pd.DataFrame(data)
-df["Оцінка з математики"] = df["Оцінка з математики"].fillna(df["Оцінка з математики"].mean())
-df["Оцінка з фізики"] = df["Оцінка з фізики"].fillna(df["Оцінка з фізики"].mean())
-scaler = MinMaxScaler()
-scaled_data = scaler.fit_transform(df[["Оцінка з математики", "Оцінка з фізики"]])
-encoder = OneHotEncoder(sparse_output=False)
-encoded_data = encoder.fit_transform(df[["Факультет"]])
-final_data = np.hstack((scaled_data, encoded_data))
-print(final_data)
+# from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
+# data = {
+#     "Оцінка з математики": [88, 92, 79, None, 85],
+#     "Оцінка з фізики": [90, None, 85, 80, 88],
+#     "Факультет": ["Engineering", "Science", "Arts", "Science", "Engineering"]
+# }
+# df = pd.DataFrame(data)
+# df["Оцінка з математики"] = df["Оцінка з математики"].fillna(df["Оцінка з математики"].mean())
+# df["Оцінка з фізики"] = df["Оцінка з фізики"].fillna(df["Оцінка з фізики"].mean())
+# scaler = MinMaxScaler()
+# scaled_data = scaler.fit_transform(df[["Оцінка з математики", "Оцінка з фізики"]])
+# encoder = OneHotEncoder(sparse_output=False)
+# encoded_data = encoder.fit_transform(df[["Факультет"]])
+# final_data = np.hstack((scaled_data, encoded_data))
+# print(final_data)
+
+# ЗАВДАННЯ 5
+# Ви маєте великий набір даних з різними
+# типами ознак, включаючи числові, категоріальні
+# та текстові дані.
+# Потрібно провести комплексну
+# підготовку даних перед навчанням моделі машинного навчання.
+# Сума транзакції: [100.5, 200.0, 150.75, None, 300.0, 250.25]
+# Тип транзакції: ["Credit", "Debit", "Credit", "Debit", "Credit", "Debit"]
+# Місто: ["Kyiv", "Lviv", "Kyiv", "Odessa", "Lviv", "Kyiv"]
+# Опис: ["Payment", "Withdrawal", "Payment", "Transfer", "Deposit", "Payment"]
+# Створити DataFrame з наданими даними.
+# Заповнити пропущені значення у колонці Сума транзакції середнім значенням.
+# Стандартизувати числові дані (Сума транзакції) за допомогою StandardScaler.
+# Закодувати категоріальні змінні (Тип транзакції, Місто) за допомогою OneHotEncoder.
+# Векторизувати текстові дані (Опис) за допомогою CountVectorizer.
+# Об'єднати всі підготовлені дані та вивести результат.
+
+# from sklearn.preprocessing import StandardScaler, OneHotEncoder
+# from sklearn.feature_extraction.text import CountVectorizer
+# data = {
+#     "Сума транзакції": [100.5, 200.0, 150.75, None, 300.0, 250.25],
+#     "Тип транзакції": ["Credit", "Debit", "Credit", "Debit", "Credit", "Debit"],
+#     "Місто": ["Kyiv", "Lviv", "Kyiv", "Odessa", "Lviv", "Kyiv"],
+#     "Опис": ["Payment", "Withdrawal", "Payment", "Transfer", "Deposit", "Payment"]
+# }
+# df = pd.DataFrame(data)
+# df["Сума транзакції"] = df["Сума транзакції"].fillna(df["Сума транзакції"].mean())
+# scaler = StandardScaler()
+# scaled_data = scaler.fit_transform(df[["Сума транзакції"]])
+# encoder = OneHotEncoder(sparse_output=False)
+# encoded_data = encoder.fit_transform(df[["Тип транзакції", "Місто"]])
+# vector = CountVectorizer()
+# vectorized_data = vector.fit_transform(df["Опис"]).toarray()
+# final_data = np.hstack((scaled_data, encoded_data, vectorized_data))
+# print(final_data)
