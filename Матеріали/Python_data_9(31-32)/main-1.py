@@ -17,9 +17,11 @@ import matplotlib.pyplot as plt
 # print(imputed_data)
 
 
-# from sklearn.preprocessing import OneHotEncoder
+# from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 # categories = np.array([["red"], ["blue"], ["green"], ["blue"]])
-# encoder = OneHotEncoder(sparse_output=False)
+# # encoder = OneHotEncoder(sparse_output=False)
+# # encoded_cat = encoder.fit_transform(categories)
+# encoder = LabelEncoder()
 # encoded_cat = encoder.fit_transform(categories)
 # print(encoded_cat)
 
@@ -95,24 +97,24 @@ import matplotlib.pyplot as plt
 # plt.show()
 
 # ЗАВДАННЯ 4: Grid Search - обирає найкращий набір
-# from sklearn.datasets import load_iris
-# from sklearn.tree import DecisionTreeClassifier
-# from sklearn.model_selection import GridSearchCV
+from sklearn.datasets import load_iris
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import GridSearchCV
 
-# iris = load_iris()
-# X = iris.data
-# y = iris.target
+iris = load_iris()
+X = iris.data
+y = iris.target
 
-# dt = DecisionTreeClassifier()
-# param_grid = {
-#     'max_depth': [3, 5, 7, None],
-#     'min_samples_split': [2, 5, 10],
-#     'min_samples_leaf': [1, 2, 4]
-# }
-# grid_search = GridSearchCV(estimator=dt, param_grid=param_grid, cv=5, scoring='accuracy')
-# grid_search.fit(X, y)
-# print("Найкращі параметри:", grid_search.best_params_)
-# print("Найкраща точність:", grid_search.best_score_)
+dt = DecisionTreeClassifier()
+param_grid = {
+    'max_depth': [3, 5, 7, None],
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [1, 2, 4]
+}
+grid_search = GridSearchCV(estimator=dt, param_grid=param_grid, cv=5, scoring='accuracy')
+grid_search.fit(X, y)
+print("Найкращі параметри:", grid_search.best_params_)
+print("Найкраща точність:", grid_search.best_score_)
 
 
 # ПРИКЛАДИ
