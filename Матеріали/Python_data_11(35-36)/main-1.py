@@ -320,9 +320,9 @@ import statsmodels.api as sm
 # кількість кімнат і кількість спалень пов'язані
 # Для виявлення цієї проблеми використовують показник VIF (Variance Inflation Factor)
 # Якщо значення VIF > 10, це є ознакою сильної мультиколінеарності
-data = fetch_california_housing()
-X = data.data
-y = data.target
+# data = fetch_california_housing()
+# X = data.data
+# y = data.target
 # scaler = StandardScaler()
 # X_scaled = scaler.fit_transform(X)
 # vif_data = pd.DataFrame()
@@ -377,7 +377,6 @@ y = data.target
 # # !!!!!!!!!!!!!!categorical_features = ["Location"]
 # encoder = OneHotEncoder(drop='first', sparse=False)
 # # !!!!!!!!!!!!!encoder = OneHotEncoder(drop='first', sparse_output=False)
-# X_encoded = encoder.fit_transform(X[categorical_features])
 # X_encoded = encoder.fit_transform(X[categorical_features])
 # encoded_columns = encoder.get_feature_names_out(categorical_features)
 # X_encoded_df = pd.DataFrame(X_encoded, columns=encoded_columns)
