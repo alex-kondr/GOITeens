@@ -117,7 +117,9 @@ X_processed = X_processed.fillna(0)
 # 7. Масштабування числових змінних за допомогою StandardScaler
 print("- Масштабуємо числові змінні...")
 # Масштабуємо тільки ті числові стовпці, які не є бінарними чи кодами
-scale_cols = [col for col in ['total_cases', 'total_deaths', 'total_vaccinations', 'population', 'population_density', 'median_age', 'gdp_per_capita'] if col in X_processed.columns]
+scale_cols = [
+    col for col in ['total_cases', 'total_deaths', 'total_vaccinations', 'population', 'population_density', 'median_age', 'gdp_per_capita'] if col in X_processed.columns
+    ]
 scaler = StandardScaler()
 X_processed[scale_cols] = scaler.fit_transform(X_processed[scale_cols])
 
@@ -253,14 +255,14 @@ for name, model in models_clf.items():
     print(f"- Навчання моделі {name}...")
     model.fit(X_train_clf_res, y_train_clf_res)
     y_pred = model.predict(X_test_clf)
-    
+
     # Розрахунок метрик
     cm = confusion_matrix(y_test_clf, y_pred)
     acc = accuracy_score(y_test_clf, y_pred)
     prec = precision_score(y_test_clf, y_pred)
     rec = recall_score(y_test_clf, y_pred)
     f1 = f1_score(y_test_clf, y_pred)
-    
+
     clf_results[name] = {
         'Accuracy': acc,
         'Precision': prec,
@@ -268,7 +270,7 @@ for name, model in models_clf.items():
         'F1-score': f1,
         'Confusion Matrix': cm
     }
-    
+
     print(f"  -> Confusion Matrix:\n{cm}")
     print(f"  -> Accuracy: {acc:.4f} | Precision: {prec:.4f} | Recall: {rec:.4f} | F1-score: {f1:.4f}\n")
 
