@@ -380,6 +380,15 @@ def digital_root(n):
     # обчислити sum_of_digits
     # якщо результат < 10 -> повернути
     # інакше рекурсивно викликати digital_root
-    pass
+    # if n <= 9:
+    #     return n
 
-print(digital_root(9876))
+    # recursive_sum = n % 10 + digital_root(n // 10)
+    # if recursive_sum < 10:
+    #     return recursive_sum
+    # else:
+    #     return digital_root(recursive_sum)
+
+
+# print(digital_root(9876))
+# print(digital_root(9999))
