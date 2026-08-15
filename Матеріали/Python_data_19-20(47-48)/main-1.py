@@ -376,7 +376,7 @@ def count_nodes(node: Node):
 # Інакше викликати функцію повторно.
 
 
-def digital_root(n):
+# def digital_root(n):
     # обчислити sum_of_digits
     # якщо результат < 10 -> повернути
     # інакше рекурсивно викликати digital_root
