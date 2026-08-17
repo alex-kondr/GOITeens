@@ -17,6 +17,36 @@ class UserForm(UserCreationForm):
         model = User
         fields = ["username", "first_name", "last_name", "email", "password1", "password2"]
 
+# 1
+# class UserForm(UserCreationForm):
+#     class Meta:
+#         model = User
+#         fields = ["username", "first_name", "last_name", "email"]
+#         # Тут можна залишати widgets для стандартних полів моделі:
+#         widgets = {
+#             "username": forms.TextInput(attrs={"class": "form-control"}),
+#             "first_name": forms.TextInput(attrs={"class": "form-control"}),
+#             "last_name": forms.TextInput(attrs={"class": "form-control"}),
+#             "email": forms.EmailInput(attrs={"class": "form-control"}),
+#         }
+
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         # Додаємо клас напряму до полів паролів
+#         self.fields["password1"].widget.attrs["class"] = "form-control"
+#         self.fields["password2"].widget.attrs["class"] = "form-control"
+
+# 2
+# class UserForm(UserCreationForm):
+#     class Meta:
+#         model = User
+#         fields = ["username", "first_name", "last_name", "email"]
+
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         for field_name, field in self.fields.items():
+#             field.widget.attrs["class"] = "form-control"
+
 
 class UserFormEdit(forms.ModelForm):
     username = forms.CharField(max_length=50, min_length=3, help_text="Введіть свій логін", label="Логін")
