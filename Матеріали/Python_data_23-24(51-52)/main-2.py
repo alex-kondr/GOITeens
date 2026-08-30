@@ -1,3 +1,7 @@
+# Наприклад, для 1 000 000 елементів логарифм за основою 2
+# дає приблизно 20 порівнянь, тоді як лінійний пошук
+# може виконати до 1 000 000 порівнянь у найгіршому випадку.
+
 # На початку визначаються два індекси: left – початковий (зазвичай 0)
 # та right – кінцевий (останній індекс масиву)
 # Далі розраховують середній індекс за формулою mid = (left + right) // 2.
@@ -100,3 +104,81 @@
 # print("Оновлений список після вставки 15:", new_list)
 
 
+# ЗАВДАННЯ 4
+# Дано невідсортований список.
+# Реалізуйте функцію, яка спочатку відсортує
+# список за допомогою алгоритму «пузиркового сортування»,
+# а потім за допомогою бінарного пошуку знайде
+# заданий елемент. Підрахуйте сумарну кількість
+# порівнянь для сортування та пошуку.
+
+# Початковий код:
+
+# def bubble_sort(arr):
+#     comparisons = 0
+#     n = len(arr)
+#     # Використовуйте вкладені цикли для реалізації пузырькового сортування.
+#     # На кожному порівнянні збільшуйте comparisons
+#     # Поверніть відсортований список та кількість порівнянь
+#     pass
+
+# def binary_search_with_count(arr, target):
+#     comparisons = 0
+#     low = 0
+#     high = len(arr) - 1
+#     # Реалізуйте ітеративний бінарний пошук, підраховуючи порівняння
+#     pass
+
+# def sort_and_search(arr, target):
+#     sorted_arr, sort_comps = bubble_sort(arr.copy())
+#     index, search_comps = binary_search_with_count(sorted_arr, target)
+#     total_comps = sort_comps + search_comps
+#     return sorted_arr, index, total_comps
+
+# data = [9, 3, 7, 1, 8, 2, 5, 4]
+# sorted_arr, index, total = sort_and_search(data, 7)
+# print("Відсортований список:", sorted_arr)
+# print("Індекс елемента 7:", index)
+# print("Загальна кількість порівнянь:", total)
+
+
+# ПОРІВНЯННЯ:
+
+# large_list = list(range(1, 1000001))
+# target = 987654
+# start_time = time.time()
+# lin_index = linear_search(large_list, target)
+# lin_time = time.time() - start_time
+
+# start_time = time.time()
+# bin_index, comparisons = binary_search_with_count(large_list, target)
+# bin_time = time.time() - start_time
+# print(f"Лінійний пошук: індекс = {lin_index}, час = {lin_time:.6f} секунд")
+# print(f"Бінарний пошук: індекс = {bin_index}, порівнянь = {comparisons}, час = {bin_time:.6f} секунд")
+
+
+# ЗАВДАННЯ 5
+# Реалізуйте функцію
+# binary_search_dict(arr, key, target), яка
+# виконує бінарний пошук по списку словників,
+# відсортованих за значенням ключа key.
+# Функція має повертати словник, де значення
+# ключа дорівнює target, або None, якщо такий словник не знайдено.
+
+# Початковий код:
+
+# def binary_search_dict(arr, key, target):
+#     low = 0
+#     high = len(arr) - 1
+#     # Використовуйте цикл while для реалізації бінарного пошуку
+#     # Порівнюйте arr[mid][key] із target
+#     pass
+
+# players = [
+#     {'name': 'Alice', 'score': 20},
+#     {'name': 'Bob', 'score': 35},
+#     {'name': 'Charlie', 'score': 50},
+#     {'name': 'David', 'score': 65}
+# ]
+# result = binary_search_dict(players, 'score', 50)
+# print("Словник з score=50:", result)
