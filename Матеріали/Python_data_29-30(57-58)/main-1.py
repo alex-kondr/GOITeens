@@ -463,3 +463,64 @@
 # adjacency = edge_list_to_adjacency(elg.edge_list)
 # print("Список суміжності з edge list:")
 # print(adjacency)
+# -------------------------------------------------------
+
+
+# ЗАВДАННЯ 1
+# Реалізуйте два графи за допомогою класу Graph:
+# один орієнтований та один неорієнтований.
+# Використовуйте однакові вершини та ребра
+# для обох. Виведіть списки суміжності для обох
+# графів, щоб показати різницю у представленні.
+
+# Початковий код:
+# Створіть два об’єкти класу Graph: oriented_graph та undirected_graph
+# Для кожного додайте вершини A, B, C, D
+# Додайте ребра: A -> B, B -> C, C -> D, D -> A
+# Для undirected_graph використовуйте неорієнтоване додавання ребер
+# Виведіть списки суміжності для обох графів
+# ---------------------------------------------------------
+
+# Розглянути
+
+# Завдання 1
+# Реалізуйте функцію is_connected(graph), яка перевіряє,
+# чи є граф зв’язним. Використовуйте BFS з використанням
+# черги (FIFO) для обходу всіх вершин, починаючи з довільної.
+# from collections import deque
+
+# def is_connected(graph):
+#     if not graph.adjacency:
+#         return True
+#     start = next(iter(graph.adjacency))
+#     visited = set([start])
+#     queue = deque([start])
+#     while queue:
+#         vertex = queue.popleft()
+#         for neighbor in graph.adjacency[vertex]:
+#             if neighbor not in visited:
+#                 visited.add(neighbor)
+#                 queue.append(neighbor)
+#     return len(visited) == len(graph.adjacency)
+
+# print("Граф зв'язний?", is_connected(g))
+
+
+# ЗАВДАННЯ 2
+# Реалізуйте функцію dfs(graph, start), яка виконує
+# глибокий пошук (DFS) у графі, представленому списком
+# суміжності. Функція повинна повертати список вершин у порядку обходу.
+
+# def dfs(graph, start):
+#     visited = set()
+#     stack = [start]
+#     result = []
+#     while stack:
+#         vertex = stack.pop()
+#         if vertex not in visited:
+#             visited.add(vertex)
+#             result.append(vertex)
+#             stack.extend(reversed(graph.adjacency[vertex]))
+#     return result
+
+# print("DFS обход:", dfs(dg, 'A'))
