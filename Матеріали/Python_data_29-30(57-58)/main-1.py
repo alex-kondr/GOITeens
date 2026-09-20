@@ -23,30 +23,30 @@
 # ]
 
 
-# class Graph:
-#     def __init__(self):
-#         self.adjacency: dict[str, list[str]] = {}
+class Graph:
+    def __init__(self):
+        self.adjacency: dict[str, list[str]] = {}
 
-#     def add_vertex(self, vertex):
-#         if vertex not in self.adjacency:
-#             self.adjacency[vertex] = []
+    def add_vertex(self, vertex):
+        if vertex not in self.adjacency:
+            self.adjacency[vertex] = []
 
-#     def add_edge(self, u, v, directed=False):
-#         if u not in self.adjacency:
-#             self.add_vertex(u)
+    def add_edge(self, u, v, directed=False):
+        if u not in self.adjacency:
+            self.add_vertex(u)
 
-#         if v not in self.adjacency:
-#             self.add_vertex(v)
+        if v not in self.adjacency:
+            self.add_vertex(v)
 
-#         self.adjacency[u].append(v)
-#         if not directed:
-#             self.adjacency[v].append(u)
+        self.adjacency[u].append(v)
+        if not directed:
+            self.adjacency[v].append(u)
 
-#     def get_neighbors(self, vertex):
-#         return self.adjacency.get(vertex, [])
+    def get_neighbors(self, vertex):
+        return self.adjacency.get(vertex, [])
 
-#     def __str__(self):
-#         return "\n".join(f"{vertex}: {neighbors}" for vertex, neighbors in self.adjacency.items())
+    def __str__(self):
+        return "\n".join(f"{vertex}: {neighbors}" for vertex, neighbors in self.adjacency.items())
 
 
 # g = Graph()
@@ -78,7 +78,7 @@
 #         # Якщо вершина відсутня у словнику, додайте її з порожнім списком
 #         pass
 
-#     def add_edge(self, u, v, directed=False):
+#     def add_edge(self, u, v, directed=True):
 #         # Додайте ребро від u до v
 #         # Якщо граф не орієнтований, додайте ребро і від v до u
 #         pass
@@ -112,7 +112,6 @@
 
 
 # Правильний код
-
 # def to_adjacency_matrix(graph):
 #     vertices = sorted(graph.adjacency.keys())
 #     n = len(vertices)
@@ -523,4 +522,4 @@
 #             stack.extend(reversed(graph.adjacency[vertex]))
 #     return result
 
-# print("DFS обход:", dfs(dg, 'A'))
+# print("DFS обхід:", dfs(dg, 'A'))
