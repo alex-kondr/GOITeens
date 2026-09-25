@@ -502,7 +502,7 @@
 # }
 
 # result = dfs_graph(graph, 'A')
-# print("DFS обход графа (рекурсивний):", result)
+# print("DFS обхід графа (рекурсивний):", result)
 
 # Правильний код
 # def dfs_graph(graph, start, visited=None):
