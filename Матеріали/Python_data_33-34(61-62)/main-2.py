@@ -145,12 +145,12 @@
 # def min_cost_climbing_stairs(cost):
 #     n = len(cost)
 #     dp = [0] * (n + 1)
-# 
+#
 #     for i in range(2, n + 1):
 #         dp[i] = min(dp[i-1] + cost[i-1], dp[i-2] + cost[i-2])
-# 
+#
 #     return dp[n]
-# 
+#
 # cost1 = [10, 15, 20]
 # print("Мін. вартість сходів [10, 15, 20]:", min_cost_climbing_stairs(cost1))
 # cost2 = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
@@ -169,16 +169,16 @@
 #         return 0
 #     if len(nums) == 1:
 #         return nums[0]
-# 
+#
 #     dp = [0] * len(nums)
 #     dp[0] = nums[0]
 #     dp[1] = max(nums[0], nums[1])
-# 
+#
 #     for i in range(2, len(nums)):
 #         dp[i] = max(dp[i-1], dp[i-2] + nums[i])
-# 
+#
 #     return dp[-1]
-# 
+#
 # houses = [2, 7, 9, 3, 1]
 # print("Максимальний куш грабіжника:", rob(houses))
 
@@ -192,14 +192,14 @@
 # def min_coin_change(coins, amount):
 #     dp = [float('inf')] * (amount + 1)
 #     dp[0] = 0
-# 
+#
 #     for i in range(1, amount + 1):
 #         for coin in coins:
 #             if i >= coin:
 #                 dp[i] = min(dp[i], dp[i - coin] + 1)
-# 
+#
 #     return dp[amount] if dp[amount] != float('inf') else -1
-# 
+#
 # coins = [1, 2, 5]
 # print("Мінімум монет для суми 11:", min_coin_change(coins, 11))
 # print("Мінімум монет для суми 3 монет [2]:", min_coin_change([2], 3))
@@ -214,13 +214,13 @@
 # def change_ways(coins, amount):
 #     dp = [0] * (amount + 1)
 #     dp[0] = 1
-# 
+#
 #     for coin in coins:
 #         for i in range(coin, amount + 1):
 #             dp[i] += dp[i - coin]
-# 
+#
 #     return dp[amount]
-# 
+#
 # print("Кількість способів набрати 5 з [1, 2, 5]:", change_ways([1, 2, 5], 5))
 
 
@@ -234,16 +234,16 @@
 # def max_profit(prices):
 #     if not prices:
 #         return 0
-# 
+#
 #     min_price = prices[0]
 #     max_p = 0
-# 
+#
 #     for price in prices[1:]:
 #         max_p = max(max_p, price - min_price)
 #         min_price = min(min_price, price)
-# 
+#
 #     return max_p
-# 
+#
 # prices = [7, 1, 5, 3, 6, 4]
 # print("Максимальний прибуток від акцій:", max_profit(prices))
 
@@ -257,11 +257,11 @@
 # Правильний код
 # def unique_paths(m, n):
 #     dp = [[1] * n for _ in range(m)]
-# 
+#
 #     for r in range(1, m):
 #         for c in range(1, n):
 #             dp[r][c] = dp[r-1][c] + dp[r][c-1]
-# 
+#
 #     return dp[m-1][n-1]
 # 
 # print("Кількість шляхів у сітці 3x7:", unique_paths(3, 7))
