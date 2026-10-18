@@ -243,7 +243,7 @@ def search_linear(table: list, key: int, m: int) -> int:
     for i in range(m):
         pos = (idx + i) % m
         if table[pos] is None:
-            return -1 
+            return -1
         if table[pos] == key:
             return pos
     return -1
