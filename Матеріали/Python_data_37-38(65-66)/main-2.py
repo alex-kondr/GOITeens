@@ -217,3 +217,99 @@ def average_code_length(text, codes):
 # schedule, total_profit = select_projects(projects)
 # print("Вибрані проекти:", schedule)
 # print("Загальний прибуток:", total_profit)
+
+
+# ЗАДАЧА 1. КОДУВАННЯ ПРОСТОГО СЛОВА:
+# Умова: Закодуйте за допомогою наданого коду коротке слово "DATA". Виведіть на екран отриманий двійковий рядок.
+
+# Розв'язання:
+
+# text = "DATA"
+# huffman_tree = build_huffman_tree(text)
+# codes = build_codes(huffman_tree, current_code="", codes={})
+
+# encoded_text = huffman_encode(text, codes)
+# print("Закодований текст для 'DATA':", encoded_text)
+
+
+# ЗАДАЧА 2. ПОШУК ДОВЖИНИ КОДУ КОНКРЕТНОЇ БУКВИ:
+# Умова: Для тексту "ABRACADABRA" побудуйте коди Хаффмана
+# та виведіть у консоль довжину бітового коду (кількість символів 0 та 1) тільки для літери 'R'.
+
+# Розв'язання:
+
+text = "ABRACADABRA"
+huffman_tree = build_huffman_tree(text)
+codes = build_codes(huffman_tree, current_code="", codes={})
+
+char_to_check = 'R'
+code_length = len(codes[char_to_check])
+print(f"Довжина коду для літери '{char_to_check}': {code_length} біт(и)")
+print(f"Сам код: {codes[char_to_check]}")
+
+
+# ЗАДАЧА 3. ДЕКОДУВАННЯ ПОСЛІДОВНОСТІ:
+# Умова: Закодуйте слово "HI", а потім за допомогою функції
+# huffman_decode розкодуйте отриманий бітовий рядок назад у
+# текст та виведіть його на екран, щоб переконатися у правильності.
+
+# Розв'язання:
+
+text = "HI"
+huffman_tree = build_huffman_tree(text)
+codes = build_codes(huffman_tree, current_code="", codes={})
+
+# Кодуємо
+encoded_text = huffman_encode(text, codes)
+print("Закодовано:", encoded_text)
+
+# Декодуємо назад
+decoded_text = huffman_decode(encoded_text, huffman_tree)
+print("Декодовано:", decoded_text)
+
+
+
+# ЗАДАЧА 4. ПОРІВНЯННЯ РОЗМІРІВ (СТИСНЕННЯ):
+# Умова: Візьміть рядок "BANANA". Порахуйте, скільки біт він
+# займає у звичайному форматі (якщо кожен символ кодується
+# стандартними 8 бітами) і скільки біт він займає після кодування Хаффмана. Виведіть обидва значення.
+
+# Розв'язання:
+
+text = "BANANA"
+huffman_tree = build_huffman_tree(text)
+codes = build_codes(huffman_tree, current_code="", codes={})
+
+# Звичайний розмір (8 біт на кожен символ)
+standard_bits = len(text) * 8
+
+# Розмір після кодування Хаффмана (довжина бітового рядка)
+encoded_text = huffman_encode(text, codes)
+huffman_bits = len(encoded_text)
+
+print(f"Розмір у стандартному кодуванні (8 біт/символ): {standard_bits} біт")
+print(f"Розмір після Хаффмана: {huffman_bits} біт")
+
+
+
+# ЗАДАЧА 5. ПЕРЕВІРКА ЗВОРОТНОСТІ (ROUND-TRIP TEST):
+# Умова: Напишіть невелику перевірку для рядка "PYTHON":
+# закодуйте його, одразу декодуйте отриманий рядок назад
+# і порівняйте результат із початковим текстом. Виведіть
+# результат порівняння (True, якщо збігаються, або False).
+
+# Розв'язання:
+
+text = "PYTHON"
+huffman_tree = build_huffman_tree(text)
+codes = build_codes(huffman_tree, current_code="", codes={})
+
+# Закодували і одразу декодували
+encoded_text = huffman_encode(text, codes)
+decoded_text = huffman_decode(encoded_text, huffman_tree)
+
+# Порівнюємо початковий текст із декодованим
+is_match = (text == decoded_text)
+print("Початковий текст:", text)
+print("Декодований текст:", decoded_text)
+print("Чи збігаються тексти (True/False):", is_match)
