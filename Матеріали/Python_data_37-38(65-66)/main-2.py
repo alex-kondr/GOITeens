@@ -34,6 +34,10 @@
 
 # Реалізація алгоритму Хаффмана
 
+# [A:5, B:9, C:12, D:13, E:16, F:45]
+# X.frequency = 5 + 9 = 14
+# X.left = A, X.right = B
+
 import heapq
 from collections import defaultdict
 
