@@ -2,17 +2,13 @@ import kagglehub
 from kagglehub import KaggleDatasetAdapter
 
 # Set the path to the file you'd like to load
-file_path = ""
+file_path = "2019-Dec.csv"
 
-# Load the latest version
+print("Завантаження даних із Kaggle...")
 df = kagglehub.load_dataset(
-  KaggleDatasetAdapter.PANDAS,
-  "mkechinov/ecommerce-behavior-data-from-multi-category-store",
-  file_path,
-  # Provide any additional arguments like 
-  # sql_query or pandas_kwargs. See the 
-  # documenation for more information:
-  # https://github.com/Kaggle/kagglehub/blob/main/README.md#kaggledatasetadapterpandas
+    KaggleDatasetAdapter.PANDAS,
+    "mkechinov/ecommerce-events-history-in-cosmetics-shop",
+    file_path
 )
 
 print("First 5 records:", df.head())

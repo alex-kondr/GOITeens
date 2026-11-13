@@ -16,12 +16,12 @@ sns.set_theme(style="whitegrid")
 plt.rcParams['figure.figsize'] = (10, 6)
 
 # 1. Завантаження датасету через Kagglehub (наприклад, файл за жовтень 2019 року)
-file_path = "2019-Oct.csv"
+file_path = "2019-Dec.csv"
 
 print("Завантаження даних із Kaggle...")
 df = kagglehub.load_dataset(
     KaggleDatasetAdapter.PANDAS,
-    "mkechinov/ecommerce-behavior-data-from-multi-category-store",
+    "mkechinov/ecommerce-events-history-in-cosmetics-shop",
     file_path
 )
 print(f"Датасет успішно завантажено. Розмірність: {df.shape}")
