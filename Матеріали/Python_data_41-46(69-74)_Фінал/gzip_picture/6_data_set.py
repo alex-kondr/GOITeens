@@ -13,10 +13,11 @@ plt.rcParams['figure.figsize'] = (10, 6)
 file_path = "2019-Dec.csv"
 
 print("Завантаження даних із Kaggle...")
-df = kagglehub.load_dataset(
+df = kagglehub.dataset_load(
     KaggleDatasetAdapter.PANDAS,
     "mkechinov/ecommerce-events-history-in-cosmetics-shop",
-    file_path
+    file_path,
+    pandas_kwargs={"nrows": 100_000}
 )
 print(f"Датасет успішно завантажено. Розмірність: {df.shape}")
 

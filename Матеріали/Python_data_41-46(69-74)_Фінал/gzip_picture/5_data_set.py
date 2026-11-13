@@ -5,10 +5,11 @@ from kagglehub import KaggleDatasetAdapter
 file_path = "2019-Dec.csv"
 
 print("Завантаження даних із Kaggle...")
-df = kagglehub.load_dataset(
+df = kagglehub.dataset_load(
     KaggleDatasetAdapter.PANDAS,
     "mkechinov/ecommerce-events-history-in-cosmetics-shop",
-    file_path
+    file_path,
+    pandas_kwargs={"nrows": 100_000}
 )
 
 print("First 5 records:", df.head())
