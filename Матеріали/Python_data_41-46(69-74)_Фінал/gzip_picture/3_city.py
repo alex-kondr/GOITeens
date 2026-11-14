@@ -86,14 +86,8 @@ raw_edges = [
 graph = build_graph(raw_edges)
 
 
-# ==========================================
-# 3. АЛГОРИТМ ДЕЙКСТРИ ТА ТОП-3 МАРШРУТИ
-# ==========================================
 
 def dijkstra(graph, start, goal, disabled_edges=None):
-    """
-    Класичний алгоритм Дейкстри з можливістю ігнорування тимчасово "заблокованих" ребер.
-    """
     if disabled_edges is None:
         disabled_edges = set()
 
@@ -113,7 +107,6 @@ def dijkstra(graph, start, goal, disabled_edges=None):
             break
 
         for v, weight in graph[u]:
-            # Пропускаємо заблоковані ребра
             if (u, v) in disabled_edges or (v, u) in disabled_edges:
                 continue
 
@@ -123,7 +116,6 @@ def dijkstra(graph, start, goal, disabled_edges=None):
                 previous[v] = u
                 heapq.heappush(pq, (distance, v))
 
-    # Реконструкція шляху
     if distances[goal] == float('inf'):
         return None, float('inf')
 
@@ -138,9 +130,6 @@ def dijkstra(graph, start, goal, disabled_edges=None):
 
 
 def find_top_k_routes(graph, start, goal, k=3):
-    """
-    Знаходить k найкоротших альтернативних шляхів (варіанти за принципом Yen's algorithm / penalty).
-    """
     routes = []
     disabled_edges = set()
 
@@ -151,17 +140,13 @@ def find_top_k_routes(graph, start, goal, k=3):
 
         routes.append((path, dist))
 
-        # Блокуємо одне з ребер знайденого шляху для наступної ітерації,
-        # щоб змусити алгоритм шукати альтернативи
         if len(path) > 1:
-            # Блокуємо ребро посередині або перше відкрите
             for i in range(len(path) - 1):
                 edge = (path[i], path[i+1])
                 if edge not in disabled_edges:
                     disabled_edges.add(edge)
                     break
 
-    # Сортування вибірковою вибіркою (Selection Sort) для повторення теми сортувань
     selection_sort_routes(routes)
     return routes
 
@@ -178,10 +163,6 @@ def selection_sort_routes(routes_list):
                 min_idx = j
         routes_list[i], routes_list[min_idx] = routes_list[min_idx], routes_list[i]
 
-
-# ==========================================
-# 4. ІНТЕРФЕЙС ТА ПІДКАЗКИ
-# ==========================================
 
 def search_location(query):
     """
@@ -213,45 +194,36 @@ def get_user_input(prompt_text):
                 return name_to_id[selected_name]
 
 
-# ==========================================
-# 5. ВІЗУАЛІЗАЦІЯ (TEXT & GRAPHICS)
-# ==========================================
+
 
 def plot_routes(routes):
-    """
-    Малює схему району та наносить 3 найкоротші маршрути різними кольорами.
-    """
     plt.figure(figsize=(10, 7))
     plt.title("Топ-3 альтернативні маршрути (Алгоритм Дейкстри)", fontsize=14)
 
-    # 1. Малюємо всі ребра графа (сірим кольором)
     for u in graph:
         for v, _ in graph[u]:
             lat1, lon1 = vertices[u]["lat"], vertices[u]["lon"]
             lat2, lon2 = vertices[v]["lat"], vertices[v]["lon"]
             plt.plot([lon1, lon2], [lat1, lat2], color="gainsboro", linewidth=2, zorder=1)
 
-    # 2. Малюємо всі вершини (точки)
+
     for v_id, data in vertices.items():
         plt.scatter(data["lon"], data["lat"], color="gray", s=40, zorder=2)
         plt.text(data["lon"] + 0.0001, data["lat"] + 0.0001, data["name"], fontsize=7, alpha=0.7)
 
-    # 3. Наносимо знайдені маршрути
-    colors = ["#E63946", "#1D3557", "#2A9D8F"]  # Червоний (1-й), Синій (2-й), Зелений (3-й)
+    colors = ["#E63946", "#1D3557", "#2A9D8F"]
     styles = ["-", "--", "-."]
 
     for idx, (path, dist) in enumerate(routes):
         path_lons = [vertices[node]["lon"] for node in path]
         path_lats = [vertices[node]["lat"] for node in path]
 
-        # Розрахунок приб. часу пішки (5 км/год = ~83 м/хв)
         walk_time = round(dist / 83.3)
 
         label = f"Маршрут #{idx+1}: {dist} м (~{walk_time} хв)"
         plt.plot(path_lons, path_lats, color=colors[idx % len(colors)],
                  linestyle=styles[idx % len(styles)], linewidth=3.5, label=label, zorder=3 + idx)
 
-    # Виділяємо старт і фініш
     start_id, goal_id = routes[0][0][0], routes[0][0][-1]
     plt.scatter(vertices[start_id]["lon"], vertices[start_id]["lat"], color="green", s=120, label="СТАРТ", zorder=10)
     plt.scatter(vertices[goal_id]["lon"], vertices[goal_id]["lat"], color="red", s=120, label="ФІНІШ", zorder=10)
@@ -263,10 +235,6 @@ def plot_routes(routes):
     plt.tight_layout()
     plt.show()
 
-
-# ==========================================
-# 6. ГОЛОВНА ПРОГРАМА (MAIN)
-# ==========================================
 
 def main():
     print("==================================================")
@@ -302,7 +270,6 @@ def main():
         print(f"\n🟢 **Маршрут #{i}** [{dist} метрів | ~{walk_time} хв пішки]")
         print(f"   Шлях: {path_names}")
 
-    # Візуалізація
     print("\nБудуємо графічну карту маршрутів...")
     plot_routes(routes)
 
